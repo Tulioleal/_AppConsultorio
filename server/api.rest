@@ -1,0 +1,43 @@
+###
+GET  http://localhost:4000/api/pacientes
+
+
+###
+POST  http://localhost:4000/api/pacientes
+Content-Type: application/json
+
+{
+    "nombre": "Tulio",
+    "apellido": "Leal",
+    "nacimiento": "1994/07/13",
+    "telf": "123456",
+    "email": "tulioleal13@gmail.com",
+    "seguimiento": true,
+    "antecedentePersonal": "gytfrdxfgcfhbj",
+    "antecedenteFamiliar": "uhygtfrdes",
+    "ginecoMenorrea": true,
+    "ginecoGestas": 8,
+    "ginecoParas": 6,
+    "ginecoAbortos": 2,
+    "ginecoCesareas": 4,
+    "ginecoOtros": 5,
+    "ginecoMetodo": "algo",
+    "ginecoMenopausia": 1,
+    "ginecoTRH": "algo"
+}
+
+
+###
+GET http://localhost:4000/api/pacientes/5f7b88444e068d40044bb383
+
+###
+PUT  http://localhost:4000/api/pacientes/5f7b88444e068d40044bb383
+Content-Type: application/json
+
+{
+    "nombre": "Tulio ",
+    "apellido": "Leal"
+}
+
+###
+DELETE  http://localhost:4000/api/pacientes/5f7b88444e068d40044bb383

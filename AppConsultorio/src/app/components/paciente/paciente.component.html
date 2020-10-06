@@ -1,0 +1,187 @@
+<div class="jumbotron jumbotron-fluid">
+  <div class="container">
+    <a href="">
+      <h1 class="display-4">
+        Nueva paciente
+      </h1>
+    </a>
+  </div>
+</div>
+
+<div class="container">
+  <div class="row">
+
+    <div class="col-md-4 col-sm-6 mt-5" *ngFor="let paciente of pacienteService.pacientes">
+      <div class="card" style="width: 18rem;">
+        <div class="card-header">
+          <h4 class="card-title">
+            <b>{{ paciente.nombre }} {{ paciente.apellido }}</b>
+          </h4>
+        </div>
+        <div class="card-body">
+          <div class=" d-flex justify-content-between p-card">
+            <p>
+              Edad <b>{{ paciente.nacimiento }}</b>
+            </p>
+            <a href="#">
+              <svg width="1em" height="1em" viewBox="0 0 16 16" class="bi bi-pencil" fill="currentColor"
+                xmlns="http://www.w3.org/2000/svg">
+                <path fill-rule="evenodd"
+                  d="M12.146.146a.5.5 0 0 1 .708 0l3 3a.5.5 0 0 1 0 .708l-10 10a.5.5 0 0 1-.168.11l-5 2a.5.5 0 0 1-.65-.65l2-5a.5.5 0 0 1 .11-.168l10-10zM11.207 2.5L13.5 4.793 14.793 3.5 12.5 1.207 11.207 2.5zm1.586 3L10.5 3.207 4 9.707V10h.5a.5.5 0 0 1 .5.5v.5h.5a.5.5 0 0 1 .5.5v.5h.293l6.5-6.5zm-9.761 5.175l-.106.106-1.528 3.821 3.821-1.528.106-.106A.5.5 0 0 1 5 12.5V12h-.5a.5.5 0 0 1-.5-.5V11h-.5a.5.5 0 0 1-.468-.325z" />
+              </svg>
+            </a>
+          </div>
+          <div class="d-flex justify-content-between p-card">
+            <p>
+              Seguimiento
+            </p>
+            <div *ngIf="paciente.seguimiento; then si else no"></div>
+            <ng-template #si>
+              <b>Se sigue</b>
+            </ng-template>
+            <ng-template #no>
+              <b>No</b> se sigue
+            </ng-template>
+            <a href="#">
+              <svg width="1em" height="1em" viewBox="0 0 16 16" class="bi bi-plus-circle" fill="currentColor"
+                xmlns="http://www.w3.org/2000/svg">
+                <path fill-rule="evenodd" d="M8 15A7 7 0 1 0 8 1a7 7 0 0 0 0 14zm0 1A8 8 0 1 0 8 0a8 8 0 0 0 0 16z" />
+                <path fill-rule="evenodd"
+                  d="M8 4a.5.5 0 0 1 .5.5v3h3a.5.5 0 0 1 0 1h-3v3a.5.5 0 0 1-1 0v-3h-3a.5.5 0 0 1 0-1h3v-3A.5.5 0 0 1 8 4z" />
+              </svg>
+            </a>
+          </div>
+        </div>
+        <div class="card-footer d-flex justify-content-between">
+
+          <!-- Button trigger modal Contacto -->
+          <button type="button" class="btn btn-primary mt-1 col-lg-5 float-left" data-toggle="modal"
+            data-target="#modalContacto">
+            Contacto
+          </button>
+
+          <!-- Button trigger modal Antecedentes -->
+          <button type="button" class="btn btn-success mt-1 col-lg-6 float-right" data-toggle="modal"
+            data-target="#modalAntece">
+            Antecedentes
+          </button>
+
+        </div>
+        <div class="card-footer">
+          <button class="btn btn-danger btn-block">
+            DELETE
+          </button>
+        </div>
+      </div>
+      <!-- Modal de contacto -->
+      <div class="modal fade" id="modalContacto" tabindex="-1" aria-hidden="true">
+        <div class="modal-dialog">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h5 class="modal-title">Información de la paciente</h5>
+              <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+              </button>
+            </div>
+            <div class="modal-body">
+              <table class="table table-light table-hover">
+                <tbody>
+                  <tr>
+                    <th>Número de teléfono</th>
+                    <td> {{ paciente.telf }} </td>
+                  </tr>
+                  <tr>
+                    <th>E-mail</th>
+                    <td> {{ paciente.email }} </td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+            <div class="modal-footer">
+              <button type="button" class="btn btn-danger" data-dismiss="modal">Close</button>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Button trigger modal -->
+      <div class="modal fade" id="modalAntece" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h2 class="modal-title" id="exampleModalLabel">Antecedentes</h2>
+              <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+              </button>
+            </div>
+            <div class="modal-body">
+
+              <h3><b>Familiares</b></h3>
+              <p>{{ paciente.antecedenteFamiliar }}</p>
+              <h3><b>Personales</b></h3>
+              <p>{{ paciente.antecedentePersonal }}</p>
+
+              <table class="table table-hover">
+                <thead>
+                  <tr>
+                    <h3><b>Ginecológicos</b></h3>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <th scope="row">Menorrea:</th>
+                    <div *ngIf="paciente.ginecoMenorrea; then Eumenorreica else Dismenorreica"></div>
+                    <ng-template #Eumenorreica>
+                      <td>Eumenorreica</td>
+                    </ng-template>
+                    <ng-template #Dismenorreica>
+                      <td>Dismenorreica</td>
+                    </ng-template>
+                  </tr>
+                  <tr>
+                    <th scope="row">Gestas:</th>
+                    <td>{{ paciente.ginecoGestas }}</td>
+                  </tr>
+                  <tr>
+                    <th scope="row">Paras:</th>
+                    <td>{{ paciente.ginecoParas }}</td>
+                  </tr>
+                  <tr>
+                    <th scope="row">Abortos:</th>
+                    <td>{{ paciente.ginecoAbortos }}</td>
+                  </tr>
+                  <tr>
+                    <th scope="row">Cesareas:</th>
+                    <td colspan="2">{{ paciente.ginecoCesareas }}</td>
+                  </tr>
+                  <tr>
+                    <th scope="row">Otros</th>
+                    <td colspan="2">{{ paciente.ginecoOtros }}</td>
+                  </tr>
+                  <tr>
+                    <th scope="row">Método Anticonceptivo:</th>
+                    <td colspan="2">{{ paciente.ginecoMetodo }}</td>
+                  </tr>
+                  <tr>
+                    <th scope="row">Menopausia:</th>
+                    <td colspan="2">{{ paciente.ginecoMenopausia }}</td>
+                  </tr>
+                  <tr>
+                    <th scope="row">TRH:</th>
+                    <td colspan="2">{{ paciente.ginecoTRH }}</td>
+                  </tr>
+                </tbody>
+              </table>
+
+            </div>
+            <div class="modal-footer">
+              <button type="button" class="btn btn-danger" data-dismiss="modal">Close</button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+

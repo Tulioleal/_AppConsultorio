@@ -7,8 +7,8 @@ POST  http://localhost:4000/api/pacientes
 Content-Type: application/json
 
 {
-    "nombre": "Tulio",
-    "apellido": "Leal",
+    "nombre": "Maria",
+    "apellido": "Mercado",
     "nacimiento": "1994/07/13",
     "telf": "123456",
     "email": "tulioleal13@gmail.com",

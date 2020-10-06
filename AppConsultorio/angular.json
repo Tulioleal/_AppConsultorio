@@ -123,6 +123,10 @@
           }
         }
       }
-    }},
-  "defaultProject": "AppConsultorio"
+    }
+  },
+  "defaultProject": "AppConsultorio",
+  "cli": {
+    "analytics": false
+  }
 }

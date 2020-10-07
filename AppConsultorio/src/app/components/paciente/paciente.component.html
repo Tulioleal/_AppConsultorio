@@ -8,7 +8,7 @@
   </div>
 </div>
 
-<div class="container">
+<div class="container-fluid">
   <div class="row">
 
     <div class="col-md-4 col-sm-6 mt-5" *ngFor="let paciente of pacienteService.pacientes">
@@ -32,17 +32,16 @@
             </a>
           </div>
           <div class="d-flex justify-content-between p-card">
-            <div>
+            <div class=" d-flex justify-content-between">
+              <p class="float-left">
+                Seguimiento
+              </p>
               <div *ngIf="paciente.seguimiento; then si else no"></div>
               <ng-template #si>
-                <p>
-                  <b class="float-right">Se sigue</b>
-                </p>
+                <b>Se sigue</b>
               </ng-template>
               <ng-template #no>
-              <p>
-                <b class="float-right">No se sigue</b>
-              </p>
+                <b>No se sigue</b>
               </ng-template>
             </div>
               <a routerLink="/pacientes/addCita" routerLinkActive="active">
@@ -58,8 +57,8 @@
         <div class="card-footer d-flex justify-content-between">
 
           <!-- Button trigger modal Contacto -->
-          <button type="button" class="btn btn-primary mt-1 col-lg-5 float-left" data-toggle="modal"
-            data-target="#modalContacto">
+          <button type="button" class="btn btn-primary mt-1 col-lg-5 float-left" data-target="#contacto-{{ paciente.id }}" data-toggle="modal"
+          >
             Contacto
           </button>
 
@@ -77,7 +76,7 @@
         </div>
       </div>
       <!-- Modal de contacto -->
-      <div class="modal fade" id="modalContacto" tabindex="-1" aria-hidden="true">
+      <div class="modal fade" id="contacto-{{ paciente._id }}" tabindex="-1" aria-hidden="true">
         <div class="modal-dialog">
           <div class="modal-content">
             <div class="modal-header">

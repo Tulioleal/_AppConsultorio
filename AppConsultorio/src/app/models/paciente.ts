@@ -14,10 +14,10 @@ export interface Paciente {
   ginecoCesareas: number
   ginecoOtros: number
   ginecoMetodo: string
-  ginecoMenopausia
+  ginecoMenopausia: string
   ginecoTRH: string
-  createdAt: string
-  updatedAt: string
-  _id: string
+  createdAt?: string
+  updatedAt?: string
+  _id?: string
 }
 

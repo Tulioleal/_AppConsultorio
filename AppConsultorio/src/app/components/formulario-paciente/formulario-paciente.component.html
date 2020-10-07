@@ -1,59 +1,53 @@
-<div class="jumbotron">
-  <h2 class="display-4 mb-5">Nueva Paciente</h2>
-  <hr class="my-3">
+<div class="container">
 
-  <form action="/pacientes/newPaciente" method='POST'>
+  <div class="jumbotron">
+    <h2 class="display-4 mb-5">Nueva Paciente</h2>
+    <hr class="my-3">
+
+    <form action="/pacientes/newPaciente" method='POST'>
       <h3 class='mb-4 mt-3'>Datos Personales</h3>
       <div class="form-row justify-content-between mb-3">
-          <div class="form-group col-md-4 mb-2">
-              <label for="PNombre">Primer Nombre</label>
-              <input type="text" name="PNombre" class="form-control" placeholder="Primer Nombre" autofocus>
+        <div class="form-group col-md-7 mb-2">
+          <label for="PNombre">Nombre</label>
+          <input type="text" name="PNombre" class="form-control" placeholder="Nombre" autofocus>
 
-              <label for="PApellido" class="mt-3">Primer Apellido</label>
-              <input type="text" class="form-control" name="PApellido" placeholder="Primer Apellido">
-          </div>
-          <div class="form-group col-md-4">
-              <label for="SNombre">Segundo Nombre</label>
-              <input type="text" name="SNombre" class="form-control" placeholder="Segundo Nombres">
+          <label for="PApellido" class="mt-3">Apellido</label>
+          <input type="text" class="form-control" name="PApellido" placeholder="Apellido">
 
-              <label for="SApellido" class="mt-3">Segundo Apellido</label>
-              <input type="text" class="form-control" name="SApellido" placeholder="Segundo Apellido">
+        </div>
+        <div class="form-group col-md-5 align-self-center">
+          <h4 class="row justify-content-center mb-4">Segumiento</h4>
+          <div class="row justify-content-center">
+            <div class="form-check mx-3">
+              <input class="form-check-input" type="radio" name="seguimiento" id="si" value="true">
+              <label class="form-check-label" for="si">
+                Sí
+              </label>
+            </div>
+            <div class="form-check mx-3">
+              <input class="form-check-input" type="radio" name="seguimiento" id="no" value="false">
+              <label class="form-check-label" for="no">
+                No
+              </label>
+            </div>
           </div>
-          <div class="form-group col-md-4 align-self-center">
-              <h4 class="row justify-content-center mb-4">Segumiento</h4>
-              <div class="row justify-content-center">
-                  <div class="form-check mx-3">
-                      <input class="form-check-input" type="radio" name="seguimiento" id="si"
-                          value="true">
-                      <label class="form-check-label" for="si">
-                          Sí
-                      </label>
-                  </div>
-                  <div class="form-check mx-3">
-                      <input class="form-check-input" type="radio" name="seguimiento" id="no"
-                          value="false">
-                      <label class="form-check-label" for="no">
-                          No
-                      </label>
-                  </div>
-              </div>
-          </div>
+        </div>
       </div>
       <div class="form-row">
-          <div class="form-group col-md-4">
-              <label for="nacimiento">Fecha de nacimiento</label>
-              <input type="date" class="form-control" name="nacimiento" placeholder="nacimiento">
-          </div>
+        <div class="form-group col-md-4">
+          <label for="nacimiento">Fecha de nacimiento</label>
+          <input type="date" class="form-control" name="nacimiento" placeholder="nacimiento">
+        </div>
 
-          <div class="form-group col-md-4">
-              <label for="telf">Teléfono</label>
-              <input type="text" class="form-control" name="telf" placeholder="Teléfono">
-          </div>
+        <div class="form-group col-md-4">
+          <label for="telf">Teléfono</label>
+          <input type="text" class="form-control" name="telf" placeholder="Teléfono">
+        </div>
 
-          <div class="form-group col-md-4">
-              <label for="email">Email</label>
-              <input type="email" class="form-control" name="email" placeholder="Email@gmail.com">
-          </div>
+        <div class="form-group col-md-4">
+          <label for="email">Email</label>
+          <input type="email" class="form-control" name="email" placeholder="Email@gmail.com">
+        </div>
       </div>
 
       <hr>
@@ -61,84 +55,86 @@
       <h3 class="mb-4 mt-3">Antecedentes</h3>
 
       <div class="form-row">
-          <div class="form-group col-md-6">
-              <label for="antecedentePersonal">Personal</label>
-              <textarea class="form-control" name="antecedentePersonal" rows="10"></textarea>
-          </div>
-          <div class="form-group col-md-6">
-              <label for="antecedenteFamiliar">Familiar</label>
-              <textarea class="form-control" name="antecedenteFamiliar" rows="10"></textarea>
-          </div>
+        <div class="form-group col-md-6">
+          <label for="antecedentePersonal">Personal</label>
+          <textarea class="form-control" name="antecedentePersonal" rows="10"></textarea>
+        </div>
+        <div class="form-group col-md-6">
+          <label for="antecedenteFamiliar">Familiar</label>
+          <textarea class="form-control" name="antecedenteFamiliar" rows="10"></textarea>
+        </div>
       </div>
 
       <h4 class="mt-2 mb-4">Ginecológicos</h4>
 
       <div class="form-row  mt-3">
-          <div class="col-3">
-              <strong><h5 class="">Menorrea</h5></strong>
-              <div class="form-check">
-                  <input class="form-check-input" type="radio" name="ginecoMenorrea" id="Eumenorreica" value="true">
-                  <label class="form-check-label" for="Eumenorreica">
-                      Eumenorreica
-                  </label>
-              </div>
-              <div class="form-check">
-                  <input class="form-check-input" type="radio" name="ginecoMenorrea" id="Diamenorreica" value="false">
-                  <label class="form-check-label" for="Diamenorreica">
-                      Diamenorreica
-                  </label>
-              </div>
+        <div class="col-3">
+          <strong>
+            <h5 class="">Menorrea</h5>
+          </strong>
+          <div class="form-check">
+            <input class="form-check-input" type="radio" name="ginecoMenorrea" id="Eumenorreica" value="true">
+            <label class="form-check-label" for="Eumenorreica">
+              Eumenorreica
+            </label>
           </div>
-          <div class="col-3">
-              <div class="form-group">
-                  <label for="ginecoGestas" class="mt-2">Gestas</label>
-                  <input type="number" class="form-control" name="ginecoGestas">
-              </div>
+          <div class="form-check">
+            <input class="form-check-input" type="radio" name="ginecoMenorrea" id="Diamenorreica" value="false">
+            <label class="form-check-label" for="Diamenorreica">
+              Diamenorreica
+            </label>
           </div>
-          <div class="col-3">
-              <div class="form-group">
-                  <label for="ginecoParas" class="mt-2">Paras</label>
-                  <input type="number" class="form-control" name="ginecoParas">
-              </div>
+        </div>
+        <div class="col-3">
+          <div class="form-group">
+            <label for="ginecoGestas" class="mt-2">Gestas</label>
+            <input type="number" class="form-control" name="ginecoGestas">
           </div>
-          <div class="col-3">
-              <div class="form-group">
-                  <label for="ginecoAbortos" class="mt-2">Abortos</label>
-                  <input type="number" class="form-control" name="ginecoAbortos">
-              </div>
+        </div>
+        <div class="col-3">
+          <div class="form-group">
+            <label for="ginecoParas" class="mt-2">Paras</label>
+            <input type="number" class="form-control" name="ginecoParas">
           </div>
+        </div>
+        <div class="col-3">
+          <div class="form-group">
+            <label for="ginecoAbortos" class="mt-2">Abortos</label>
+            <input type="number" class="form-control" name="ginecoAbortos">
+          </div>
+        </div>
       </div>
       <div class="form-row  mt-3">
-          <div class="col-4">
-              <div class="form-group">
-                  <label for="ginecoCesareas" class="mt-2">Cesareas</label>
-                  <input type="number" class="form-control" name="ginecoCesareas">
-              </div>
+        <div class="col-4">
+          <div class="form-group">
+            <label for="ginecoCesareas" class="mt-2">Cesareas</label>
+            <input type="number" class="form-control" name="ginecoCesareas">
           </div>
-          <div class="col-4">
-              <div class="form-group">
-                  <label for="ginecoOtros" class="mt-2">Otros</label>
-                  <input type="number" class="form-control" name="ginecoOtros">
-              </div>
+        </div>
+        <div class="col-4">
+          <div class="form-group">
+            <label for="ginecoOtros" class="mt-2">Otros</label>
+            <input type="number" class="form-control" name="ginecoOtros">
           </div>
-          <div class="col-4">
-              <div class="form-group">
-                  <label for="ginecoMenopausia" class="mt-2">Menopausia</label>
-                  <input type="number" class="form-control" name="ginecoMenopausia">
-              </div>
+        </div>
+        <div class="col-4">
+          <div class="form-group">
+            <label for="ginecoMenopausia" class="mt-2">Menopausia</label>
+            <input type="number" class="form-control" name="ginecoMenopausia">
           </div>
+        </div>
       </div>
       <div class="form-row mt-3">
-          <div class="form-group col-md-6">
-              <label for="ginecoMetodo">Método Anticonceptivo</label>
-              <textarea class="form-control" name="ginecoMetodo" rows="5"></textarea>
-          </div>
-          <div class="form-group col-md-6">
-              <label for="ginecoTRH">Terapia de Reemplazo Hórmonal</label>
-              <textarea class="form-control" name="ginecoTRH" rows="5"></textarea>
-          </div>
+        <div class="form-group col-md-6">
+          <label for="ginecoMetodo">Método Anticonceptivo</label>
+          <textarea class="form-control" name="ginecoMetodo" rows="5"></textarea>
+        </div>
+        <div class="form-group col-md-6">
+          <label for="ginecoTRH">Terapia de Reemplazo Hórmonal</label>
+          <textarea class="form-control" name="ginecoTRH" rows="5"></textarea>
+        </div>
       </div>
       <button type="submit" class="btn btn-primary mt-4">Agregar Paciente</button>
-  </form>
+    </form>
+  </div>
 </div>
-

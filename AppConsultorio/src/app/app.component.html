@@ -14,7 +14,7 @@
 <body>
   <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
     <div class="container">
-      <a class="navbar-brand" href="/">INICIO</a>
+      <a class="navbar-brand" routerLink="/home" routerLinkActive="active">INICIO</a>
       <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup"
         aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
@@ -27,8 +27,8 @@
               Pacientes
             </a>
             <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-              <a class="dropdown-item" href="/pacientes">Pacientes</a>
-              <a class="dropdown-item" href="/pacientes/add">Paciente Nueva</a>
+              <a class="dropdown-item" routerLink="/pacientes" routerLinkActive="active">Pacientes</a>
+              <a class="dropdown-item" routerLink="/pacientes/addPaciente" routerLinkActive="active">Paciente Nueva</a>
             </div>
           </li>
           <li class="nav-item dropdown dark">
@@ -51,7 +51,7 @@
     </div>
   </nav>
 
-  <app-paciente></app-paciente>
-
+   <!-- <app-paciente></app-paciente> -->
+   <router-outlet></router-outlet>
 </body>
 </html>

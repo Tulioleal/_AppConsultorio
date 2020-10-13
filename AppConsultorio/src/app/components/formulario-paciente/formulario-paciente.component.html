@@ -1,252 +1,38 @@
-<div class="container p-4">
+<form #pacienteForm="ngForm" (ngSubmit)="addPaciente(pacienteForm)">
+  <div class="row">
 
-  <div class="jumbotron">
-    <h2 class="display-4 mb-5">Nueva Paciente</h2>
-    <hr class="my-3">
+      <mat-form-field appearance="outline" class="input nombre">
+        <mat-label>Nombre</mat-label>
+        <input
+        matInput
+        type="text"
+        class="form-control"
+        name="nombre"
+        [(ngModel)]="pacienteService.selectedPaciente.nombre"
+        autofocus>
+      </mat-form-field>
 
-    <form #pacienteForm="ngForm" (ngSubmit)="addPaciente(pacienteForm)">
-      <h3 class='mb-4 mt-3'>Datos Personales</h3>
-      <div class="form-row justify-content-between mb-3">
-        <div class="form-group col-md-7 mb-2">
+      <mat-form-field appearance="outline" class="input apellido">
+        <mat-label>Apellido</mat-label>
+        <input
+        matInput
+        type="text"
+        class="form-control"
+        name="apellido"
+        [(ngModel)]="pacienteService.selectedPaciente.apellido">
+      </mat-form-field>
 
-          <label for="nombre">Nombre</label>
-          <input
-            type="text"
-            class="form-control"
-            placeholder="Nombre"
-            name="nombre"
-            [(ngModel)]="pacienteService.selectedPaciente.nombre"
-            autofocus
-          >
-
-          <label for="PApellido" class="mt-3">Apellido</label>
-          <input
-            type="text"
-            class="form-control"
-            placeholder="Apellido"
-            name="apellido"
-            [(ngModel)]="pacienteService.selectedPaciente.apellido"
-          >
-
-        </div>
-        <div class="form-group col-md-5 align-self-center">
-          <h4 class="row justify-content-center mb-4">Segumiento</h4>
-          <div class="row justify-content-center">
-            <div class="form-check mx-3">
-              <input
-                class="form-check-input"
-                type="radio"
-                name="seguimiento"
-                id="si"
-                value="true"
-                [(ngModel)]="pacienteService.selectedPaciente.seguimiento"
-              >
-              <label class="form-check-label" for="si">
-                Sí
-              </label>
-            </div>
-            <div class="form-check mx-3">
-              <input
-                class="form-check-input"
-                type="radio"
-                name="seguimiento"
-                id="no"
-                value="false"
-                [(ngModel)]="pacienteService.selectedPaciente.seguimiento"
-              >
-              <label class="form-check-label" for="no">
-                No
-              </label>
-            </div>
-          </div>
-        </div>
-      </div>
-      <div class="form-row">
-        <div class="form-group col-md-4">
-          <label for="nacimiento">Fecha de nacimiento</label>
-          <input
-            type="date"
-            class="form-control"
-            name="nacimiento"
-            placeholder="nacimiento"
-            [(ngModel)]="pacienteService.selectedPaciente.nacimiento"
-          >
-        </div>
-
-        <div class="form-group col-md-4">
-          <label for="telf">Teléfono</label>
-          <input
-            type="text"
-            class="form-control"
-            name="telf"
-            placeholder="Teléfono"
-            [(ngModel)]="pacienteService.selectedPaciente.telf"
-          >
-        </div>
-
-        <div class="form-group col-md-4">
-          <label for="email">Email</label>
-          <input
-            type="email"
-            class="form-control"
-            name="email"
-            placeholder="Email@gmail.com"
-            [(ngModel)]="pacienteService.selectedPaciente.email"
-          >
-        </div>
+      <div class="radio">
+        <mat-label>Seguimiento </mat-label>
+        <mat-radio-group [(ngModel)]="pacienteService.selectedPaciente.apellido">
+          <mat-radio-button value="true">Sí</mat-radio-button>
+          <mat-radio-button value="false">No</mat-radio-button>
+        </mat-radio-group>
       </div>
 
-      <hr>
-
-      <h3 class="mb-4 mt-3">Antecedentes</h3>
-
-      <div class="form-row">
-        <div class="form-group col-md-6">
-          <label for="antecedentePersonal">Personal</label>
-          <textarea
-            class="form-control"
-            name="antecedentePersonal"
-            rows="10"
-            [(ngModel)]="pacienteService.selectedPaciente.antecedentePersonal"
-          ></textarea>
-        </div>
-        <div class="form-group col-md-6">
-          <label for="antecedenteFamiliar">Familiar</label>
-          <textarea
-            class="form-control"
-            name="antecedenteFamiliar"
-            rows="10"
-            [(ngModel)]="pacienteService.selectedPaciente.antecedenteFamiliar"
-          ></textarea>
-        </div>
-      </div>
-
-      <h4 class="mt-2 mb-4">Ginecológicos</h4>
-
-      <div class="form-row  mt-3">
-        <div class="col-3">
-          <strong>
-            <h5 class="">Menorrea</h5>
-          </strong>
-          <div class="form-check">
-            <input
-              class="form-check-input"
-              type="radio"
-              name="ginecoMenorrea"
-              id="Eumenorreica"
-              value="true"
-              [(ngModel)]="pacienteService.selectedPaciente.ginecoMenorrea"
-            >
-            <label class="form-check-label" for="Eumenorreica">
-              Eumenorreica
-            </label>
-          </div>
-          <div class="form-check">
-            <input
-              class="form-check-input"
-              type="radio"
-              name="ginecoMenorrea"
-              id="Diamenorreica"
-              value="false"
-              [(ngModel)]="pacienteService.selectedPaciente.ginecoMenorrea"
-            >
-            <label class="form-check-label" for="Diamenorreica">
-              Diamenorreica
-            </label>
-          </div>
-        </div>
-        <div class="col-3">
-          <div class="form-group">
-            <label for="ginecoGestas" class="mt-2">Gestas</label>
-            <input
-            type="number"
-            class="form-control"
-            name="ginecoGestas"
-            [(ngModel)]="pacienteService.selectedPaciente.ginecoGestas"
-            >
-          </div>
-        </div>
-        <div class="col-3">
-          <div class="form-group">
-            <label for="ginecoParas" class="mt-2">Paras</label>
-            <input
-              type="number"
-              class="form-control"
-              name="ginecoParas"
-              [(ngModel)]="pacienteService.selectedPaciente.ginecoParas"
-              >
-          </div>
-        </div>
-        <div class="col-3">
-          <div class="form-group">
-            <label for="ginecoAbortos" class="mt-2">Abortos</label>
-            <input
-              type="number"
-              class="form-control"
-              name="ginecoAbortos"
-              [(ngModel)]="pacienteService.selectedPaciente.ginecoAbortos"
-            >
-          </div>
-        </div>
-      </div>
-      <div class="form-row  mt-3">
-        <div class="col-4">
-          <div class="form-group">
-            <label for="ginecoCesareas" class="mt-2">Cesareas</label>
-            <input
-              type="number"
-              class="form-control"
-              name="ginecoCesareas"
-              [(ngModel)]="pacienteService.selectedPaciente.ginecoCesareas"
-            >
-          </div>
-        </div>
-        <div class="col-4">
-          <div class="form-group">
-            <label for="ginecoOtros" class="mt-2">Otros</label>
-            <input
-              type="number"
-              class="form-control"
-              name="ginecoOtros"
-              [(ngModel)]="pacienteService.selectedPaciente.ginecoOtros"
-            >
-          </div>
-        </div>
-        <div class="col-4">
-          <div class="form-group">
-            <label for="ginecoMenopausia" class="mt-2">Menopausia</label>
-            <input
-              type="number"
-              class="form-control"
-              name="ginecoMenopausia"
-              [(ngModel)]="pacienteService.selectedPaciente.ginecoMenopausia"
-            >
-          </div>
-        </div>
-      </div>
-      <div class="form-row mt-3">
-        <div class="form-group col-md-6">
-          <label for="ginecoMetodo">Método Anticonceptivo</label>
-          <textarea
-            class="form-control"
-            name="ginecoMetodo"
-            rows="5"
-            [(ngModel)]="pacienteService.selectedPaciente.ginecoMetodo"
-          ></textarea>
-        </div>
-        <div class="form-group col-md-6">
-          <label for="ginecoTRH">Terapia de Reemplazo Hórmonal</label>
-          <textarea
-            class="form-control"
-            name="ginecoTRH"
-            rows="5"
-            [(ngModel)]="pacienteService.selectedPaciente.ginecoTRH"
-          ></textarea>
-        </div>
-      </div>
-      <button type="submit" class="btn btn-primary mt-4">
-        Ingresar Paciente
-      </button>
-    </form>
   </div>
-</div>
+
+  <div class="row">
+
+  </div>
+</form>

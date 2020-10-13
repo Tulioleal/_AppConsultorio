@@ -8,9 +8,9 @@ import { FormularioCitaComponent } from './components/formulario-cita/formulario
 import { EditarPacienteComponent } from './components/editar-paciente/editar-paciente.component'
 
 const routes: Routes = [
-  { path:"pacientes/addCita", component: FormularioCitaComponent },
-  { path:"pacientes/editar", component: EditarPacienteComponent },
   { path:"pacientes/addPaciente", component: FormularioPacienteComponent },
+  { path:"pacientes/edit", component: EditarPacienteComponent },
+  { path:"pacientes/addCita", component: FormularioCitaComponent },
   { path:"pacientes", component: PacienteComponent },
   { path:"home", component: HomeComponent },
 ];

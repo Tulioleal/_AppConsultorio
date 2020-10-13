@@ -1,0 +1,44 @@
+.container{
+  padding: 6% 4%;
+
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  column-gap: 2.5%;
+  row-gap: 2.5em;
+
+  mat-card{
+    padding: 1.5em;
+
+    mat-card-header{
+      display: flex;
+      justify-content: space-between;
+
+      .mat-card-title{
+        padding-top: .6em;
+        align-content: center;
+        align-self: center;
+      }
+    }
+    mat-card-content{
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      .row{
+        display: flex;
+        justify-content: space-between;
+        span{
+          padding-top: 1.2em;
+          padding-left: 1em;
+        }
+        a{
+          padding-top: .4em;
+        }
+      }
+    }
+    mat-card-actions{
+      display: flex;
+      justify-content: space-around;
+    }
+  }
+}
+

@@ -58,7 +58,8 @@ const pacienteSchema = new Schema({
         type : String
     },
     ginecoMenopausia : {
-        type : Number
+        type : Number,
+        default : 0,
     },
     ginecoTRH : {
         type : String

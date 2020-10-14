@@ -11,6 +11,7 @@ pacienteCntrl.createPacientes = async (req, res) => {
     const newPaciente = new Paciente(req.body)
     await newPaciente.save()
     res.send({ message : 'Paciente created' })
+    err.send({ message: 'error' })
 }
 
 pacienteCntrl.getSpecificPacientes = async (req, res) => {

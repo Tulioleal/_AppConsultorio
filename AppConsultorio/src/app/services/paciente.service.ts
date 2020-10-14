@@ -25,7 +25,7 @@ export class PacienteService {
     ginecoCesareas: 0,
     ginecoOtros: 0,
     ginecoMetodo: "",
-    ginecoMenopausia : "",
+    ginecoMenopausia : 0,
     ginecoTRH: "",
   }
 

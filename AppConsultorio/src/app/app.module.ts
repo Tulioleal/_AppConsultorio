@@ -18,6 +18,8 @@ import { FormularioCitaComponent } from './components/formulario-cita/formulario
 import { EditarPacienteComponent } from './components/editar-paciente/editar-paciente.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { NavegacionComponent } from './components/navegacion/navegacion.component';
+import { AntecedentesComponent } from './components/modals/antecedentes/antecedentes.component';
+import { ContactoComponent } from './components/modals/contacto/contacto.component';
 
 @NgModule({
   declarations: [
@@ -28,6 +30,8 @@ import { NavegacionComponent } from './components/navegacion/navegacion.componen
     FormularioCitaComponent,
     EditarPacienteComponent,
     NavegacionComponent,
+    AntecedentesComponent,
+    ContactoComponent,
   ],
   imports: [
     BrowserModule,

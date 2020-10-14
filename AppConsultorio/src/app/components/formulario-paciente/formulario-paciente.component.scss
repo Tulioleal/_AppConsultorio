@@ -1,17 +1,26 @@
 form{
-
-  margin: 5% 10%;
+  margin: 5% 12%;
 
   .row{
     display: flex;
     justify-content: space-between;
+    margin-top: 2em;
 
-    .input{
-      width: 30%;
+    mat-form-field{
+      width: 28%;
+    }
+
+    .apellido, .nombre{
+      width: 32%;
+    }
+
+    .textarea{
+      width: 45%;
     }
 
     .radio{
-      width: 10em;
+      width: 8.5em;
+      padding-right: em;
 
       display: flex;
       flex-direction: column;
@@ -23,12 +32,40 @@ form{
       }
 
       mat-radio-group{
+        font-size: 1.2em;
         padding-top: 1em;
 
         display: flex;
-        justify-content: space-evenly;
+        justify-content: space-between;
 
       }
     }
+
+    .ginecoMenorrea{
+      width: fit-content;
+
+      flex-direction: column;
+
+      mat-radio-button{
+        padding-bottom: .3em;
+      }
+    }
+
+    .gestas, .paras, .abortos{
+      align-self: center;
+      width: 20%;
+    }
   }
+}
+
+h2{
+  font-size: 2.5em;
+  margin: 1em 0em 1.5em 0em;
+}
+
+h3{
+  font-size: 2em;
+  margin-top: 1em;
+  margin-bottom: 1.5em;
+
 }

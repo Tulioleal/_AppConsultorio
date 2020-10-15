@@ -19,40 +19,49 @@ const pacienteSchema = new Schema({
     },
     email : {
         type : String,
-        required : false
+        required : true
     },
     seguimiento : {
         type : Boolean,
-        default : true
+        default : true,
+        required : true
     },
     antecedentePersonal : {
-        type : String
+        type : String,
+        required : true
     },
     antecedenteFamiliar : {
-        type : String
+        type : String,
+        required : true
     },
     ginecoMenorrea : {
-        type : Boolean
+        type : Boolean,
+        required : true
     },
     ginecoGestas : {
         type : Number,
-        default : 0
+        default : 0,
+        required : true
     },
     ginecoParas : {
         type : Number,
-        default : 0
+        default : 0,
+        required : true
     },
     ginecoAbortos : {
         type : Number,
-        default : 0
+        default : 0,
+        required : true
     },
     ginecoCesareas : {
         type : Number,
-        default : 0
+        default : 0,
+        required : true
     },
     ginecoOtros : {
         type : Number,
-        default : 0
+        default : 0,
+        required : true
     },
     ginecoMetodo : {
         type : String
@@ -60,6 +69,7 @@ const pacienteSchema = new Schema({
     ginecoMenopausia : {
         type : Number,
         default : 0,
+        required : true
     },
     ginecoTRH : {
         type : String

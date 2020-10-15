@@ -126,7 +126,6 @@
         [(ngModel)]="pacienteService.selectedPaciente.ginecoMenorrea"
         class="ginecoMenorrea"
         name='ginecoMenorrea'
-        required
       >
           <mat-radio-button value="true">Eumenorreica</mat-radio-button>
           <mat-radio-button value="false">Dismenorreica</mat-radio-button>
@@ -221,7 +220,6 @@
         name="ginecoMetodo"
         rows="4"
         [(ngModel)]="pacienteService.selectedPaciente.ginecoMetodo"
-        required
       ></textarea>
     </mat-form-field>
 
@@ -233,17 +231,24 @@
         name="ginecoTRH"
         rows="4"
         [(ngModel)]="pacienteService.selectedPaciente.ginecoTRH"
-        required
       ></textarea>
     </mat-form-field>
 
   </div>
 
+  <div class="row">
+
     <button
-        mat-flat-button color='primary'
-        type="submit"
+      mat-flat-button color='primary'
+      type="submit"
+      [disabled]="!pacienteForm.valid"
     >
       Ingresar Paciente
     </button>
+
+    <div *ngIf="!pacienteForm.valid">
+      <mat-card class="error">Por favor verifica que todos los campos requeridos estén completos</mat-card>
+    </div>
+  </div>
 
 </form>

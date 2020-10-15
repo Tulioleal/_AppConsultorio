@@ -10,35 +10,25 @@ import { PacienteService } from 'src/app/services/paciente.service';
 })
 export class FormularioPacienteComponent implements OnInit {
 
-  submitted : boolean
-
   constructor( public pacienteService: PacienteService, private snackbar: MatSnackBar ) { }
 
   ngOnInit(): void {
   }
 
   openSnackBar() {
-    if(this.submitted){
-      this.snackbar.open('Paciente Ingresada', 'Cerrar', {
-        duration: 2000
-      })
-    }else{
-      this.snackbar.open('Error en uno de los campos', 'Cerrar', {
-        duration: 2000
-      })
-    }
+    this.snackbar.open('Paciente Ingresada', 'Cerrar', {
+      duration: 2000
+    })
   }
 
   addPaciente( form: NgForm ){
     this.pacienteService.createPaciente(form.value).subscribe(
       res => {
-        this.submitted = true
         console.log(res)
+        this.openSnackBar()
       },
       err => {
-        this.submitted = false
         console.log(err)
       })
-      this.openSnackBar()
     }
 }

@@ -1,6 +1,6 @@
 <div class="container">
 
-  <mat-card class="example-card" *ngFor="let paciente of pacienteService.pacientes">
+  <mat-card class="example-card" *ngFor="let paciente of pacienteService.pacientes; index as i">
     <mat-card-header>
       <mat-card-title>
         {{ paciente.nombre }} {{ paciente.apellido }}
@@ -12,7 +12,7 @@
     <mat-card-content>
       <div class="row">
         <span>
-          Edad: <b>{{ paciente.nacimiento }}</b>
+          Edad:<b> {{ paciente.nacimiento }} años</b>
         </span>
         <a mat-icon-button color='accent' href="">
           <mat-icon>edit</mat-icon>
@@ -34,8 +34,8 @@
       </div>
     </mat-card-content>
     <mat-card-actions>
-      <button mat-flat-button color='primary'>Contacto</button>
-      <button mat-flat-button color='accent'>Antecedentes</button>
+      <button mat-flat-button color='primary' (click)="openContacto(i)">Contacto</button>
+      <button mat-flat-button color='accent' (click)="openAntecedentes(i)">Antecedentes</button>
     </mat-card-actions>
   </mat-card>
 

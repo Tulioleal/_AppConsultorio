@@ -1,0 +1,44 @@
+.container {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+
+  .header {
+    display: flex;
+    justify-content: space-between;
+  }
+
+  .close {
+    float: right;
+    height: fit-content;
+    cursor: pointer;
+  }
+
+  .content{
+    width: 100%;
+    height: 100%;
+
+
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+
+    .column{
+      height: 100%;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-evenly;
+      align-items: center;
+
+      width: 10em;
+      height: 5em;
+
+      .first, .second{
+        display: flex;
+        flex-direction: row;
+      }
+
+    }
+  }
+}

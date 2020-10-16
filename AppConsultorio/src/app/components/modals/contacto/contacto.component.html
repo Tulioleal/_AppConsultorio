@@ -1,1 +1,38 @@
-<p>contacto works!</p>
+<div class="container">
+  <div class="header">
+
+    <span mat-dialog-close class="close">
+      <mat-icon color='warn'>cancel</mat-icon>
+    </span>
+
+    <h2 mat-dialog-title>
+      Información de contacto de:
+      <br>
+      <b>
+        {{ pacienteService.pacientes[data.i].nombre }}
+        {{ pacienteService.pacientes[data.i].apellido }}
+      </b>
+    </h2>
+
+  </div>
+
+  <table>
+    <tr>
+      <th>
+        Numero de teléfono:
+      </th>
+      <td>
+        {{ pacienteService.pacientes[data.i].telf }}
+      </td>
+    </tr>
+    <tr>
+      <th>
+        Correo electrónico:
+      </th>
+      <td>
+        {{ pacienteService.pacientes[data.i].email }}
+      </td>
+    </tr>
+  </table>
+
+</div>

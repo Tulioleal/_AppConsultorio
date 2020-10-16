@@ -5,10 +5,10 @@
   grid-template-columns: repeat(4, 1fr);
   gap: 2.5em;
 
-  mat-card{
+  .mat-card{
     padding: 1.5em;
 
-    mat-card-header{
+    .mat-card-header{
       padding-bottom: 1em;
 
       display: flex;
@@ -19,11 +19,12 @@
         font-size: 1.7em;
         margin-bottom: 0em;
 
-        align-content: center;
-        align-self: center;
+        display: flex;
+        justify-content: flex-start;
+
       }
     }
-    mat-card-content{
+    .mat-card-content{
       display: flex;
       flex-direction: column;
       justify-content: space-between;
@@ -34,7 +35,7 @@
         align-items: center;
 
         span{
-          padding-left: 1em;
+          padding-left: .7em;
         }
       }
     }

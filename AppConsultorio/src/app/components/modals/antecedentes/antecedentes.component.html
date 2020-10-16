@@ -1,1 +1,65 @@
-<p>antecedentes works!</p>
+<div class="container">
+  <div class="header">
+
+    <h2>
+      Antecedentes de
+      {{ pacienteService.pacientes[data.i].nombre }}
+      {{ pacienteService.pacientes[data.i].apellido }}
+    </h2>
+
+    <span mat-dialog-close class="close">
+      <mat-icon color='warn'>cancel</mat-icon>
+    </span>
+
+  </div>
+
+  <div class="content">
+
+    <div class="column">
+      <div class="first">
+        <span><b>Gestas:</b></span>
+        <span>{{pacienteService.pacientes[data.i].ginecoGestas}}</span>
+      </div>
+      <div class="first">
+        <span><b>Paras:</b></span>
+        <span>{{pacienteService.pacientes[data.i].ginecoParas}}</span>
+      </div>
+      <div class="first">
+        <span><b>Abortos:</b></span>
+        <span>{{pacienteService.pacientes[data.i].ginecoAbortos}}</span>
+      </div>
+      <div class="first">
+        <span><b>Cesareas:</b></span>
+        <span>{{pacienteService.pacientes[data.i].ginecoCesareas}}</span>
+      </div>
+      <div class="second">
+        <span><b>Otros:</b></span>
+        <span>{{pacienteService.pacientes[data.i].ginecoOtros}}</span>
+      </div>
+    </div>
+
+    <div class="column">
+      <div class="second">
+        <div *ngIf="pacienteService.pacientes[data.i].ginecoMenorrea">
+          <span><b>Eumenorreica</b></span>
+        </div>
+        <div *ngIf="!pacienteService.pacientes[data.i].ginecoMenorrea">
+          <span><b>Dismenorreica</b></span>
+        </div>
+      </div>
+      <div class="second">
+        <span><b>Menopausia</b></span>
+        <span>{{pacienteService.pacientes[data.i].ginecoMenopausia}}</span>
+      </div>
+      <div class="second">
+        <span><b>Metodo</b></span>
+        <span>{{pacienteService.pacientes[data.i].ginecoMetodo}}</span>
+      </div>
+      <div class="second">
+        <span><b>Terapia de reemplazo Hormonal</b></span>
+        <span>{{pacienteService.pacientes[data.i].ginecoTRH}}</span>
+      </div>
+    </div>
+
+  </div>
+</div>

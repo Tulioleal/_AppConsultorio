@@ -1,15 +1,15 @@
 //Angular
 import { Component, OnInit } from '@angular/core';
 
-//Services
-import { PacienteService } from '../../services/paciente.service'
-
 //Components
 import { AntecedentesComponent } from '../modals/antecedentes/antecedentes.component';
 import { ContactoComponent } from '../modals/contacto/contacto.component';
 
 //Material Components
 import { MatDialog, MatDialogConfig } from '@angular/material/dialog';
+
+//Services
+import { PacienteService } from '../../services/paciente.service'
 
 @Component({
   selector: 'app-paciente',

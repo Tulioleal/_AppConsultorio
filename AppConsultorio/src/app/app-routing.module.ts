@@ -13,6 +13,7 @@ const routes: Routes = [
   { path:"pacientes/addCita", component: FormularioCitaComponent },
   { path:"pacientes", component: PacienteComponent },
   { path:"home", component: HomeComponent },
+  { path: '**', component: HomeComponent },
 ];
 
 @NgModule({

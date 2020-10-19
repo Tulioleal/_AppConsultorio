@@ -5,7 +5,7 @@
       <mat-card-title>
         {{ paciente.nombre }} {{ paciente.apellido }}
       </mat-card-title>
-      <a  mat-icon-button color='primary' href="">
+      <a  mat-icon-button color='primary' routerLink="pacientes/addCita" routerLinkActive="active">
         <mat-icon>post_add</mat-icon>
       </a>
     </mat-card-header>
@@ -14,7 +14,7 @@
         <span>
           Edad:<b> {{ paciente.nacimiento }} años</b>
         </span>
-        <a mat-icon-button color='accent' href="">
+        <a mat-icon-button color='accent' routerLink="pacientes/edit" routerLinkActive="active">
           <mat-icon>edit</mat-icon>
         </a>
       </div>
@@ -28,9 +28,9 @@
             <b>No se sigue</b>
           </ng-template>
         </span>
-        <a mat-icon-button color='warn' href="">
+        <button mat-icon-button color='warn' (click)='deletePaciente(paciente._id)'>
           <mat-icon>delete</mat-icon>
-        </a>
+        </button>
       </div>
     </mat-card-content>
     <mat-card-actions>

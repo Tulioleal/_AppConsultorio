@@ -2,32 +2,34 @@
   <h1>ConsultorioApp</h1>
 
   <div class="div">
+
     <button mat-flat-button [matMenuTriggerFor]="pacientes" color='primary'>
       Pacientes
     </button>
+
     <mat-menu #pacientes="matMenu" xPosition="before">
-      <a mat-menu-item href='/pacientes'>Pacientes
+      <a mat-menu-item routerLink='/pacientes' routerLinkActive="active">Pacientes
         <mat-icon>assignment_ind</mat-icon>
       </a>
-      <a mat-menu-item href='/pacientes/addPaciente'>Nueva paciente
+      <a mat-menu-item routerLink='/pacientes/addPaciente' routerLinkActive="active">Nueva paciente
         <mat-icon>add_circle</mat-icon>
       </a>
-      <a mat-menu-item href='/pacientes'>Buscar paciente
+      <a mat-menu-item routerLink='/pacientes' routerLinkActive="active">Buscar paciente
         <mat-icon>search</mat-icon>
       </a>
     </mat-menu>
 
-    <button mat-flat-button [matMenuTriggerFor]="login" color='accent'>Ingresar
+    <button mat-flat-button [matMenuTriggerFor]="login" color='accent'>Ingresar</button>
 
-    </button>
     <mat-menu #login="matMenu">
-      <a mat-menu-item href='/'>Login
+      <a mat-menu-item routerLink='/'>Login
         <mat-icon>arrow_forward</mat-icon>
       </a>
-      <a mat-menu-item href='/'>Registro
+      <a mat-menu-item routerLink='/'>Registro
         <mat-icon>account_circle</mat-icon>
       </a>
     </mat-menu>
+
   </div>
 
 </mat-toolbar>

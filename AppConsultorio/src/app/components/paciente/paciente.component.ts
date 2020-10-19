@@ -22,6 +22,8 @@ export class PacienteComponent implements OnInit {
   month: number = new Date().getMonth() + 1
   day: number = new Date().getDate()
 
+  delMessage : string = 'Are you sure yo want to delete? All the information from this patient willbe DELETED PERMANENTLY'
+
   constructor(public pacienteService: PacienteService, public dialog: MatDialog) { }
 
   ngOnInit(): void {
@@ -59,34 +61,50 @@ export class PacienteComponent implements OnInit {
   }
 
   getPacientes() {
-    this.pacienteService.getPacientes().subscribe(
-      res => {
-        this.pacienteService.pacientes = res
-        this.acortarNombre()
-        this.acortarApellido()
-        this.compararfechas()
-      },
-      err => console.log(err)
-    )
+    this.pacienteService.getPacientes()
+      .subscribe(
+        res => {
+          this.pacienteService.pacientes = res
+          this.acortarNombre()
+          this.acortarApellido()
+          this.compararfechas()
+        },
+        err => console.log(err)
+      )
   }
 
-  openAntecedentes(i:number){
+  deletePaciente(id: string) {
+    if (confirm(this.delMessage)) {
+      this.pacienteService.deletePaciente(id)
+        .subscribe(
+          res => {
+            console.log(res)
+            this.getPacientes()
+          },
+          err => {
+            console.log(err)
+          }
+        )
+    }
+  }
+
+  openAntecedentes(i: number) {
 
     const dialogConfig = new MatDialogConfig()
     dialogConfig.autoFocus = true
-    dialogConfig.width = "60%"
-    dialogConfig.height = "60%"
-    dialogConfig.data = { i : i }
-    this.dialog.open(AntecedentesComponent,dialogConfig)
+    dialogConfig.width = "70%"
+    dialogConfig.height = "75%"
+    dialogConfig.data = { i: i }
+    this.dialog.open(AntecedentesComponent, dialogConfig)
   }
 
-  openContacto(i:number){
+  openContacto(i: number) {
 
     const dialogConfig = new MatDialogConfig()
     dialogConfig.autoFocus = true
     dialogConfig.width = "30%"
-    dialogConfig.height = "25%"
-    dialogConfig.data = { i : i }
-    this.dialog.open(ContactoComponent,dialogConfig)
+    dialogConfig.height = "27%"
+    dialogConfig.data = { i: i }
+    this.dialog.open(ContactoComponent, dialogConfig)
   }
 }

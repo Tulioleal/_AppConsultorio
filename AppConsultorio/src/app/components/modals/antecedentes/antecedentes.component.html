@@ -1,7 +1,7 @@
 <div class="container">
   <div class="header">
 
-    <h2>
+    <h2 mat-dialog-title>
       Antecedentes de
       {{ pacienteService.pacientes[data.i].nombre }}
       {{ pacienteService.pacientes[data.i].apellido }}
@@ -16,61 +16,68 @@
   <div class="content">
 
     <table class="table">
-      <tr>
-        <th>Gestas:</th>
-        <td>{{pacienteService.pacientes[data.i].ginecoGestas}}</td>
-      </tr>
-      <tr>
-        <th>Paras:</th>
-        <td>{{pacienteService.pacientes[data.i].ginecoParas}}</td>
-      </tr>
-      <tr>
-        <th>Abortos:</th>
-        <td>{{pacienteService.pacientes[data.i].ginecoAbortos}}</td>
-      </tr>
-      <tr>
-        <th>Cesareas:</th>
-        <td>{{pacienteService.pacientes[data.i].ginecoCesareas}}</td>
-      </tr>
-      <tr>
-        <th>Otros:</th>
-        <td>{{pacienteService.pacientes[data.i].ginecoOtros}}</td>
-      </tr>
-      <tr>
-        <th>Menopausia:</th>
-        <td>{{pacienteService.pacientes[data.i].ginecoMenopausia}}</td>
-      </tr>
-      <tr>
-        <th>
-          <div *ngIf="pacienteService.pacientes[data.i].ginecoMenorrea">
-            <span><b>Eumenorreica</b></span>
-          </div>
-          <div *ngIf="!pacienteService.pacientes[data.i].ginecoMenorrea">
-            <span><b>Dismenorreica</b></span>
-          </div>
-        </th>
-      </tr>
+      <tbody>
+
+        <tr>
+          <th>Gestas:</th>
+          <td>{{pacienteService.pacientes[data.i].ginecoGestas}}</td>
+        </tr>
+        <tr>
+          <th>Paras:</th>
+          <td>{{pacienteService.pacientes[data.i].ginecoParas}}</td>
+        </tr>
+        <tr>
+          <th>Abortos:</th>
+          <td>{{pacienteService.pacientes[data.i].ginecoAbortos}}</td>
+        </tr>
+        <tr>
+          <th>Cesareas:</th>
+          <td>{{pacienteService.pacientes[data.i].ginecoCesareas}}</td>
+        </tr>
+        <tr>
+          <th>Otros:</th>
+          <td>{{pacienteService.pacientes[data.i].ginecoOtros}}</td>
+        </tr>
+        <tr>
+          <th>Menopausia:</th>
+          <td>{{pacienteService.pacientes[data.i].ginecoMenopausia}}</td>
+        </tr>
+        <tr>
+          <th colspan="2" class="menorrea">
+            <div *ngIf="pacienteService.pacientes[data.i].ginecoMenorrea">
+              <span><b>Eumenorreica</b></span>
+            </div>
+            <div *ngIf="!pacienteService.pacientes[data.i].ginecoMenorrea">
+              <span><b>Dismenorreica</b></span>
+            </div>
+          </th>
+          <!-- <th></th> -->
+        </tr>
+      </tbody>
     </table>
 
-    <div class="column">
-      <section class="section">
-        <h3><b>Antecedentes Personales:</b></h3>
-        <p>
+      <div class="column">
+        <section class="section">
+          <h3><b>Antecedentes Personales:</b></h3>
+          <p>
           {{pacienteService.pacientes[data.i].antecedentePersonal}}
         </p>
       </section>
+      <mat-divider></mat-divider>
       <section class="section">
         <h3><b>Antecedentes Familiares:</b></h3>
         <p>
           {{pacienteService.pacientes[data.i].antecedenteFamiliar}}
         </p>
       </section>
+      <mat-divider></mat-divider>
       <section class="section">
         <h3><b>Método:</b></h3>
         <p>
           {{pacienteService.pacientes[data.i].ginecoMetodo}}
         </p>
       </section>
+      <mat-divider></mat-divider>
       <section class="section">
         <h3><b>Terapia de Reeplazo Hormonal:</b></h3>
         <p>

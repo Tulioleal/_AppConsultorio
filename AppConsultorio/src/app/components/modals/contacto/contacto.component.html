@@ -7,7 +7,7 @@
 
     <h2 mat-dialog-title>
       Información de contacto de:
-      <br>
+    <br>
       <b>
         {{ pacienteService.pacientes[data.i].nombre }}
         {{ pacienteService.pacientes[data.i].apellido }}
@@ -17,22 +17,24 @@
   </div>
 
   <table>
-    <tr>
-      <th>
-        Numero de teléfono:
-      </th>
-      <td>
-        {{ pacienteService.pacientes[data.i].telf }}
-      </td>
-    </tr>
-    <tr>
-      <th>
-        Correo electrónico:
-      </th>
-      <td>
-        {{ pacienteService.pacientes[data.i].email }}
-      </td>
-    </tr>
+    <tbody>
+      <tr>
+        <th>
+          Numero de teléfono:
+        </th>
+        <td>
+          {{ pacienteService.pacientes[data.i].telf }}
+        </td>
+      </tr>
+      <tr>
+        <th>
+          Correo electrónico:
+        </th>
+        <td>
+          {{ pacienteService.pacientes[data.i].email }}
+        </td>
+      </tr>
+    </tbody>
   </table>
 
-</div>
+  </div>

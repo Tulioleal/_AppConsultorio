@@ -3,8 +3,10 @@
 
     <h2 mat-dialog-title>
       Antecedentes de
-      {{ pacienteService.pacientes[data.i].nombre }}
-      {{ pacienteService.pacientes[data.i].apellido }}
+      <b>
+        {{ pacienteService.pacientes[data.i].nombreCortado }}
+        {{ pacienteService.pacientes[data.i].apellidoCortado }}
+      </b>
     </h2>
 
     <span mat-dialog-close class="close">
@@ -79,7 +81,7 @@
       </section>
       <mat-divider></mat-divider>
       <section class="section">
-        <h3><b>Terapia de Reeplazo Hormonal:</b></h3>
+        <h3><b>Terapia de Reemplazo Hormonal:</b></h3>
         <p>
           {{pacienteService.pacientes[data.i].ginecoTRH}}
         </p>

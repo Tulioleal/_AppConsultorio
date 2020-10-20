@@ -11,7 +11,11 @@
       <a mat-menu-item routerLink='/pacientes' routerLinkActive="active">Pacientes
         <mat-icon>assignment_ind</mat-icon>
       </a>
-      <a mat-menu-item routerLink='/pacientes/addPaciente' routerLinkActive="active">Nueva paciente
+      <a
+        mat-menu-item
+        routerLink='/pacientes/addPaciente'
+        routerLinkActive="active"
+        (click)='clearForm()'>Nueva paciente
         <mat-icon>add_circle</mat-icon>
       </a>
       <a mat-menu-item routerLink='/pacientes' routerLinkActive="active">Buscar paciente

@@ -16,6 +16,9 @@ export interface Paciente {
   ginecoMetodo: string
   ginecoMenopausia: number
   ginecoTRH: string
+  nombreCortado?: string
+  apellidoCortado?: string
+  edad?: number
   createdAt?: string
   updatedAt?: string
   _id?: string

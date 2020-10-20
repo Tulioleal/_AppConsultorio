@@ -10,6 +10,7 @@ import { MatDialog, MatDialogConfig } from '@angular/material/dialog';
 
 //Services
 import { PacienteService } from '../../services/paciente.service'
+import { Paciente } from 'src/app/models/paciente';
 
 @Component({
   selector: 'app-paciente',
@@ -33,14 +34,14 @@ export class PacienteComponent implements OnInit {
   acortarNombre() {
     for (let i = 0; i < this.pacienteService.pacientes.length; i++) {
       let array = this.pacienteService.pacientes[i].nombre.split(' ')
-      this.pacienteService.pacientes[i].nombre = array[0]
+      this.pacienteService.pacientes[i].nombreCortado = array[0]
     }
   }
 
   acortarApellido() {
     for (let i = 0; i < this.pacienteService.pacientes.length; i++) {
       let array = this.pacienteService.pacientes[i].apellido.split(' ')
-      this.pacienteService.pacientes[i].apellido = array[0]
+      this.pacienteService.pacientes[i].apellidoCortado = array[0]
     }
   }
 
@@ -56,7 +57,7 @@ export class PacienteComponent implements OnInit {
           edad--
         }
       }
-      this.pacienteService.pacientes[i].nacimiento = edad.toString()
+      this.pacienteService.pacientes[i].edad = edad
     }
   }
 
@@ -88,6 +89,10 @@ export class PacienteComponent implements OnInit {
     }
   }
 
+  editPaciente(paciente: Paciente){
+    this.pacienteService.selectedPaciente = paciente
+  }
+
   openAntecedentes(i: number) {
 
     const dialogConfig = new MatDialogConfig()
@@ -103,7 +108,7 @@ export class PacienteComponent implements OnInit {
     const dialogConfig = new MatDialogConfig()
     dialogConfig.autoFocus = true
     dialogConfig.width = "30%"
-    dialogConfig.height = "27%"
+    dialogConfig.height = "30%"
     dialogConfig.data = { i: i }
     this.dialog.open(ContactoComponent, dialogConfig)
   }

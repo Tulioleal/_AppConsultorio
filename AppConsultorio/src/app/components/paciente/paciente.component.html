@@ -3,20 +3,20 @@
   <mat-card class="example-card" *ngFor="let paciente of pacienteService.pacientes; index as i">
     <mat-card-header>
       <mat-card-title>
-        {{ paciente.nombre }} {{ paciente.apellido }}
+        {{ paciente.nombreCortado }} {{ paciente.apellidoCortado }}
       </mat-card-title>
-      <a  mat-icon-button color='primary' routerLink="pacientes/addCita" routerLinkActive="active">
+      <button  mat-icon-button color='primary' routerLink="pacientes/addCita" routerLinkActive="active">
         <mat-icon>post_add</mat-icon>
-      </a>
+      </button>
     </mat-card-header>
     <mat-card-content>
       <div class="row">
         <span>
-          Edad:<b> {{ paciente.nacimiento }} años</b>
+          Edad:<b> {{ paciente.edad }} años</b>
         </span>
-        <a mat-icon-button color='accent' routerLink="pacientes/edit" routerLinkActive="active">
+        <button mat-icon-button color='accent' routerLink="/pacientes/edit" routerLinkActive="active" (click)='editPaciente(paciente)'>
           <mat-icon>edit</mat-icon>
-        </a>
+        </button>
       </div>
       <div class="row">
         <span>

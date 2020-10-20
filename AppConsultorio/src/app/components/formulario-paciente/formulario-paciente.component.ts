@@ -10,7 +10,7 @@ import { PacienteService } from 'src/app/services/paciente.service';
 })
 export class FormularioPacienteComponent implements OnInit {
 
-  constructor( public pacienteService: PacienteService, private snackbar: MatSnackBar ) { }
+  constructor(public pacienteService: PacienteService, private snackbar: MatSnackBar) { }
 
   ngOnInit(): void {
   }
@@ -21,7 +21,7 @@ export class FormularioPacienteComponent implements OnInit {
     })
   }
 
-  addPaciente( form: NgForm ){
+  addPaciente(form: NgForm) {
     this.pacienteService.createPaciente(form.value).subscribe(
       res => {
         console.log(res)
@@ -29,6 +29,7 @@ export class FormularioPacienteComponent implements OnInit {
       },
       err => {
         console.log(err)
-      })
-    }
+      }
+    )
+  }
 }

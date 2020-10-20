@@ -2,9 +2,11 @@ form{
   margin: 5% 12%;
 
   .row{
+    margin-top: 2em;
+
     display: flex;
     justify-content: space-between;
-    margin-top: 2em;
+    align-self: center;
 
     mat-form-field{
       width: 28%;
@@ -54,6 +56,10 @@ form{
     .gestas, .paras, .abortos{
       align-self: center;
       width: 20%;
+    }
+
+    button{
+      height: fit-content;
     }
 
     .error{

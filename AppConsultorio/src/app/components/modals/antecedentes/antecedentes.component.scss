@@ -21,7 +21,11 @@ $titulo: 1.2em;
 
     h2{
       font-size: 2em;
-      text-decoration: underline;
+
+      b:hover{
+        text-decoration: underline;
+        cursor: default;
+      }
     }
   }
 
@@ -40,6 +44,10 @@ $titulo: 1.2em;
       height: 100%;
       border-radius: 5em;
       border-collapse: collapse;
+      border-radius: 1em;
+
+      tr{
+      }
 
       tr:nth-child(odd) {
         background-color: #f49b9f;
@@ -71,19 +79,31 @@ $titulo: 1.2em;
       justify-content: space-around;
 
       .section {
-        margin: 0em 1em;
+        height: 100%;
+        padding: 0em 1em;
+
         display: flex;
         justify-content: space-between;
 
         h3 {
           font-size: 1em;
           width: 40%;
+
+          align-self: center;
         }
 
         p {
           text-align: right;
+          height: fit-content;
           width: 60%;
+
+          align-self: center;
         }
+
+      }
+
+      .section:hover{
+        background-color: #fcc5ca7e;
       }
     }
   }

@@ -1,5 +1,4 @@
 import { Component, OnInit, Inject } from '@angular/core';
-import { NgForm } from '@angular/forms';
 import {MAT_DIALOG_DATA} from '@angular/material/dialog'
 
 //Services
@@ -12,7 +11,10 @@ import { PacienteService } from '../../../services/paciente.service'
 })
 export class ContactoComponent implements OnInit {
 
-  constructor( public pacienteService : PacienteService, @Inject(MAT_DIALOG_DATA) public data: any ) { }
+  constructor(
+    public pacienteService : PacienteService,
+    @Inject(MAT_DIALOG_DATA) public data: any
+  ) { }
 
   ngOnInit(): void {
 

@@ -22,7 +22,7 @@ export class EditarPacienteComponent implements OnInit {
     })
   }
 
-  cancelEdition(form:NgForm){
+  cancelEdit(form:NgForm){
     if  ( confirm("You will lose the new information in this form") ) {
       this.resetForm(form)
     }

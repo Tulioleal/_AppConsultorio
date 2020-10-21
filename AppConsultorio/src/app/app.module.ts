@@ -20,6 +20,8 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { NavegacionComponent } from './components/navegacion/navegacion.component';
 import { AntecedentesComponent } from './components/modals/antecedentes/antecedentes.component';
 import { ContactoComponent } from './components/modals/contacto/contacto.component';
+import { DeletePacienteComponent } from './components/modals/delete-paciente/delete-paciente.component';
+import { CancelEditComponent } from './components/modals/cancel-edit/cancel-edit.component';
 
 @NgModule({
   declarations: [
@@ -32,6 +34,8 @@ import { ContactoComponent } from './components/modals/contacto/contacto.compone
     NavegacionComponent,
     AntecedentesComponent,
     ContactoComponent,
+    DeletePacienteComponent,
+    CancelEditComponent,
   ],
   imports: [
     BrowserModule,

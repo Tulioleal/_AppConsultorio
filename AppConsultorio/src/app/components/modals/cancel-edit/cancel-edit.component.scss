@@ -1,0 +1,38 @@
+*{
+  color: #816a63;
+}
+
+.container{
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+
+  .header{
+    display: flex;
+    justify-content: space-between;
+
+    h2{
+      font-size: 1.6em;
+    }
+  }
+
+  .content{
+    text-align: center;
+    width: 100%;
+
+    display: flex;
+    justify-content: center;
+
+    p{
+      font-size: 1.2em;
+      width: 80%;
+      padding-bottom: 1em;
+    }
+  }
+
+  .footer{
+    display: flex;
+    justify-content: space-around;
+  }
+}

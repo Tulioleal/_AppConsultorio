@@ -1,8 +1,16 @@
 import { Component, OnInit } from '@angular/core';
 import { NgForm } from '@angular/forms'
+
+//Components
+import { CancelEditComponent } from '../modals/cancel-edit/cancel-edit.component';
+
+//Material Components
+import { MatDialog, MatDialogConfig } from '@angular/material/dialog';
 import { MatSnackBar } from '@angular/material/snack-bar';
-import { from } from 'rxjs';
+
+//Services
 import { PacienteService } from 'src/app/services/paciente.service';
+
 
 @Component({
   selector: 'app-editar-paciente',
@@ -11,7 +19,11 @@ import { PacienteService } from 'src/app/services/paciente.service';
 })
 export class EditarPacienteComponent implements OnInit {
 
-  constructor( public pacienteService: PacienteService, private snackbar: MatSnackBar ) { }
+  constructor(
+    public pacienteService: PacienteService,
+    private snackbar: MatSnackBar,
+    public dialog: MatDialog
+  ) { }
 
   ngOnInit(): void {
   }
@@ -22,16 +34,6 @@ export class EditarPacienteComponent implements OnInit {
     })
   }
 
-  cancelEdit(form:NgForm){
-    if  ( confirm("You will lose the new information in this form") ) {
-      this.resetForm(form)
-    }
-  }
-
-  resetForm(form:NgForm){
-    form.reset()
-  }
-
   updatePaciente(form: NgForm){
     this.pacienteService.updatePaciente(form.value).subscribe(
       res => {
@@ -39,6 +41,16 @@ export class EditarPacienteComponent implements OnInit {
         this.openSnackBar()
       },
       err => console.log(err)
-    )
+      )
+    }
+
+  openCancel(){
+
+    const dialogConfig = new MatDialogConfig()
+    dialogConfig.autoFocus = false
+    dialogConfig.width = "27%"
+    dialogConfig.height = "32%"
+    this.dialog.open(CancelEditComponent, dialogConfig)
   }
+
 }

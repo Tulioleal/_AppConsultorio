@@ -1,11 +1,19 @@
 .container {
   padding: 6% 8%;
-
+/*
   display: grid;
   grid-template-columns: repeat(4, 1fr);
-  gap: 2.5em;
+  gap: 2.5em; */
+
+  display: flex;
+  justify-content: space-evenly; //space-between is an option
+  flex-wrap: wrap;
+  column-gap: 2.5em;
+  row-gap: 2.5em;
 
   .mat-card {
+    width: 18%;
+    min-width: 17.5em;
     padding: 1.5em;
 
     .mat-card-header {

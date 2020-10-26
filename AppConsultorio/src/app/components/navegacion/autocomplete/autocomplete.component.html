@@ -1,0 +1,21 @@
+<div style="font-size: 15px">
+
+  <mat-form-field appearance='fill' class="example-full-width">
+    <input
+    type="text"
+    placeholder="Buscas Paciente"
+    matInput
+    [formControl]="myControl"
+    [matAutocomplete]="auto"
+    >
+    <mat-icon matSuffix>
+      search
+    </mat-icon>
+    <mat-autocomplete #auto="matAutocomplete">
+      <mat-option *ngFor="let option of filteredOptions | async" [value]="option">
+        {{option}}
+      </mat-option>
+    </mat-autocomplete>
+  </mat-form-field>
+
+</div>

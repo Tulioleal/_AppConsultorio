@@ -1,0 +1,12 @@
+::ng-deep .mat-form-field-wrapper{
+  margin-bottom: -1.25em;
+}
+
+input{
+  align-self: center;
+  padding-bottom: .35em;
+
+  &::placeholder {
+    color:white !important;
+  }
+}

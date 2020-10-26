@@ -29,7 +29,7 @@ export class PacienteService {
     ginecoTRH: "",
   }
 
-  pacientes:  Paciente[]
+  pacientes: Paciente[]
 
   year: number = new Date().getFullYear()
   month: number = new Date().getMonth() + 1
@@ -54,6 +54,7 @@ export class PacienteService {
   }
 
   acortarNombre() {
+
     for (let i = 0; i < this.pacientes.length; i++) {
       let array = this.pacientes[i].nombre.split(' ')
       this.pacientes[i].nombreCortado = array[0]
@@ -80,6 +81,28 @@ export class PacienteService {
         }
       }
       this.pacientes[i].edad = edad
+    }
+  }
+
+  clearForm(){
+    this.selectedPaciente = {
+      nombre: "",
+      apellido: "",
+      nacimiento: "",
+      telf: "",
+      email: "",
+      seguimiento: false,
+      antecedentePersonal: "",
+      antecedenteFamiliar: "",
+      ginecoMenorrea: false,
+      ginecoGestas: 0,
+      ginecoParas: 0,
+      ginecoAbortos: 0,
+      ginecoCesareas: 0,
+      ginecoOtros: 0,
+      ginecoMetodo: "",
+      ginecoMenopausia : 0,
+      ginecoTRH: "",
     }
   }
 }

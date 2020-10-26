@@ -4,6 +4,7 @@ import { Component, OnInit } from '@angular/core';
 //Components
 import { AntecedentesComponent } from '../modals/antecedentes/antecedentes.component';
 import { ContactoComponent } from '../modals/contacto/contacto.component';
+import { DeletePacienteComponent } from '../modals/delete-paciente/delete-paciente.component';
 
 //Material Components
 import { MatDialog, MatDialogConfig } from '@angular/material/dialog';
@@ -11,7 +12,6 @@ import { MatDialog, MatDialogConfig } from '@angular/material/dialog';
 //Services
 import { PacienteService } from '../../services/paciente.service'
 import { Paciente } from 'src/app/models/paciente';
-import { DeletePacienteComponent } from '../modals/delete-paciente/delete-paciente.component';
 
 @Component({
   selector: 'app-paciente',
@@ -20,9 +20,10 @@ import { DeletePacienteComponent } from '../modals/delete-paciente/delete-pacien
 })
 export class PacienteComponent implements OnInit {
 
-  delMessage: string = 'Are you sure yo want to delete? All the information from this patient willbe DELETED PERMANENTLY'
-
-  constructor(public pacienteService: PacienteService, public dialog: MatDialog) { }
+  constructor(
+    public pacienteService: PacienteService,
+    public dialog: MatDialog
+  ) { }
 
   ngOnInit(): void {
     this.getPacientes()

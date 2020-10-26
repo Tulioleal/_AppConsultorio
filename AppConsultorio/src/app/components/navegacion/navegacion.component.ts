@@ -18,29 +18,12 @@ import { PacienteService } from '../../services/paciente.service'
 })
 export class NavegacionComponent implements OnInit {
 
-  myControl = new FormControl();
-  pacientes: Paciente[]
-  nombres: string[]
-
   constructor( private pacienteService: PacienteService ) { }
 
   ngOnInit(): void {
-    this.getPacientes()
   }
 
   clearForm(){
     this.pacienteService.clearForm()
   }
-
-  getPacientes(){
-    this.pacienteService.getPacientes()
-    .subscribe(
-      res => {
-        this.pacientes = res
-        console.log(this.pacientes)
-      },
-      err => console.log(err)
-    )
-  }
-
 }

@@ -23,6 +23,7 @@ import { ContactoComponent } from './components/modals/contacto/contacto.compone
 import { DeletePacienteComponent } from './components/modals/delete-paciente/delete-paciente.component';
 import { CancelEditComponent } from './components/modals/cancel-edit/cancel-edit.component';
 import { AutocompleteComponent } from './components/navegacion/autocomplete/autocomplete.component';
+import { PacienteEspecificoComponent } from './components/paciente-especifico/paciente-especifico.component';
 
 @NgModule({
   declarations: [
@@ -38,6 +39,7 @@ import { AutocompleteComponent } from './components/navegacion/autocomplete/auto
     DeletePacienteComponent,
     CancelEditComponent,
     AutocompleteComponent,
+    PacienteEspecificoComponent,
   ],
   imports: [
     BrowserModule,

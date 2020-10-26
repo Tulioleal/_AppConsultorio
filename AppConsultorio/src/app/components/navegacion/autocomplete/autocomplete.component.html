@@ -13,8 +13,13 @@
       search
     </mat-icon>
     <mat-autocomplete #auto="matAutocomplete">
-      <mat-option *ngFor="let option of filteredOptions | async; index as i">
-        <a routerLink="pacientes/especific" (click)='getPaciente(ids[i])' >{{option}}</a>
+      <mat-option
+        *ngFor="let option of filteredOptions | async; index as i"
+        [value]=' '
+        (click)='getPaciente( ids[i] )'
+        routerLink="pacientes/especific"
+      >
+        <a>{{ option }}</a>
       </mat-option>
     </mat-autocomplete>
   </mat-form-field>

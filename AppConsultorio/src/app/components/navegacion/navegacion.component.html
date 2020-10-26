@@ -9,13 +9,13 @@
     </button>
 
     <mat-menu #pacientes="matMenu" xPosition="before">
-      <a mat-menu-item routerLink="/pacientes" routerLinkActive="active">
+      <a mat-menu-item routerLink="pacientes" routerLinkActive="active">
         Pacientes
         <mat-icon>assignment_ind</mat-icon>
       </a>
       <a
         mat-menu-item
-        routerLink="/pacientes/addPaciente"
+        routerLink="pacientes/addPaciente"
         routerLinkActive="active"
         (click)="clearForm()"
       >

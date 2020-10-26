@@ -32,8 +32,8 @@ export class AutocompleteComponent implements OnInit, OnDestroy {
       this.pacienteService.getPacientes().subscribe(
         (data) => {
           const nombre = data.map((data) => `${data.apellido} ${data.nombre}`);
-          this.options = nombre;
           const id = data.map( data => data._id)
+          this.options = nombre;
           this.ids = id
         },
         (err: HttpErrorResponse) => {
@@ -43,13 +43,13 @@ export class AutocompleteComponent implements OnInit, OnDestroy {
     );
     this.filteredOptions = this.myControl.valueChanges.pipe(
       startWith(''),
-      map((value) => this._filter(value))
+      map( value => this._filter(value))
     );
   }
   // Filter must be declared after ngOnInit().
   private _filter(value: string): string[] {
     const filterValue = value.toLowerCase();
-    return this.options.filter((options) =>
+    return this.options.filter( options =>
       options.toLowerCase().includes(filterValue)
     );
   }

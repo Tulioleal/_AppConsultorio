@@ -1,9 +1,13 @@
+//Angular
 import { Component, OnInit, OnDestroy } from '@angular/core';
 import { Subscription, Observable } from 'rxjs';
-import { PacienteService } from '../../../services/paciente.service';
 import { FormControl } from '@angular/forms';
 import { map, startWith } from 'rxjs/operators';
 import { HttpErrorResponse } from '@angular/common/http';
+
+//Components
+import { PacienteService } from '../../../services/paciente.service';
+
 @Component({
   selector: 'app-autocomplete',
   templateUrl: './autocomplete.component.html',
@@ -21,7 +25,7 @@ export class AutocompleteComponent implements OnInit, OnDestroy {
     this.subs.add(
       this.pacienteService.getPacientes().subscribe(
         (data) => {
-          const nombre = data.map((data) => data.nombre);
+          const nombre = data.map((data) => `${data.nombre} ${data.apellido}`);
           this.options = nombre;
           console.log('Nombre: ', this.nombre);
         },

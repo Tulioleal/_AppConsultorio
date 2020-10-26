@@ -54,7 +54,6 @@ export class PacienteService {
   }
 
   acortarNombre() {
-
     for (let i = 0; i < this.pacientes.length; i++) {
       let array = this.pacientes[i].nombre.split(' ')
       this.pacientes[i].nombreCortado = array[0]

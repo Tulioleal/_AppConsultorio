@@ -53,6 +53,7 @@
       <mat-label>Fecha de nacimiento</mat-label>
       <input
         matInput
+        placeholder="MM/DD/YY"
         [matDatepicker]="nacimiento"
         [(ngModel)]="pacienteService.selectedPaciente.nacimiento"
         name="nacimiento"

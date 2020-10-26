@@ -17,6 +17,7 @@ import { MatDividerModule } from '@angular/material/divider'
 import { MatSnackBarModule } from '@angular/material/snack-bar'
 import { MatDialogModule } from '@angular/material/dialog'
 import { MatTableModule } from '@angular/material/table'
+import { MatAutocompleteModule } from '@angular/material/autocomplete'
 
 
 @NgModule({
@@ -36,6 +37,7 @@ import { MatTableModule } from '@angular/material/table'
     MatSnackBarModule,
     MatDialogModule,
     MatTableModule,
+    MatAutocompleteModule,
 
   ],
   exports:[
@@ -54,6 +56,7 @@ import { MatTableModule } from '@angular/material/table'
     MatSnackBarModule,
     MatDialogModule,
     MatTableModule,
+    MatAutocompleteModule,
   ]
 })
 

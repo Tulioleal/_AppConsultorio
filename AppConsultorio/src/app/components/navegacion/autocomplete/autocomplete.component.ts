@@ -7,6 +7,7 @@ import { HttpErrorResponse } from '@angular/common/http';
 
 //Components
 import { PacienteService } from '../../../services/paciente.service';
+import { Paciente } from 'src/app/models/paciente';
 
 @Component({
   selector: 'app-autocomplete',
@@ -14,20 +15,26 @@ import { PacienteService } from '../../../services/paciente.service';
   styleUrls: ['./autocomplete.component.scss'],
 })
 export class AutocompleteComponent implements OnInit, OnDestroy {
+
   options: string[] = [];
+  ids: string[] = []
   dataArray: any;
   myControl = new FormControl();
   filteredOptions: Observable<string[]>;
   nombre: any[];
-  constructor(private pacienteService: PacienteService) {}
+
+  paciente: any
+
+  constructor(public pacienteService: PacienteService) {}
   private subs = new Subscription();
   ngOnInit() {
     this.subs.add(
       this.pacienteService.getPacientes().subscribe(
         (data) => {
-          const nombre = data.map((data) => `${data.nombre} ${data.apellido}`);
+          const nombre = data.map((data) => `${data.apellido} ${data.nombre}`);
           this.options = nombre;
-          console.log('Nombre: ', this.nombre);
+          const id = data.map( data => data._id)
+          this.ids = id
         },
         (err: HttpErrorResponse) => {
           console.log(err);
@@ -50,5 +57,14 @@ export class AutocompleteComponent implements OnInit, OnDestroy {
     if (this.subs) {
       this.subs.unsubscribe();
     }
+  }
+
+  getPaciente(id: string){
+    this.pacienteService.getpaciente(id).subscribe(
+      res => {
+        this.pacienteService.selectedPaciente = res;
+      },
+      err => console.log(err)
+    )
   }
 }

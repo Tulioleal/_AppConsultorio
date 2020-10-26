@@ -30,6 +30,7 @@ export class PacienteService {
   }
 
   pacientes: Paciente[]
+  paciente: Paciente
 
   year: number = new Date().getFullYear()
   month: number = new Date().getMonth() + 1
@@ -39,6 +40,10 @@ export class PacienteService {
 
   getPacientes(){
     return this.http.get<Paciente[]>(this.URL_API)
+  }
+
+  getpaciente(_id : string){
+    return this.http.get<Paciente>(`${this.URL_API}/${_id}`)
   }
 
   createPaciente( paciente: Paciente ){

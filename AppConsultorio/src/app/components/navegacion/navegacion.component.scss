@@ -1,12 +1,23 @@
-mat-toolbar{
+mat-toolbar {
+  height: fit-content;
   padding: 0 6%;
 
   display: flex;
   justify-content: space-between;
 
-  .div{
-    width: 11em;
+  .div {
+    width: 24em;
     display: flex;
     justify-content: space-between;
+    align-content: center;
+
+    app-autocomplete{
+      align-self: center;
+    }
+
+    button{
+      height: fit-content;
+      align-self: center;
+    }
   }
 }

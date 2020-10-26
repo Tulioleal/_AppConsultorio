@@ -1,39 +1,42 @@
-<mat-toolbar color='primary'>
+<mat-toolbar color="primary">
   <h1>ConsultorioApp</h1>
 
   <div class="div">
+    <app-autocomplete></app-autocomplete>
 
-    <button mat-flat-button [matMenuTriggerFor]="pacientes" color='primary'>
+    <button mat-flat-button [matMenuTriggerFor]="pacientes" color="primary">
       Pacientes
     </button>
 
     <mat-menu #pacientes="matMenu" xPosition="before">
-      <a mat-menu-item routerLink='/pacientes' routerLinkActive="active">Pacientes
+      <a mat-menu-item routerLink="/pacientes" routerLinkActive="active">
+        Pacientes
         <mat-icon>assignment_ind</mat-icon>
       </a>
       <a
         mat-menu-item
-        routerLink='/pacientes/addPaciente'
+        routerLink="/pacientes/addPaciente"
         routerLinkActive="active"
-        (click)='clearForm()'>Nueva paciente
+        (click)="clearForm()"
+      >
+        Nueva paciente
         <mat-icon>add_circle</mat-icon>
-      </a>
-      <a mat-menu-item routerLink='/pacientes' routerLinkActive="active">Buscar paciente
-        <mat-icon>search</mat-icon>
       </a>
     </mat-menu>
 
-    <button mat-flat-button [matMenuTriggerFor]="login" color='accent'>Ingresar</button>
+    <button mat-flat-button [matMenuTriggerFor]="login" color="accent">
+      Ingresar
+    </button>
 
     <mat-menu #login="matMenu">
-      <a mat-menu-item routerLink='/'>Login
+      <a mat-menu-item routerLink="/"
+        >Login
         <mat-icon>arrow_forward</mat-icon>
       </a>
-      <a mat-menu-item routerLink='/'>Registro
+      <a mat-menu-item routerLink="/"
+        >Registro
         <mat-icon>account_circle</mat-icon>
       </a>
     </mat-menu>
-
   </div>
-
 </mat-toolbar>

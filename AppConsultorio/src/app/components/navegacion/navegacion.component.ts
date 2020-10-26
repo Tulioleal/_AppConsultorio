@@ -1,9 +1,15 @@
 //Angular
-import { Component, OnInit } from '@angular/core';
+import {Component, OnInit, OnDestroy} from '@angular/core';
+import {FormControl} from '@angular/forms';
+import {Observable, Subscription} from 'rxjs';
+import { map, startWith } from 'rxjs/operators';
+import { HttpErrorResponse } from '@angular/common/http';
+
+//Paciente model
+import { Paciente } from '../../models/paciente'
 
 //Services
 import { PacienteService } from '../../services/paciente.service'
-import { Paciente } from 'src/app/models/paciente';
 
 @Component({
   selector: 'app-navegacion',
@@ -12,31 +18,29 @@ import { Paciente } from 'src/app/models/paciente';
 })
 export class NavegacionComponent implements OnInit {
 
-  constructor( public pacienteService: PacienteService ) { }
+  myControl = new FormControl();
+  pacientes: Paciente[]
+  nombres: string[]
+
+  constructor( private pacienteService: PacienteService ) { }
 
   ngOnInit(): void {
+    this.getPacientes()
   }
 
   clearForm(){
-    this.pacienteService.selectedPaciente = {
-      nombre: "",
-      apellido: "",
-      nacimiento: "",
-      telf: "",
-      email: "",
-      seguimiento: false,
-      antecedentePersonal: "",
-      antecedenteFamiliar: "",
-      ginecoMenorrea: false,
-      ginecoGestas: 0,
-      ginecoParas: 0,
-      ginecoAbortos: 0,
-      ginecoCesareas: 0,
-      ginecoOtros: 0,
-      ginecoMetodo: "",
-      ginecoMenopausia : 0,
-      ginecoTRH: "",
-    }
+    this.pacienteService.clearForm()
+  }
+
+  getPacientes(){
+    this.pacienteService.getPacientes()
+    .subscribe(
+      res => {
+        this.pacientes = res
+        console.log(this.pacientes)
+      },
+      err => console.log(err)
+    )
   }
 
 }

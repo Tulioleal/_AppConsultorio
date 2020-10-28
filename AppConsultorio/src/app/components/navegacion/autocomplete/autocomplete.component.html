@@ -1,25 +1,24 @@
 <div style="font-size: 15px">
 
-  <mat-form-field appearance='fill' class="example-full-width">
-    <mat-label>Buscar Paciente...</mat-label>
-    <input
-    type="text"
-
-    matInput
-    [formControl]="myControl"
-    [matAutocomplete]="auto"
-    >
-    <mat-icon matSuffix>
-      search
-    </mat-icon>
-    <mat-autocomplete #auto="matAutocomplete">
-      <mat-option
-        *ngFor="let option of filteredOptions | async; index as i"
-        [value]=' '
-        (click)='getPaciente( ids[i] )'
-        routerLink="pacientes/especific"
+    <mat-form-field appearance='fill' class="example-full-width">
+      <mat-label>Buscar Paciente...</mat-label>
+      <input
+      type="text"
+      [formControl]='myControl'
+      matInput
+      [matAutocomplete]="auto"
       >
-        <a>{{ option }}</a>
+      <mat-icon matSuffix>
+        search
+      </mat-icon>
+      <mat-autocomplete #auto="matAutocomplete">
+        <mat-option
+          routerLink="pacientes/especific"
+          *ngFor="let option of filteredOptions | async; index as i"
+          value=''
+          (click)='getPaciente(ids[i])'
+        >
+        <a>{{ option }} {{ apellidos[i] }}</a>
       </mat-option>
     </mat-autocomplete>
   </mat-form-field>

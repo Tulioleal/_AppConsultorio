@@ -14,10 +14,12 @@ import { Paciente } from 'src/app/models/paciente';
   templateUrl: './autocomplete.component.html',
   styleUrls: ['./autocomplete.component.scss'],
 })
-export class AutocompleteComponent implements OnInit, OnDestroy {
+export class AutocompleteComponent implements OnInit {
 
-  options: string[] = [];
-  ids: string[] = []
+  nombres: string[] = [];
+  apellidos: string[] = [];
+  ids: string[] = [];
+  nombresC: string[] = []
   dataArray: any;
   myControl = new FormControl();
   filteredOptions: Observable<string[]>;
@@ -30,29 +32,35 @@ export class AutocompleteComponent implements OnInit, OnDestroy {
   ngOnInit() {
     this.subs.add(
       this.pacienteService.getPacientes().subscribe(
-        (data) => {
-          const nombre = data.map((data) => `${data.apellido} ${data.nombre}`);
-          const id = data.map( data => data._id)
-          this.options = nombre;
-          this.ids = id
+        res => {
+          this.pacienteService.pacientes = res
+          this.pacienteService.pacientes.map(valor => {
+            this.nombres.push(valor.nombre)
+            this.apellidos.push(valor.apellido)
+            this.ids.push(valor._id)
+            this.unirNombres(
+              this.nombres,
+              this.apellidos,
+              this.nombresC
+            )
+          })
         },
-        (err: HttpErrorResponse) => {
-          console.log(err);
-        }
+        err => console.log(err)
       )
-    );
+      );
     this.filteredOptions = this.myControl.valueChanges.pipe(
       startWith(''),
       map( value => this._filter(value))
     );
   }
-  // Filter must be declared after ngOnInit().
-  private _filter(value: string): string[] {
+
+  private _filter(value: string) {
     const filterValue = value.toLowerCase();
-    return this.options.filter( options =>
+    return this.nombresC.filter( options =>
       options.toLowerCase().includes(filterValue)
     );
   }
+
   ngOnDestroy() {
     if (this.subs) {
       this.subs.unsubscribe();
@@ -67,4 +75,15 @@ export class AutocompleteComponent implements OnInit, OnDestroy {
       err => console.log(err)
     )
   }
+
+  unirNombres(
+    nombres: string[],
+    apellidos: string[],
+    nombresC: string[]
+  ){
+    for (let i = 0; i < nombres.length; i++) {
+      nombresC[i] = `${nombres[i]} ${apellidos[i]}`
+    }
+  }
+
 }

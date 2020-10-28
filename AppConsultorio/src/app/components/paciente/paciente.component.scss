@@ -1,9 +1,5 @@
 .container {
   padding: 6% 8%;
-/*
-  display: grid;
-  grid-template-columns: repeat(4, 1fr);
-  gap: 2.5em; */
 
   display: flex;
   justify-content: space-evenly; //space-between is an option

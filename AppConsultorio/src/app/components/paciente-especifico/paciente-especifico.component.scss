@@ -1,0 +1,161 @@
+//varibles
+$RosaP: #fce0e3;
+$Cafe: #816a63;
+
+
+.container {
+  color: $Cafe;
+  height: 92.5vh;
+
+  display: flex;
+  flex-direction: column;
+
+  .header{
+
+    display: flex;
+    align-content: center;
+
+    h1 {
+      font-size: 4em;
+      margin: 1em 0em 1em 1em;
+      display: flex;
+      justify-content: flex-start;
+    }
+
+    .icons{
+      height: fit-content;
+      width: 15em;
+
+      display: flex;
+      align-self: center;
+      justify-content: space-evenly;
+
+      mat-icon{
+        height: fit-content;
+        width: fit-content;
+        font-size: 3em;
+        cursor: pointer;
+      }
+    }
+  }
+
+  .content {
+    height: 65vh;
+    padding-bottom: 2em;
+    margin: 0em 8%;
+
+    display: grid;
+    grid-template-columns: repeat(10, 1fr);
+    grid-template-rows: repeat(10, 1fr);
+
+    .antecedentes,
+    .gineco,
+    .info {
+      padding: 0em 2em;
+      background-color: $RosaP;
+      border-radius: 4px;
+      box-shadow: 0px 2px 1px -1px rgba(0, 0, 0, 0.2), 0px 1px 1px 0px rgba(0, 0, 0, 0.14), 0px 1px 3px 0px rgba(0, 0, 0, 0.12);
+    }
+
+    .antecedentes {
+      width: 90%;
+      padding: 1em;
+
+      display: flex;
+      flex-direction: column;
+
+      grid-column: 1 / 6;
+      grid-row: 1 / 8;
+
+      article {
+        padding-left: 1em;
+        height: 50%;
+        p {
+          width: 85%;
+        }
+      }
+    }
+
+    .gineco{
+
+      grid-column: 6 / 11;
+      grid-row: 1 / 8;
+
+      display: flex;
+      justify-content: space-between;
+
+      .tabla {
+        height: 100%;
+
+        tr {
+          th {
+            text-align: left;
+
+            &:last-child {
+              padding-left: 0em;
+              text-align: center;
+              font-size: 1.4em;
+            }
+          }
+
+          td {
+            text-align: center;
+            padding: 0em;
+            margin: 0em;
+          }
+        }
+      }
+
+      .column {
+        padding: 1em 0em;
+        width: 60%;
+
+        display: flex;
+        flex-direction: column;
+
+        article{
+          height: 50%;
+        }
+      }
+
+    }
+
+    .footer {
+      grid-row: 9 / 11;
+      grid-column: 1 / 11;
+
+      display: flex;
+      justify-content: space-between;
+
+      .info {
+        width: 30%;
+
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+
+        h2{
+          margin-bottom: 0em;
+        }
+
+        div {
+          display: flex;
+          flex-direction: row;
+          justify-content: space-between;
+
+          span {
+            width: 50%;
+
+            &:last-child {
+              text-align: right;
+            }
+          }
+        }
+      }
+
+      button {
+        height: 4em;
+      }
+    }
+  }
+}

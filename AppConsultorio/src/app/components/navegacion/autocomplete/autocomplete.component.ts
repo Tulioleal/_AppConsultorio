@@ -47,7 +47,7 @@ export class AutocompleteComponent implements OnInit {
         },
         err => console.log(err)
       )
-      );
+    );
     this.filteredOptions = this.myControl.valueChanges.pipe(
       startWith(''),
       map( value => this._filter(value))
@@ -65,6 +65,15 @@ export class AutocompleteComponent implements OnInit {
     if (this.subs) {
       this.subs.unsubscribe();
     }
+  }
+
+  getPacientes(){
+    this.pacienteService.getPacientes().subscribe(
+      res => {
+        this.pacienteService.pacientes = res
+      },
+      err => console.log(err)
+    )
   }
 
   getPaciente(id: string){

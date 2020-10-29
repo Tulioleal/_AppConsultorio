@@ -5,6 +5,7 @@ $titulo: 1.2em;
 
 .container {
   font-size: $titulo;
+  cursor: default;
 
   margin: 0em 2em;
 
@@ -24,7 +25,6 @@ $titulo: 1.2em;
 
       b:hover{
         text-decoration: underline;
-        cursor: default;
       }
     }
   }
@@ -45,9 +45,6 @@ $titulo: 1.2em;
       border-radius: 5em;
       border-collapse: collapse;
       border-radius: 1em;
-
-      tr{
-      }
 
       tr:nth-child(odd) {
         background-color: #f49b9f;
@@ -104,6 +101,7 @@ $titulo: 1.2em;
 
       .section:hover{
         background-color: #fcc5ca7e;
+        transition: .5s all ease;
       }
     }
   }

@@ -27,58 +27,61 @@
     </section>
 
     <div class="gineco">
+      <h2>Antecedentes Ginecológicos</h2>
 
-      <table class="tabla">
-        <tbody>
-          <tr>
-            <th>Gestas:</th>
-            <td>{{pacienteService.selectedPaciente.ginecoGestas}}</td>
-          </tr>
-          <tr>
-            <th>Paras:</th>
-            <td>{{pacienteService.selectedPaciente.ginecoParas}}</td>
-          </tr>
-          <tr>
-            <th>Abortos:</th>
-            <td>{{pacienteService.selectedPaciente.ginecoAbortos}}</td>
-          </tr>
-          <tr>
-            <th>Cesareas:</th>
-            <td>{{pacienteService.selectedPaciente.ginecoCesareas}}</td>
-          </tr>
-          <tr>
-            <th>Otros:</th>
-            <td>{{pacienteService.selectedPaciente.ginecoOtros}}</td>
-          </tr>
-          <tr>
-            <th>Menopausia:</th>
-            <td>{{pacienteService.selectedPaciente.ginecoMenopausia}}</td>
-          </tr>
-          <tr>
-            <th colspan="2" class="menorrea">
-            <div *ngIf="pacienteService.selectedPaciente.ginecoMenorrea">
-              <span><b>Eumenorreica</b></span>
-            </div>
-            <div *ngIf="!pacienteService.selectedPaciente.ginecoMenorrea">
-              <span><b>Dismenorreica</b></span>
-            </div>
-            </th>
-          </tr>
-        </tbody>
-      </table>
+      <div class="ginecoContent">
+        <table class="tabla">
+          <tbody>
+            <tr>
+              <th>Gestas:</th>
+              <td>{{pacienteService.selectedPaciente.ginecoGestas}}</td>
+            </tr>
+            <tr>
+              <th>Paras:</th>
+              <td>{{pacienteService.selectedPaciente.ginecoParas}}</td>
+            </tr>
+            <tr>
+              <th>Abortos:</th>
+              <td>{{pacienteService.selectedPaciente.ginecoAbortos}}</td>
+            </tr>
+            <tr>
+              <th>Cesareas:</th>
+              <td>{{pacienteService.selectedPaciente.ginecoCesareas}}</td>
+            </tr>
+            <tr>
+              <th>Otros:</th>
+              <td>{{pacienteService.selectedPaciente.ginecoOtros}}</td>
+            </tr>
+            <tr>
+              <th>Menopausia:</th>
+              <td>{{pacienteService.selectedPaciente.ginecoMenopausia}}</td>
+            </tr>
+            <tr>
+              <th colspan="2" class="menorrea">
+                <div *ngIf="pacienteService.selectedPaciente.ginecoMenorrea">
+                  <span><b>Eumenorreica</b></span>
+                </div>
+                <div *ngIf="!pacienteService.selectedPaciente.ginecoMenorrea">
+                  <span><b>Dismenorreica</b></span>
+                </div>
+              </th>
+            </tr>
+          </tbody>
+        </table>
 
-    <section class="column">
-      <article>
-        <h2>Método</h2>
-        <p>{{pacienteService.selectedPaciente.ginecoMetodo}}</p>
-      </article>
-      <article>
-        <h2>Terapia de reeplazo hormonal</h2>
-        <p>{{pacienteService.selectedPaciente.ginecoTRH}}</p>
-      </article>
-    </section>
+        <section class="column">
+          <article>
+            <h3>Método</h3>
+            <p>{{pacienteService.selectedPaciente.ginecoMetodo}}</p>
+          </article>
+          <article>
+            <h3>Terapia de reeplazo hormonal</h3>
+            <p>{{pacienteService.selectedPaciente.ginecoTRH}}</p>
+          </article>
+        </section>
 
-  </div>
+      </div>
+    </div>
 
     <div class="footer">
 

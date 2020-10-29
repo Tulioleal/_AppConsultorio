@@ -1,6 +1,7 @@
 //varibles
 $RosaP: #fce0e3;
 $Cafe: #816a63;
+$RosaF: #f49b9f;
 
 
 .container {
@@ -9,6 +10,10 @@ $Cafe: #816a63;
 
   display: flex;
   flex-direction: column;
+
+  p{
+    overflow: visible;
+  }
 
   .header{
 
@@ -20,6 +25,7 @@ $Cafe: #816a63;
       margin: 1em 0em 1em 1em;
       display: flex;
       justify-content: flex-start;
+      cursor: default;
     }
 
     .icons{
@@ -55,6 +61,7 @@ $Cafe: #816a63;
       background-color: $RosaP;
       border-radius: 4px;
       box-shadow: 0px 2px 1px -1px rgba(0, 0, 0, 0.2), 0px 1px 1px 0px rgba(0, 0, 0, 0.14), 0px 1px 3px 0px rgba(0, 0, 0, 0.12);
+      cursor: default;
     }
 
     .antecedentes {
@@ -73,51 +80,100 @@ $Cafe: #816a63;
         p {
           width: 85%;
         }
+
+        &:hover{
+          h2{
+            text-decoration: underline;
+          }
+        }
       }
     }
 
     .gineco{
+      padding-top: 1em;
+      padding-bottom: 1em;
 
       grid-column: 6 / 11;
       grid-row: 1 / 8;
 
       display: flex;
+      flex-direction: column;
       justify-content: space-between;
 
-      .tabla {
-        height: 100%;
+      h2{
+        height: fit-content;
+      }
 
-        tr {
-          th {
-            text-align: left;
+      .ginecoContent{
+        height: 85%;
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
 
-            &:last-child {
-              padding-left: 0em;
-              text-align: center;
-              font-size: 1.4em;
+        .tabla {
+          height: 100%;
+          width: 10.5em;
+          border-collapse: collapse;
+
+          tr {
+            transition: .5s all ease;
+
+            th {
+              width: 70%;
+              text-align: left;
+              padding-left: 1em;
+
+              &:last-child {
+                padding-left: 0em;
+                text-align: center;
+                font-size: 1.4em;
+              }
+            }
+
+            td {
+              width: 30%;
+              text-align: right;
+              padding-right: 1em;
+              margin: 0em;
+            }
+
+            &:hover{
+              background-color: $RosaF;
+            }
+
+            &:last-child{
+              border: none;
             }
           }
+        }
 
-          td {
-            text-align: center;
-            padding: 0em;
-            margin: 0em;
+        .column {
+          width: 60%;
+
+          display: flex;
+          flex-direction: column;
+          justify-content: space-between;
+
+          article{
+            height: 49%;
+
+            h3{
+              font-weight: 500;
+            }
+
+            &:hover{
+              h3{
+                text-decoration: underline;
+              }
+            }
           }
         }
       }
-
-      .column {
-        padding: 1em 0em;
-        width: 60%;
-
-        display: flex;
-        flex-direction: column;
-
-        article{
-          height: 50%;
+      &:hover{
+        h2{
+          text-decoration: underline;
         }
       }
-
     }
 
     .footer {
@@ -151,10 +207,17 @@ $Cafe: #816a63;
             }
           }
         }
+
+        &:hover{
+          h2{
+            text-decoration: underline;
+          }
+        }
       }
 
       button {
         height: 4em;
+        align-self: center;
       }
     }
   }

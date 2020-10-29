@@ -6,9 +6,23 @@
 
     </h1>
     <div class="icons">
-      <mat-icon color='accent'>edit</mat-icon>
-      <mat-icon color='warn'>delete</mat-icon>
-      <mat-icon color='primary'>post_add</mat-icon>
+      <mat-icon
+        routerLink="/pacientes/edit"
+        color='accent'
+      >
+        edit
+      </mat-icon>
+      <mat-icon
+        color='warn'
+        (click)='openDelete(pacienteService.selectedPaciente._id)'
+      >
+        delete
+      </mat-icon>
+      <mat-icon
+        color='primary'
+      >
+        post_add
+      </mat-icon>
     </div>
 
   </div>
@@ -57,7 +71,10 @@
               <td>{{pacienteService.selectedPaciente.ginecoMenopausia}}</td>
             </tr>
             <tr>
-              <th colspan="2" class="menorrea">
+              <th
+                colspan="2"
+                class="menorrea"
+              >
                 <div *ngIf="pacienteService.selectedPaciente.ginecoMenorrea">
                   <span><b>Eumenorreica</b></span>
                 </div>

@@ -1,8 +1,12 @@
 import { Component, OnInit } from '@angular/core';
-// import { Paciente } from '../../models/paciente'
+import { Paciente } from 'src/app/models/paciente';
+
+//Components
+import { DeletePacienteComponent } from '../modals/delete-paciente/delete-paciente.component';
 
 //Services
 import { PacienteService } from 'src/app/services/paciente.service';
+import { MatDialog, MatDialogConfig } from '@angular/material/dialog';
 
 @Component({
   selector: 'app-paciente-especifico',
@@ -16,9 +20,23 @@ export class PacienteEspecificoComponent implements OnInit {
 
   constructor(
     public pacienteService: PacienteService,
-    ) { }
+    public dialog: MatDialog,
+  ) { }
 
     ngOnInit(): void {
+    }
+
+    editPaciente(paciente: Paciente) {
+      this.pacienteService.selectedPaciente = paciente;
+    }
+
+    openDelete(id: string) {
+      const dialogConfig = new MatDialogConfig();
+      dialogConfig.autoFocus = false;
+      dialogConfig.width = '35%';
+      dialogConfig.height = '30%';
+      dialogConfig.data = { id: id };
+      this.dialog.open(DeletePacienteComponent, dialogConfig);
     }
 
 }

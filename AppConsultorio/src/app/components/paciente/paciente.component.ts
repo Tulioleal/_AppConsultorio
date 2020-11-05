@@ -40,6 +40,15 @@ export class PacienteComponent implements OnInit {
     );
   }
 
+  getPaciente(id: string){
+    this.pacienteService.getpaciente(id).subscribe(
+      res => {
+        this.pacienteService.selectedPaciente = res;
+      },
+      err => console.log(err)
+    )
+  }
+
   editPaciente(paciente: Paciente) {
     this.pacienteService.selectedPaciente = paciente;
   }

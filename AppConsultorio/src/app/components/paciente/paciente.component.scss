@@ -26,6 +26,11 @@
         display: flex;
         justify-content: flex-start;
 
+        &:hover{
+          color: gray;
+          cursor: pointer;
+        }
+
       }
     }
 

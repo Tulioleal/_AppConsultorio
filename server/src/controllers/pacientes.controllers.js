@@ -10,23 +10,29 @@ pacienteCntrl.getPacientes = async (req, res) => {
 pacienteCntrl.createPacientes = async (req, res) => {
     const newPaciente = new Paciente(req.body)
     await newPaciente.save()
-    res.send({ message : 'Paciente created' })
+    res.send({
+        message: 'Paciente created'
+    })
 }
 
 pacienteCntrl.getSpecificPacientes = async (req, res) => {
     console.log(req.params)
-    const paciente = await Paciente.findById( req.params.id )
+    await Paciente.findById(req.params.id)
     res.send(paciente)
 }
 
 pacienteCntrl.updatePacientes = async (req, res) => {
-    const paciente = await Paciente.findByIdAndUpdate( req.params.id , req.body)
-    res.json({ message : 'update paciente' })
+    await Paciente.findByIdAndUpdate(req.params.id, req.body)
+    res.json({
+        message: 'Paciente updated'
+    })
 }
 
 pacienteCntrl.deletePacientes = async (req, res) => {
-    const paciente = await Paciente.findByIdAndDelete(req.params.id)
-    res.json({ status : 'paciente deleted' })
+    await Paciente.findByIdAndDelete(req.params.id)
+    res.json({
+        status: 'Paciente deleted'
+    })
 }
 
 

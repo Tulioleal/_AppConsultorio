@@ -1,12 +1,9 @@
 const { Router } = require('express');
-const express = require('express');
 const pacienteCntrl = require('../controllers/pacientes.controllers');
 const router = Router()
 
 
-const pacientesCntrl = require('../controllers/pacientes.controllers');
-
-router.get('/', pacientesCntrl.getPacientes)
+router.get('/', pacienteCntrl.getPacientes)
 
 router.post('/', pacienteCntrl.createPacientes)
 

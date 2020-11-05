@@ -12,6 +12,11 @@ app.use(morgan('dev'))
 app.use(express.json())
 app.use(express.urlencoded({ extended: false }))
 
+//Pacientes
 app.use('/api/pacientes', require('./routes/pacientes.routes'))
+//CitasGineco
+app.use('/api/citasGineco', require('./routes/citaGineco.routes'))
+//CitasObst
+app.use('/api/citasObst', require('./routes/citaObst.routes'))
 
 module.exports = app

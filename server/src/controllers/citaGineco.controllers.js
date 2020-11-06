@@ -17,8 +17,8 @@ citaGinecoCntrl.createCitaGineco = async (req, res) => {
 
 citaGinecoCntrl.getSpecificCitaGineco = async (req, res) => {
     console.log(req.params)
-    await CitaGineco.findById(req.params.id)
-    res.send(citaGineco)
+    const cita = await CitaGineco.findById(req.params.id)
+    res.send(cita)
 }
 
 citaGinecoCntrl.updateCitaGineco = async (req, res) => {

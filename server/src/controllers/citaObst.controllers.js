@@ -17,8 +17,8 @@ citaObstCntrl.createCitaObst = async (req, res) => {
 
 citaObstCntrl.getSpecificCitaObst = async (req, res) => {
     console.log(req.params)
-    await CitaObst.findById(req.params.id)
-    res
+    const cita = await CitaObst.findById(req.params.id)
+    res.send(cita)
 }
 
 citaObstCntrl.updateCitaObst = async (req, res) => {

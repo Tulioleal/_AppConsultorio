@@ -17,7 +17,7 @@ pacienteCntrl.createPacientes = async (req, res) => {
 
 pacienteCntrl.getSpecificPacientes = async (req, res) => {
     console.log(req.params)
-    await Paciente.findById(req.params.id)
+    const paciente = await Paciente.findById(req.params.id)
     res.send(paciente)
 }
 

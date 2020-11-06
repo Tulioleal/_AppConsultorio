@@ -13,10 +13,6 @@ const citaObstSchema = new Schema({
         type: String,
         required: true
     },
-    valorConsulta: {
-        type: String,
-        required: true
-    },
     HistEnfEvo: {
         type: String,
         required: true
@@ -38,27 +34,27 @@ const citaObstSchema = new Schema({
         required: true
     },
     semanas: {
-        type: String,
+        type: Number,
         required: true
     },
     diasEmb: {
-        type: String,
+        type: Number,
         required: true
     },
     meses: {
-        type: String,
+        type: Number,
         required: true
     },
     conDias: {
-        type: String,
+        type: Number,
         required: true
     },
     pesoAEmb: {
-        type: String,
+        type: Number,
         required: true
     },
     altura: {
-        type: String,
+        type: Number,
         required: true
     },
     percepFetal: {
@@ -82,11 +78,11 @@ const citaObstSchema = new Schema({
         required: true
     },
     exGenPeso: {
-        type: String,
+        type: Number,
         required: true
     },
     exGenAlt: {
-        type: String,
+        type: Number,
         required: true
     },
     exObsAbdom: {

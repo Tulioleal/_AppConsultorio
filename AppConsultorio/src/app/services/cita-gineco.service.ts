@@ -31,7 +31,7 @@ export class CitaGinecoService {
   constructor( private http: HttpClient ) { }
 
   getCitasGineco(){
-    return this.http.get<CitaGineco>(`${this.URI_API}`)
+    return this.http.get<CitaGineco[]>(`${this.URI_API}`)
   }
 
   getCitaGineco(_id: string){

@@ -45,7 +45,7 @@ export class CitaObstService {
   constructor( private http: HttpClient ) { }
 
   getCitasObst(){
-    return this.http.get<CitaObst>(`${this.URI_API}`)
+    return this.http.get<CitaObst[]>(`${this.URI_API}`)
   }
 
   getCitaObst(_id : string){

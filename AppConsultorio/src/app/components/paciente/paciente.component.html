@@ -10,8 +10,7 @@
       </mat-card-title>
       <button
         mat-icon-button color='primary'
-        routerLink="pacientes/addCita"
-        routerLinkActive="active"
+        (click)='openAddCita( paciente.id )'
       >
         <mat-icon>post_add</mat-icon>
       </button>

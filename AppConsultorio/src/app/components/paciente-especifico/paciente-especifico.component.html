@@ -20,6 +20,7 @@
       </mat-icon>
       <mat-icon
         color='primary'
+        (click)='openAddCita(pacienteService.selectedPaciente._id)'
       >
         post_add
       </mat-icon>
@@ -125,6 +126,7 @@
       <button
       mat-raised-button
       color='link'
+      (click)='openShowPacienteCitas()'
       >
         Lista de citas de {{ pacienteService.selectedPaciente.nombre }}
       </button>

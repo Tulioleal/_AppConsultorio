@@ -3,10 +3,12 @@ import { Paciente } from 'src/app/models/paciente';
 
 //Components
 import { DeletePacienteComponent } from '../modals/delete-paciente/delete-paciente.component';
+import { AddCitaComponent } from '../modals/cita/add-cita/add-cita.component';
 
 //Services
 import { PacienteService } from 'src/app/services/paciente.service';
 import { MatDialog, MatDialogConfig } from '@angular/material/dialog';
+import { ShowPacienteCitaComponent } from '../modals/cita/show-paciente-cita/show-paciente-cita.component';
 
 @Component({
   selector: 'app-paciente-especifico',
@@ -38,5 +40,25 @@ export class PacienteEspecificoComponent implements OnInit {
       dialogConfig.data = { id: id };
       this.dialog.open(DeletePacienteComponent, dialogConfig);
     }
+
+    openAddCita(id: string) {
+      const dialogConfig = new MatDialogConfig();
+      dialogConfig.autoFocus = false;
+      dialogConfig.width = '30%';
+      dialogConfig.height = '20%';
+      dialogConfig.data = { id: id };
+      this.dialog.open(AddCitaComponent, dialogConfig);
+    }
+
+    openShowPacienteCitas(id: string) {
+      const dialogConfig = new MatDialogConfig();
+      dialogConfig.autoFocus = false;
+      dialogConfig.width = '50%';
+      dialogConfig.height = '50%';
+      dialogConfig.data = { id: id };
+      this.dialog.open(ShowPacienteCitaComponent, dialogConfig);
+    }
+
+
 
 }

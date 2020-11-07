@@ -12,6 +12,7 @@ import { MatDialog, MatDialogConfig } from '@angular/material/dialog';
 //Services
 import { PacienteService } from '../../services/paciente.service';
 import { Paciente } from 'src/app/models/paciente';
+import { AddCitaComponent } from '../modals/cita/add-cita/add-cita.component';
 
 @Component({
   selector: 'app-paciente',
@@ -53,6 +54,8 @@ export class PacienteComponent implements OnInit {
     this.pacienteService.selectedPaciente = paciente;
   }
 
+//OPEN MODALS
+
   openAntecedentes(i: number) {
     const dialogConfig = new MatDialogConfig();
     dialogConfig.width = '70%';
@@ -76,5 +79,14 @@ export class PacienteComponent implements OnInit {
     dialogConfig.height = '30%';
     dialogConfig.data = { id: id };
     this.dialog.open(DeletePacienteComponent, dialogConfig);
+  }
+
+  openAddCita(id: string) {
+    const dialogConfig = new MatDialogConfig();
+    dialogConfig.autoFocus = false;
+    dialogConfig.width = '30%';
+    dialogConfig.height = '20%';
+    dialogConfig.data = { id: id };
+    this.dialog.open(AddCitaComponent, dialogConfig);
   }
 }

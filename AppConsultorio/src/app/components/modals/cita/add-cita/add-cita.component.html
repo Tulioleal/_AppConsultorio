@@ -1,0 +1,33 @@
+<div class="container">
+  <div class="header">
+    <h2>Which kind of cita do you want to register?</h2>
+
+    <span
+      mat-dialog-close
+      class="close"
+    >
+
+      <mat-icon color='warn'>cancel</mat-icon>
+
+    </span>
+  </div>
+  <div class="footer">
+    <button
+      mat-flat-button
+      color='primary'
+      mat-dialog-close
+      routerLink="/citas/addCitaObst"
+    >
+      Obst
+    </button>
+
+    <button
+      color='primary'
+      mat-flat-button
+      mat-dialog-close
+      routerLink="/citas/addCitaGineco"
+    >
+      Gineco
+    </button>
+  </div>
+</div>

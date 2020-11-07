@@ -15,6 +15,12 @@
     h2{
       font-size: 1.6em;
     }
+
+    span{
+      mat-icon{
+        cursor: pointer;
+      }
+    }
   }
 
   .content{

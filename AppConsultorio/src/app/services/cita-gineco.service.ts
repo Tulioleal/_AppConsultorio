@@ -13,7 +13,7 @@ export class CitaGinecoService {
     pacienteId: "",
     visita: 1,
     motivo: "",
-    HistEnfEvo: "",
+    histEnfEvo: "",
     genEstado: "",
     genComentarios: "",
     ginecoMamas: "",

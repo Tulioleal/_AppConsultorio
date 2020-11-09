@@ -2,7 +2,7 @@
 
   <div class="header">
 
-    <h1>{{pacienteService.selectedPaciente.nombre}} {{pacienteService.selectedPaciente.apellido}}
+    <h1>{{pacienteService.selectedPaciente.nombre | titlecase}} {{pacienteService.selectedPaciente.apellido | titlecase}}
 
     </h1>
     <div class="icons">
@@ -126,7 +126,7 @@
       <button
       mat-raised-button
       color='link'
-      (click)='openShowPacienteCitas()'
+      (click)='openShowPacienteCitas(pacienteService.selectedPaciente._id)'
       >
         Lista de citas de {{ pacienteService.selectedPaciente.nombre }}
       </button>

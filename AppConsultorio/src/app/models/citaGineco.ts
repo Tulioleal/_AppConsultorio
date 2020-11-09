@@ -2,7 +2,7 @@ export interface CitaGineco {
   pacienteId: string
   visita: Number
   motivo: string
-  HistEnfEvo: string
+  histEnfEvo: string
   genEstado: string
   genComentarios: string
   ginecoMamas: string

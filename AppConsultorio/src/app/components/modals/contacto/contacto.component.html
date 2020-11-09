@@ -9,8 +9,8 @@
       Información de contacto de:
     <br>
       <b>
-        {{ pacienteService.pacientes[data.i].nombre }}
-        {{ pacienteService.pacientes[data.i].apellido }}
+        {{ pacienteService.pacientes[data.i].nombre | titlecase }}
+        {{ pacienteService.pacientes[data.i].apellido | titlecase }}
       </b>
     </h2>
 

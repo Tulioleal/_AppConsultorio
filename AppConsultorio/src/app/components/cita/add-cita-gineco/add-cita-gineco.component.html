@@ -1,1 +1,187 @@
-<p>add-cita-gineco works!</p>
+<form #citaForm="ngForm" (ngSubmit)="addCitaGineco(citaForm)">
+
+  <h2>Información personal</h2>
+
+  <div class="row">
+    <mat-form-field appearance="outline" class="textarea">
+      <mat-label>Motivo de la consulta</mat-label>
+      <textarea
+        matInput
+        class="form-control"
+        name="motivo"
+        rows="2"
+        [(ngModel)]="citaGinecoService.selectedCitaGineco.motivo"
+        required
+      ></textarea>
+    </mat-form-field>
+
+    <div>
+<!--       aqui va el numero de cita -->
+    </div>
+  </div>
+
+  <div class="row">
+
+    <mat-form-field appearance="outline" class="textarea">
+      <mat-label>Historia de la enfermedad / Evolución</mat-label>
+      <textarea
+        matInput
+        class="form-control"
+        name="histEnfEvo"
+        rows="3"
+        [(ngModel)]="citaGinecoService.selectedCitaGineco.histEnfEvo"
+        required
+      ></textarea>
+    </mat-form-field>
+
+    <div class="column">
+
+      <h3>Examen General</h3>
+
+      <div>
+        <mat-form-field appearance="outline" class="textarea">
+          <mat-label>Estado General</mat-label>
+          <textarea
+            matInput
+            class="form-control"
+            name="genEstado"
+            rows="3"
+            [(ngModel)]="citaGinecoService.selectedCitaGineco.genEstado"
+            required
+          ></textarea>
+        </mat-form-field>
+
+        <mat-form-field appearance="outline" class="textarea">
+          <mat-label>Comentarios</mat-label>
+          <textarea
+            matInput
+            class="form-control"
+            name="genComentarios"
+            rows="3"
+            [(ngModel)]="citaGinecoService.selectedCitaGineco.genComentarios"
+            required
+          ></textarea>
+        </mat-form-field>
+      </div>
+
+    </div>
+
+  </div>
+
+  <h2>Examen Ginecológico</h2>
+
+  <div class="row">
+
+    <mat-form-field appearance="outline" class="textarea">
+      <mat-label>Genitales</mat-label>
+      <textarea
+        matInput
+        class="form-control"
+        name="ginecoGen"
+        rows="4"
+        [(ngModel)]="citaGinecoService.selectedCitaGineco.ginecoGen"
+        required
+      ></textarea>
+    </mat-form-field>
+
+    <mat-form-field appearance="outline" class="textarea">
+      <mat-label>Genitales exterior</mat-label>
+      <textarea
+        matInput
+        class="form-control"
+        name="ginecoGenExt"
+        rows="4"
+        [(ngModel)]="citaGinecoService.selectedCitaGineco.ginecoGenExt"
+        required
+      ></textarea>
+    </mat-form-field>
+
+  </div>
+
+  <div class="row">
+
+    <mat-form-field appearance="outline" class="textarea">
+      <mat-label>Mamas</mat-label>
+      <textarea
+        matInput
+        class="form-control"
+        name="ginecoMamas"
+        rows="4"
+        [(ngModel)]="citaGinecoService.selectedCitaGineco.ginecoMamas"
+        required
+      ></textarea>
+    </mat-form-field>
+
+    <mat-form-field appearance="outline" class="textarea">
+      <mat-label>Cervix</mat-label>
+      <textarea
+        matInput
+        class="form-control"
+        name="ginecoCervix"
+        rows="4"
+        [(ngModel)]="citaGinecoService.selectedCitaGineco.ginecoCervix"
+        required
+      ></textarea>
+    </mat-form-field>
+
+  </div>
+
+  <div class="row">
+
+    <mat-form-field appearance="outline" class="textarea">
+      <mat-label>Útero y Anexos</mat-label>
+      <textarea
+        matInput
+        class="form-control"
+        name="ginecoUtero"
+        rows="4"
+        [(ngModel)]="citaGinecoService.selectedCitaGineco.ginecoUtero"
+        required
+      ></textarea>
+    </mat-form-field>
+
+    <mat-form-field appearance="outline" class="textarea">
+      <mat-label>Impresión clínica</mat-label>
+      <textarea
+        matInput
+        class="form-control"
+        name="ginecoImpClin"
+        rows="4"
+        [(ngModel)]="citaGinecoService.selectedCitaGineco.ginecoImpClin"
+        required
+      ></textarea>
+    </mat-form-field>
+
+    <mat-form-field appearance="outline" class="textarea">
+      <mat-label>Colposcopia</mat-label>
+      <textarea
+        matInput
+        class="form-control"
+        name="ginecoColpos"
+        rows="4"
+        [(ngModel)]="citaGinecoService.selectedCitaGineco.ginecoColpos"
+        required
+      ></textarea>
+    </mat-form-field>
+
+  </div>
+
+  <div class="row">
+
+    <button
+      mat-flat-button color='primary'
+      type="submit"
+      [disabled]="!citaForm.valid"
+    >
+      Ingresar Cita
+    </button>
+
+    <div *ngIf="!citaForm.valid">
+      <mat-card class="error">
+        Por favor verifica que todos los campos requeridos estén completos
+      </mat-card>
+    </div>
+  </div>
+
+</form>
+

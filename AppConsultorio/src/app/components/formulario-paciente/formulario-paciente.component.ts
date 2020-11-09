@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { NgForm } from '@angular/forms'
 import { MatSnackBar } from '@angular/material/snack-bar';
+
+//SERVICE
 import { PacienteService } from 'src/app/services/paciente.service';
 
 @Component({
@@ -10,15 +12,12 @@ import { PacienteService } from 'src/app/services/paciente.service';
 })
 export class FormularioPacienteComponent implements OnInit {
 
-  constructor(public pacienteService: PacienteService, private snackbar: MatSnackBar) { }
+  constructor(
+    public pacienteService: PacienteService,
+    private snackbar: MatSnackBar
+  ) { }
 
   ngOnInit(): void {
-  }
-
-  openSnackBar() {
-    this.snackbar.open('Paciente Ingresada', 'Cerrar', {
-      duration: 2000
-    })
   }
 
   addPaciente(form: NgForm) {
@@ -31,5 +30,11 @@ export class FormularioPacienteComponent implements OnInit {
         console.log(err)
       }
     )
+  }
+
+  openSnackBar() {
+    this.snackbar.open('Paciente Created', 'Cerrar', {
+      duration: 2000
+    })
   }
 }

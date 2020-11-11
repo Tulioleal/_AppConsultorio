@@ -1,0 +1,55 @@
+form{
+  margin: 5% 12%;
+
+  .row{
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+
+    .column{
+      width: 35%;
+      div{
+        display: flex;
+        flex-direction: column;
+      }
+    }
+
+    .motivo{
+      width: 80%;
+    }
+
+    .numero{
+      height: 5em;
+      border: 1px solid black;
+      width: 15%;
+    }
+
+    .textarea-1{
+      margin-top: 2em;
+      width: 55%;
+    }
+
+    .textarea-2{
+      width: 45%;
+    }
+
+    .textarea-3{
+      width: 28%;
+    }
+
+  }
+
+  mat-divider{
+    margin: 2em 0em 2em 0em;
+  }
+
+  .footer{
+    margin-top: 2em;
+
+    .error{
+      color: white;
+      width: fit-content;
+      background-color: #f44336;
+    }
+  }
+}

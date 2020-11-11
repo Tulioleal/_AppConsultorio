@@ -1,0 +1,98 @@
+form {
+  margin: 5% 12%;
+
+  .row {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+
+    .textarea-1, .motivo {
+      width: 72.5%;
+      align-self: center;
+    }
+
+    .textarea-2{
+      width: 45%;
+      align-self: stretch;
+    }
+
+    .resultados{
+      background-color: yellow;
+
+    }
+
+
+
+    .column {
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+
+      .date, .input {
+        width: 100%;
+      }
+
+      .date{
+        align-self: flex-end;
+      }
+    }
+  }
+
+  .col {
+    flex-direction: column;
+
+    .row {
+      justify-content: space-between;
+
+      .textarea-1 {
+        width: 65%;
+      }
+
+      .column, mat-form-field {
+        width: 30%;
+
+        flex-direction: row;
+        flex-wrap: wrap;
+        align-self: center;
+      }
+    }
+
+    &:nth-child(9) {
+      .row {
+        .column:nth-child(2) {
+          flex-direction: column;
+
+          mat-form-field {
+            width: 100%;
+          }
+        }
+      }
+    }
+  }
+
+  .footer {
+    margin-top: 5em;
+
+    .error {
+      color: white;
+      width: fit-content;
+      background-color: #f44336;
+    }
+  }
+
+  h2 {
+    margin-top: 1.5em;
+  }
+
+  .textarea-3 {
+    width: 30%;
+  }
+
+  .numero{
+    align-self: center;
+  }
+
+  .input, .resultados, .column, .numero{
+    width: 17.4%;
+  }
+}

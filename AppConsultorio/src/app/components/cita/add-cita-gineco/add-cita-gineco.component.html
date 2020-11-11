@@ -1,9 +1,9 @@
 <form #citaForm="ngForm" (ngSubmit)="addCitaGineco(citaForm)">
 
-  <h2>Información personal</h2>
+  <h1>Gita Ginecológica</h1>
 
   <div class="row">
-    <mat-form-field appearance="outline" class="textarea">
+    <mat-form-field appearance="outline" class="motivo">
       <mat-label>Motivo de la consulta</mat-label>
       <textarea
         matInput
@@ -15,20 +15,36 @@
       ></textarea>
     </mat-form-field>
 
-    <div>
-<!--       aqui va el numero de cita -->
-    </div>
+    <mat-form-field appearance="outline" class="numero">
+      <mat-label>Visita número</mat-label>
+      <input
+        matInput
+        class="form-control"
+        name="visita"
+        value="{{ numeroCita }}"
+        [(ngModel)]="citaGinecoService.selectedCitaGineco.visita"
+        required
+        disabled
+      >
+    </mat-form-field>
+
   </div>
+
+  <input
+    type="hidden"
+    name='pacienteId'
+    [(ngModel)]="citaGinecoService.selectedCitaGineco.pacienteId"
+  >
 
   <div class="row">
 
-    <mat-form-field appearance="outline" class="textarea">
+    <mat-form-field appearance="outline" class="textarea-1">
       <mat-label>Historia de la enfermedad / Evolución</mat-label>
       <textarea
         matInput
         class="form-control"
         name="histEnfEvo"
-        rows="3"
+        rows="10"
         [(ngModel)]="citaGinecoService.selectedCitaGineco.histEnfEvo"
         required
       ></textarea>
@@ -36,9 +52,10 @@
 
     <div class="column">
 
-      <h3>Examen General</h3>
+      <h2>Examen General</h2>
 
       <div>
+
         <mat-form-field appearance="outline" class="textarea">
           <mat-label>Estado General</mat-label>
           <textarea
@@ -68,11 +85,13 @@
 
   </div>
 
+  <mat-divider></mat-divider>
+
   <h2>Examen Ginecológico</h2>
 
   <div class="row">
 
-    <mat-form-field appearance="outline" class="textarea">
+    <mat-form-field appearance="outline" class="textarea-2">
       <mat-label>Genitales</mat-label>
       <textarea
         matInput
@@ -84,7 +103,7 @@
       ></textarea>
     </mat-form-field>
 
-    <mat-form-field appearance="outline" class="textarea">
+    <mat-form-field appearance="outline" class="textarea-2">
       <mat-label>Genitales exterior</mat-label>
       <textarea
         matInput
@@ -100,7 +119,7 @@
 
   <div class="row">
 
-    <mat-form-field appearance="outline" class="textarea">
+    <mat-form-field appearance="outline" class="textarea-2">
       <mat-label>Mamas</mat-label>
       <textarea
         matInput
@@ -112,7 +131,7 @@
       ></textarea>
     </mat-form-field>
 
-    <mat-form-field appearance="outline" class="textarea">
+    <mat-form-field appearance="outline" class="textarea-2">
       <mat-label>Cervix</mat-label>
       <textarea
         matInput
@@ -128,7 +147,7 @@
 
   <div class="row">
 
-    <mat-form-field appearance="outline" class="textarea">
+    <mat-form-field appearance="outline" class="textarea-3">
       <mat-label>Útero y Anexos</mat-label>
       <textarea
         matInput
@@ -140,7 +159,7 @@
       ></textarea>
     </mat-form-field>
 
-    <mat-form-field appearance="outline" class="textarea">
+    <mat-form-field appearance="outline" class="textarea-3">
       <mat-label>Impresión clínica</mat-label>
       <textarea
         matInput
@@ -152,7 +171,7 @@
       ></textarea>
     </mat-form-field>
 
-    <mat-form-field appearance="outline" class="textarea">
+    <mat-form-field appearance="outline" class="textarea-3">
       <mat-label>Colposcopia</mat-label>
       <textarea
         matInput
@@ -166,7 +185,7 @@
 
   </div>
 
-  <div class="row">
+  <div class="row footer">
 
     <button
       mat-flat-button color='primary'

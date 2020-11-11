@@ -18,6 +18,19 @@ export class AddCitaGinecoComponent implements OnInit {
   ) { }
 
   ngOnInit(): void {
+    this.getCitas(this.pacienteId)
+  }
+
+  pacienteId : string = this.citaGinecoService.selectedCitaGineco.pacienteId
+  numeroCita : number
+
+  getCitas(pacienteId : string){
+    this.citaGinecoService.getCitasGineco(pacienteId).subscribe(
+      res=>{
+        this.citaGinecoService.citasGineco = res
+        this.numeroCita = this.citaGinecoService.citasGineco.length + 1
+      }
+    )
   }
 
   addCitaGineco( form : NgForm ){
@@ -33,7 +46,7 @@ export class AddCitaGinecoComponent implements OnInit {
   }
 
   openSnackBar() {
-    this.snackbar.open('Cita Cita Created', 'Cerrar', {
+    this.snackbar.open('Cita Created', 'Cerrar', {
       duration: 2000
     })
   }

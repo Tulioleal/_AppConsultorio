@@ -2,9 +2,10 @@ const { Router } = require('express')
 const citaCntrl = require('../controllers/citaGineco.controllers')
 const router = Router()
 
-router.get('/', citaCntrl.getCitasGineco)
 
 router.post('/', citaCntrl.createCitaGineco)
+
+router.get('/:pacienteId', citaCntrl.getCitasGineco)
 
 router.get('/:id', citaCntrl.getSpecificCitaGineco)
 

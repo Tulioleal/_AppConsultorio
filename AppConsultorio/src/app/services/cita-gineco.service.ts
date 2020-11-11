@@ -30,8 +30,8 @@ export class CitaGinecoService {
 
   constructor( private http: HttpClient ) { }
 
-  getCitasGineco(){
-    return this.http.get<CitaGineco[]>(`${this.URI_API}`)
+  getCitasGineco(pacienteId: string){
+    return this.http.get<CitaGineco[]>(`${this.URI_API}/${pacienteId}`)
   }
 
   getCitaGineco(_id: string){
@@ -48,6 +48,24 @@ export class CitaGinecoService {
 
   deleteCitaGineco( _id: string ){
     return this.http.delete(`${this.URI_API}/${_id}`)
+  }
+
+  clearForm(){
+    this.selectedCitaGineco ={
+      pacienteId: "",
+      visita: 1,
+      motivo: "",
+      histEnfEvo: "",
+      genEstado: "",
+      genComentarios: "",
+      ginecoMamas: "",
+      ginecoGen: "",
+      ginecoGenExt: "",
+      ginecoCervix: "",
+      ginecoUtero: "",
+      ginecoImpClin: "",
+      ginecoColpos: "",
+    }
   }
 
 }

@@ -2,9 +2,10 @@ const { Router } = require('express')
 const citaCntrl = require('../controllers/citaObst.controllers')
 const router = Router()
 
-router.get('/', citaCntrl.getCitasObst)
 
 router.post('/', citaCntrl.createCitaObst)
+
+router.get('/:pacienteId', citaCntrl.getCitasObst)
 
 router.get('/:id', citaCntrl.getSpecificCitaObst)
 

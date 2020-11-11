@@ -3,7 +3,7 @@ const citaObstCntrl = {}
 const CitaObst = require('../models/citaObst')
 
 citaObstCntrl.getCitasObst = async (req, res) => {
-    citas = await CitaObst.find()
+    citas = await CitaObst.find({ pacienteId : req.params.pacienteId })
     res.json(citas)
 }
 

@@ -3,7 +3,7 @@ const citaGinecoCntrl = {}
 const CitaGineco = require('../models/citaGineco')
 
 citaGinecoCntrl.getCitasGineco = async (req, res) => {
-    citas = await CitaGineco.find()
+    citas = await CitaGineco.find({ pacienteId : req.params.pacienteId })
     res.json(citas)
 }
 

@@ -11,26 +11,25 @@ export class CitaObstService {
 
   selectedCitaObst : CitaObst = {
     pacienteId: "",
-    visita: 1,
+    visita: 0,
     motivo: "",
-    HistEnfEvo: "",
-    HistClinPre: "",
+    histEnfAct: "",
     ultMenst: "",
     penMenst: "",
     fechaEmb: "",
-    semanas: 1,
-    diasEmb: 1,
-    meses: 1,
-    conDias: 1,
-    pesoAEmb: 1,
-    altura: 1,
+    semanas: 0,
+    diasEmb: 0,
+    meses: 0,
+    conDias: 0,
+    pesoAEmb: 0,
+    altura: 0,
     percepFetal: "",
     exGenEstadoG: "",
     exGenPA: "",
     exGenPulso: "",
     exGenFR: "",
-    exGenPeso: 1,
-    exGenAlt: 1,
+    exGenPeso: 0,
+    exGenAlt: 0,
     exObsAbdom: "",
     exObsMovFet: "",
     exObsAltUt: "",
@@ -44,8 +43,8 @@ export class CitaObstService {
 
   constructor( private http: HttpClient ) { }
 
-  getCitasObst(){
-    return this.http.get<CitaObst[]>(`${this.URI_API}`)
+  getCitasObst(pacienteId: string){
+    return this.http.get<CitaObst[]>(`${this.URI_API}/${pacienteId}`)
   }
 
   getCitaObst(_id : string){
@@ -62,6 +61,37 @@ export class CitaObstService {
 
   deleteCitaObst( _id: string ){
     return this.http.delete(`${this.URI_API}/${_id}`)
+  }
+
+  clearForm(){
+    this.selectedCitaObst = {
+      pacienteId: "",
+      visita: 0,
+      motivo: "",
+      histEnfAct: "",
+      ultMenst: "",
+      penMenst: "",
+      fechaEmb: "",
+      semanas: 0,
+      diasEmb: 0,
+      meses: 0,
+      conDias: 0,
+      pesoAEmb: 0,
+      altura: 0,
+      percepFetal: "",
+      exGenEstadoG: "",
+      exGenPA: "",
+      exGenPulso: "",
+      exGenFR: "",
+      exGenPeso: 0,
+      exGenAlt: 0,
+      exObsAbdom: "",
+      exObsMovFet: "",
+      exObsAltUt: "",
+      exObsCircunAbdom: "",
+      exObsFCF: "",
+      exGineco: ""
+    }
   }
 
 }

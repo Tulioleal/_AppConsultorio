@@ -5,6 +5,10 @@ const {
 
 const citaObstSchema = new Schema({
 
+    pacienteId:{
+        type: String,
+        required: true
+    },
     visita: {
         type: Number,
         required: true
@@ -13,11 +17,7 @@ const citaObstSchema = new Schema({
         type: String,
         required: true
     },
-    HistEnfEvo: {
-        type: String,
-        required: true
-    },
-    HistClinPre: {
+    histEnfAct: {
         type: String,
         required: true
     },

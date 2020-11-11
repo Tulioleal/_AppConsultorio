@@ -5,6 +5,10 @@ const {
 
 const citaGinecoSchema = new Schema({
 
+    pacienteId:{
+        type: String,
+        required: true
+    },
     visita: {
         type: Number,
         required: true
@@ -13,7 +17,7 @@ const citaGinecoSchema = new Schema({
         type: String,
         required: true
     },
-    HistEnfEvo: {
+    histEnfEvo: {
         type: String,
         required: true
     },

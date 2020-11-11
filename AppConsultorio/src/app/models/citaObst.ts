@@ -3,8 +3,7 @@ export interface CitaObst {
   pacienteId: string
   visita: number
   motivo: string
-  HistEnfEvo: string
-  HistClinPre: string
+  histEnfAct: string
   ultMenst: string
   penMenst: string
   fechaEmb: string

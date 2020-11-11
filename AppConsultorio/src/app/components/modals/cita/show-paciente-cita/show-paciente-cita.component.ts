@@ -18,17 +18,23 @@ export class ShowPacienteCitaComponent implements OnInit {
   ) { }
 
   ngOnInit(): void {
-    this.getCitas()
+    this.getCitas(this.pacienteIdG, this.pacienteIdO)
   }
 
-  getCitas(){
-    this.ginecoService.getCitasGineco().subscribe(
+  pacienteIdG : string = this.ginecoService.selectedCitaGineco.pacienteId
+  pacienteIdO : string = this.obstService.selectedCitaObst.pacienteId
+
+  getCitas(
+    pacienteIdG: string = this.pacienteIdG,
+    pacienteIdO: string = this.pacienteIdO
+  ){
+    this.ginecoService.getCitasGineco(pacienteIdG).subscribe(
       res =>{
         this.ginecoService.citasGineco = res
       },
       err => { console.log(err)}
     )
-    this.obstService.getCitasObst().subscribe(
+    this.obstService.getCitasObst(pacienteIdO).subscribe(
       res => {
         this.obstService.citasObst = res
       },

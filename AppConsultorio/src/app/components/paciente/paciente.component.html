@@ -4,13 +4,13 @@
     <mat-card-header>
       <mat-card-title
         routerLink="/pacientes/especific"
-        (click)="getPaciente(paciente._id)"
+        (click)="getPaciente( paciente._id )"
       >
           {{ paciente.nombreCortado | titlecase }} {{ paciente.apellidoCortado | titlecase }}
       </mat-card-title>
       <button
         mat-icon-button color='primary'
-        (click)='openAddCita( paciente.id )'
+        (click)='openAddCita( paciente._id )'
       >
         <mat-icon>post_add</mat-icon>
       </button>

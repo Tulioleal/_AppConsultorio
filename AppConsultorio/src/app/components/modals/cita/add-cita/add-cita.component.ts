@@ -1,6 +1,10 @@
 import { Component, Inject ,OnInit } from '@angular/core';
 import { MAT_DIALOG_DATA } from '@angular/material/dialog'
 
+//Services
+import { CitaObstService } from '../../../../services/cita-obst.service'
+import { CitaGinecoService } from '../../../../services/cita-gineco.service'
+
 @Component({
   selector: 'app-add-cita',
   templateUrl: './add-cita.component.html',
@@ -9,12 +13,20 @@ import { MAT_DIALOG_DATA } from '@angular/material/dialog'
 export class AddCitaComponent implements OnInit {
 
   constructor(
+    public citaGinecoService : CitaGinecoService,
+    public citaObstService : CitaObstService,
     @Inject(MAT_DIALOG_DATA) public data: any
   ) { }
 
   ngOnInit(): void {
   }
 
+  citaGineco(id: string) {
+    this.citaGinecoService.selectedCitaGineco.pacienteId = id;
+  }
 
+  citaObst(id: string){
+    this.citaObstService.selectedCitaObst.pacienteId = id;
+  }
 
 }

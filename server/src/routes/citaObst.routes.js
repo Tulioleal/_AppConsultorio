@@ -7,7 +7,7 @@ router.post('/', citaCntrl.createCitaObst)
 
 router.get('/:pacienteId', citaCntrl.getCitasObst)
 
-router.get('/:id', citaCntrl.getSpecificCitaObst)
+router.get('/:pacienteId/:id', citaCntrl.getSpecificCitaObst)
 
 router.put('/:id', citaCntrl.updateCitaObst)
 

@@ -34,8 +34,8 @@ export class CitaGinecoService {
     return this.http.get<CitaGineco[]>(`${this.URI_API}/${pacienteId}`)
   }
 
-  getCitaGineco(_id: string){
-    return this.http.get<CitaGineco>(`${this.URI_API}/${_id}`)
+  getCitaGineco(pacienteId: string, _id: string){
+    return this.http.get<CitaGineco>(`${this.URI_API}/${pacienteId}/${_id}`)
   }
 
   createCitaGineco( citaGineco : CitaGineco ){

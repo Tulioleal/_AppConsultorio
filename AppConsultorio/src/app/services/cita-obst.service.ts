@@ -47,8 +47,8 @@ export class CitaObstService {
     return this.http.get<CitaObst[]>(`${this.URI_API}/${pacienteId}`)
   }
 
-  getCitaObst(_id : string){
-    return this.http.get<CitaObst>(`${this.URI_API}/${_id}`)
+  getCitaObst(pacienteId: string, _id : string){
+    return this.http.get<CitaObst>(`${this.URI_API}/${pacienteId}/${_id}`)
   }
 
   createCitaObst( citaObst : CitaObst ){

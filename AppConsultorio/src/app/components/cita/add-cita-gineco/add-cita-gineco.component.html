@@ -1,6 +1,17 @@
 <form #citaForm="ngForm" (ngSubmit)="addCitaGineco(citaForm)">
 
-  <h1>Gita Ginecológica</h1>
+  <input
+    type="hidden"
+    name='visita'
+    [(ngModel)]="citaGinecoService.selectedCitaGineco.visita"
+  >
+  <input
+    type="hidden"
+    name='pacienteId'
+    [(ngModel)]="citaGinecoService.selectedCitaGineco.pacienteId"
+  >
+
+  <h1>Cita Ginecológica</h1>
 
   <div class="row">
     <mat-form-field appearance="outline" class="motivo">
@@ -15,26 +26,12 @@
       ></textarea>
     </mat-form-field>
 
-    <mat-form-field appearance="outline" class="numero">
-      <mat-label>Visita número</mat-label>
-      <input
-        matInput
-        class="form-control"
-        name="visita"
-        value="{{ numeroCita }}"
-        [(ngModel)]="citaGinecoService.selectedCitaGineco.visita"
-        required
-        disabled
-      >
-    </mat-form-field>
+    <div class="numero">
+      <h2>Cita número</h2>
+      {{ numeroCita }}
+    </div>
 
   </div>
-
-  <input
-    type="hidden"
-    name='pacienteId'
-    [(ngModel)]="citaGinecoService.selectedCitaGineco.pacienteId"
-  >
 
   <div class="row">
 

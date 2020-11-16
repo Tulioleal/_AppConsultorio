@@ -33,22 +33,6 @@ const citaObstSchema = new Schema({
         type: String,
         required: true
     },
-    semanas: {
-        type: Number,
-        required: true
-    },
-    diasEmb: {
-        type: Number,
-        required: true
-    },
-    meses: {
-        type: Number,
-        required: true
-    },
-    conDias: {
-        type: Number,
-        required: true
-    },
     pesoAEmb: {
         type: Number,
         required: true

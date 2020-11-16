@@ -7,6 +7,8 @@ citaObstCntrl.getCitasObst = async (req, res) => {
     res.json(citas)
 }
 
+/* find({gesta:{$eql:gesta}}) */
+
 citaObstCntrl.createCitaObst = async (req, res) => {
     const newCitaObst = new CitaObst(req.body)
     await newCitaObst.save()

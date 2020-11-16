@@ -51,6 +51,7 @@
           matInput
           placeholder="MM/DD/YY"
           [matDatepicker]="ultMenst"
+          (change)='compararFechas()'
           [(ngModel)]="citaObstService.selectedCitaObst.ultMenst"
           name="ultMenst"
           required
@@ -79,7 +80,6 @@
           matInput
           placeholder="MM/DD/YY"
           [matDatepicker]="fechaEmb"
-          (change)='compararFechas()'
           [(ngModel)]="citaObstService.selectedCitaObst.fechaEmb"
           name="fechaEmb"
           required
@@ -165,11 +165,14 @@
 
       </div>
 
-      <div class="row">
+      <div
+        *ngIf="semanas && semDias && meses && conDias"
+        class="row"
+      >
         <div class="col">
           <div class="semanas">
             <h2>Semanas</h2>
-            {{ semanas }}
+            {{ semanas }} y {{ semDias }} dias
           </div>
 
           <div class="diasEmb">

@@ -1,9 +1,7 @@
-import { THIS_EXPR } from '@angular/compiler/src/output/output_ast';
 import { stringify } from '@angular/compiler/src/util';
 import { Component, OnInit } from '@angular/core';
 import { NgForm } from '@angular/forms'
 import { MatSnackBar } from '@angular/material/snack-bar'
-import { strict } from 'assert';
 
 //SERVICE
 import { CitaObstService } from '../../../services/cita-obst.service'
@@ -32,6 +30,7 @@ export class AddCitaObstComponent implements OnInit {
   numeroCita : number
   meses: number
   semanas: number
+  semDias: number
   dias: number
   conDias: number
   fProbable : string
@@ -69,14 +68,15 @@ export class AddCitaObstComponent implements OnInit {
     this.meses = Math.floor(dif / 2629800000)
     this.conDias = Math.floor((dif % 2629800000) / 86400000 )
     this.semanas = Math.floor(dif / 604800000 )
+    this.semDias = Math.floor((dif % 604800000 ) / 86400000 )
     this.dias = Math.floor(dif / 86400000 )
-    this.fProbable = stringify(new Date(this.fechaTime + 23668200000))
+    this.fProbable = stringify(new Date(this.fechaTime + 24192000000))
     this.fProbable = this.fProbable.slice(0,15)
   }
 
   defVar(){
     this.fechaAnio = parseInt(this.citaObstService.selectedCitaObst.fechaEmb.toString().slice(11,15))
-    this.fechaTime = Date.parse(this.citaObstService.selectedCitaObst.fechaEmb)
+    this.fechaTime = Date.parse(this.citaObstService.selectedCitaObst.ultMenst)
   }
 
   openSnakbar(){

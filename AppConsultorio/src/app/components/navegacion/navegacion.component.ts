@@ -23,9 +23,7 @@ export class NavegacionComponent implements OnInit {
   ngOnInit(): void {
   }
 
-  clearForm(){
+  clearAll(){
     this.pacienteService.clearForm()
-    this.citaGinecoService.clearForm()
-    this.citaObstService.clearForm()
   }
 }

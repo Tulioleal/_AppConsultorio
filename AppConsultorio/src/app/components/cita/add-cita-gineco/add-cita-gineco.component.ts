@@ -24,15 +24,6 @@ export class AddCitaGinecoComponent implements OnInit {
   pacienteId : string = this.citaGinecoService.selectedCitaGineco.pacienteId
   numeroCita : number
 
-  getCitas(pacienteId : string){
-    this.citaGinecoService.getCitasGineco(pacienteId).subscribe(
-      res=>{
-        this.citaGinecoService.citasGineco = res
-        this.numeroCita = this.citaGinecoService.citasGineco.length + 1
-      }
-    )
-  }
-
   addCitaGineco( form : NgForm ){
     this.citaGinecoService.createCitaGineco(form.value).subscribe(
       res => {
@@ -43,6 +34,20 @@ export class AddCitaGinecoComponent implements OnInit {
         console.log(err)
       }
     )
+  }
+
+  getCitas(pacienteId : string){
+    this.citaGinecoService.getCitasGineco(pacienteId).subscribe(
+      res=>{
+        this.citaGinecoService.citasGineco = res
+        this.getNumeroCita()
+      }
+    )
+  }
+
+  getNumeroCita(){
+    this.numeroCita = this.citaGinecoService.citasGineco.length + 1
+    this.citaGinecoService.selectedCitaGineco.visita = this.numeroCita
   }
 
   openSnackBar() {

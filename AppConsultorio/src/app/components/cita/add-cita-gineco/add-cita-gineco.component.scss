@@ -19,14 +19,25 @@ form{
     }
 
     .numero{
-      height: 5em;
-      border: 1px solid black;
+      font-size: 3em;
+      text-align: center;
+      height: fit-content;
       width: 15%;
+
+      align-self: flex-start;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+
+      h2{
+        height: fit-content;
+        box-sizing: border-box;
+      }
     }
 
     .textarea-1{
-      margin-top: 2em;
       width: 55%;
+      align-self: flex-end;
     }
 
     .textarea-2{

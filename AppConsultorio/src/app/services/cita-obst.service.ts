@@ -17,10 +17,6 @@ export class CitaObstService {
     ultMenst: "",
     penMenst: "",
     fechaEmb: "",
-    semanas: 0,
-    diasEmb: 0,
-    meses: 0,
-    conDias: 0,
     pesoAEmb: 0,
     altura: 0,
     percepFetal: "",
@@ -40,6 +36,9 @@ export class CitaObstService {
 
   citasObst : CitaObst[]
   citaObst : CitaObst
+
+  year: number = new Date().getFullYear()
+  date: number = Date.now()
 
   constructor( private http: HttpClient ) { }
 
@@ -72,10 +71,6 @@ export class CitaObstService {
       ultMenst: "",
       penMenst: "",
       fechaEmb: "",
-      semanas: 0,
-      diasEmb: 0,
-      meses: 0,
-      conDias: 0,
       pesoAEmb: 0,
       altura: 0,
       percepFetal: "",
@@ -93,5 +88,4 @@ export class CitaObstService {
       exGineco: ""
     }
   }
-
 }

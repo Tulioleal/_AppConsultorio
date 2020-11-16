@@ -7,10 +7,6 @@ export interface CitaObst {
   ultMenst: string
   penMenst: string
   fechaEmb: string
-  semanas: number
-  diasEmb: number
-  meses: number
-  conDias: number
   pesoAEmb: number
   altura: number
   percepFetal: string

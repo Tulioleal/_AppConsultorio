@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { PacienteService } from 'src/app/services/paciente.service';
 
 import { CitaGinecoService } from '../../../../services/cita-gineco.service'
 import { CitaObstService } from '../../../../services/cita-obst.service'
@@ -12,29 +13,28 @@ export class ShowPacienteCitaComponent implements OnInit {
 
   constructor(
 
+    public pacienteService : PacienteService,
     public ginecoService : CitaGinecoService,
     public obstService : CitaObstService,
 
   ) { }
 
   ngOnInit(): void {
-    this.getCitas(this.pacienteIdG, this.pacienteIdO)
+    this.getCitas( this.pacienteId )
   }
 
-  pacienteIdG : string = this.ginecoService.selectedCitaGineco.pacienteId
-  pacienteIdO : string = this.obstService.selectedCitaObst.pacienteId
+  pacienteId : string = this.pacienteService.selectedPaciente._id
 
   getCitas(
-    pacienteIdG: string = this.pacienteIdG,
-    pacienteIdO: string = this.pacienteIdO
+    pacienteId: string = this.pacienteId
   ){
-    this.ginecoService.getCitasGineco(pacienteIdG).subscribe(
+    this.ginecoService.getCitasGineco(pacienteId).subscribe(
       res =>{
         this.ginecoService.citasGineco = res
       },
       err => { console.log(err)}
     )
-    this.obstService.getCitasObst(pacienteIdO).subscribe(
+    this.obstService.getCitasObst(pacienteId).subscribe(
       res => {
         this.obstService.citasObst = res
       },

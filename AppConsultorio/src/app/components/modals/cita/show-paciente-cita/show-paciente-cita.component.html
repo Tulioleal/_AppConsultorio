@@ -1,1 +1,21 @@
-<p>show-paciente-cita works!</p>
+<div class="container">
+
+  <table>
+    <thead>
+      <th>Numeros de la cita</th>
+      <th></th>
+      <th></th>
+    </thead>
+    <tr *ngFor="let citaGineco of ginecoService.citasGineco">
+      <td>{{ citaGineco.visita }}</td>
+      <td></td>
+      <td></td>
+    </tr>
+    <tr *ngFor="let citaObst of obstService.citasObst">
+      <td>{{ citaObst.visita }}</td>
+      <td></td>
+      <td></td>
+    </tr>
+  </table>
+
+</div>

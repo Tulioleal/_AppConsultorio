@@ -22,10 +22,12 @@ export class AddCitaComponent implements OnInit {
   }
 
   citaGineco(id: string) {
+    this.citaGinecoService.clearForm()
     this.citaGinecoService.selectedCitaGineco.pacienteId = id;
   }
 
   citaObst(id: string){
+    this.citaObstService.clearForm()
     this.citaObstService.selectedCitaObst.pacienteId = id;
   }
 

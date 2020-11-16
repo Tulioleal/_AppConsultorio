@@ -6,6 +6,25 @@ form {
     display: flex;
     justify-content: space-between;
 
+    .numero{
+      height: 100%;
+      font-size: 3em;
+      text-align: center;
+      height: fit-content;
+      width: 17.5%;
+
+      align-self: flex-start;
+      display: flex;
+      flex-direction: column;
+
+      h2{
+        margin: 0cm;
+        margin-bottom: 1em;
+        height: fit-content;
+        box-sizing: border-box;
+      }
+    }
+
     .textarea-1, .motivo {
       width: 72.5%;
       align-self: center;
@@ -18,10 +37,14 @@ form {
 
     .resultados{
       background-color: yellow;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
 
+      h2, h3{
+        margin: 0cm;
+      }
     }
-
-
 
     .column {
       display: flex;

@@ -1,8 +1,9 @@
 <form #citaForm="ngForm" (ngSubmit)="addCitaObst(citaForm)">
 
-  <h1>Gita Ginecológica</h1>
+  <h1>Gita Obstétrica</h1>
 
   <div class="row">
+
     <mat-form-field appearance="outline" class="motivo">
       <mat-label>Motivo de la consulta</mat-label>
       <textarea
@@ -15,17 +16,10 @@
       ></textarea>
     </mat-form-field>
 
-    <mat-form-field appearance="outline" class="numero">
-      <mat-label>Visita número</mat-label>
-      <input
-        matInput
-        class="form-control"
-        name="visita"
-        value="{{ numeroCita }}"
-        [(ngModel)]="citaObstService.selectedCitaObst.visita"
-        required
-      >
-    </mat-form-field>
+    <div class="numero">
+      <h2>Cita número</h2>
+      {{ numeroCita }}
+    </div>
 
   </div>
 
@@ -85,6 +79,7 @@
           matInput
           placeholder="MM/DD/YY"
           [matDatepicker]="fechaEmb"
+          (change)='compararFechas()'
           [(ngModel)]="citaObstService.selectedCitaObst.fechaEmb"
           name="fechaEmb"
           required
@@ -94,59 +89,6 @@
       </mat-form-field>
 
     </div>
-
-  </div>
-
-  <div class="row">
-
-    <mat-form-field appearance="outline" class="input">
-      <mat-label>Semanas</mat-label>
-      <input
-        matInput
-        type="number"
-        class="form-control"
-        name="semanas"
-        [(ngModel)]="citaObstService.selectedCitaObst.semanas"
-        required
-      >
-    </mat-form-field>
-
-    <mat-form-field appearance="outline" class="input">
-      <mat-label>Dias Embarazada</mat-label>
-      <input
-        matInput
-        type="number"
-        class="form-control"
-        name="diasEmb"
-        [(ngModel)]="citaObstService.selectedCitaObst.diasEmb"
-        required
-      >
-    </mat-form-field>
-
-    <mat-form-field appearance="outline" class="input">
-      <mat-label>Meses</mat-label>
-      <input
-        matInput
-        type="number"
-        class="form-control"
-        name="meses"
-        [(ngModel)]="citaObstService.selectedCitaObst.meses"
-        required
-      >
-    </mat-form-field>
-
-    <mat-form-field appearance="outline" class="input">
-      <mat-label>Con Dias</mat-label>
-      <input
-        matInput
-        type="number"
-        class="form-control"
-        name="conDias"
-        [(ngModel)]="citaObstService.selectedCitaObst.conDias"
-        required
-      >
-    </mat-form-field>
-
   </div>
 
   <div class="row">
@@ -203,8 +145,53 @@
 
     <div class="resultados">
 
-    </div>
+      <div>
 
+        <div class="probable">
+          <h3>Fecha probable de parto</h3>
+          {{ fProbable }}
+        </div>
+
+        <div class="pesoAument">
+          <h3>Aumento de peso</h3>
+          pesoAument
+        </div>
+
+        <div class="numEmb">
+          <h3>Embarazo:</h3>
+          numemb
+        </div>
+
+
+      </div>
+
+      <div class="row">
+        <div class="col">
+          <div class="semanas">
+            <h2>Semanas</h2>
+            {{ semanas }}
+          </div>
+
+          <div class="diasEmb">
+            <h2>diasEmb</h2>
+            {{ dias }}
+          </div>
+        </div>
+
+        <div class="col">
+          <div class="meses">
+            <h2>meses</h2>
+            {{ meses }}
+          </div>
+
+          <div class="conDias">
+            <h2>conDias</h2>
+            {{ conDias }}
+          </div>
+        </div>
+
+      </div>
+    </div>
   </div>
 
   <div class="row col">

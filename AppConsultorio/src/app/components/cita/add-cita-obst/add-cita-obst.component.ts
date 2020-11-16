@@ -1,4 +1,3 @@
-import { stringify } from '@angular/compiler/src/util';
 import { Component, OnInit } from '@angular/core';
 import { NgForm } from '@angular/forms'
 import { MatSnackBar } from '@angular/material/snack-bar'
@@ -25,8 +24,6 @@ export class AddCitaObstComponent implements OnInit {
 
   pacienteId : string = this.citaObstService.selectedCitaObst.pacienteId
   fechaTime : number
-  fechaAnio : number
-
   numeroCita : number
   meses: number
   semanas: number
@@ -34,6 +31,8 @@ export class AddCitaObstComponent implements OnInit {
   dias: number
   conDias: number
   fProbable : string
+  imc1 : number
+  imc2 : number
 
   addCitaObst( form : NgForm ){
     this.citaObstService.createCitaObst(form.value).subscribe(
@@ -62,7 +61,7 @@ export class AddCitaObstComponent implements OnInit {
   }
 
   compararFechas(){
-    this.defVar()
+    this.fechaTime = Date.parse(this.citaObstService.selectedCitaObst.ultMenst)
     let dif : number = this.citaObstService.date - this.fechaTime
 
     this.meses = Math.floor(dif / 2629800000)
@@ -70,13 +69,17 @@ export class AddCitaObstComponent implements OnInit {
     this.semanas = Math.floor(dif / 604800000 )
     this.semDias = Math.floor((dif % 604800000 ) / 86400000 )
     this.dias = Math.floor(dif / 86400000 )
-    this.fProbable = stringify(new Date(this.fechaTime + 24192000000))
+
+    this.fProbable = new Date(this.fechaTime + 24192000000).toString()
     this.fProbable = this.fProbable.slice(0,15)
   }
 
-  defVar(){
-    this.fechaAnio = parseInt(this.citaObstService.selectedCitaObst.fechaEmb.toString().slice(11,15))
-    this.fechaTime = Date.parse(this.citaObstService.selectedCitaObst.ultMenst)
+  imc_1(pesoAntesEmb:number, talla:number){
+    this.imc1 = Math.round(pesoAntesEmb / ((talla / 100) ** 2))
+  }
+
+  imc_2(pesoAntesEmb:number, talla:number){
+    this.imc2 = Math.round(pesoAntesEmb / ((talla / 100) ** 2))
   }
 
   openSnakbar(){

@@ -98,34 +98,37 @@
       <mat-form-field appearance="outline" class="input">
         <mat-label>Peso antes del Embarazo</mat-label>
         <input
-        matInput
-        type="number"
-        class="form-control"
-        name="pesoAEmb"
-        [(ngModel)]="citaObstService.selectedCitaObst.pesoAEmb"
-        required
+          matInput
+          type="number"
+          class="form-control"
+          name="pesoAEmb"
+          (change)='imc_1(citaObstService.selectedCitaObst.pesoAEmb, citaObstService.selectedCitaObst.altura)'
+          [(ngModel)]="citaObstService.selectedCitaObst.pesoAEmb"
+          required
         >
       </mat-form-field>
 
       <mat-form-field appearance="outline" class="input">
         <mat-label>Altura</mat-label>
         <input
-        matInput
-        type="number"
-        class="form-control"
-        name="altura"
-        [(ngModel)]="citaObstService.selectedCitaObst.altura"
-        required
+          matInput
+          type="number"
+          class="form-control"
+          name="altura"
+          (change)='imc_1(citaObstService.selectedCitaObst.pesoAEmb, citaObstService.selectedCitaObst.altura)'
+          [(ngModel)]="citaObstService.selectedCitaObst.altura"
+          required
         >
       </mat-form-field>
 
       <mat-form-field appearance="outline" class="input">
         <mat-label>IMC</mat-label>
         <input
-        matInput
-        type="number"
-        class="form-control"
-        name="IMC"
+          matInput
+          type="number"
+          class="form-control"
+          [value]="imc1"
+          disabled
         >
       </mat-form-field>
 
@@ -260,6 +263,7 @@
           type="number"
           class="form-control"
           name="exGenPeso"
+          (change)='imc_2(citaObstService.selectedCitaObst.exGenPeso, citaObstService.selectedCitaObst.exGenAlt)'
           [(ngModel)]="citaObstService.selectedCitaObst.exGenPeso"
           required
           >
@@ -272,6 +276,7 @@
             type="number"
             class="form-control"
             name="exGenAlt"
+            (change)='imc_2(citaObstService.selectedCitaObst.exGenPeso, citaObstService.selectedCitaObst.exGenAlt)'
             [(ngModel)]="citaObstService.selectedCitaObst.exGenAlt"
             required
           >
@@ -285,6 +290,7 @@
             class="form-control"
             name="IMC"
             disabled
+            [value]='imc2'
           >
         </mat-form-field>
 

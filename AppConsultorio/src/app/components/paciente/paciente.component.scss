@@ -8,6 +8,7 @@
   row-gap: 2.5em;
 
   .mat-card {
+    color: #816a63;
     width: 19%;
     min-width: 17.5em;
     padding: 1.5em;
@@ -27,7 +28,7 @@
         justify-content: flex-start;
 
         &:hover{
-          color: gray;
+          color: #f49b9f;
           cursor: pointer;
         }
 
@@ -46,6 +47,7 @@
 
         span {
           padding-left: .7em;
+          cursor: default;
         }
       }
     }

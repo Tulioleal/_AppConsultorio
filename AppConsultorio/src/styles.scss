@@ -1,9 +1,17 @@
+//varibles
+$BckG : #fcfcfc;
+$RosaP: #fce0e3;
+$Cafe: #816a63;
+$RosaF: #f49b9f;
+
 html,
 body {
   height: 100%;
 }
 
 body {
+  color: $Cafe;
+  background-color: $BckG;
   margin: 0;
   font-family: Roboto, "Helvetica Neue", sans-serif;
 }
@@ -14,5 +22,5 @@ input[type="date"]::-webkit-calendar-picker-indicator {
 }
 
 .mat-dialog-container {
-  background-color: #fcfcfc;
+  background-color: $BckG;
 }

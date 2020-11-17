@@ -1,3 +1,9 @@
+//varibles
+$Gris: #bbb7ae;
+$RosaP: #fce0e3;
+$Cafe: #816a63;
+$RosaF: #f49b9f;
+
 form {
   margin: 5% 12%;
 
@@ -45,14 +51,58 @@ form {
     }
 
     .resultados {
-      background-color: yellow;
+      color: $Cafe;
+      background-color: $RosaP;
+      margin: .25em 0em 1.34375em 0em;
+      border-radius: .4em;
+      border: 1px solid $Gris;
+      filter: opacity(90%);
+
       display: flex;
       flex-direction: column;
-      justify-content: space-between;
+      align-items: center;
 
-      h2,
-      h3 {
-        margin: 0cm;
+      &:hover{
+        filter: opacity(100%);
+      }
+
+      table{
+        padding: 1em 0em;
+        align-self: center;
+
+        th, td{
+          text-align:center;
+        }
+        tr{
+          th::after{
+            content: "";
+            display: block;
+            bottom: 0px;
+            left: 0px;
+            background-color: $RosaF;
+            height: 2px;
+            width: 0%;
+            transition: .8s all ease-out;
+          }
+
+          &:hover{
+            th{
+              &::after{
+                content: "";
+                  width: 100%;
+                  transition: .8s all ease-out;
+              }
+            }
+          }
+
+          &:nth-child(3){
+            padding-top: 1em;
+          }
+        }
+        td:hover{
+          background-color: $RosaF;
+          transition: .8s all ease;
+        }
       }
     }
 
@@ -111,6 +161,10 @@ form {
 
   h2 {
     margin-top: 1.5em;
+  }
+
+  h1, h2, th, td, .error{
+    cursor: default;
   }
 
   .textarea-3 {

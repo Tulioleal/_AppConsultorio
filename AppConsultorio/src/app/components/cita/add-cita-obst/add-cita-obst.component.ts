@@ -23,6 +23,9 @@ export class AddCitaObstComponent implements OnInit {
   }
 
   pacienteId : string = this.citaObstService.selectedCitaObst.pacienteId
+
+  pesoAument: number
+  numEmb : number
   fechaTime : number
   numeroCita : number
   meses: number
@@ -80,6 +83,13 @@ export class AddCitaObstComponent implements OnInit {
 
   imc_2(pesoAntesEmb:number, talla:number){
     this.imc2 = Math.round(pesoAntesEmb / ((talla / 100) ** 2))
+  }
+
+  aumentoPeso(){
+    let peso1 : number = this.citaObstService.selectedCitaObst.pesoAEmb
+    let peso2 : number = this.citaObstService.selectedCitaObst.exGenPeso
+
+    this.pesoAument = peso2 - peso1
   }
 
   openSnakbar(){

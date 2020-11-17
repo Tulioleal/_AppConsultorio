@@ -83,12 +83,6 @@ $RosaF: #f49b9f;
         p {
           width: 85%;
         }
-
-        &:hover{
-          h2{
-            text-decoration: underline;
-          }
-        }
       }
     }
 
@@ -163,18 +157,7 @@ $RosaF: #f49b9f;
             h3{
               font-weight: 500;
             }
-
-            &:hover{
-              h3{
-                text-decoration: underline;
-              }
-            }
           }
-        }
-      }
-      &:hover{
-        h2{
-          text-decoration: underline;
         }
       }
     }
@@ -210,18 +193,33 @@ $RosaF: #f49b9f;
             }
           }
         }
-
-        &:hover{
-          h2{
-            text-decoration: underline;
-          }
-        }
       }
 
       button {
         height: 4em;
         align-self: center;
       }
+    }
+  }
+  h2,h3{
+    width: fit-content;
+    height: 2em;
+
+    &::after{
+      content: "";
+      display: block;
+      background-color: $RosaF;
+      height: 2px;
+      width: 0%;
+      transition: .4s all ease-out;
+    }
+
+    &:hover{
+        &::after{
+          content: "";
+            width: 100%;
+            transition: .8s all ease-out;
+        }
     }
   }
 }

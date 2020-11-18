@@ -2,13 +2,15 @@
 
   <div class="header">
 
-    <h1>{{pacienteService.selectedPaciente.nombre | titlecase}} {{pacienteService.selectedPaciente.apellido | titlecase}}
-
+    <h1>
+      {{pacienteService.selectedPaciente.nombre | titlecase}} {{pacienteService.selectedPaciente.apellido | titlecase}}
     </h1>
+
     <div class="icons">
       <mat-icon
         routerLink="/pacientes/edit"
         color='accent'
+        (click)='editPaciente(pacienteService.selectedPaciente)'
       >
         edit
       </mat-icon>
@@ -20,7 +22,7 @@
       </mat-icon>
       <mat-icon
         color='primary'
-        (click)='openAddCita(pacienteService.selectedPaciente._id)'
+        (click)='openAddCita(pacienteService.selectedPaciente._id, pacienteService.selectedPaciente.ginecoGestas)'
       >
         post_add
       </mat-icon>

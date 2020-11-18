@@ -53,8 +53,8 @@ export class PacienteEspecificoComponent implements OnInit {
     openShowPacienteCitas(id: string) {
       const dialogConfig = new MatDialogConfig();
       dialogConfig.autoFocus = false;
-      dialogConfig.width = '50%';
-      dialogConfig.height = '50%';
+      dialogConfig.width = '60%';
+      dialogConfig.height = '80%';
       dialogConfig.data = { id: id };
       this.dialog.open(ShowPacienteCitaComponent, dialogConfig);
     }

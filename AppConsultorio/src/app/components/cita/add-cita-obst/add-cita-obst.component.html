@@ -1,5 +1,21 @@
 <form #citaForm="ngForm" (ngSubmit)="addCitaObst(citaForm)">
 
+  <input
+    type="hidden"
+    name='visita'
+    [(ngModel)]="citaObstService.selectedCitaObst.visita"
+  >
+  <input
+    type="hidden"
+    name='pacienteId'
+    [(ngModel)]="citaObstService.selectedCitaObst.pacienteId"
+  >
+  <input
+    type="hidden"
+    name='gestas'
+    [(ngModel)]="citaObstService.selectedCitaObst.gestas"
+  >
+
   <h1>Gita Obstétrica</h1>
 
   <div class="row">
@@ -21,13 +37,12 @@
       {{ numeroCita }}
     </div>
 
-  </div>
+    <div class="numero">
+      <h2>Embarazo número</h2>
+      {{ gestas }}
+    </div>
 
-  <input
-    type="hidden"
-    name='pacienteId'
-    [(ngModel)]="citaObstService.selectedCitaObst.pacienteId"
-  >
+  </div>
 
   <div class="row">
 
@@ -165,7 +180,7 @@
             <th>Fecha probable de parto</th>
           </tr>
           <tr>
-            <td>{{ fProbable }}</td>
+            <td>{{ fProbable | date }}</td>
           </tr>
           <tr *ngIf="semanas && semDias && meses && conDias">
             <th>Edad gestacional</th>

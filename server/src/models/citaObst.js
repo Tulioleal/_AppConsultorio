@@ -41,6 +41,10 @@ const citaObstSchema = new Schema({
         type: Number,
         required: true
     },
+    gestas: {
+        type: Number,
+        required: true
+    },
     percepFetal: {
         type: String,
         required: true

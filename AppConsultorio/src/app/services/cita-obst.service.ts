@@ -19,6 +19,7 @@ export class CitaObstService {
     fechaEmb: "",
     pesoAEmb: 0,
     altura: 0,
+    gestas: 0,
     percepFetal: "",
     exGenEstadoG: "",
     exGenPA: "",
@@ -39,6 +40,8 @@ export class CitaObstService {
 
   year: number = new Date().getFullYear()
   date: number = Date.now()
+
+  fProbable: Date
 
   constructor( private http: HttpClient ) { }
 
@@ -62,6 +65,11 @@ export class CitaObstService {
     return this.http.delete(`${this.URI_API}/${_id}`)
   }
 
+  fechaProbable(){
+    let fechaTime: number = Date.parse(this.selectedCitaObst.ultMenst)
+    this.fProbable = new Date(fechaTime + 24192000000)
+  }
+
   clearForm(){
     this.selectedCitaObst = {
       pacienteId: "",
@@ -72,6 +80,7 @@ export class CitaObstService {
       penMenst: "",
       fechaEmb: "",
       pesoAEmb: 0,
+      gestas: 0,
       altura: 0,
       percepFetal: "",
       exGenEstadoG: "",

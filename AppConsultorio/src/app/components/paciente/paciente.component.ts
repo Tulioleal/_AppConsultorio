@@ -81,12 +81,12 @@ export class PacienteComponent implements OnInit {
     this.dialog.open(DeletePacienteComponent, dialogConfig);
   }
 
-  openAddCita(id: string) {
+  openAddCita(id: string, gestas: number) {
     const dialogConfig = new MatDialogConfig();
     dialogConfig.autoFocus = false;
     dialogConfig.width = '30%';
     dialogConfig.height = '20%';
-    dialogConfig.data = { id: id };
+    dialogConfig.data = { id: id, gestas: gestas };
     this.dialog.open(AddCitaComponent, dialogConfig);
   }
 }

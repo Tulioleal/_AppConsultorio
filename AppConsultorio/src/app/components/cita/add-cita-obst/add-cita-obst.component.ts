@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { NgForm } from '@angular/forms'
 import { MatSnackBar } from '@angular/material/snack-bar'
+import { PacienteService } from 'src/app/services/paciente.service';
 
 //SERVICE
 import { CitaObstService } from '../../../services/cita-obst.service'
@@ -14,26 +15,29 @@ export class AddCitaObstComponent implements OnInit {
 
   constructor(
     public citaObstService: CitaObstService,
+    public pacienteService : PacienteService,
     private snackbar : MatSnackBar
 
   ) { }
 
   ngOnInit(): void {
     this.getCitas(this.pacienteId)
+    this.getPaciente(this.pacienteId)
   }
 
   pacienteId : string = this.citaObstService.selectedCitaObst.pacienteId
+  gestas: number = this.citaObstService.selectedCitaObst.gestas
+
 
   pesoAument: number
   numEmb : number
-  fechaTime : number
   numeroCita : number
   meses: number
   semanas: number
   semDias: number
   dias: number
   conDias: number
-  fProbable : string
+  fProbable : Date
   imc1 : number
   imc2 : number
 
@@ -63,9 +67,13 @@ export class AddCitaObstComponent implements OnInit {
     this.citaObstService.selectedCitaObst.visita = this.numeroCita
   }
 
+  getPaciente(id: string){
+    this.pacienteService.getpaciente(id)
+  }
+
   compararFechas(){
-    this.fechaTime = Date.parse(this.citaObstService.selectedCitaObst.ultMenst)
-    let dif : number = this.citaObstService.date - this.fechaTime
+    let fechaTime = Date.parse(this.citaObstService.selectedCitaObst.ultMenst)
+    let dif : number = this.citaObstService.date - fechaTime
 
     this.meses = Math.floor(dif / 2629800000)
     this.conDias = Math.floor((dif % 2629800000) / 86400000 )
@@ -73,8 +81,12 @@ export class AddCitaObstComponent implements OnInit {
     this.semDias = Math.floor((dif % 604800000 ) / 86400000 )
     this.dias = Math.floor(dif / 86400000 )
 
-    this.fProbable = new Date(this.fechaTime + 24192000000).toString()
-    this.fProbable = this.fProbable.slice(0,15)
+    this.fechaProbable()
+  }
+
+  fechaProbable(){
+    this.citaObstService.fechaProbable()
+    this.fProbable = this.citaObstService.fProbable
   }
 
   imc_1(pesoAntesEmb:number, talla:number){

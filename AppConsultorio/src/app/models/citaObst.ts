@@ -9,6 +9,7 @@ export interface CitaObst {
   fechaEmb: string
   pesoAEmb: number
   altura: number
+  gestas: number
   percepFetal: string
   exGenEstadoG: string
   exGenPA: string

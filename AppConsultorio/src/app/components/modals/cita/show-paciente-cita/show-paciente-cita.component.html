@@ -1,20 +1,41 @@
 <div class="container">
 
+  <div class="header">
+    <h2>Resumen de las citas</h2>
+
+    <span
+      mat-dialog-close
+      class="close"
+    >
+      <mat-icon color='warn'>cancel</mat-icon>
+    </span>
+  </div>
+
+  <h3>Citas Ginecológicas</h3>
   <table>
-    <thead>
-      <th>Numeros de la cita</th>
-      <th></th>
-      <th></th>
-    </thead>
+    <tr>
+      <th>Cita N°</th>
+      <th>Motivo de la cita</th>
+      <th>Fecha</th>
+    </tr>
     <tr *ngFor="let citaGineco of ginecoService.citasGineco">
       <td>{{ citaGineco.visita }}</td>
-      <td></td>
-      <td></td>
+      <td>{{ citaGineco.motivo }} </td>
+      <td>{{ citaGineco.createdAt | date }}</td>
+    </tr>
+  </table>
+
+  <h3>Citas Obstétricas</h3>
+  <table>
+    <tr>
+      <th>Cita N°</th>
+      <th>Motivo de la cita</th>
+      <th>Fecha</th>
     </tr>
     <tr *ngFor="let citaObst of obstService.citasObst">
       <td>{{ citaObst.visita }}</td>
-      <td></td>
-      <td></td>
+      <td>{{ citaObst.motivo }} </td>
+      <td>{{ citaObst.createdAt | date }}</td>
     </tr>
   </table>
 

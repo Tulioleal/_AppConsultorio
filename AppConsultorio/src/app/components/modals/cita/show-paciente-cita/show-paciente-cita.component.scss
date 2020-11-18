@@ -1,0 +1,66 @@
+//varibles
+$BckG : #fcfcfc;
+$RosaP: #fce0e3;
+$Cafe: #816a63;
+$RosaF: #f49b9f;
+
+.container{
+  margin: 1em 3em;
+  color: $Cafe;
+
+  .header{
+    margin-bottom: 2em;
+
+    display: flex;
+    justify-content: space-between;
+
+    .close{
+      cursor: pointer;
+    }
+  }
+
+  table{
+    width: 100%;
+    overflow: scroll;
+    margin-bottom: 4em;
+    border-collapse: collapse;
+
+    tr{
+      height: 4em;
+      border-bottom: 1px solid #dddddd;
+
+      th, td{
+        text-align: center;
+      }
+
+      th{
+        font-size: 1.1em;
+      }
+
+      td{
+
+        &:first-child{
+          width: 10%;
+        }
+
+        &:nth-child(2){
+          width: 50%;
+        }
+
+        &:nth-child(3){
+          width: 10%;
+        }
+      }
+
+      &:hover{
+        background-color: $RosaP;
+        transition: .5s all ease;
+        cursor: pointer;
+      }
+
+      &:first-child{
+        cursor: default;
+      }
+    }
+  }
+}

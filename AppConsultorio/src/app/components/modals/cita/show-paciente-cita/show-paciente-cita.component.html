@@ -1,7 +1,7 @@
 <div class="container">
 
   <div class="header">
-    <h2>Resumen de las citas</h2>
+    <h1>Resumen de las citas</h1>
 
     <span
       mat-dialog-close
@@ -11,32 +11,48 @@
     </span>
   </div>
 
-  <h3>Citas Ginecológicas</h3>
-  <table>
-    <tr>
-      <th>Cita N°</th>
-      <th>Motivo de la cita</th>
-      <th>Fecha</th>
-    </tr>
-    <tr *ngFor="let citaGineco of ginecoService.citasGineco">
-      <td>{{ citaGineco.visita }}</td>
-      <td>{{ citaGineco.motivo }} </td>
-      <td>{{ citaGineco.createdAt | date }}</td>
-    </tr>
-  </table>
+  <h2>Citas Ginecológicas</h2>
+  <div *ngIf="ginecoService.citasGineco.length != 0; then siG else no"></div>
 
-  <h3>Citas Obstétricas</h3>
-  <table>
-    <tr>
-      <th>Cita N°</th>
-      <th>Motivo de la cita</th>
-      <th>Fecha</th>
-    </tr>
-    <tr *ngFor="let citaObst of obstService.citasObst">
-      <td>{{ citaObst.visita }}</td>
-      <td>{{ citaObst.motivo }} </td>
-      <td>{{ citaObst.createdAt | date }}</td>
-    </tr>
-  </table>
+  <ng-template #siG>
+
+    <table>
+      <tr>
+        <th>Cita N°</th>
+        <th>Motivo de la cita</th>
+        <th>Fecha</th>
+      </tr>
+      <tr *ngFor="let citaGineco of ginecoService.citasGineco">
+        <td>{{ citaGineco.visita }}</td>
+        <td>{{ citaGineco.motivo }} </td>
+        <td>{{ citaGineco.createdAt | date }}</td>
+      </tr>
+    </table>
+
+  </ng-template>
+
+  <h2>Citas Obstétricas</h2>
+  <div *ngIf="obstService.citasObst.length != 0; then siO else no"></div>
+
+  <ng-template #siO>
+
+    <table>
+      <tr>
+        <th>Cita N°</th>
+        <th>Motivo de la cita</th>
+        <th>Fecha</th>
+      </tr>
+      <tr *ngFor="let citaObst of obstService.citasObst">
+        <td>{{ citaObst.visita }}</td>
+        <td>{{ citaObst.motivo }} </td>
+        <td>{{ citaObst.createdAt | date }}</td>
+      </tr>
+    </table>
+
+  </ng-template>
+
+  <ng-template #no>
+    <h3 class="noExiste">No existen citas de este tipo registradas</h3>
+  </ng-template>
 
 </div>

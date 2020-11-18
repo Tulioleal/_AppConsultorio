@@ -7,9 +7,10 @@ $RosaF: #f49b9f;
 .container{
   margin: 1em 3em;
   color: $Cafe;
+  cursor: default;
 
   .header{
-    margin-bottom: 2em;
+    margin-bottom: 2.5em;
 
     display: flex;
     justify-content: space-between;
@@ -62,5 +63,11 @@ $RosaF: #f49b9f;
         cursor: default;
       }
     }
+  }
+
+  .noExiste{
+    font-size: 1.5em;
+    text-align: center;
+    margin-bottom: 20%;
   }
 }

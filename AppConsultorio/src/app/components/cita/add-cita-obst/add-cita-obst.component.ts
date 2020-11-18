@@ -21,7 +21,7 @@ export class AddCitaObstComponent implements OnInit {
   ) { }
 
   ngOnInit(): void {
-    this.getCitas(this.pacienteId)
+    this.getCitas(this.pacienteId, this.gestas)
     this.getPaciente(this.pacienteId)
   }
 
@@ -53,8 +53,8 @@ export class AddCitaObstComponent implements OnInit {
     )
   }
 
-  getCitas( pacienteId : string){
-    this.citaObstService.getCitasObst(pacienteId).subscribe(
+  getCitas( pacienteId : string, gestas : number){
+    this.citaObstService.getCitasGes(pacienteId, gestas).subscribe(
       res => {
         this.citaObstService.citasObst = res
         this.getNumeroCita()

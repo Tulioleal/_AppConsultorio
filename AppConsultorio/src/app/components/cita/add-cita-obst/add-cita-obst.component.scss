@@ -13,21 +13,28 @@ form {
     display: flex;
     justify-content: space-between;
 
-    .numero {
-      height: 100%;
-      font-size: 3em;
-      height: fit-content;
-      width: 8.5%;
-
-      align-self: flex-start;
+    .numeros{
+      width: 17.4%;
       display: flex;
-      flex-direction: column;
+      justify-content: space-around;
 
-      h2 {
-        margin: 0cm;
-        margin-bottom: 1em;
+      .numero {
+        height: 100%;
+        font-size: 2em;
         height: fit-content;
-        box-sizing: border-box;
+        width: fit-content;
+
+        align-self: flex-start;
+        display: flex;
+        flex-direction: column;
+
+        h2 {
+          font-size: .7em;
+          margin: 0cm;
+          margin-bottom: 1em;
+          height: fit-content;
+          box-sizing: border-box;
+        }
       }
     }
 
@@ -77,8 +84,6 @@ form {
           th::after{
             content: "";
             display: block;
-            bottom: 0px;
-            left: 0px;
             background-color: $RosaF;
             height: 2px;
             width: 0%;
@@ -137,13 +142,13 @@ form {
         align-self: center;
       }
     }
+  }
 
-    &:nth-child(9) {
-      .row {
-        .column:nth-child(2) {
-          mat-form-field {
-            width: 100%;
-          }
+  .examenGineco {
+    .row {
+      .column:nth-child(2) {
+        mat-form-field {
+          width: 100%;
         }
       }
     }

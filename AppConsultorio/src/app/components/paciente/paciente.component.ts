@@ -66,7 +66,7 @@ export class PacienteComponent implements OnInit {
 
   openContacto(i: number) {
     const dialogConfig = new MatDialogConfig();
-    dialogConfig.width = '30%';
+    dialogConfig.width = '40%';
     dialogConfig.height = '30%';
     dialogConfig.data = { i: i };
     this.dialog.open(ContactoComponent, dialogConfig);

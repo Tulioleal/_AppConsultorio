@@ -1,3 +1,9 @@
+//varibles
+$BckG : #fcfcfc;
+$RosaP: #fce0e3;
+$Cafe: #816a63;
+$RosaF: #f49b9f;
+
 .container {
   padding: 6% 8%;
 
@@ -8,7 +14,7 @@
   row-gap: 2.5em;
 
   .mat-card {
-    color: #816a63;
+    color: $Cafe;
     width: 19%;
     min-width: 17.5em;
     padding: 1.5em;
@@ -28,10 +34,9 @@
         justify-content: flex-start;
 
         &:hover{
-          color: #f49b9f;
+          color: $RosaF;
           cursor: pointer;
         }
-
       }
     }
 

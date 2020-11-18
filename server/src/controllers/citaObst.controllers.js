@@ -7,7 +7,13 @@ citaObstCntrl.getCitasObst = async (req, res) => {
     res.json(citas)
 }
 
-/* find({gesta:{$eql:gesta}}) */
+citaObstCntrl.getCitasG = async (req, res) =>{
+    citas = await CitaObst.find({
+        pacienteId: {$eq:req.params.pacienteId},
+        gestas: {$eq:req.params.ges}
+    })
+    res.json(citas)
+}    
 
 citaObstCntrl.createCitaObst = async (req, res) => {
     const newCitaObst = new CitaObst(req.body)
@@ -15,12 +21,6 @@ citaObstCntrl.createCitaObst = async (req, res) => {
     res.send({
         message: 'CitaObst created'
     })
-}
-
-citaObstCntrl.getSpecificCitaObst = async (req, res) => {
-    console.log(req.params)
-    const cita = await CitaObst.findById(req.params.id)
-    res.send(cita)
 }
 
 citaObstCntrl.updateCitaObst = async (req, res) => {

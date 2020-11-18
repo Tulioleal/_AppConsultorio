@@ -3,11 +3,11 @@ const citaCntrl = require('../controllers/citaObst.controllers')
 const router = Router()
 
 
-router.post('/', citaCntrl.createCitaObst)
-
 router.get('/:pacienteId', citaCntrl.getCitasObst)
 
-router.get('/:pacienteId/:id', citaCntrl.getSpecificCitaObst)
+router.post('/', citaCntrl.createCitaObst)
+
+router.get('/:pacienteId/:ges', citaCntrl.getCitasG)
 
 router.put('/:id', citaCntrl.updateCitaObst)
 

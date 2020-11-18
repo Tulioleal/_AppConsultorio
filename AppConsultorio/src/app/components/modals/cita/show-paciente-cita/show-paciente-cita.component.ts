@@ -41,5 +41,4 @@ export class ShowPacienteCitaComponent implements OnInit {
       err => console.log(err)
     )
   }
-
 }

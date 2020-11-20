@@ -9,6 +9,8 @@ router.post('/', citaCntrl.createCitaObst)
 
 router.get('/:pacienteId/:ges', citaCntrl.getCitasG)
 
+router.get('/:pacienteId/:ges/:id', citaCntrl.getSpecificCita)
+
 router.put('/:id', citaCntrl.updateCitaObst)
 
 router.delete('/:id', citaCntrl.deleteCitaObst)

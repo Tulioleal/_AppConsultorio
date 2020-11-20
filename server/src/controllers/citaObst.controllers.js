@@ -15,6 +15,15 @@ citaObstCntrl.getCitasG = async (req, res) =>{
     res.json(citas)
 }    
 
+citaObstCntrl.getSpecificCita = async(req,res) =>{
+    cita = await CitaObst.findOne({
+        pacienteId: {$eq:req.params.pacienteId},
+        gestas: {$eq:req.params.ges},
+        _id: {$eq:req.params.id}
+    })
+    res.json(cita)
+}
+
 citaObstCntrl.createCitaObst = async (req, res) => {
     const newCitaObst = new CitaObst(req.body)
     await newCitaObst.save()

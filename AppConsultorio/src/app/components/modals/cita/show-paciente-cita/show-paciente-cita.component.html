@@ -37,9 +37,10 @@
 
   <ng-template #siO>
 
-    <table>
+    <table class="tableObst">
       <tr>
         <th>Cita N°</th>
+        <th>Gestas</th>
         <th>Motivo de la cita</th>
         <th>Fecha</th>
       </tr>
@@ -49,6 +50,7 @@
         (click)='openSpecificCita(citaObst._id, "obst")'
       >
         <td>{{ citaObst.visita }}</td>
+        <td>{{ citaObst.gestas }}</td>
         <td>{{ citaObst.motivo }} </td>
         <td>{{ citaObst.createdAt | date }}</td>
       </tr>

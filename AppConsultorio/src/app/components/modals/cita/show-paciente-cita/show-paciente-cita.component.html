@@ -3,16 +3,13 @@
   <div class="header">
     <h1>Resumen de las citas</h1>
 
-    <span
-      mat-dialog-close
-      class="close"
-    >
+    <span mat-dialog-close class="close">
       <mat-icon color='warn'>cancel</mat-icon>
     </span>
   </div>
 
   <h2>Citas Ginecológicas</h2>
-  <div *ngIf="ginecoService.citasGineco.length != 0; then siG else no"></div>
+  <div *ngIf="numeroG != 0; then siG else no"></div>
 
   <ng-template #siG>
 
@@ -22,7 +19,11 @@
         <th>Motivo de la cita</th>
         <th>Fecha</th>
       </tr>
-      <tr *ngFor="let citaGineco of ginecoService.citasGineco">
+      <tr
+        *ngFor="let citaGineco of ginecoService.citasGineco"
+        (click)='getCita(citaGineco.pacienteId, citaGineco._id)'
+        (click)='openSpecificCita(citaGineco._id, "gineco")'
+      >
         <td>{{ citaGineco.visita }}</td>
         <td>{{ citaGineco.motivo }} </td>
         <td>{{ citaGineco.createdAt | date }}</td>
@@ -32,7 +33,7 @@
   </ng-template>
 
   <h2>Citas Obstétricas</h2>
-  <div *ngIf="obstService.citasObst.length != 0; then siO else no"></div>
+  <div *ngIf="numeroO != 0; then siO else no"></div>
 
   <ng-template #siO>
 
@@ -42,7 +43,11 @@
         <th>Motivo de la cita</th>
         <th>Fecha</th>
       </tr>
-      <tr *ngFor="let citaObst of obstService.citasObst">
+      <tr
+        *ngFor="let citaObst of obstService.citasObst"
+        (click)='getCita(citaObst.pacienteId, citaObst._id, citaObst.gestas)'
+        (click)='openSpecificCita(citaObst._id, "obst")'
+      >
         <td>{{ citaObst.visita }}</td>
         <td>{{ citaObst.motivo }} </td>
         <td>{{ citaObst.createdAt | date }}</td>

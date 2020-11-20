@@ -18,8 +18,6 @@ import { ShowPacienteCitaComponent } from '../modals/cita/show-paciente-cita/sho
 
 export class PacienteEspecificoComponent implements OnInit {
 
-  //paciente: Paciente = this.pacienteService.selectedPaciente
-
   constructor(
     public pacienteService: PacienteService,
     public dialog: MatDialog,

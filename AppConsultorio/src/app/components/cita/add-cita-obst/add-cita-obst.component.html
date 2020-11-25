@@ -306,9 +306,9 @@
 
     <h2>Examen Obstétrico</h2>
 
-    <div class="row">
+    <div class="row wrap">
 
-      <mat-form-field appearance="outline" class="textarea-3">
+      <mat-form-field appearance="outline" class="textarea-5">
         <mat-label>Abdomen</mat-label>
         <textarea
           matInput
@@ -321,7 +321,7 @@
         ></textarea>
       </mat-form-field>
 
-      <mat-form-field appearance="outline" class="textarea-3">
+      <mat-form-field appearance="outline" class="textarea-5">
         <mat-label>Movimientos Fetales</mat-label>
         <textarea
           matInput
@@ -334,7 +334,7 @@
         ></textarea>
       </mat-form-field>
 
-      <mat-form-field appearance="outline" class="textarea-3">
+      <mat-form-field appearance="outline" class="textarea-5">
         <mat-label>Altura Uterina</mat-label>
         <textarea
           matInput
@@ -346,57 +346,53 @@
           required
         ></textarea>
       </mat-form-field>
+
+      <mat-form-field appearance="outline" class="textarea-5">
+        <mat-label>Circunferencia Abdominal</mat-label>
+        <textarea
+          matInput
+          type='text'
+          class="form-control"
+          name="exObsCircunAbdom"
+          rows="3"
+          [(ngModel)]="citaObstService.selectedCitaObst.exObsCircunAbdom"
+          required
+        ></textarea>
+      </mat-form-field>
+
+      <mat-form-field appearance="outline" class="textarea-5">
+        <mat-label>FCF</mat-label>
+        <textarea
+          matInput
+          type='text'
+          class="form-control"
+          name="exObsFCF"
+          rows="3"
+          [(ngModel)]="citaObstService.selectedCitaObst.exObsFCF"
+          required
+        ></textarea>
+      </mat-form-field>
     </div>
   </div>
 
-  <div class="row col examenGineco">
+  <div class="row examenGineco">
 
     <h2>Examen Ginecológico</h2>
 
-    <div class="row">
-
-      <mat-form-field appearance="outline" class="textarea-1">
+      <mat-form-field appearance="outline" class="textarea">
         <textarea
           matInput
           class="form-control"
           name="exGineco"
-          rows="10"
+          rows="7"
           [(ngModel)]="citaObstService.selectedCitaObst.exGineco"
           required
         ></textarea>
       </mat-form-field>
 
-      <div class="column">
-        <mat-form-field appearance="outline" class="motivo">
-          <mat-label>Movimientos Fetales</mat-label>
-          <textarea
-            matInput
-            type='text'
-            class="form-control"
-            name="exObsCircunAbdom"
-            rows="3"
-            [(ngModel)]="citaObstService.selectedCitaObst.exObsCircunAbdom"
-            required
-          ></textarea>
-        </mat-form-field>
-
-        <mat-form-field appearance="outline" class="motivo">
-          <mat-label>Altura Uterina</mat-label>
-          <textarea
-            matInput
-            type='text'
-            class="form-control"
-            name="exObsFCF"
-            rows="3"
-            [(ngModel)]="citaObstService.selectedCitaObst.exObsFCF"
-            required
-          ></textarea>
-        </mat-form-field>
-      </div>
-    </div>
   </div>
 
-  <div class="row footer">
+  <div class="footer">
 
     <button
       mat-flat-button color='primary'
@@ -411,6 +407,7 @@
         Por favor verifica que todos los campos requeridos estén completos
       </mat-card>
     </div>
+
   </div>
 
 </form>

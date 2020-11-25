@@ -6,6 +6,7 @@ $RosaF: #f49b9f;
 
 form {
   margin: 5% 12%;
+  padding-bottom: 3%;
 
   .row,
   .column {
@@ -44,6 +45,10 @@ form {
     .conDias,
     .numero {
       text-align: center;
+    }
+
+    .textarea{
+      width: 100%;
     }
 
     .textarea-1,
@@ -144,18 +149,29 @@ form {
     }
   }
 
-  .examenGineco {
-    .row {
-      .column:nth-child(2) {
-        mat-form-field {
-          width: 100%;
-        }
-      }
+  .wrap{
+    flex-wrap: wrap;
+
+    .textarea-5 {
+      width: 30%;
+      min-width: 20em;
     }
   }
 
+  .examenGineco{
+    flex-direction: column;
+  }
+
   .footer {
-    margin-top: 5em;
+    margin-top: 4em;
+
+    display: flex;
+    justify-content: space-between;
+    flex-direction: row;
+
+    button{
+      height: fit-content;
+    }
 
     .error {
       color: white;
@@ -170,10 +186,6 @@ form {
 
   h1, h2, th, td, .error{
     cursor: default;
-  }
-
-  .textarea-3 {
-    width: 30%;
   }
 
   .input,

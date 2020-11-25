@@ -1,58 +1,261 @@
-.container{
+//varibles
+$RosaP: #fce0e3;
+$Cafe: #816a63;
+$RosaF: #f49b9f;
 
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
+//Mixin
+@mixin border-bottom {
+  border-bottom: 1px solid #dddddd;
+  transition: .5s all ease;
 
-  .header{
-    width: 100%;
-    height: 10%;
-    margin-bottom: 3%;
-
-    display: flex;
-    justify-content: space-between;
+  &:hover{
+    border-color: $RosaF;
   }
-  .content{
-    display: flex;
-    justify-content: space-between;
-    height: 100%;
+}
 
-    .left{
-      width: 35%;
-      height: 100%;
-      display: flex;
-      flex-direction: column;
-      justify-content: space-between;
+@mixin border-left {
+  border-left: 1px solid #dddddd;
+  border-bottom-left-radius: .5em;
+}
+
+@mixin flex-between {
+  display: flex;
+  justify-content: space-between;
+}
+
+h3 {
+  margin-bottom: .5em;
+}
+
+.gineco,
+.obst {
+  color: $Cafe;
+  padding: 0vh 2em;
+  cursor: default;
+  @include flex-between();
+  flex-direction: column;
+
+  .header {
+    width: 100%;
+    padding-top: 2vh;
+    @include flex-between();
+
+    .div {
+      @include flex-between();
+
+      .fecha {
+        height: fit-content;
+        font-weight: 500;
+        margin-right: 5em;
+        transition: .2s all ease;
+
+        &:hover {
+          font-weight: 700;
+        }
+      }
+
+      .close{
+        height: fit-content;
+        cursor: pointer;
+      }
     }
-    .right{
-      width: 60%;
+  }
+}
+
+.gineco {
+  height: 69.5vh;
+
+  .content {
+    height: 56vh;
+    @include flex-between();
+
+    .left {
+      width: 30%;
       height: 100%;
+
+      @include flex-between();
+      flex-direction: column;
+
+      .historia,
+      .estado,
+      .comentarios {
+        height: 30%;
+        @include border-bottom();
+
+        div {
+          margin-bottom: .5em;
+        }
+      }
+    }
+
+    .right {
+      width: 67%;
+      @include flex-between();
+      flex-direction: column;
 
       .first,
-      .second,
-      .third{
-        display: flex;
-        justify-content: space-between;
+      .second {
+        height: 27%;
+
+        @include flex-between();
 
         .mamas,
         .genitales,
         .genExt,
         .cervix {
           width: 47%;
+          padding-left: .5em;
+          padding-bottom: .5em;
+
+          @include border-bottom();
         }
+
+        .mamas, .genExt{
+          @include border-left();
+        }
+      }
+
+      .third {
+        height: 36%;
+        @include flex-between();
 
         .utero,
         .impresion,
-        .colpos{
-          width: 32%;
+        .colpos {
+          width: 30%;
+          padding-left: .5em;
+          padding-bottom: .5em;
+
+          @include border-bottom();
+        }
+
+        .utero{
+          @include border-left();
         }
       }
     }
   }
+}
 
-  h3{
-    margin-top: 1em;
-    margin-bottom: 0cm;
-    padding-bottom: 0cm;
+.obst {
+
+  .content{
+    @include flex-between();
+    width: 100%;
+    height: 69vh;
+
+    h4, h3{
+      font-weight: 600;
+      margin-bottom: .2em;
+    }
+
+    .left,
+    .right{
+      @include flex-between();
+      flex-direction: column;
+      align-self: flex-end;
+      height: 95%;
+    }
+
+    .left{
+      width: 40%;
+
+      .top, .bottom{
+        width: 100%;
+        @include flex-between();
+        // background-color: blue;
+      }
+
+      .top{
+        height: 52%;
+        flex-direction: column;
+
+        .div{
+          // background-color: $RosaF;
+          width: 100%;
+          height: 32.5%;
+        }
+      }
+
+      .bottom{
+        height: 45%;
+        @include flex-between();
+        flex-direction: column;
+        #fechas,
+        #pesos{
+          height: 100%;
+          @include flex-between();
+          flex-direction: column;
+        }
+
+        #fechas{
+          width: 100%;
+          padding-bottom: 1em;
+          .fechas{
+            width: 100%;
+            height: fit-content;
+            @include flex-between();
+
+            h4{
+              margin-bottom: 0em;
+            }
+          }
+        }
+
+        .calc{
+          width: 100%;
+          height: 33%;
+          @include flex-between();
+
+          .dias{
+            height: 100%;
+            width: 55%;
+            background-color: blue;
+          }
+
+          #pesos{
+            width: 42%;
+            align-self: flex-end;
+
+            #pAntes,
+            #pDespues{
+              width: 100%;
+            }
+          }
+        }
+      }
+    }
+
+    .right{
+      flex-direction: row;
+
+      .left{
+        text-align: center;
+        padding: 0em 1.5em;
+        height: 100%;
+        @include flex-between();
+        flex-direction: column;
+
+        #fisico{
+          height: 50%;
+          @include flex-between();
+          flex-direction: column;
+
+          .div3{
+            display: flex;
+            justify-content: space-evenly;
+          }
+        }
+
+        #gineco{
+          height: 35%;
+        }
+      }
+
+      #obste{
+        @include flex-between();
+        flex-direction: column;
+      }
+    }
   }
 }

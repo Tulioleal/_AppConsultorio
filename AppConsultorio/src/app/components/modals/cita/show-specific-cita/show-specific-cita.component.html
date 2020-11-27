@@ -1,7 +1,7 @@
 <div *ngIf="data.type === 'gineco' ">
   <div class="gineco">
     <div class="header">
-      <h1>Cita Ginecológina N° {{ ginecoService.selectedCitaGineco.visita }}</h1>
+      <h1>Cita Ginecológica N° {{ ginecoService.selectedCitaGineco.visita }}</h1>
       <div class="div close">
         <div class="fecha">
           Fecha: {{ ginecoService.selectedCitaGineco.createdAt | date }}
@@ -119,40 +119,43 @@
           <div class="calc">
 
             <div class="dias">
-              <span>
-
-              </span>
-              <span>
-
-              </span>
-              <span>
-
-              </span>
+              <h3>Edad Gestional</h3>
+              <div>
+                <span>
+                  {{ meses }} meses y {{ conDias }} dias
+                </span>
+                <span>
+                  {{ semanas }} semanas y {{ semDias }} dias
+                </span>
+                <span>
+                  {{ dias }} dias
+                </span>
+              </div>
             </div>
 
             <div id="pesos">
               <div id="pAntes">
                 <h4>Antes - Embarazo</h4>
                 <span>
-                  {{ obstService.selectedCitaObst.pesoAEmb }} Kg.
+                  {{ obstService.selectedCitaObst.pesoAEmb }} Kg
                 </span>
                 <span>
-                  {{ obstService.selectedCitaObst.altura }} cm.
+                  {{ obstService.selectedCitaObst.altura }} cm
                 </span>
                 <span>
-
+                  {{ imc1 }} IMC
                 </span>
               </div>
               <div id="pDespues">
                 <h4>Despues - Embarazo</h4>
                 <span>
-                  {{ obstService.selectedCitaObst.exGenPeso }} Kg.
+                  {{ obstService.selectedCitaObst.exGenPeso }} Kg
                 </span>
                 <span>
-                  {{ obstService.selectedCitaObst.exGenAlt }} cm.
+                  {{ obstService.selectedCitaObst.exGenAlt }} cm
                 </span>
                 <span>
-
+                  {{ imc2 }} IMC
                 </span>
               </div>
             </div>
@@ -194,7 +197,7 @@
         </div>
 
         <div id="obste">
-          <h3>Examen Obstétrico</h3>
+          <h4>Examen Obstétrico</h4>
           <div class="obste">
             <h4>Abdomen</h4>
             {{ obstService.selectedCitaObst.exObsAbdom }}

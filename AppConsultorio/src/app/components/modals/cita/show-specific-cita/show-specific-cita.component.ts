@@ -1,4 +1,4 @@
-import { Component, Inject, OnInit, } from '@angular/core';
+import { Component, Inject, DoCheck, } from '@angular/core';
 import { MAT_DIALOG_DATA } from '@angular/material/dialog';
 import { CitaGinecoService } from 'src/app/services/cita-gineco.service';
 import { CitaObstService } from 'src/app/services/cita-obst.service';
@@ -8,14 +8,16 @@ import { CitaObstService } from 'src/app/services/cita-obst.service';
   templateUrl: './show-specific-cita.component.html',
   styleUrls: ['./show-specific-cita.component.scss']
 })
-export class ShowSpecificCitaComponent implements OnInit {
+export class ShowSpecificCitaComponent implements DoCheck {
 
   meses: number;
   semanas: number;
   conDias: number;
   semDias: number;
   dias: number;
-  fechaProbable : Date
+
+  imc1: number
+  imc2: number
 
   constructor(
     public ginecoService : CitaGinecoService,
@@ -23,9 +25,9 @@ export class ShowSpecificCitaComponent implements OnInit {
     @Inject(MAT_DIALOG_DATA) public data: any
   ) { }
 
-  ngOnInit(): void {
-    this.fProbable()
+  ngDoCheck(): void {
     this.compararFechas()
+    this.imc()
   }
 
   compararFechas(){
@@ -37,12 +39,17 @@ export class ShowSpecificCitaComponent implements OnInit {
     this.semanas = Math.floor(dif / 604800000 )
     this.semDias = Math.floor((dif % 604800000 ) / 86400000 )
     this.dias = Math.floor(dif / 86400000 )
+
+    this.fProbable()
   }
 
   fProbable(){
     this.obstService.fechaProbable()
-    this.fechaProbable = this.obstService.fProbable
   }
 
+  imc(){
+    this.imc1 = Math.round(this.obstService.selectedCitaObst.pesoAEmb / ((this.obstService.selectedCitaObst.altura / 100) ** 2))
+    this.imc2 = Math.round(this.obstService.selectedCitaObst.exGenPeso / ((this.obstService.selectedCitaObst.exGenAlt / 100) ** 2))
+  }
 
 }

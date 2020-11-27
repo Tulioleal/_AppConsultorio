@@ -4,23 +4,27 @@ $Cafe: #816a63;
 $RosaF: #f49b9f;
 
 //Mixin
-@mixin border-bottom {
-  border-bottom: 1px solid #dddddd;
-  transition: .5s all ease;
-
-  &:hover{
-    border-color: $RosaF;
-  }
-}
-
-@mixin border-left {
-  border-left: 1px solid #dddddd;
-  border-bottom-left-radius: .5em;
-}
 
 @mixin flex-between {
   display: flex;
   justify-content: space-between;
+}
+
+@mixin flex-column-between {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+@mixin card {
+  padding: 1em 2em;
+  background-color: $RosaP;
+  border-radius: 4px;
+  box-shadow:
+    0px 2px 1px -1px rgba(0, 0, 0, 0.2),
+    0px 1px 1px 0px rgba(0, 0, 0, 0.14),
+    0px 1px 3px 0px rgba(0, 0, 0, 0.12);
+  cursor: default;
 }
 
 h3 {
@@ -32,8 +36,7 @@ h3 {
   color: $Cafe;
   padding: 0vh 2em;
   cursor: default;
-  @include flex-between();
-  flex-direction: column;
+  @include flex-column-between();
 
   .header {
     width: 100%;
@@ -63,7 +66,7 @@ h3 {
 }
 
 .gineco {
-  height: 69.5vh;
+  height: 100%;
 
   .content {
     height: 56vh;
@@ -73,14 +76,13 @@ h3 {
       width: 30%;
       height: 100%;
 
-      @include flex-between();
-      flex-direction: column;
+      @include flex-column-between();
+      @include card();
 
       .historia,
       .estado,
       .comentarios {
         height: 30%;
-        @include border-bottom();
 
         div {
           margin-bottom: .5em;
@@ -89,13 +91,14 @@ h3 {
     }
 
     .right {
-      width: 67%;
-      @include flex-between();
-      flex-direction: column;
+      width: 60%;
+      height: 100%;
+      padding: 1em 0em;
+      @include flex-column-between();
 
       .first,
       .second {
-        height: 27%;
+        height: 30%;
 
         @include flex-between();
 
@@ -103,34 +106,23 @@ h3 {
         .genitales,
         .genExt,
         .cervix {
-          width: 47%;
-          padding-left: .5em;
-          padding-bottom: .5em;
+          width: 43%;
+          @include card();
+          padding: 1em;
 
-          @include border-bottom();
-        }
-
-        .mamas, .genExt{
-          @include border-left();
         }
       }
 
       .third {
-        height: 36%;
+        height: 30%;
         @include flex-between();
+        @include card();
+        padding: 1em;
 
         .utero,
         .impresion,
         .colpos {
           width: 30%;
-          padding-left: .5em;
-          padding-bottom: .5em;
-
-          @include border-bottom();
-        }
-
-        .utero{
-          @include border-left();
         }
       }
     }
@@ -149,43 +141,41 @@ h3 {
       margin-bottom: .2em;
     }
 
+    .top,#fechas,#fisico,#gineco,#obste{
+      @include card();
+    }
+
     .left,
     .right{
-      @include flex-between();
-      flex-direction: column;
+      @include flex-column-between();
       align-self: flex-end;
       height: 95%;
     }
 
     .left{
-      width: 40%;
+      width: 35%;
 
       .top, .bottom{
         width: 100%;
-        @include flex-between();
-        // background-color: blue;
+        @include flex-column-between();
       }
 
       .top{
-        height: 52%;
-        flex-direction: column;
+        height: 40%;
 
         .div{
-          // background-color: $RosaF;
           width: 100%;
           height: 32.5%;
         }
       }
 
       .bottom{
-        height: 45%;
-        @include flex-between();
-        flex-direction: column;
+        height: 50%;
+
         #fechas,
         #pesos{
-          height: 100%;
-          @include flex-between();
-          flex-direction: column;
+          @include flex-column-between();
+          align-content: flex-start;
         }
 
         #fechas{
@@ -204,22 +194,47 @@ h3 {
 
         .calc{
           width: 100%;
-          height: 33%;
-          @include flex-between();
+          padding: 1em 2em;
+
+          display: flex;
+          justify-content: space-evenly;
 
           .dias{
             height: 100%;
-            width: 55%;
-            background-color: blue;
+            padding: 0em 2em;
+
+            @include flex-column-between();
+
+            div{
+              font-weight: 600;
+
+              @include flex-column-between();
+
+              span:hover{
+                background-color: $RosaP;
+                transition: .2s all ease;
+              }
+            }
           }
 
           #pesos{
-            width: 42%;
-            align-self: flex-end;
 
             #pAntes,
             #pDespues{
               width: 100%;
+
+              h4{
+                text-align: center;
+              }
+
+              span{
+                padding: 0em .3em;
+
+                &:nth-child(3){
+                  border-left: 1px solid $RosaF;
+                  border-right: 1px solid $RosaF;
+                }
+              }
             }
           }
         }
@@ -227,19 +242,19 @@ h3 {
     }
 
     .right{
+      width: 60%;
       flex-direction: row;
 
       .left{
+        width: 30%;
         text-align: center;
-        padding: 0em 1.5em;
+        margin: 0em 2em;
         height: 100%;
-        @include flex-between();
-        flex-direction: column;
+        @include flex-column-between();
 
         #fisico{
           height: 50%;
-          @include flex-between();
-          flex-direction: column;
+          @include flex-column-between();
 
           .div3{
             display: flex;
@@ -253,8 +268,8 @@ h3 {
       }
 
       #obste{
-        @include flex-between();
-        flex-direction: column;
+        width: 60%;
+        @include flex-column-between();
       }
     }
   }

@@ -1,9 +1,8 @@
 //Angular
-import { Component, OnInit, OnDestroy } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { Subscription, Observable } from 'rxjs';
 import { FormControl } from '@angular/forms';
 import { map, startWith } from 'rxjs/operators';
-import { HttpErrorResponse } from '@angular/common/http';
 
 //Components
 import { PacienteService } from '../../../services/paciente.service';

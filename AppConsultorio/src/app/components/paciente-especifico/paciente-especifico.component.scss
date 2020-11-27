@@ -47,7 +47,7 @@ $RosaF: #f49b9f;
   }
 
   .content {
-    height: 65vh;
+    height: 69vh;
     padding-bottom: 2em;
 
     display: grid;
@@ -113,24 +113,27 @@ $RosaF: #f49b9f;
           border-collapse: collapse;
 
           tr {
+            box-sizing: border-box;
+            padding: 0cm 1em;
+            margin: 0cm;
             transition: .5s all ease;
 
             th {
               width: 70%;
               text-align: left;
-              padding-left: 1em;
+              padding-left: .5em;
 
               &:last-child {
                 padding-left: 0em;
                 text-align: center;
-                font-size: 1.4em;
+                font-size: 1.5em;
               }
             }
 
             td {
               width: 30%;
               text-align: right;
-              padding-right: 1em;
+              padding-right: .5em;
               margin: 0em;
             }
 
@@ -210,7 +213,7 @@ $RosaF: #f49b9f;
       content: "";
       display: block;
       background-color: $RosaF;
-      height: 2px;
+      height: .1em;
       width: 0%;
       transition: .4s all ease-out;
     }

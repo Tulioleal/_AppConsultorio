@@ -48,6 +48,10 @@ const pacienteSchema = new Schema({
         default : 0,
         required : true
     },
+    ginecoCiclos: {
+        type : String,
+        required : true
+    },
     ginecoAbortos : {
         type : Number,
         default : 0,
@@ -63,13 +67,23 @@ const pacienteSchema = new Schema({
         default : 0,
         required : true
     },
-    ginecoMetodo : {
-        type : String
-    },
     ginecoMenopausia : {
         type : Number,
         default : 0,
         required : true
+    },
+    ginecoMenarquia : {
+        type : Number,
+        default : 0,
+        required : true
+    },
+    ginecoPRS :{
+        type : Number,
+        default : 0,
+        required : true
+    },
+    ginecoMetodo : {
+        type : String
     },
     ginecoTRH : {
         type : String

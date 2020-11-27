@@ -25,7 +25,14 @@ export class EditarPacienteComponent implements OnInit {
     public dialog: MatDialog
   ) { }
 
+  selectedSeguimiento : boolean
+  selectedMenorrea : boolean
+
+
   ngOnInit(): void {
+    this.selectedMenorrea = this.pacienteService.selectedPaciente.seguimiento
+    this.selectedSeguimiento = this.pacienteService.selectedPaciente.seguimiento
+    console.log(this.selectedSeguimiento)
   }
 
   openSnackBar() {

@@ -1,94 +1,72 @@
-h1{
+h1 {
   text-align: center;
   font-size: 4em;
   margin: 1em;
 }
 
-form{
+form {
   margin: 5% 12%;
+  padding-bottom: 3%;
 
-  .row{
+  .row {
     display: flex;
     justify-content: space-between;
     align-self: center;
     margin-top: 2em;
 
-    mat-form-field{
+    mat-form-field {
       width: 28%;
     }
 
-    .apellido, .nombre{
+    .apellido,
+    .nombre {
       width: 32%;
     }
 
-    .textarea{
+    .textarea {
       width: 45%;
     }
 
-    .radio{
-      width: 8.5em;
-      padding-right: em;
-
-      display: flex;
-      flex-direction: column;
-
-      mat-label{
-        font-size: 1.5em;
-
-        align-self: center;
-      }
-
-      mat-radio-group{
-        font-size: 1.2em;
-        padding-top: 1em;
-
-        display: flex;
-        justify-content: space-between;
-
-      }
-    }
-
-    .ginecoMenorrea{
-      width: fit-content;
-
-      flex-direction: column;
-
-      mat-radio-button{
-        padding-bottom: .3em;
-      }
-    }
-
-    .gestas, .paras, .abortos{
+    .gestas,
+    .paras,
+    .abortos,
+    .cesareas,
+    .seguimiento,
+    .menorrea,
+    .ciclos,
+    .otros,
+    .menopausia,
+    .menarquia,
+    .menopausia{
       align-self: center;
-      width: 20%;
+      width: 15%;
     }
 
-    .error{
+    .error {
       color: white;
       width: fit-content;
       background-color: #f44336;
     }
 
-    .group{
+    .group {
       width: 25%;
       display: flex;
       justify-content: space-between;
 
-      button{
+      button {
         height: fit-content;
       }
     }
   }
 }
 
-h2{
+h2 {
   font-size: 2.5em;
   margin: 1em 0em 1.5em 0em;
 }
 
-h3{
+h3 {
   font-size: 2em;
   margin-top: 1em;
   margin-bottom: 1.5em;
-
 }

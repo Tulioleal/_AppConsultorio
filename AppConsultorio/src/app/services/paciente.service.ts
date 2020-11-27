@@ -21,11 +21,14 @@ export class PacienteService {
     ginecoMenorrea: false,
     ginecoGestas: 0,
     ginecoParas: 0,
+    ginecoCiclos: "",
     ginecoAbortos: 0,
     ginecoCesareas: 0,
     ginecoOtros: 0,
     ginecoMetodo: "",
     ginecoMenopausia : 0,
+    ginecoMenarquia: 0,
+    ginecoPRS: 0,
     ginecoTRH: "",
   }
 
@@ -101,11 +104,14 @@ export class PacienteService {
       ginecoMenorrea: false,
       ginecoGestas: 0,
       ginecoParas: 0,
+      ginecoCiclos: "",
       ginecoAbortos: 0,
       ginecoCesareas: 0,
       ginecoOtros: 0,
       ginecoMetodo: "",
       ginecoMenopausia : 0,
+      ginecoMenarquia: 0,
+      ginecoPRS: 0,
       ginecoTRH: "",
     }
   }

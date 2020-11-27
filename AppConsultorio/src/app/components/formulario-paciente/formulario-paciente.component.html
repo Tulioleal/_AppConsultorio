@@ -29,17 +29,18 @@
         >
       </mat-form-field>
 
-      <div class="radio">
-        <mat-label>Seguimiento </mat-label>
-        <mat-radio-group
-          [(ngModel)]="pacienteService.selectedPaciente.seguimiento"
+      <mat-form-field appearance="outline" class="seguimiento">
+        <mat-label>Seguimiento</mat-label>
+        <mat-select
           name='seguimiento'
+          [(ngModel)]="pacienteService.selectedPaciente.seguimiento"
           required
         >
-          <mat-radio-button value="true">Sí</mat-radio-button>
-          <mat-radio-button value="false">No</mat-radio-button>
-        </mat-radio-group>
-      </div>
+          <mat-option>Seguimiento</mat-option>
+          <mat-option value="true">Sí</mat-option>
+          <mat-option value="false">No</mat-option>
+        </mat-select>
+      </mat-form-field>
 
   </div>
 
@@ -121,17 +122,17 @@
 
   <div class="row">
 
-    <div class="radio">
+    <mat-form-field appearance="outline" class="menorrea">
       <mat-label>Menorrea</mat-label>
-      <mat-radio-group
-        [(ngModel)]="pacienteService.selectedPaciente.ginecoMenorrea"
-        class="ginecoMenorrea"
+      <mat-select
         name='ginecoMenorrea'
+        [(ngModel)]="pacienteService.selectedPaciente.ginecoMenorrea"
+        required
       >
-          <mat-radio-button value="true">Eumenorreica</mat-radio-button>
-          <mat-radio-button value="false">Dismenorreica</mat-radio-button>
-      </mat-radio-group>
-    </div>
+        <mat-option value="true">Eumenorreica</mat-option>
+        <mat-option value="false">Dismenorreica</mat-option>
+      </mat-select>
+    </mat-form-field>
 
     <mat-form-field appearance="outline" class="input gestas">
       <mat-label>Gestas</mat-label>
@@ -169,10 +170,6 @@
       >
     </mat-form-field>
 
-  </div>
-
-  <div class="row">
-
     <mat-form-field appearance="outline" class="input cesareas">
       <mat-label>Cesareas</mat-label>
       <input
@@ -181,6 +178,22 @@
         class="form-control"
         name="ginecoCesareas"
         [(ngModel)]="pacienteService.selectedPaciente.ginecoCesareas"
+        required
+      >
+    </mat-form-field>
+
+  </div>
+
+  <div class="row">
+
+    <mat-form-field appearance="outline" class="input ciclos">
+      <mat-label>Ciclos</mat-label>
+      <input
+        matInput
+        type="text"
+        class="form-control"
+        name="ginecoCiclos"
+        [(ngModel)]="pacienteService.selectedPaciente.ginecoCiclos"
         required
       >
     </mat-form-field>
@@ -205,6 +218,30 @@
         class="form-control"
         name="ginecoMenopausia"
         [(ngModel)]="pacienteService.selectedPaciente.ginecoMenopausia"
+        required
+      >
+    </mat-form-field>
+
+    <mat-form-field appearance="outline" class="input menarquia">
+      <mat-label>Menarquia</mat-label>
+      <input
+        matInput
+        type="number"
+        class="form-control"
+        name="ginecoMenarquia"
+        [(ngModel)]="pacienteService.selectedPaciente.ginecoMenarquia"
+        required
+      >
+    </mat-form-field>
+
+    <mat-form-field appearance="outline" class="input menopausia">
+      <mat-label>PRS</mat-label>
+      <input
+        matInput
+        type="number"
+        class="form-control"
+        name="ginecoPRS"
+        [(ngModel)]="pacienteService.selectedPaciente.ginecoPRS"
         required
       >
     </mat-form-field>
@@ -234,7 +271,6 @@
         [(ngModel)]="pacienteService.selectedPaciente.ginecoTRH"
       ></textarea>
     </mat-form-field>
-
   </div>
 
   <div class="row">

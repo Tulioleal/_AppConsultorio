@@ -1,14 +1,10 @@
-//varibles
-$BckG : #fcfcfc;
-$RosaP: #fce0e3;
-$Cafe: #816a63;
-$RosaF: #f49b9f;
+@import '../../../variables.scss';
 
 .container {
   padding: 6% 8%;
 
   display: flex;
-  justify-content: space-evenly; //space-between is an option
+  justify-content: space-evenly;
   flex-wrap: wrap;
   column-gap: 2em;
   row-gap: 2.5em;
@@ -60,6 +56,14 @@ $RosaF: #f49b9f;
     mat-card-actions {
       display: flex;
       justify-content: space-around;
+
+      button:first-child{
+        background-color: $RosaF;
+      }
+
+      button:nth-child(2){
+        background-color: $Rosa2;
+      }
     }
   }
 }

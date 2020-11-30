@@ -1,5 +1,7 @@
+@import '../../../../variables.scss';
+
 *{
-  color: #816a63;
+  color: $Cafe;
 }
 
 .container {
@@ -52,7 +54,7 @@
         align-self: center;
       }
       &:hover{
-        background-color: #fcc5ca7e;
+        background-color: $RosaP;
         cursor: default;
       }
     }

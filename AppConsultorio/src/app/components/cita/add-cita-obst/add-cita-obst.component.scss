@@ -1,8 +1,4 @@
-//varibles
-$Gris: #bbb7ae;
-$RosaP: #fce0e3;
-$Cafe: #816a63;
-$RosaF: #f49b9f;
+@import '../../../../variables.scss';
 
 form {
   margin: 5% 12%;
@@ -14,7 +10,18 @@ form {
     display: flex;
     justify-content: space-between;
 
-    .numeros{
+    #column-3{
+      height: 15.5em;
+    }
+
+    #col-6{
+      height: 9em;
+
+      align-self: flex-start;
+      align-content: space-between;
+    }
+
+    .numeros {
       width: 17.4%;
       display: flex;
       justify-content: space-around;
@@ -47,7 +54,7 @@ form {
       text-align: center;
     }
 
-    .textarea{
+    .textarea {
       width: 100%;
     }
 
@@ -76,38 +83,16 @@ form {
       flex-direction: column;
       align-items: center;
 
-      table{
+      table {
         padding: 1em 0em;
         align-self: center;
 
-        th, td{
-          text-align:center;
+        th,
+        td {
+          text-align: center;
         }
-/*         tr{
-          th::after{
-            content: "";
-            display: block;
-            background-color: $RosaF;
-            height: 2px;
-            width: 0%;
-            transition: .8s all ease-out;
-          }
 
-          &:hover{
-            th{
-              &::after{
-                content: "";
-                  width: 100%;
-                  transition: .8s all ease-out;
-              }
-            }
-          }
-
-          &:nth-child(3){
-            padding-top: 1em;
-          }
-        } */
-        td:hover{
+        td:hover {
           background-color: $RosaF;
           transition: .8s all ease;
         }
@@ -147,7 +132,7 @@ form {
     }
   }
 
-  .wrap{
+  .wrap {
     flex-wrap: wrap;
 
     .textarea-5 {
@@ -156,7 +141,7 @@ form {
     }
   }
 
-  .examenGineco{
+  .examenGineco {
     flex-direction: column;
   }
 
@@ -167,12 +152,12 @@ form {
     justify-content: space-between;
     flex-direction: row;
 
-    button{
+    button {
       height: fit-content;
     }
 
     .error {
-      color: white;
+      color: #ffffff;
       width: fit-content;
       background-color: #f44336;
     }
@@ -182,7 +167,11 @@ form {
     margin-top: 1.5em;
   }
 
-  h1, h2, th, td, .error{
+  h1,
+  h2,
+  th,
+  td,
+  .error {
     cursor: default;
   }
 
@@ -193,3 +182,4 @@ form {
     width: 17.4%;
   }
 }
+

@@ -27,3 +27,14 @@ input[type="date"]::-webkit-calendar-picker-indicator {
 .edit{
   color: $RosaP;
 }
+
+.mat-form-field-empty.mat-form-field-label {
+  color: $Cafe;
+}
+
+.mat-form-field-appearance-outline .mat-form-field-outline{
+  background-color: white;
+  border-radius: 5px;
+}
+
+

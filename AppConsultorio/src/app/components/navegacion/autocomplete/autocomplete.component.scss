@@ -1,12 +1,13 @@
+@import'../../../../variables.scss';
+
+*{
+  font-size: 15px;
+}
+
 ::ng-deep .mat-form-field-wrapper{
   margin-bottom: -1.25em;
 }
 
-input{
-  align-self: center;
-/*   padding-bottom: .4em; */
-
-  &::placeholder {
-    color:white !important;
-  }
+.placeholder {
+  color: $BckG;
 }

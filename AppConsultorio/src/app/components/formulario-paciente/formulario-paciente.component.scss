@@ -1,23 +1,22 @@
 @import '../../../variables.scss';
 
-h1{
+h1 {
   text-align: center;
   font-size: 4em;
   margin: 1em;
 }
 
-form{
+form {
   margin: 5% 12%;
   padding-bottom: 3%;
 
   .row {
-    display: flex;
-    justify-content: space-between;
     align-self: center;
     margin-top: 2em;
 
+    @include flex-between();
+
     mat-form-field {
-      padding-top: .1em;
       width: 28%;
     }
 
@@ -43,44 +42,34 @@ form{
     .menopausia{
       align-self: center;
       width: 15%;
-      color: $Cafe;
-
-      mat-label{
-        font-size: 1.2em;
-        color: $Cafe;
-      }
     }
 
-    .error{
-      color: white;
+    .error {
+      color: $Blanco;
       width: fit-content;
-      background-color: #f44336;
+      background-color: $Rojo;
     }
 
-    .group{
+    .group {
       width: 25%;
-      display: flex;
-      justify-content: space-between;
+      @include flex-between();
 
-      button{
+      button {
         height: fit-content;
       }
     }
   }
 }
 
-h2{
-  font-size: 2.5em;
+h2,h3{
+
   margin: 1em 0em 1.5em 0em;
 }
 
-h3{
-  font-size: 2em;
-  margin-top: 1em;
-  margin-bottom: 1.5em;
+h2 {
+  font-size: 2.5em;
 }
 
-.mat-form-field-legacy {
-  background-color: green;
-  color:blue;
+h3 {
+  font-size: 2em;
 }

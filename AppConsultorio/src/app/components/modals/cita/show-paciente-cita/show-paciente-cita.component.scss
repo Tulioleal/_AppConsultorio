@@ -1,8 +1,4 @@
-//varibles
-$BckG : #fcfcfc;
-$RosaP: #fce0e3;
-$Cafe: #816a63;
-$RosaF: #f49b9f;
+@import '../../../../../variables.scss';
 
 .container{
   margin: 1em 3em;
@@ -12,8 +8,7 @@ $RosaF: #f49b9f;
   .header{
     margin-bottom: 2.5em;
 
-    display: flex;
-    justify-content: space-between;
+    @include flex-between();
 
     .close{
       cursor: pointer;
@@ -28,7 +23,7 @@ $RosaF: #f49b9f;
 
     tr{
       height: 4em;
-      border-bottom: 1px solid #dddddd;
+      border-bottom: 1px solid $BckG;
 
       th, td{
         text-align: center;
@@ -70,10 +65,7 @@ $RosaF: #f49b9f;
 
       td{
 
-        &:first-child{
-          width: 10%;
-        }
-
+        &:first-child,
         &:nth-child(2){
           width: 10%;
         }

@@ -1,16 +1,13 @@
-*{
-  color: #816a63;
-}
+@import '../../../../variables.scss';
 
 .container{
+  color: $Cafe;
   height: 100%;
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
+
+  @include flex-column-between();
 
   .header{
-    display: flex;
-    justify-content: space-between;
+    @include flex-between();
 
     h2{
       font-size: 1.6em;
@@ -35,5 +32,9 @@
   .footer{
     display: flex;
     justify-content: space-around;
+
+    button:nth-child(2){
+      background-color: $Rosa2;
+    }
   }
 }

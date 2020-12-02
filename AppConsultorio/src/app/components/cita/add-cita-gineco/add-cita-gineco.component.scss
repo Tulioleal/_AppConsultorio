@@ -1,17 +1,20 @@
+@import '../../../../variables.scss';
+
 form{
   margin: 5% 12%;
   padding-bottom: 3%;
 
   .row{
     width: 100%;
-    display: flex;
-    justify-content: space-between;
+    margin-bottom: 1em;
+
+    @include flex-between();
 
     .column{
       width: 35%;
+
       div{
-        display: flex;
-        flex-direction: column;
+        @include flex-column-between();
       }
     }
 
@@ -26,9 +29,7 @@ form{
       width: 15%;
 
       align-self: flex-start;
-      display: flex;
-      flex-direction: column;
-      justify-content: space-between;
+      @include flex-column-between();
 
       h2{
         height: fit-content;
@@ -58,8 +59,7 @@ form{
   .footer {
     margin-top: 4em;
 
-    display: flex;
-    justify-content: space-between;
+    @include flex-between();
     flex-direction: row;
 
     button{
@@ -67,9 +67,9 @@ form{
     }
 
     .error {
-      color: white;
+      color: $Blanco;
+      background-color: $Rojo;
       width: fit-content;
-      background-color: #f44336;
     }
   }
 }

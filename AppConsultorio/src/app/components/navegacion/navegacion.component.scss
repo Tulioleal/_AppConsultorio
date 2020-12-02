@@ -5,13 +5,12 @@
   padding: 0 6%;
   background-color: $Cafe;
 
-  display: flex;
-  justify-content: space-between;
+  @include flex-between();
 
   .div {
     width: 24em;
-    display: flex;
-    justify-content: space-between;
+
+    @include flex-between();
     align-content: center;
 
     app-autocomplete{

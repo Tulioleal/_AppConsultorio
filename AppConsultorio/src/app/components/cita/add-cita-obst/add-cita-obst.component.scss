@@ -4,11 +4,17 @@ form {
   margin: 5% 12%;
   padding-bottom: 3%;
 
+  .row{
+    margin-bottom: 3em;
+  }
   .row,
   .column {
     width: 100%;
-    display: flex;
-    justify-content: space-between;
+    @include flex-between();
+
+    .numero{
+      align-items: center;
+    }
 
     #column-3{
       height: 15.5em;
@@ -17,8 +23,7 @@ form {
     #col-6{
       height: 9em;
 
-      align-self: flex-start;
-      align-content: space-between;
+      @include flex-between();
     }
 
     .numeros {
@@ -32,9 +37,8 @@ form {
         height: fit-content;
         width: fit-content;
 
+        @include flex-column-between();
         align-self: flex-start;
-        display: flex;
-        flex-direction: column;
 
         h2 {
           font-size: .7em;
@@ -46,14 +50,6 @@ form {
       }
     }
 
-    .semanas,
-    .diasEmb,
-    .meses,
-    .conDias,
-    .numero {
-      text-align: center;
-    }
-
     .textarea {
       width: 100%;
     }
@@ -61,26 +57,17 @@ form {
     .textarea-1,
     .motivo {
       width: 72.5%;
-      align-self: center;
     }
 
     .textarea-2 {
       width: 45%;
-      align-self: stretch;
     }
 
     .resultados {
-      color: $Cafe;
-      background-color: $RosaP;
-      border-radius: 4px;
-      box-shadow:
-        0px 2px 1px -1px rgba(0, 0, 0, 0.2),
-        0px 1px 1px 0px rgba(0, 0, 0, 0.14),
-        0px 1px 3px 0px rgba(0, 0, 0, 0.12);
-      cursor: default;
+      @include card();
+      padding: 0em;
 
-      display: flex;
-      flex-direction: column;
+      @include flex-column-between();
       align-items: center;
 
       table {
@@ -117,6 +104,7 @@ form {
     flex-direction: column;
 
     .row {
+      margin-bottom: 0em;
       .textarea-1 {
         width: 65%;
       }
@@ -148,8 +136,7 @@ form {
   .footer {
     margin-top: 4em;
 
-    display: flex;
-    justify-content: space-between;
+    @include flex-between();
     flex-direction: row;
 
     button {
@@ -157,14 +144,10 @@ form {
     }
 
     .error {
-      color: #ffffff;
+      color: $Blanco;
       width: fit-content;
-      background-color: #f44336;
+      background-color: $Rojo;
     }
-  }
-
-  h2 {
-    margin-top: 1.5em;
   }
 
   h1,
@@ -183,3 +166,6 @@ form {
   }
 }
 
+.mat-form-field{
+  align-self: center;
+}

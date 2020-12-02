@@ -1,3 +1,5 @@
+@import '../../../variables.scss';
+
 h1 {
   text-align: center;
   font-size: 4em;
@@ -9,10 +11,10 @@ form {
   padding-bottom: 3%;
 
   .row {
-    display: flex;
-    justify-content: space-between;
     align-self: center;
-    margin-top: 2em;
+    margin-bottom: 2em;
+
+    @include flex-between();
 
     mat-form-field {
       width: 28%;
@@ -37,36 +39,40 @@ form {
     .otros,
     .menopausia,
     .menarquia,
-    .menopausia{
+    .menopausia,
+    .ginecoPRS{
       align-self: center;
       width: 15%;
     }
 
     .error {
-      color: white;
+      color: $Blanco;
       width: fit-content;
-      background-color: #f44336;
+      background-color: $Rojo;
     }
 
     .group {
-      width: 25%;
-      display: flex;
-      justify-content: space-between;
+      @include flex-between();
 
       button {
         height: fit-content;
+
+        &:nth-child(2){
+          margin-left: 2em;
+        }
       }
     }
   }
 }
 
+h2,h3{
+  margin: 1em 0em 1.5em 0em;
+}
+
 h2 {
   font-size: 2.5em;
-  margin: 1em 0em 1.5em 0em;
 }
 
 h3 {
   font-size: 2em;
-  margin-top: 1em;
-  margin-bottom: 1.5em;
 }

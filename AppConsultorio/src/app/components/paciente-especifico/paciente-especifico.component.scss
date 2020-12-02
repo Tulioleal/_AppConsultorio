@@ -5,11 +5,10 @@
   height: 92.5vh;
   margin: 0em 8%;
 
-  display: flex;
-  flex-direction: column;
+  @include flex-column-between();
 
   p{
-    overflow: visible;
+    overflow: auto;
   }
 
   .header{
@@ -25,6 +24,8 @@
       cursor: default;
     }
 
+    @include colors();
+
     .icons{
       height: fit-content;
       width: 15em;
@@ -34,14 +35,8 @@
       justify-content: space-evenly;
 
       mat-icon{
-        height: fit-content;
-        width: fit-content;
         font-size: 3em;
         cursor: pointer;
-      }
-
-      .add{
-        color: $Azul;
       }
     }
   }
@@ -57,22 +52,15 @@
     .antecedentes,
     .gineco,
     .info {
-      padding: 0em 2em;
+      @include card();
       background-color: #ffffff;
-      border-radius: 4px;
-      box-shadow:
-        0px 2px 1px -1px rgba(0, 0, 0, 0.2),
-        0px 1px 1px 0px rgba(0, 0, 0, 0.14),
-        0px 1px 3px 0px rgba(0, 0, 0, 0.12);
-      cursor: default;
     }
 
     .antecedentes {
       width: 90%;
       padding: 1em;
 
-      display: flex;
-      flex-direction: column;
+      @include flex-column-between();
 
       grid-column: 1 / 6;
       grid-row: 1 / 8;
@@ -93,9 +81,7 @@
       grid-column: 6 / 11;
       grid-row: 1 / 8;
 
-      display: flex;
-      flex-direction: column;
-      justify-content: space-between;
+      @include flex-column-between();
 
       h2{
         height: fit-content;
@@ -103,9 +89,7 @@
 
       .ginecoContent{
         height: 85%;
-        display: flex;
-        flex-direction: row;
-        justify-content: space-between;
+        @include flex-between();
 
         .tabla {
           height: 100%;
@@ -150,9 +134,7 @@
         .column {
           width: 65%;
 
-          display: flex;
-          flex-direction: column;
-          justify-content: space-between;
+          @include flex-column-between();
 
           article{
             height: 49%;
@@ -169,14 +151,12 @@
       grid-row: 9 / 11;
       grid-column: 1 / 11;
 
-      display: flex;
-      justify-content: space-between;
+      @include flex-between();
 
       .info {
         width: 30%;
 
-        display: flex;
-        flex-direction: column;
+        @include flex-column-between();
         justify-content: center;
 
         h2{
@@ -184,9 +164,7 @@
         }
 
         div {
-          display: flex;
-          flex-direction: row;
-          justify-content: space-between;
+          @include flex-between();
 
           span {
             width: 50%;

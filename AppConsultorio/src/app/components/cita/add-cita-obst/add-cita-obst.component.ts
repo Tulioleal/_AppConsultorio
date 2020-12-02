@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, } from '@angular/core';
 import { NgForm } from '@angular/forms'
 import { MatSnackBar } from '@angular/material/snack-bar'
 import { PacienteService } from 'src/app/services/paciente.service';
@@ -20,14 +20,11 @@ export class AddCitaObstComponent implements OnInit {
 
   ) { }
 
-  ngOnInit(): void {
-    this.getCitas(this.pacienteId, this.gestas)
-    this.getPaciente(this.pacienteId)
-  }
-
   pacienteId : string = this.citaObstService.selectedCitaObst.pacienteId
   gestas: number = this.citaObstService.selectedCitaObst.gestas
 
+  pesoA : number = this.citaObstService.selectedCitaObst.pesoAEmb
+  altA : number = this.citaObstService.selectedCitaObst.altura
 
   pesoAument: number
   numEmb : number
@@ -41,6 +38,11 @@ export class AddCitaObstComponent implements OnInit {
   imc1 : number
   imc2 : number
 
+  ngOnInit(): void {
+    this.getPaciente(this.pacienteId)
+    this.getCitas(this.pacienteId, this.gestas)
+  }
+
   addCitaObst( form : NgForm ){
     this.citaObstService.createCitaObst(form.value).subscribe(
       res =>{
@@ -48,40 +50,73 @@ export class AddCitaObstComponent implements OnInit {
         this.openSnakbar()
       },
       err =>{
+        console.log(form)
         console.log(err)
       }
     )
   }
 
-  getCitas( pacienteId : string, gestas : number){
+  private getCitas( pacienteId : string, gestas : number){
     this.citaObstService.getCitasGes(pacienteId, gestas).subscribe(
       res => {
         this.citaObstService.citasObst = res
         this.getNumeroCita()
+        this.seguimiento()
       }
     )
   }
 
-  getNumeroCita(){
+  private getPaciente(id: string){
+    this.pacienteService.getpaciente(id)
+  }
+
+  private getNumeroCita(){
     this.numeroCita = this.citaObstService.citasObst.length + 1
     this.citaObstService.selectedCitaObst.visita = this.numeroCita
   }
 
-  getPaciente(id: string){
-    this.pacienteService.getpaciente(id)
+  private seguimiento(){
+    if(this.numeroCita > 1){
+      this.clearForm()
+      this.getDatos()
+      this.compararFechas()
+      this.fechaProbable()
+      this.imc(
+        this.citaObstService.selectedCitaObst.pesoAEmb,
+        this.citaObstService.selectedCitaObst.altura,
+        1
+      )
+    }else{
+      return
+    }
   }
 
-  compararFechas(){
-    let fechaTime = Date.parse(this.citaObstService.selectedCitaObst.ultMenst)
-    let dif : number = this.citaObstService.date - fechaTime
+  private getDatos(){
 
-    this.meses = Math.floor(dif / 2629800000)
-    this.conDias = Math.floor((dif % 2629800000) / 86400000 )
-    this.semanas = Math.floor(dif / 604800000 )
-    this.semDias = Math.floor((dif % 604800000 ) / 86400000 )
-    this.dias = Math.floor(dif / 86400000 )
+    let citaObst = this.citaObstService.citasObst[0]
+    let citaS = this.citaObstService.selectedCitaObst
 
-    this.fechaProbable()
+    citaS.pesoAEmb = citaObst.pesoAEmb
+    citaS.altura = citaObst.altura
+    citaS.ultMenst = citaObst.ultMenst
+    citaS.penMenst = citaObst.penMenst
+    citaS.fechaEmb = citaObst.fechaEmb
+  }
+
+  compararFechas() {
+    let fechaTime = Date.parse(this.citaObstService.selectedCitaObst.ultMenst);
+    let dif: number = this.citaObstService.date - fechaTime;
+    let dia: number = 86400000;
+
+    this.comparador(dif, dia);
+  }
+
+  private comparador(dif: number, dia: number) {
+    this.meses = this.citaObstService.calc(dif, dia * 30.4375);
+    this.conDias = this.citaObstService.calc(dif, dia * 30.4375, dia);
+    this.semanas = this.citaObstService.calc(dif, dia * 7);
+    this.semDias = this.citaObstService.calc(dif, dia * 7, dia);
+    this.dias = this.citaObstService.calc(dif, dia);
   }
 
   fechaProbable(){
@@ -89,12 +124,21 @@ export class AddCitaObstComponent implements OnInit {
     this.fProbable = this.citaObstService.fProbable
   }
 
-  imc_1(pesoAntesEmb:number, talla:number){
-    this.imc1 = Math.round(pesoAntesEmb / ((talla / 100) ** 2))
-  }
+  imc(talla:number, pesoAntesEmb:number, number:number){
+    switch (number) {
+      case 1:
+        this.imc1 = this.citaObstService.imcCalc(talla,pesoAntesEmb)
+        break;
 
-  imc_2(pesoAntesEmb:number, talla:number){
-    this.imc2 = Math.round(pesoAntesEmb / ((talla / 100) ** 2))
+      case 2:
+        this.imc1 = this.citaObstService.imcCalc(talla,pesoAntesEmb)
+        break;
+
+      default:
+        this.imc1 = this.citaObstService.imcCalc(talla,pesoAntesEmb)
+        this.imc2 = this.citaObstService.imcCalc(talla,pesoAntesEmb)
+        break;
+    }
   }
 
   aumentoPeso(){
@@ -102,6 +146,10 @@ export class AddCitaObstComponent implements OnInit {
     let peso2 : number = this.citaObstService.selectedCitaObst.exGenPeso
 
     this.pesoAument = peso2 - peso1
+  }
+
+  private clearForm(){
+    this.citaObstService.clearForm()
   }
 
   openSnakbar(){

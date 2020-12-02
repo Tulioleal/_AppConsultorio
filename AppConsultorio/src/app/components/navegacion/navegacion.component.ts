@@ -3,8 +3,6 @@ import {Component, OnInit} from '@angular/core';
 
 //Services
 import { PacienteService } from '../../services/paciente.service'
-import { CitaGinecoService } from '../../services/cita-gineco.service'
-import { CitaObstService } from '../../services/cita-obst.service'
 
 @Component({
   selector: 'app-navegacion',
@@ -14,9 +12,7 @@ import { CitaObstService } from '../../services/cita-obst.service'
 export class NavegacionComponent implements OnInit {
 
   constructor(
-    private pacienteService: PacienteService,
-    private citaGinecoService: CitaGinecoService,
-    private citaObstService: CitaObstService
+    private pacienteService: PacienteService
 
   ) { }
 

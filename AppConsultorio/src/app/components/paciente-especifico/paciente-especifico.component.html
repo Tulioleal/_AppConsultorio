@@ -11,12 +11,14 @@
         routerLink="/pacientes/edit"
         color='accent'
         (click)='editPaciente(pacienteService.selectedPaciente)'
+        class="edit"
       >
         edit
       </mat-icon>
       <mat-icon
         color='warn'
-        (click)='openDelete(pacienteService.selectedPaciente._id)'
+        (click)='openDelete(pacienteService.selectedPaciente._id, "paciente")'
+        class="delete"
       >
         delete
       </mat-icon>

@@ -72,12 +72,15 @@ export class PacienteComponent implements OnInit {
     this.dialog.open(ContactoComponent, dialogConfig);
   }
 
-  openDelete(id: string) {
+  openDelete(id: string, type:string) {
     const dialogConfig = new MatDialogConfig();
     dialogConfig.autoFocus = false;
     dialogConfig.width = '35%';
     dialogConfig.height = '30%';
-    dialogConfig.data = { id: id };
+    dialogConfig.data = {
+      id: id,
+      type:type
+    };
     this.dialog.open(DeletePacienteComponent, dialogConfig);
   }
 

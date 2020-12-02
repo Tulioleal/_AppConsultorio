@@ -27,7 +27,7 @@
           routerLinkActive="active"
           (click)='editPaciente(paciente)'
         >
-          <mat-icon>edit</mat-icon>
+          <mat-icon class="edit">edit</mat-icon>
         </button>
       </div>
       <div class="row">
@@ -42,9 +42,9 @@
         </span>
         <button
           mat-icon-button color='warn'
-          (click)='openDelete(paciente._id)'
+          (click)='openDelete(paciente._id, "paciente")'
         >
-          <mat-icon>delete</mat-icon>
+          <mat-icon class="delete">delete</mat-icon>
         </button>
       </div>
     </mat-card-content>

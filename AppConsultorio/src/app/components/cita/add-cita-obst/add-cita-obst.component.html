@@ -62,9 +62,9 @@
       ></textarea>
     </mat-form-field>
 
-    <div class="column">
+    <div class="column dates">
 
-      <mat-form-field appearance="outline" class='date'>
+      <mat-form-field appearance="legacy" class='date'>
         <mat-label>Última menstruación</mat-label>
         <input
           matInput
@@ -79,7 +79,7 @@
         <mat-datepicker #ultMenst></mat-datepicker>
       </mat-form-field>
 
-      <mat-form-field appearance="outline" class='date'>
+      <mat-form-field appearance="legacy" class='date'>
         <mat-label>Penúltima menstruación</mat-label>
         <input
           matInput
@@ -93,7 +93,7 @@
         <mat-datepicker #penMenst></mat-datepicker>
       </mat-form-field>
 
-      <mat-form-field appearance="outline" class='date'>
+      <mat-form-field appearance="legacy" class='date'>
         <mat-label>Fecha de embarazo</mat-label>
         <input
           matInput
@@ -121,7 +121,7 @@
           type="number"
           class="form-control"
           name="pesoAEmb"
-          (change)='imc_1(citaObstService.selectedCitaObst.pesoAEmb, citaObstService.selectedCitaObst.altura)'
+          (change)='imc(citaObstService.selectedCitaObst.pesoAEmb, citaObstService.selectedCitaObst.altura, 1)'
           [(ngModel)]="citaObstService.selectedCitaObst.pesoAEmb"
           required
         >
@@ -134,7 +134,7 @@
           type="number"
           class="form-control"
           name="altura"
-          (change)='imc_1(citaObstService.selectedCitaObst.pesoAEmb, citaObstService.selectedCitaObst.altura)'
+          (change)='imc(citaObstService.selectedCitaObst.pesoAEmb, citaObstService.selectedCitaObst.altura, 1)'
           [(ngModel)]="citaObstService.selectedCitaObst.altura"
           required
         >
@@ -192,7 +192,7 @@
           <tr *ngIf="meses && conDias">
             <td>{{ meses }} meses y {{ conDias }} dias</td>
           </tr>
-          <tr *ngIf= "semanas && semDias">
+          <tr *ngIf= "semanas || semDias">
             <td>{{ semanas }} semanas y {{ semDias }} dias</td>
           </tr>
           <tr *ngIf="dias">
@@ -267,7 +267,7 @@
           class="form-control"
           name="exGenPeso"
           (change)='aumentoPeso()'
-          (change)='imc_2(citaObstService.selectedCitaObst.exGenPeso, citaObstService.selectedCitaObst.exGenAlt)'
+          (change)='imc(citaObstService.selectedCitaObst.exGenPeso, citaObstService.selectedCitaObst.exGenAlt, 2)'
           [(ngModel)]="citaObstService.selectedCitaObst.exGenPeso"
           required
           >
@@ -280,7 +280,7 @@
             type="number"
             class="form-control"
             name="exGenAlt"
-            (change)='imc_2(citaObstService.selectedCitaObst.exGenPeso, citaObstService.selectedCitaObst.exGenAlt)'
+            (change)='imc(citaObstService.selectedCitaObst.exGenPeso, citaObstService.selectedCitaObst.exGenAlt, 2)'
             [(ngModel)]="citaObstService.selectedCitaObst.exGenAlt"
             required
           >

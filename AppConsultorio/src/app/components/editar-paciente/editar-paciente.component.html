@@ -33,11 +33,10 @@
         >
       </mat-form-field>
 
-      <mat-form-field appearance="outline" class="seguimiento">
+      <mat-form-field appearance="legacy" class="seguimiento">
         <mat-label>Seguimiento</mat-label>
         <mat-select
           name='seguimiento'
-          [(value)]='selectedSeguimiento'
           [(ngModel)]="pacienteService.selectedPaciente.seguimiento"
           required
         >
@@ -126,11 +125,10 @@
 
   <div class="row">
 
-    <mat-form-field appearance="outline" class="menorrea">
+    <mat-form-field appearance="legacy" class="menorrea">
       <mat-label>Menorrea</mat-label>
       <mat-select
         name='ginecoMenorrea'
-        [(value)]="selectedMenorrea"
         [(ngModel)]="pacienteService.selectedPaciente.ginecoMenorrea"
         required
       >
@@ -139,7 +137,7 @@
       </mat-select>
     </mat-form-field>
 
-    <mat-form-field appearance="outline" class="input gestas">
+    <mat-form-field appearance="legacy" class="input gestas">
       <mat-label>Gestas</mat-label>
       <input
         matInput
@@ -151,7 +149,7 @@
       >
     </mat-form-field>
 
-    <mat-form-field appearance="outline" class="input paras">
+    <mat-form-field appearance="legacy" class="input paras">
       <mat-label>Paras</mat-label>
       <input
         matInput
@@ -163,7 +161,7 @@
       >
     </mat-form-field>
 
-    <mat-form-field appearance="outline" class="input abortos">
+    <mat-form-field appearance="legacy" class="input abortos">
       <mat-label>Abortos</mat-label>
       <input
         matInput
@@ -175,7 +173,7 @@
       >
     </mat-form-field>
 
-    <mat-form-field appearance="outline" class="input cesareas">
+    <mat-form-field appearance="legacy" class="input cesareas">
       <mat-label>Cesareas</mat-label>
       <input
         matInput
@@ -191,7 +189,7 @@
 
   <div class="row">
 
-    <mat-form-field appearance="outline" class="input ciclos">
+    <mat-form-field appearance="legacy" class="input ciclos">
       <mat-label>Ciclos</mat-label>
       <input
         matInput
@@ -203,7 +201,7 @@
       >
     </mat-form-field>
 
-    <mat-form-field appearance="outline" class="input otros">
+    <mat-form-field appearance="legacy" class="input otros">
       <mat-label>Otros</mat-label>
       <input
         matInput
@@ -215,7 +213,7 @@
       >
     </mat-form-field>
 
-    <mat-form-field appearance="outline" class="input menopausia">
+    <mat-form-field appearance="legacy" class="input menopausia">
       <mat-label>Menopausia</mat-label>
       <input
         matInput
@@ -227,7 +225,7 @@
       >
     </mat-form-field>
 
-    <mat-form-field appearance="outline" class="input menarquia">
+    <mat-form-field appearance="legacy" class="input menarquia">
       <mat-label>Menarquia</mat-label>
       <input
         matInput
@@ -239,7 +237,7 @@
       >
     </mat-form-field>
 
-    <mat-form-field appearance="outline" class="input menopausia">
+    <mat-form-field appearance="legacy" class="input ginecoPRS">
       <mat-label>PRS</mat-label>
       <input
         matInput
@@ -301,8 +299,8 @@
         (click)='openCancel()'
       >
         Cancelar Edición
-    </button>
-  </div>
+      </button>
+    </div>
 
     <div *ngIf="!pacienteForm.valid">
       <mat-card class="error">

@@ -16,10 +16,4 @@ export class AntecedentesComponent implements OnInit {
   ngOnInit(): void {
   }
 
-  getPacientes(){
-    this.pacienteService.getPacientes().subscribe(
-      res => this.pacienteService.pacientes = res,
-      err => console.log(err)
-    )
-  }
 }

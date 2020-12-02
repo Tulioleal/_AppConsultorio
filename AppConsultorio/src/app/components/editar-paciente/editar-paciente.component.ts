@@ -11,7 +11,6 @@ import { MatSnackBar } from '@angular/material/snack-bar';
 //Services
 import { PacienteService } from 'src/app/services/paciente.service';
 
-
 @Component({
   selector: 'app-editar-paciente',
   templateUrl: './editar-paciente.component.html',
@@ -25,20 +24,7 @@ export class EditarPacienteComponent implements OnInit {
     public dialog: MatDialog
   ) { }
 
-  selectedSeguimiento : boolean
-  selectedMenorrea : boolean
-
-
   ngOnInit(): void {
-    this.selectedMenorrea = this.pacienteService.selectedPaciente.seguimiento
-    this.selectedSeguimiento = this.pacienteService.selectedPaciente.seguimiento
-    console.log(this.selectedSeguimiento)
-  }
-
-  openSnackBar() {
-    this.snackbar.open('Paciente Editada exitosamente', `Cerrar`, {
-      duration: 4000
-    })
   }
 
   updatePaciente(form: NgForm){
@@ -51,13 +37,19 @@ export class EditarPacienteComponent implements OnInit {
       )
     }
 
-  openCancel(){
+    private openSnackBar() {
+      this.snackbar.open('Paciente Editada exitosamente', 'Cerrar', {
+        duration: 4000
+      })
+    }
 
-    const dialogConfig = new MatDialogConfig()
-    dialogConfig.autoFocus = false
-    dialogConfig.width = "27%"
-    dialogConfig.height = "32%"
-    this.dialog.open(CancelEditComponent, dialogConfig)
+    openCancel(){
+
+      const dialogConfig = new MatDialogConfig()
+      dialogConfig.autoFocus = false
+      dialogConfig.width = "27%"
+      dialogConfig.height = "32%"
+      this.dialog.open(CancelEditComponent, dialogConfig)
+    }
+
   }
-
-}

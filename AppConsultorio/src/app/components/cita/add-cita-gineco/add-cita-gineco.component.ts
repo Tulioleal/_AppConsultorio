@@ -36,7 +36,7 @@ export class AddCitaGinecoComponent implements OnInit {
     )
   }
 
-  getCitas(pacienteId : string){
+  private getCitas(pacienteId : string){
     this.citaGinecoService.getCitasGineco(pacienteId).subscribe(
       res=>{
         this.citaGinecoService.citasGineco = res
@@ -45,7 +45,7 @@ export class AddCitaGinecoComponent implements OnInit {
     )
   }
 
-  getNumeroCita(){
+  private getNumeroCita(){
     this.numeroCita = this.citaGinecoService.citasGineco.length + 1
     this.citaGinecoService.selectedCitaGineco.visita = this.numeroCita
   }

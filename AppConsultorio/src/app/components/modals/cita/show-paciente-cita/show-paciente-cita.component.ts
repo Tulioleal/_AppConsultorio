@@ -34,7 +34,7 @@ export class ShowPacienteCitaComponent implements OnInit {
 
   pacienteId: string = this.pacienteService.selectedPaciente._id;
 
-  getCitas(pacienteId: string = this.pacienteId) {
+  private getCitas(pacienteId: string = this.pacienteId) {
     this.ginecoService.getCitasGineco(pacienteId).subscribe(
       (res) => {
         this.ginecoService.citasGineco = res;
@@ -84,4 +84,5 @@ export class ShowPacienteCitaComponent implements OnInit {
 
     this.dialog.open(ShowSpecificCitaComponent, dialogConfig);
   }
+
 }

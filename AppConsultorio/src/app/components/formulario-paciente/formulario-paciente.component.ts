@@ -32,7 +32,7 @@ export class FormularioPacienteComponent implements OnInit {
     )
   }
 
-  openSnackBar() {
+  private openSnackBar() {
     this.snackbar.open('Paciente Created', 'Cerrar', {
       duration: 2000
     })

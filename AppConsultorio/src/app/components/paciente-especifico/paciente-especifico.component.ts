@@ -23,40 +23,41 @@ export class PacienteEspecificoComponent implements OnInit {
     public dialog: MatDialog,
   ) { }
 
-    ngOnInit(): void {
-    }
+  ngOnInit(): void {
+  }
 
-    editPaciente(paciente: Paciente) {
-      this.pacienteService.selectedPaciente = paciente;
-    }
+  editPaciente(paciente: Paciente) {
+    this.pacienteService.selectedPaciente = paciente;
+  }
 
-    openDelete(id: string) {
-      const dialogConfig = new MatDialogConfig();
-      dialogConfig.autoFocus = false;
-      dialogConfig.width = '35%';
-      dialogConfig.height = '30%';
-      dialogConfig.data = { id: id };
-      this.dialog.open(DeletePacienteComponent, dialogConfig);
-    }
+  openDelete(id: string, type: string) {
+    const dialogConfig = new MatDialogConfig();
+    dialogConfig.autoFocus = false;
+    dialogConfig.width = '35%';
+    dialogConfig.height = '30%';
+    dialogConfig.data = {
+      id: id,
+      type: type
+     };
+    this.dialog.open(DeletePacienteComponent, dialogConfig);
+  }
 
-    openAddCita(id: string, gestas:number) {
-      const dialogConfig = new MatDialogConfig();
-      dialogConfig.autoFocus = false;
-      dialogConfig.width = '30%';
-      dialogConfig.height = '20%';
-      dialogConfig.data = { id: id, gestas:gestas };
-      this.dialog.open(AddCitaComponent, dialogConfig);
-    }
+  openAddCita(id: string, gestas:number) {
+    const dialogConfig = new MatDialogConfig();
+    dialogConfig.autoFocus = false;
+    dialogConfig.width = '30%';
+    dialogConfig.height = '20%';
+    dialogConfig.data = { id: id, gestas:gestas };
+    this.dialog.open(AddCitaComponent, dialogConfig);
+  }
 
-    openShowPacienteCitas(id: string) {
-      const dialogConfig = new MatDialogConfig();
-      dialogConfig.autoFocus = false;
-      dialogConfig.width = '60%';
-      dialogConfig.height = '80%';
-      dialogConfig.data = { id: id };
-      this.dialog.open(ShowPacienteCitaComponent, dialogConfig);
-    }
-
-
+  openShowPacienteCitas(id: string) {
+    const dialogConfig = new MatDialogConfig();
+    dialogConfig.autoFocus = false;
+    dialogConfig.width = '60%';
+    dialogConfig.height = '80%';
+    dialogConfig.data = { id: id };
+    this.dialog.open(ShowPacienteCitaComponent, dialogConfig);
+  }
 
 }

@@ -74,6 +74,22 @@ export class CitaObstService {
     this.fProbable = new Date(fechaTime + 24192000000)
   }
 
+  imcCalc(peso: number, altura: number) {
+    let imc = Math.round(peso / (altura / 100) ** 2);
+    return imc;
+  }
+
+  calc(dif: number, tiempo: number, tiempo2?: number) {
+    let res;
+
+    if (tiempo2) {
+      res = Math.floor((dif % tiempo) / tiempo2);
+    } else {
+      res = Math.floor(dif / tiempo);
+    }
+    return res;
+  }
+
   clearForm(){
     this.selectedCitaObst = {
       pacienteId: "",

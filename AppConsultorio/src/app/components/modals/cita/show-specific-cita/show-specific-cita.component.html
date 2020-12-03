@@ -7,15 +7,16 @@
         <div class="icons">
 
           <mat-icon
-          (click)='editPaciente()'
-          class="edit"
+            mat-dialog-close
+            routerLink="citas/editCitaGineco"
+            routerLinkActive="active"
+            class="edit"
           >
             edit
           </mat-icon>
           <mat-icon
-          color='warn'
-          (click)='openDelete(ginecoService.selectedCitaGineco._id, "Cita Gineco")'
-          class="delete"
+            (click)='openDelete(ginecoService.selectedCitaGineco._id, "Cita Gineco")'
+            class="delete"
           >
             delete
           </mat-icon>
@@ -97,8 +98,10 @@
         <div class="icons">
 
           <mat-icon
-          (click)='editPaciente()'
-          class="edit"
+            mat-dialog-close
+            routerLink="citas/editCitaObst"
+            routerLinkActive="active"
+            class="edit"
           >
             edit
           </mat-icon>

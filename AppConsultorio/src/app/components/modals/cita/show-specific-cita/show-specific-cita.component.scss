@@ -16,10 +16,10 @@ h3 {
     padding-top: 2vh;
     @include flex-between();
 
-    h1{
+    h1 {
       @include flex-between();
 
-      .icons{
+      .icons {
         width: 2.5em;
         padding-left: 1em;
 
@@ -46,7 +46,7 @@ h3 {
         }
       }
 
-      .close{
+      .close {
         height: fit-content;
         cursor: pointer;
       }
@@ -67,6 +67,7 @@ h3 {
 
       @include flex-column-between();
       @include card();
+      background-color: $RosaP;
 
       .historia,
       .estado,
@@ -86,7 +87,8 @@ h3 {
       @include flex-column-between();
 
       .first,
-      .second {
+      .second,
+      .third {
         height: 30%;
 
         @include flex-between();
@@ -96,17 +98,18 @@ h3 {
         .genExt,
         .cervix {
           width: 43%;
-          @include card();
           padding: 1em;
+          @include card();
+          background-color: $RosaP;
 
         }
       }
 
       .third {
-        height: 30%;
-        @include flex-between();
-        @include card();
+
         padding: 1em;
+        @include card();
+        background-color: $RosaP;
 
         .utero,
         .impresion,
@@ -121,106 +124,114 @@ h3 {
 
 .obst {
 
-  .content{
+  .content {
     @include flex-between();
     width: 100%;
     height: 69vh;
 
-    h4, h3{
+    h4,
+    h3 {
       font-weight: 600;
       margin-bottom: .2em;
     }
 
-    .top,#fechas,#fisico,#gineco,#obste{
+    .top,
+    #fechas,
+    #fisico,
+    #gineco,
+    #obste {
       @include card();
+      background-color: $RosaP;
     }
 
     .left,
-    .right{
+    .right {
       @include flex-column-between();
       align-self: flex-end;
       height: 95%;
     }
 
-    .left{
+    .left {
       width: 35%;
 
-      .top, .bottom{
+      .top,
+      .bottom {
         width: 100%;
         @include flex-column-between();
       }
 
-      .top{
+      .top {
         height: 40%;
 
-        .div{
+        .div {
           width: 100%;
           height: 32.5%;
         }
       }
 
-      .bottom{
+      .bottom {
         height: 50%;
 
         #fechas,
-        #pesos{
+        #pesos {
           @include flex-column-between();
           align-content: flex-start;
         }
 
-        #fechas{
+        #fechas {
           width: 100%;
           padding-bottom: 1em;
-          .fechas{
+
+          .fechas {
             width: 100%;
             height: fit-content;
             @include flex-between();
 
-            h4{
+            h4 {
               margin-bottom: 0em;
             }
           }
         }
 
-        .calc{
+        .calc {
           width: 100%;
           padding: 1em 2em;
 
           display: flex;
           justify-content: space-evenly;
 
-          .dias{
+          .dias {
             height: 100%;
             padding: 0em 2em;
 
             @include flex-column-between();
 
-            div{
+            div {
               font-weight: 600;
 
               @include flex-column-between();
 
-              span:hover{
+              span:hover {
                 background-color: $RosaP;
                 transition: .2s all ease;
               }
             }
           }
 
-          #pesos{
+          #pesos {
 
             #pAntes,
-            #pDespues{
+            #pDespues {
               width: 100%;
 
-              h4{
+              h4 {
                 text-align: center;
               }
 
-              span{
+              span {
                 padding: 0em .3em;
 
-                &:nth-child(3){
+                &:nth-child(3) {
                   border-left: 1px solid $BckG;
                   border-right: 1px solid $BckG;
                 }
@@ -231,33 +242,33 @@ h3 {
       }
     }
 
-    .right{
+    .right {
       width: 60%;
       flex-direction: row;
 
-      .left{
+      .left {
         width: 30%;
         text-align: center;
         margin: 0em 2em;
         height: 100%;
         @include flex-column-between();
 
-        #fisico{
+        #fisico {
           height: 50%;
           @include flex-column-between();
 
-          .div3{
+          .div3 {
             display: flex;
             justify-content: space-evenly;
           }
         }
 
-        #gineco{
+        #gineco {
           height: 35%;
         }
       }
 
-      #obste{
+      #obste {
         width: 60%;
         @include flex-column-between();
       }

@@ -1,0 +1,83 @@
+@import '../../../../variables.scss';
+
+form{
+  margin: 5% 12%;
+  padding-bottom: 3%;
+
+  .row{
+    width: 100%;
+    margin-bottom: 1em;
+
+    @include flex-between();
+
+    .column{
+      width: 35%;
+
+      div{
+        @include flex-column-between();
+      }
+    }
+
+    .motivo{
+      width: 80%;
+    }
+
+    .numero{
+      font-size: 3em;
+      text-align: center;
+      height: fit-content;
+      width: 15%;
+
+      align-self: flex-start;
+      @include flex-column-between();
+
+      h2{
+        height: fit-content;
+        box-sizing: border-box;
+      }
+    }
+
+    .textarea-1{
+      width: 55%;
+      align-self: flex-end;
+    }
+
+    .textarea-2{
+      width: 45%;
+    }
+
+    .textarea-3{
+      width: 28%;
+    }
+
+  }
+
+  mat-divider{
+    margin: 2em 0em 2em 0em;
+  }
+
+  .footer {
+    margin-top: 4em;
+
+    @include flex-between();
+
+    .buttons{
+      @include flex-between();
+      align-items: center;
+
+      button{
+        height: fit-content;
+
+        &:nth-child(2){
+          margin-left: 2em;
+        }
+      }
+    }
+
+    .error {
+    color: $Blanco;
+    background-color: $Rojo;
+    width: fit-content;
+    }
+  }
+}

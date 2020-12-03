@@ -20,21 +20,18 @@
     }
   }
 
-  .content{
+  mat-dialog-content{
     text-align: center;
-    width: 100%;
 
     p{
       font-size: 1.2em;
     }
   }
 
-  .footer{
+  mat-dialog-actions{
     display: flex;
     justify-content: space-around;
+    @include colorsBtn();
 
-    button:nth-child(2){
-      background-color: $Rosa2;
-    }
   }
 }

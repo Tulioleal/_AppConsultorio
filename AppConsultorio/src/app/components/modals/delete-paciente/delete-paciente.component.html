@@ -16,22 +16,21 @@
 
   </div>
 
-  <div class="content">
+  <mat-dialog-content>
 
     <p>
       <b>All</b> the data will be <b>errased premanently</b>
     </p>
 
-  </div>
+  </mat-dialog-content>
 
-  <div
+  <mat-dialog-actions
     *ngIf="data.type === 'paciente'"
-    class="footer"
   >
 
     <button
       mat-flat-button
-      color='warn'
+      class="delete"
       mat-dialog-close
       routerLink="/pacientes"
       (click)='deletePaciente(data.id)'
@@ -42,21 +41,21 @@
     <button
       color='primary'
       mat-flat-button
+      class="edit"
       mat-dialog-close
     >
       Cancel
     </button>
 
-  </div>
+  </mat-dialog-actions>
 
-  <div
+  <mat-dialog-actions
     *ngIf="data.type === 'Cita Gineco'"
-    class="footer"
   >
 
     <button
       mat-flat-button
-      color='warn'
+      class="delete"
       mat-dialog-close
       (click)='deleteCitaGineco(data.id)'
     >
@@ -66,21 +65,21 @@
     <button
       color='primary'
       mat-flat-button
+      class="edit"
       mat-dialog-close
     >
       Cancel
     </button>
 
-  </div>
+  </mat-dialog-actions>
 
-  <div
+  <mat-dialog-actions
     *ngIf="data.type === 'Cita Obst'"
-    class="footer"
   >
 
     <button
       mat-flat-button
-      color='warn'
+      class="delete"
       mat-dialog-close
       (click)='deleteCitaObst(data.id)'
     >
@@ -88,13 +87,13 @@
     </button>
 
     <button
-      color='primary'
       mat-flat-button
+      class="edit"
       mat-dialog-close
     >
       Cancel
     </button>
 
-  </div>
+  </mat-dialog-actions>
 
 </div>

@@ -28,28 +28,29 @@ export class EditarPacienteComponent implements OnInit {
   }
 
   updatePaciente(form: NgForm){
-    this.pacienteService.updatePaciente(form.value).subscribe(
+    this.pacienteService.updatePaciente(form.value)
+    .subscribe(
       res => {
         console.log(res)
         this.openSnackBar()
       },
       err => console.log(err)
-      )
-    }
-
-    private openSnackBar() {
-      this.snackbar.open('Paciente Editada exitosamente', 'Cerrar', {
-        duration: 4000
-      })
-    }
-
-    openCancel(){
-
-      const dialogConfig = new MatDialogConfig()
-      dialogConfig.autoFocus = false
-      dialogConfig.width = "27%"
-      dialogConfig.height = "32%"
-      this.dialog.open(CancelEditComponent, dialogConfig)
-    }
-
+    )
   }
+
+  private openSnackBar() {
+    this.snackbar.open('Paciente Editada exitosamente', 'Cerrar', {
+      duration: 4000
+    })
+  }
+
+  openCancel(){
+
+    const dialogConfig = new MatDialogConfig()
+    dialogConfig.autoFocus = false
+    dialogConfig.width = "27%"
+    dialogConfig.height = "32%"
+    this.dialog.open(CancelEditComponent, dialogConfig)
+  }
+
+}

@@ -1,1 +1,430 @@
-<p>edit-cita-obst works!</p>
+<form #citaForm="ngForm" (ngSubmit)="updateCitaObst(citaForm)">
+
+  <input
+    type="hidden"
+    name='_id'
+    [(ngModel)]="citaObstService.selectedCitaObst._id"
+  >
+  <input
+    type="hidden"
+    name='visita'
+    [(ngModel)]="citaObstService.selectedCitaObst.visita"
+  >
+  <input
+    type="hidden"
+    name='pacienteId'
+    [(ngModel)]="citaObstService.selectedCitaObst.pacienteId"
+  >
+  <input
+    type="hidden"
+    name='gestas'
+    [(ngModel)]="citaObstService.selectedCitaObst.gestas"
+  >
+
+  <h1>Cita Obstétrica</h1>
+
+  <div class="row">
+
+    <mat-form-field appearance="outline" class="motivo">
+      <mat-label>Motivo de la consulta</mat-label>
+      <textarea
+        matInput
+        class="form-control"
+        name="motivo"
+        rows="2"
+        [(ngModel)]="citaObstService.selectedCitaObst.motivo"
+        required
+      ></textarea>
+    </mat-form-field>
+
+    <div class="numeros">
+
+      <div class="numero">
+        <h2>Cita</h2>
+        {{ numeroCita }}
+      </div>
+
+      <div class="numero">
+        <h2>Gesta</h2>
+        {{ gestas }}
+      </div>
+
+    </div>
+
+  </div>
+
+  <div class="row">
+
+    <mat-form-field appearance="outline" class="textarea-1">
+      <mat-label>Historia de la enfermedad Actual</mat-label>
+      <textarea
+        matInput
+        class="form-control"
+        name="histEnfAct"
+        rows="7"
+        [(ngModel)]="citaObstService.selectedCitaObst.histEnfAct"
+        required
+      ></textarea>
+    </mat-form-field>
+
+    <div class="column dates">
+
+      <mat-form-field appearance="legacy" class='date'>
+        <mat-label>Última menstruación</mat-label>
+        <input
+          matInput
+          placeholder="MM/DD/YY"
+          [matDatepicker]="ultMenst"
+          (change)='compararFechas()'
+          [(ngModel)]="citaObstService.selectedCitaObst.ultMenst"
+          name="ultMenst"
+          required
+        >
+        <mat-datepicker-toggle matSuffix [for]="ultMenst"></mat-datepicker-toggle>
+        <mat-datepicker #ultMenst></mat-datepicker>
+      </mat-form-field>
+
+      <mat-form-field appearance="legacy" class='date'>
+        <mat-label>Penúltima menstruación</mat-label>
+        <input
+          matInput
+          placeholder="MM/DD/YY"
+          [matDatepicker]="penMenst"
+          [(ngModel)]="citaObstService.selectedCitaObst.penMenst"
+          name="penMenst"
+          required
+        >
+        <mat-datepicker-toggle matSuffix [for]="penMenst"></mat-datepicker-toggle>
+        <mat-datepicker #penMenst></mat-datepicker>
+      </mat-form-field>
+
+      <mat-form-field appearance="legacy" class='date'>
+        <mat-label>Fecha de embarazo</mat-label>
+        <input
+          matInput
+          placeholder="MM/DD/YY"
+          [matDatepicker]="fechaEmb"
+          [(ngModel)]="citaObstService.selectedCitaObst.fechaEmb"
+          name="fechaEmb"
+          required
+        >
+        <mat-datepicker-toggle matSuffix [for]="fechaEmb"></mat-datepicker-toggle>
+        <mat-datepicker #fechaEmb></mat-datepicker>
+      </mat-form-field>
+
+    </div>
+  </div>
+
+  <div class="row">
+
+    <div class="column" id="column-3">
+
+      <mat-form-field appearance="legacy" class="pesoA">
+        <mat-label>Peso antes del Embarazo</mat-label>
+        <input
+          matInput
+          type="number"
+          class="form-control"
+          name="pesoAEmb"
+          (change)='imc(citaObstService.selectedCitaObst.pesoAEmb, citaObstService.selectedCitaObst.altura, 1)'
+          [(ngModel)]="citaObstService.selectedCitaObst.pesoAEmb"
+          required
+        >
+      </mat-form-field>
+
+      <mat-form-field appearance="legacy" class="alturaA">
+        <mat-label>Altura</mat-label>
+        <input
+          matInput
+          type="number"
+          class="form-control"
+          name="altura"
+          (change)='imc(citaObstService.selectedCitaObst.pesoAEmb, citaObstService.selectedCitaObst.altura, 1)'
+          [(ngModel)]="citaObstService.selectedCitaObst.altura"
+          required
+        >
+      </mat-form-field>
+
+      <mat-form-field appearance="legacy" class="imc1">
+        <mat-label>IMC</mat-label>
+        <input
+          matInput
+          type="number"
+          class="form-control"
+          [value]="imc1"
+          disabled
+        >
+      </mat-form-field>
+
+    </div>
+
+    <mat-form-field appearance="outline" class="textarea-2">
+      <mat-label>Percepción movimiento fetales</mat-label>
+      <textarea
+        matInput
+        class="form-control"
+        name="percepFetal"
+        rows="12"
+        [(ngModel)]="citaObstService.selectedCitaObst.percepFetal"
+        required
+      ></textarea>
+    </mat-form-field>
+
+    <div class="resultados">
+
+        <table>
+          <tr *ngIf= "pesoAument">
+            <th>Aumento de peso</th>
+          </tr>
+          <tr *ngIf= "pesoAument">
+            <td>{{ pesoAument }} kg</td>
+          </tr>
+          <tr *ngIf= "numEmb">
+            <th>Embarazo</th>
+          </tr>
+          <tr *ngIf= "numEmb">
+            <td>{{ numEmb }}</td>
+          </tr>
+          <tr *ngIf= "fProbable">
+            <th>Fecha probable de parto</th>
+          </tr>
+          <tr>
+            <td>{{ fProbable | date }}</td>
+          </tr>
+          <tr *ngIf="semanas && semDias && meses && conDias">
+            <th>Edad gestacional</th>
+          </tr>
+          <tr *ngIf="meses && conDias">
+            <td>{{ meses }} meses y {{ conDias }} dias</td>
+          </tr>
+          <tr *ngIf= "semanas || semDias">
+            <td>{{ semanas }} semanas y {{ semDias }} dias</td>
+          </tr>
+          <tr *ngIf="dias">
+            <td>{{ dias }} dias</td>
+          </tr>
+        </table>
+
+    </div>
+  </div>
+
+  <div class="row col">
+
+    <h2>Examen Físico General</h2>
+
+    <div class="row">
+
+      <mat-form-field appearance="outline" class="textarea-1">
+        <mat-label>Estado General</mat-label>
+        <textarea
+          matInput
+          class="form-control"
+          name="exGenEstadoG"
+          rows="6"
+          [(ngModel)]="citaObstService.selectedCitaObst.exGenEstadoG"
+          required
+        ></textarea>
+      </mat-form-field>
+
+      <div class="column" id="col-6">
+
+        <mat-form-field appearance="legacy">
+          <mat-label>P/A</mat-label>
+          <input
+            matInput
+            type="text"
+            class="form-control"
+            name="exGenPA"
+            [(ngModel)]="citaObstService.selectedCitaObst.exGenPA"
+            required
+          >
+        </mat-form-field>
+
+        <mat-form-field appearance="legacy">
+          <mat-label>Pulso</mat-label>
+          <input
+            matInput
+            type="text"
+            class="form-control"
+            name="exGenPulso"
+            [(ngModel)]="citaObstService.selectedCitaObst.exGenPulso"
+            required
+          >
+        </mat-form-field>
+
+        <mat-form-field appearance="legacy">
+          <mat-label>F/R</mat-label>
+          <input
+            matInput
+            type="text"
+            class="form-control"
+            name="exGenFR"
+            [(ngModel)]="citaObstService.selectedCitaObst.exGenFR"
+            required
+          >
+        </mat-form-field>
+
+        <mat-form-field appearance="legacy">
+          <mat-label>Peso en Kg</mat-label>
+          <input
+            matInput
+            type="number"
+            class="form-control"
+            name="exGenPeso"
+            (change)='aumentoPeso()'
+            (change)='imc(citaObstService.selectedCitaObst.exGenPeso, citaObstService.selectedCitaObst.exGenAlt, 2)'
+            [(ngModel)]="citaObstService.selectedCitaObst.exGenPeso"
+            required
+          >
+        </mat-form-field>
+
+        <mat-form-field appearance="legacy">
+          <mat-label>Altura en cm</mat-label>
+          <input
+            matInput
+            type="number"
+            class="form-control"
+            name="exGenAlt"
+            (change)='imc(citaObstService.selectedCitaObst.exGenPeso, citaObstService.selectedCitaObst.exGenAlt, 2)'
+            [(ngModel)]="citaObstService.selectedCitaObst.exGenAlt"
+            required
+          >
+        </mat-form-field>
+
+        <mat-form-field appearance="legacy">
+          <mat-label>IMC</mat-label>
+          <input
+            matInput
+            type="number"
+            class="form-control"
+            name="IMC"
+            disabled
+            [value]='imc2'
+          >
+        </mat-form-field>
+
+      </div>
+    </div>
+  </div>
+
+  <div class="row col">
+
+    <h2>Examen Obstétrico</h2>
+
+    <div class="row wrap">
+
+      <mat-form-field appearance="outline" class="textarea-5">
+        <mat-label>Abdomen</mat-label>
+        <textarea
+          matInput
+          type='text'
+          class="form-control"
+          name="exObsAbdom"
+          rows="3"
+          [(ngModel)]="citaObstService.selectedCitaObst.exObsAbdom"
+          required
+        ></textarea>
+      </mat-form-field>
+
+      <mat-form-field appearance="outline" class="textarea-5">
+        <mat-label>Movimientos Fetales</mat-label>
+        <textarea
+          matInput
+          type='text'
+          class="form-control"
+          name="exObsMovFet"
+          rows="3"
+          [(ngModel)]="citaObstService.selectedCitaObst.exObsMovFet"
+          required
+        ></textarea>
+      </mat-form-field>
+
+      <mat-form-field appearance="outline" class="textarea-5">
+        <mat-label>Altura Uterina</mat-label>
+        <textarea
+          matInput
+          type='text'
+          class="form-control"
+          name="exObsAltUt"
+          rows="3"
+          [(ngModel)]="citaObstService.selectedCitaObst.exObsAltUt"
+          required
+        ></textarea>
+      </mat-form-field>
+
+      <mat-form-field appearance="outline" class="textarea-5">
+        <mat-label>Circunferencia Abdominal</mat-label>
+        <textarea
+          matInput
+          type='text'
+          class="form-control"
+          name="exObsCircunAbdom"
+          rows="3"
+          [(ngModel)]="citaObstService.selectedCitaObst.exObsCircunAbdom"
+          required
+        ></textarea>
+      </mat-form-field>
+
+      <mat-form-field appearance="outline" class="textarea-5">
+        <mat-label>FCF</mat-label>
+        <textarea
+          matInput
+          type='text'
+          class="form-control"
+          name="exObsFCF"
+          rows="3"
+          [(ngModel)]="citaObstService.selectedCitaObst.exObsFCF"
+          required
+        ></textarea>
+      </mat-form-field>
+    </div>
+  </div>
+
+  <div class="row examenGineco">
+
+    <h2>Examen Ginecológico</h2>
+
+    <mat-form-field appearance="outline" class="textarea">
+      <textarea
+        matInput
+        class="form-control"
+        name="exGineco"
+        rows="7"
+        [(ngModel)]="citaObstService.selectedCitaObst.exGineco"
+        required
+      ></textarea>
+    </mat-form-field>
+
+  </div>
+
+  <div class="footer">
+
+    <div class="buttons">
+
+      <button
+        mat-flat-button color='primary'
+        type="submit"
+        [disabled]="!citaForm.valid"
+      >
+        Editar Cita
+      </button>
+
+      <button
+        type="button"
+        mat-flat-button color='warn'
+        (click)='openCancel()'
+      >
+      Cancelar Edición
+    </button>
+
+  </div>
+
+    <div *ngIf="!citaForm.valid">
+      <mat-card class="error">
+        Por favor verifica que todos los campos requeridos estén completos
+      </mat-card>
+    </div>
+
+  </div>
+
+</form>

@@ -10,6 +10,11 @@
     name='pacienteId'
     [(ngModel)]="citaGinecoService.selectedCitaGineco.pacienteId"
   >
+  <input
+    type="hidden"
+    name='_id'
+    [(ngModel)]="citaGinecoService.selectedCitaGineco._id"
+  >
 
   <h1>Cita Ginecológica</h1>
 
@@ -190,14 +195,14 @@
         mat-flat-button color='primary'
         type="submit"
         [disabled]="!citaForm.valid"
-        >
+      >
         Editar Cita
       </button>
 
       <button
-      type="button"
-      mat-flat-button color='warn'
-      (click)='openCancel()'
+        type="button"
+        mat-flat-button color='warn'
+        (click)='openCancel()'
       >
       Cancelar Edición
     </button>

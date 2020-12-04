@@ -21,9 +21,10 @@ export class EditCitaGinecoComponent implements OnInit {
   numeroCita: Number = this.citaGinecoService.selectedCitaGineco.visita
 
   ngOnInit(): void {
+
   }
 
-  updatePaciente(form: NgForm){
+  updateCitaGineco(form: NgForm){
     this.citaGinecoService.updateCitaGineco(form.value)
     .subscribe(
       res => {
@@ -35,7 +36,7 @@ export class EditCitaGinecoComponent implements OnInit {
   }
 
   private openSnackBar() {
-    this.snackbar.open('Paciente Editada exitosamente', 'Cerrar', {
+    this.snackbar.open('Cita Editada exitosamente', 'Cerrar', {
       duration: 4000
     })
   }

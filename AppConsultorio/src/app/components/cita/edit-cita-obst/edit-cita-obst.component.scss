@@ -75,9 +75,13 @@ form {
         padding: 1em 0em;
         align-self: center;
 
-        th,
-        td {
-          text-align: center;
+        tr{
+          height: 2em;
+
+          th,
+          td {
+            text-align: center;
+          }
         }
 
         td:hover {

@@ -3,7 +3,7 @@ import { NgForm } from '@angular/forms';
 import { MatDialog, MatDialogConfig } from '@angular/material/dialog';
 import { MatSnackBar } from '@angular/material/snack-bar';
 import { CitaGinecoService } from 'src/app/services/cita-gineco.service';
-import { CancelEditComponent } from '../../modals/cancel-edit/cancel-edit.component';
+import { CancelEditComponent } from '../../General/modals/cancel-edit/cancel-edit.component';
 
 @Component({
   selector: 'app-edit-cita-gineco',

@@ -4,7 +4,7 @@ import { MatDialog, MatDialogConfig } from '@angular/material/dialog';
 import { MatSnackBar } from '@angular/material/snack-bar';
 import { CitaObstService } from 'src/app/services/cita-obst.service';
 import { PacienteService } from 'src/app/services/paciente.service';
-import { CancelEditComponent } from '../../modals/cancel-edit/cancel-edit.component';
+import { CancelEditComponent } from '../../General/modals/cancel-edit/cancel-edit.component';
 
 
 @Component({

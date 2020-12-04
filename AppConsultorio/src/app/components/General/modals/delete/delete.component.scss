@@ -1,0 +1,37 @@
+@import '../../../../../variables.scss';
+
+.container{
+  color: $Cafe;
+  height: 100%;
+
+  @include flex-column-between();
+
+  .header{
+    @include flex-between();
+
+    h2{
+      font-size: 1.6em;
+    }
+
+    span{
+      mat-icon{
+        cursor: pointer;
+      }
+    }
+  }
+
+  mat-dialog-content{
+    text-align: center;
+
+    p{
+      font-size: 1.2em;
+    }
+  }
+
+  mat-dialog-actions{
+    display: flex;
+    justify-content: space-around;
+    @include colorsBtn();
+
+  }
+}

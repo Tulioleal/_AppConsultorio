@@ -1,0 +1,40 @@
+<div class="container">
+  <div class="header">
+
+    <span mat-dialog-close class="close">
+      <mat-icon color='warn'>cancel</mat-icon>
+    </span>
+
+    <h2 mat-dialog-title>
+      Información de contacto de:
+    <br>
+      <b>
+        {{ pacienteService.pacientes[data.i].nombre | titlecase }}
+        {{ pacienteService.pacientes[data.i].apellido | titlecase }}
+      </b>
+    </h2>
+
+  </div>
+
+  <table>
+    <tbody>
+      <tr>
+        <th>
+          Numero de teléfono:
+        </th>
+        <td>
+          {{ pacienteService.pacientes[data.i].telf }}
+        </td>
+      </tr>
+      <tr>
+        <th>
+          Correo electrónico:
+        </th>
+        <td>
+          {{ pacienteService.pacientes[data.i].email }}
+        </td>
+      </tr>
+    </tbody>
+  </table>
+
+  </div>

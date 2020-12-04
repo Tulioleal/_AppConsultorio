@@ -1,0 +1,13 @@
+@import'../../../../../variables.scss';
+
+*{
+  font-size: 15px;
+}
+
+::ng-deep .mat-form-field-wrapper{
+  margin-bottom: -1.25em;
+}
+
+.placeholder {
+  color: $BckG;
+}

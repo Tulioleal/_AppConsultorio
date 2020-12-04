@@ -1,0 +1,291 @@
+<form #pacienteForm="ngForm" (ngSubmit)="addPaciente(pacienteForm)">
+
+  <h2>Información personal</h2>
+
+  <div class="row">
+
+      <mat-form-field appearance="outline" class="input nombre">
+        <mat-label>Nombre</mat-label>
+        <input
+          matInput
+          type="text"
+          class="form-control"
+          name="nombre"
+          [(ngModel)]="pacienteService.selectedPaciente.nombre"
+          required
+          autofocus
+        >
+      </mat-form-field>
+
+      <mat-form-field appearance="outline" class="input apellido">
+        <mat-label>Apellido</mat-label>
+        <input
+          matInput
+          type="text"
+          class="form-control"
+          name="apellido"
+          [(ngModel)]="pacienteService.selectedPaciente.apellido"
+          required
+        >
+      </mat-form-field>
+
+      <mat-form-field appearance="outline" class="seguimiento">
+        <mat-label>Seguimiento</mat-label>
+        <mat-select
+          name='seguimiento'
+          [(ngModel)]="pacienteService.selectedPaciente.seguimiento"
+          required
+        >
+          <mat-option>Seguimiento</mat-option>
+          <mat-option value="true">Sí</mat-option>
+          <mat-option value="false">No</mat-option>
+        </mat-select>
+      </mat-form-field>
+
+  </div>
+
+  <div class="row">
+
+    <mat-form-field appearance="outline">
+      <mat-label>Fecha de nacimiento</mat-label>
+      <input
+        matInput
+        placeholder="MM/DD/YY"
+        [matDatepicker]="nacimiento"
+        [(ngModel)]="pacienteService.selectedPaciente.nacimiento"
+        name="nacimiento"
+        required
+      >
+      <mat-datepicker-toggle matSuffix [for]="nacimiento"></mat-datepicker-toggle>
+      <mat-datepicker #nacimiento></mat-datepicker>
+    </mat-form-field>
+
+    <mat-form-field appearance="outline" class="input telefono">
+      <mat-label>Numero de teléfono</mat-label>
+      <input
+        matInput
+        type="text"
+        class="form-control"
+        name="telf"
+        [(ngModel)]="pacienteService.selectedPaciente.telf"
+        required
+      >
+    </mat-form-field>
+
+    <mat-form-field appearance="outline" class="input nacimiento">
+      <mat-label>Correo Electrónico</mat-label>
+      <input
+        matInput
+        type="email"
+        class="form-control"
+        name="email"
+        [(ngModel)]="pacienteService.selectedPaciente.email"
+        required
+      >
+    </mat-form-field>
+
+  </div>
+
+  <mat-divider></mat-divider>
+
+  <h2>Antecedentes</h2>
+
+  <div class="row">
+
+    <mat-form-field appearance="outline" class="textarea">
+      <mat-label>Personales</mat-label>
+      <textarea
+        matInput
+        class="form-control"
+        name="antecedentePersonal"
+        rows="8"
+        [(ngModel)]="pacienteService.selectedPaciente.antecedentePersonal"
+        required
+      ></textarea>
+    </mat-form-field>
+
+    <mat-form-field appearance="outline" class="textarea">
+      <mat-label>Familiares</mat-label>
+      <textarea
+        matInput
+        class="form-control"
+        name="antecedenteFamiliar"
+        rows="8"
+        [(ngModel)]="pacienteService.selectedPaciente.antecedenteFamiliar"
+        required
+      ></textarea>
+    </mat-form-field>
+
+  </div>
+
+  <h3>Ginecológicos</h3>
+
+  <div class="row">
+
+    <mat-form-field appearance="legacy" class="menorrea">
+      <mat-label>Menorrea</mat-label>
+      <mat-select
+        name='ginecoMenorrea'
+        [(ngModel)]="pacienteService.selectedPaciente.ginecoMenorrea"
+        required
+      >
+        <mat-option value="true">Eumenorreica</mat-option>
+        <mat-option value="false">Dismenorreica</mat-option>
+      </mat-select>
+    </mat-form-field>
+
+    <mat-form-field appearance="legacy" class="input gestas">
+      <mat-label>Gestas</mat-label>
+      <input
+        matInput
+        type="number"
+        class="form-control"
+        name="ginecoGestas"
+        [(ngModel)]="pacienteService.selectedPaciente.ginecoGestas"
+        required
+      >
+    </mat-form-field>
+
+    <mat-form-field appearance="legacy" class="input paras">
+      <mat-label>Paras</mat-label>
+      <input
+        matInput
+        type="number"
+        class="form-control"
+        name="ginecoParas"
+        [(ngModel)]="pacienteService.selectedPaciente.ginecoParas"
+        required
+      >
+    </mat-form-field>
+
+    <mat-form-field appearance="legacy" class="input abortos">
+      <mat-label>Abortos</mat-label>
+      <input
+        matInput
+        type="number"
+        class="form-control"
+        name="ginecoAbortos"
+        [(ngModel)]="pacienteService.selectedPaciente.ginecoAbortos"
+        required
+      >
+    </mat-form-field>
+
+    <mat-form-field appearance="legacy" class="input cesareas">
+      <mat-label>Cesareas</mat-label>
+      <input
+        matInput
+        type="number"
+        class="form-control"
+        name="ginecoCesareas"
+        [(ngModel)]="pacienteService.selectedPaciente.ginecoCesareas"
+        required
+      >
+    </mat-form-field>
+
+  </div>
+
+  <div class="row">
+
+    <mat-form-field appearance="legacy" class="input ciclos">
+      <mat-label>Ciclos</mat-label>
+      <input
+        matInput
+        type="text"
+        class="form-control"
+        name="ginecoCiclos"
+        [(ngModel)]="pacienteService.selectedPaciente.ginecoCiclos"
+        required
+      >
+    </mat-form-field>
+
+    <mat-form-field appearance="legacy" class="input otros">
+      <mat-label>Otros</mat-label>
+      <input
+        matInput
+        type="number"
+        class="form-control"
+        name="ginecoOtros"
+        [(ngModel)]="pacienteService.selectedPaciente.ginecoOtros"
+        required
+      >
+    </mat-form-field>
+
+    <mat-form-field appearance="legacy" class="input menopausia">
+      <mat-label>Menopausia</mat-label>
+      <input
+        matInput
+        type="number"
+        class="form-control"
+        name="ginecoMenopausia"
+        [(ngModel)]="pacienteService.selectedPaciente.ginecoMenopausia"
+        required
+      >
+    </mat-form-field>
+
+    <mat-form-field appearance="legacy" class="input menarquia">
+      <mat-label>Menarquia</mat-label>
+      <input
+        matInput
+        type="number"
+        class="form-control"
+        name="ginecoMenarquia"
+        [(ngModel)]="pacienteService.selectedPaciente.ginecoMenarquia"
+        required
+      >
+    </mat-form-field>
+
+    <mat-form-field appearance="legacy" class="input menopausia">
+      <mat-label>PRS</mat-label>
+      <input
+        matInput
+        type="number"
+        class="form-control"
+        name="ginecoPRS"
+        [(ngModel)]="pacienteService.selectedPaciente.ginecoPRS"
+        required
+      >
+    </mat-form-field>
+
+  </div>
+
+  <div class="row">
+
+    <mat-form-field appearance="outline" class="textarea">
+      <mat-label>Método Anticonceptivo</mat-label>
+      <textarea
+        matInput
+        class="form-control"
+        name="ginecoMetodo"
+        rows="4"
+        [(ngModel)]="pacienteService.selectedPaciente.ginecoMetodo"
+      ></textarea>
+    </mat-form-field>
+
+    <mat-form-field appearance="outline" class="textarea">
+      <mat-label>Terapia de reemplazo hormonal</mat-label>
+      <textarea
+        matInput
+        class="form-control"
+        name="ginecoTRH"
+        rows="4"
+        [(ngModel)]="pacienteService.selectedPaciente.ginecoTRH"
+      ></textarea>
+    </mat-form-field>
+  </div>
+
+  <div class="row">
+
+    <button
+      mat-flat-button color='primary'
+      type="submit"
+      [disabled]="!pacienteForm.valid"
+    >
+      Ingresar Paciente
+    </button>
+
+    <div *ngIf="!pacienteForm.valid">
+      <mat-card class="error">Por favor verifica que todos los campos requeridos estén completos</mat-card>
+    </div>
+  </div>
+
+</form>

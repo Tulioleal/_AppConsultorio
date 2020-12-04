@@ -2,6 +2,7 @@ import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { HttpClientModule } from '@angular/common/http';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms'
+import { CommonModule } from '@angular/common';
 
 // Routing
 import { AppRoutingModule } from './app-routing.module';
@@ -10,28 +11,26 @@ import { AppRoutingModule } from './app-routing.module';
 import { MaterialModules } from './material.module';
 
 // Components
-import { AppComponent } from './app.component';
-import { PacienteComponent } from './components/paciente/paciente.component';
-import { HomeComponent } from './components/home/home.component';
-import { FormularioPacienteComponent } from './components/formulario-paciente/formulario-paciente.component';
-import { EditarPacienteComponent } from './components/editar-paciente/editar-paciente.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import { NavegacionComponent } from './components/navegacion/navegacion.component';
-import { AntecedentesComponent } from './components/modals/antecedentes/antecedentes.component';
-import { ContactoComponent } from './components/modals/contacto/contacto.component';
-import { DeletePacienteComponent } from './components/modals/delete-paciente/delete-paciente.component';
-import { CancelEditComponent } from './components/modals/cancel-edit/cancel-edit.component';
-import { AutocompleteComponent } from './components/navegacion/autocomplete/autocomplete.component';
-import { PacienteEspecificoComponent } from './components/paciente-especifico/paciente-especifico.component';
-import { CitaComponent } from './components/cita/cita/cita.component';
+import { AppComponent } from './app.component';
+import { PacienteComponent } from './components/PacienteComponents/paciente/paciente.component';
+import { HomeComponent } from './components/General/home/home.component';
+import { FormularioPacienteComponent } from './components/PacienteComponents/formulario-paciente/formulario-paciente.component';
+import { EditarPacienteComponent } from './components/PacienteComponents/editar-paciente/editar-paciente.component';
+import { NavegacionComponent } from './components/General/navegacion/navegacion.component';
+import { AntecedentesComponent } from './components/General/modals/pacientes/antecedentes/antecedentes.component';
+import { ContactoComponent } from './components/General/modals/pacientes/contacto/contacto.component';
+import { DeleteComponent } from './components/General/modals/delete/delete.component';
+import { CancelEditComponent } from './components/General/modals/cancel-edit/cancel-edit.component';
+import { AutocompleteComponent } from './components/General/navegacion/autocomplete/autocomplete.component';
+import { PacienteEspecificoComponent } from './components/PacienteComponents/paciente-especifico/paciente-especifico.component';
 import { AddCitaObstComponent } from './components/cita/add-cita-obst/add-cita-obst.component';
 import { AddCitaGinecoComponent } from './components/cita/add-cita-gineco/add-cita-gineco.component';
 import { EditCitaObstComponent } from './components/cita/edit-cita-obst/edit-cita-obst.component';
 import { EditCitaGinecoComponent } from './components/cita/edit-cita-gineco/edit-cita-gineco.component';
-import { AddCitaComponent } from './components/modals/cita/add-cita/add-cita.component';
-import { DeleteCitaComponent } from './components/modals/cita/delete-cita/delete-cita.component';
-import { ShowPacienteCitaComponent } from './components/modals/cita/show-paciente-cita/show-paciente-cita.component';
-import { ShowSpecificCitaComponent } from './components/modals/cita/show-specific-cita/show-specific-cita.component';
+import { AddCitaComponent } from './components/General/modals/cita/add-cita/add-cita.component';
+import { ShowPacienteCitaComponent } from './components/General/modals/cita/show-paciente-cita/show-paciente-cita.component';
+import { ShowSpecificCitaComponent } from './components/General/modals/cita/show-specific-cita/show-specific-cita.component';
 
 @NgModule({
   declarations: [
@@ -43,17 +42,16 @@ import { ShowSpecificCitaComponent } from './components/modals/cita/show-specifi
     NavegacionComponent,
     AntecedentesComponent,
     ContactoComponent,
-    DeletePacienteComponent,
+    DeleteComponent,
     CancelEditComponent,
     AutocompleteComponent,
     PacienteEspecificoComponent,
-    CitaComponent,
     AddCitaObstComponent,
     AddCitaGinecoComponent,
     EditCitaObstComponent,
     EditCitaGinecoComponent,
     AddCitaComponent,
-    DeleteCitaComponent,
+    DeleteComponent,
     ShowPacienteCitaComponent,
     ShowSpecificCitaComponent,
   ],
@@ -65,6 +63,7 @@ import { ShowSpecificCitaComponent } from './components/modals/cita/show-specifi
     ReactiveFormsModule,
     BrowserAnimationsModule,
     MaterialModules,
+    CommonModule,
   ],
   providers: [],
   bootstrap: [AppComponent]

@@ -1,0 +1,65 @@
+<div class="container">
+
+  <div class="header">
+    <h1>Resumen de las citas</h1>
+
+    <span mat-dialog-close class="close">
+      <mat-icon color='warn'>cancel</mat-icon>
+    </span>
+  </div>
+
+  <h2>Citas Ginecológicas</h2>
+  <div *ngIf="numeroG != 0; then siG else no"></div>
+
+  <ng-template #siG>
+
+    <table>
+      <tr>
+        <th>Cita N°</th>
+        <th>Motivo de la cita</th>
+        <th>Fecha</th>
+      </tr>
+      <tr
+        *ngFor="let citaGineco of ginecoService.citasGineco"
+        (click)='getCita(citaGineco.pacienteId, citaGineco._id)'
+        (click)='openSpecificCita(citaGineco._id, "gineco")'
+      >
+        <td>{{ citaGineco.visita }}</td>
+        <td>{{ citaGineco.motivo }} </td>
+        <td>{{ citaGineco.createdAt | date }}</td>
+      </tr>
+    </table>
+
+  </ng-template>
+
+  <h2>Citas Obstétricas</h2>
+  <div *ngIf="numeroO != 0; then siO else no"></div>
+
+  <ng-template #siO>
+
+    <table class="tableObst">
+      <tr>
+        <th>Cita N°</th>
+        <th>Gesta</th>
+        <th>Motivo de la cita</th>
+        <th>Fecha</th>
+      </tr>
+      <tr
+        *ngFor="let citaObst of obstService.citasObst"
+        (click)='getCita(citaObst.pacienteId, citaObst._id, citaObst.gestas)'
+        (click)='openSpecificCita(citaObst._id, "obst")'
+      >
+        <td>{{ citaObst.visita }}</td>
+        <td>{{ citaObst.gestas }}</td>
+        <td>{{ citaObst.motivo }} </td>
+        <td>{{ citaObst.createdAt | date }}</td>
+      </tr>
+    </table>
+
+  </ng-template>
+
+  <ng-template #no>
+    <h3 class="noExiste">No existen citas de este tipo registradas</h3>
+  </ng-template>
+
+</div>

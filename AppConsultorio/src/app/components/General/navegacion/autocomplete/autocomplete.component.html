@@ -1,0 +1,26 @@
+<div>
+
+    <mat-form-field appearance='fill'>
+      <mat-label class="placeholder">Buscar Paciente...</mat-label>
+      <input
+        type="text"
+        [formControl]='myControl'
+        matInput
+        [matAutocomplete]="auto"
+      >
+      <mat-icon matSuffix>
+        search
+      </mat-icon>
+      <mat-autocomplete #auto="matAutocomplete">
+        <mat-option
+          routerLink="pacientes/especific"
+          *ngFor="let option of filteredOptions | async; index as i"
+          value=''
+          (click)='getPaciente(ids[i])'
+        >
+          {{ option }} {{ apellidos[i] }}
+      </mat-option>
+    </mat-autocomplete>
+  </mat-form-field>
+
+</div>

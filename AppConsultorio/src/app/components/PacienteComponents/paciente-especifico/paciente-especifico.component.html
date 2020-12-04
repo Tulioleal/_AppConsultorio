@@ -1,0 +1,156 @@
+<div class="container">
+
+  <div class="header">
+
+    <h1>
+      {{pacienteService.selectedPaciente.nombre | titlecase}} {{pacienteService.selectedPaciente.apellido | titlecase}}
+    </h1>
+
+    <div class="icons">
+      <mat-icon
+        routerLink="/pacientes/edit"
+        color='accent'
+        (click)='editPaciente(pacienteService.selectedPaciente)'
+        class="edit"
+      >
+        edit
+      </mat-icon>
+      <mat-icon
+        color='warn'
+        (click)='openDelete(pacienteService.selectedPaciente._id, "paciente")'
+        class="delete"
+      >
+        delete
+      </mat-icon>
+      <mat-icon
+        class="add"
+        color='primary'
+        (click)='openAddCita(pacienteService.selectedPaciente._id, pacienteService.selectedPaciente.ginecoGestas)'
+      >
+        post_add
+      </mat-icon>
+    </div>
+
+  </div>
+
+  <div class="content">
+
+    <section class="antecedentes">
+      <article>
+        <h2>Antecedentes Personales</h2>
+        <p>{{pacienteService.selectedPaciente.antecedentePersonal}}</p>
+      </article>
+      <article>
+        <h2>Antecedentes Familiares</h2>
+        <p>{{pacienteService.selectedPaciente.antecedenteFamiliar}}</p>
+      </article>
+    </section>
+
+    <div class="gineco">
+      <h2>Antecedentes Ginecológicos</h2>
+
+      <div class="ginecoContent">
+        <table class="tabla">
+          <tbody>
+            <tr>
+              <th>Gestas:</th>
+              <td>{{pacienteService.selectedPaciente.ginecoGestas}}</td>
+            </tr>
+            <tr>
+              <th>Paras:</th>
+              <td>{{pacienteService.selectedPaciente.ginecoParas}}</td>
+            </tr>
+            <tr>
+              <th>Abortos:</th>
+              <td>{{pacienteService.selectedPaciente.ginecoAbortos}}</td>
+            </tr>
+            <tr>
+              <th>Cesareas:</th>
+              <td>{{pacienteService.selectedPaciente.ginecoCesareas}}</td>
+            </tr>
+            <tr>
+              <th>Otros:</th>
+              <td>{{pacienteService.selectedPaciente.ginecoOtros}}</td>
+            </tr>
+            <tr>
+              <th>Ciclos:</th>
+              <td>{{pacienteService.selectedPaciente.ginecoCiclos}}</td>
+            </tr>
+            <tr>
+              <th>Menopausia:</th>
+              <td>{{pacienteService.selectedPaciente.ginecoMenopausia}}</td>
+            </tr>
+            <tr>
+              <th>Menarquia:</th>
+              <td>{{pacienteService.selectedPaciente.ginecoMenarquia}}</td>
+            </tr>
+            <tr>
+              <th>PRS:</th>
+              <td>{{pacienteService.selectedPaciente.ginecoPRS}}</td>
+            </tr>
+            <tr>
+              <th
+                colspan="2"
+                class="menorrea"
+              >
+                <div *ngIf="pacienteService.selectedPaciente.ginecoMenorrea">
+                  <span><b>Eumenorreica</b></span>
+                </div>
+                <div *ngIf="!pacienteService.selectedPaciente.ginecoMenorrea">
+                  <span><b>Dismenorreica</b></span>
+                </div>
+              </th>
+            </tr>
+          </tbody>
+        </table>
+
+        <section class="column">
+          <article>
+            <h3>Método</h3>
+            <p>{{pacienteService.selectedPaciente.ginecoMetodo}}</p>
+          </article>
+          <article>
+            <h3>Terapia de reeplazo hormonal</h3>
+            <p>{{pacienteService.selectedPaciente.ginecoTRH}}</p>
+          </article>
+        </section>
+
+      </div>
+    </div>
+
+    <div class="footer">
+
+      <div class="info">
+        <h2>Información de contacto</h2>
+        <div>
+          <span>
+            Numero de teléfono:
+          </span>
+          <span>
+            {{pacienteService.selectedPaciente.telf}}
+          </span>
+        </div>
+        <div>
+          <span>
+            Correo Electrónico:
+          </span>
+          <span>
+            {{pacienteService.selectedPaciente.email}}
+          </span>
+        </div>
+      </div>
+
+      <button
+      mat-raised-button
+      color='link'
+      (click)='openShowPacienteCitas(pacienteService.selectedPaciente._id)'
+      >
+        Lista de citas de {{ pacienteService.selectedPaciente.nombre }}
+      </button>
+
+    </div>
+
+  </div>
+
+</div>
+

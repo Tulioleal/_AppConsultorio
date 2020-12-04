@@ -1,0 +1,34 @@
+@import '../../../../../variables.scss';
+
+.container{
+  height: 100%;
+
+  @include flex-column-between();
+
+  .header{
+    @include flex-between();
+
+    h2{
+      font-size: 1.6em;
+    }
+  }
+
+  .content{
+    text-align: center;
+    width: 100%;
+
+    display: flex;
+    justify-content: center;
+
+    p{
+      font-size: 1.2em;
+      width: 80%;
+      padding-bottom: 1em;
+    }
+  }
+
+  .footer{
+    display: flex;
+    justify-content: space-around;
+  }
+}

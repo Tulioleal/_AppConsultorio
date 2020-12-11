@@ -7,6 +7,7 @@ import { CitaObst } from '../models/citaObst'
 })
 export class CitaObstService {
 
+  //http://localhost:4000
   URI_API = '/api/citasObst'
 
   selectedCitaObst : CitaObst = {

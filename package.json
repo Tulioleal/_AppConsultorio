@@ -3,6 +3,9 @@
   "name": "myapp",
   "description": "a really cool app",
   "version": "1.0.0",
+  "scripts": {
+    "start": "node AppConsultorio/server/src/index.js"
+  },
   "engines": {
     "node": "12.x"
   }

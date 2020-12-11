@@ -5,7 +5,7 @@ const path = require('path')
 
 const app = express()
 const PORT = process.env.PORT || 4200
-let appPath = '../../AppConsultorio/dist/AppConsultorio/'
+let appPath = '../../dist/AppConsultorio/'
 
 //variables de entorno
 app.set('port', process.env.PORT || 4000)

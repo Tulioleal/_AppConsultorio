@@ -131,7 +131,7 @@ export class AddCitaObstComponent implements OnInit {
         break;
 
       case 2:
-        this.imc1 = this.citaObstService.imcCalc(talla,pesoAntesEmb)
+        this.imc2 = this.citaObstService.imcCalc(talla,pesoAntesEmb)
         break;
 
       default:

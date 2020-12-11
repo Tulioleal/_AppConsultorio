@@ -24,10 +24,10 @@ import { DeleteComponent } from './components/General/modals/delete/delete.compo
 import { CancelEditComponent } from './components/General/modals/cancel-edit/cancel-edit.component';
 import { AutocompleteComponent } from './components/General/navegacion/autocomplete/autocomplete.component';
 import { PacienteEspecificoComponent } from './components/PacienteComponents/paciente-especifico/paciente-especifico.component';
-import { AddCitaObstComponent } from './components/cita/add-cita-obst/add-cita-obst.component';
-import { AddCitaGinecoComponent } from './components/cita/add-cita-gineco/add-cita-gineco.component';
-import { EditCitaObstComponent } from './components/cita/edit-cita-obst/edit-cita-obst.component';
-import { EditCitaGinecoComponent } from './components/cita/edit-cita-gineco/edit-cita-gineco.component';
+import { AddCitaObstComponent } from './components/Cita/add-cita-obst/add-cita-obst.component';
+import { AddCitaGinecoComponent } from './components/Cita/add-cita-gineco/add-cita-gineco.component';
+import { EditCitaObstComponent } from './components/Cita/edit-cita-obst/edit-cita-obst.component';
+import { EditCitaGinecoComponent } from './components/Cita/edit-cita-gineco/edit-cita-gineco.component';
 import { AddCitaComponent } from './components/General/modals/cita/add-cita/add-cita.component';
 import { ShowPacienteCitaComponent } from './components/General/modals/cita/show-paciente-cita/show-paciente-cita.component';
 import { ShowSpecificCitaComponent } from './components/General/modals/cita/show-specific-cita/show-specific-cita.component';

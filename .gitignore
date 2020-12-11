@@ -2,3 +2,4 @@ AppConsultorio/src/app/components/formulario-paciente/ejemplo.html
 AppConsultorio/debug.log
 server/api.rest
 server/api.rest
+/node_modules

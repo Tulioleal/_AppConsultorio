@@ -4,8 +4,8 @@ const cors = require('cors');
 const path = require('path')
 
 const app = express()
-const PORT = process.env.PORT || 4200
-let appPath = '../../AppConsultorio/dist/AppConsultorio/'
+// const PORT = process.env.PORT || 4000
+let appPath = '../../dist/AppConsultorio/'
 
 //variables de entorno
 app.set('port', process.env.PORT || 4000)
@@ -25,6 +25,6 @@ app.use('/api/citasObst', require('./routes/citaObst.routes'))
 //Listen App
 app.use('/',  express.static(path.join(__dirname, appPath)))
 .get('*', (req,res)=> res.sendFile(path.join(__dirname, appPath + 'index.html')))
-.listen(PORT)
+// .listen(PORT)
 
 module.exports = app

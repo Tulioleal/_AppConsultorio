@@ -6,10 +6,10 @@ import { PacienteComponent } from './components/PacienteComponents/paciente/paci
 import { FormularioPacienteComponent } from './components/PacienteComponents/formulario-paciente/formulario-paciente.component'
 import { EditarPacienteComponent } from './components/PacienteComponents/editar-paciente/editar-paciente.component'
 import { PacienteEspecificoComponent } from './components/PacienteComponents/paciente-especifico/paciente-especifico.component'
-import { AddCitaObstComponent } from './components/cita/add-cita-obst/add-cita-obst.component';
-import { AddCitaGinecoComponent } from './components/cita/add-cita-gineco/add-cita-gineco.component';
-import { EditCitaObstComponent } from './components/cita/edit-cita-obst/edit-cita-obst.component';
-import { EditCitaGinecoComponent } from './components/cita/edit-cita-gineco/edit-cita-gineco.component';
+import { AddCitaObstComponent } from './components/Cita/add-cita-obst/add-cita-obst.component';
+import { AddCitaGinecoComponent } from './components/Cita/add-cita-gineco/add-cita-gineco.component';
+import { EditCitaObstComponent } from './components/Cita/edit-cita-obst/edit-cita-obst.component';
+import { EditCitaGinecoComponent } from './components/Cita/edit-cita-gineco/edit-cita-gineco.component';
 
 
 const routes: Routes = [

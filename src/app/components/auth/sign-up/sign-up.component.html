@@ -1,0 +1,70 @@
+<div class="container">
+  <mat-card>
+    <mat-card-header>
+      <mat-card-title>Ceate Account</mat-card-title>
+    </mat-card-header>
+    <mat-card-content>
+
+      <form #signUpForm="ngForm">
+
+        <mat-form-field appearance="outline" class="input">
+          <mat-label>Username</mat-label>
+          <input
+            matInput
+            type="text"
+            name='username'
+            [(ngModel)]="authService.selectedUserSignUp.username"
+            required
+            autofocus
+          >
+        </mat-form-field>
+
+        <mat-form-field appearance="outline" class="input">
+          <mat-label>Email</mat-label>
+          <input
+            matInput
+            type="text"
+            name='email'
+            [(ngModel)]="authService.selectedUserSignUp.email"
+            required
+          >
+        </mat-form-field>
+
+        <mat-form-field appearance="outline" class="input">
+          <mat-label>Password</mat-label>
+          <input
+            matInput
+            type="password"
+            name='password'
+            [(ngModel)]="authService.selectedUserSignUp.password"
+            (change)='compararPassword()'
+            required
+          >
+        </mat-form-field>
+
+      </form>
+
+        <mat-form-field appearance="outline" class="input">
+          <mat-label>Repeat password</mat-label>
+          <input
+            matInput
+            type="password"
+            (keyup)='compararPassword()'
+            [(ngModel)]="password2"
+            required
+          >
+        </mat-form-field>
+
+        <mat-card-actions>
+          <button
+            mat-flat-button
+            type="button"
+            (click)='signUpUser(signUpForm)'
+            class="add"
+            [disabled]= "!signUpForm.valid || !isValid"
+          >Sign-Up
+          </button>
+        </mat-card-actions>
+    </mat-card-content>
+  </mat-card>
+</div>

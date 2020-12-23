@@ -1,0 +1,50 @@
+<div class="container">
+
+  <mat-card>
+    <mat-card-header>
+      <mat-card-title>Longin</mat-card-title>
+    </mat-card-header>
+    <mat-card-content>
+
+      <form #signInForm="ngForm" (ngSubmit)="signInUser(signInForm)" >
+
+        <mat-form-field appearance="outline" class="input">
+          <mat-label>Email</mat-label>
+          <input
+            matInput
+            type="email"
+            name='email'
+            [(ngModel)]="authService.selectedUserSignIn.email"
+            required
+            autofocus
+          >
+        </mat-form-field>
+
+        <mat-form-field appearance="outline" class="input">
+          <mat-label>Password</mat-label>
+          <input
+            matInput
+            type="password"
+            name="password"
+            [(ngModel)]="authService.selectedUserSignIn.password"
+            required
+          >
+        </mat-form-field>
+
+        <mat-card-actions>
+          <button
+            mat-flat-button
+            type="submit"
+            class="add"
+            [disabled]= "!signInForm.valid"
+          >Sign-In
+          </button>
+        </mat-card-actions>
+
+      </form>
+
+    </mat-card-content>
+
+  </mat-card>
+
+</div>

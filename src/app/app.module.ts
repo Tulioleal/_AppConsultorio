@@ -31,6 +31,8 @@ import { EditCitaGinecoComponent } from './components/Cita/edit-cita-gineco/edit
 import { AddCitaComponent } from './components/General/modals/cita/add-cita/add-cita.component';
 import { ShowPacienteCitaComponent } from './components/General/modals/cita/show-paciente-cita/show-paciente-cita.component';
 import { ShowSpecificCitaComponent } from './components/General/modals/cita/show-specific-cita/show-specific-cita.component';
+import { SignInComponent } from './components/auth/sign-in/sign-in.component';
+import { SignUpComponent } from './components/auth/sign-up/sign-up.component';
 
 @NgModule({
   declarations: [
@@ -54,6 +56,8 @@ import { ShowSpecificCitaComponent } from './components/General/modals/cita/show
     DeleteComponent,
     ShowPacienteCitaComponent,
     ShowSpecificCitaComponent,
+    SignInComponent,
+    SignUpComponent,
   ],
   imports: [
     BrowserModule,

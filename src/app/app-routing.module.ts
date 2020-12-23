@@ -10,9 +10,13 @@ import { AddCitaObstComponent } from './components/Cita/add-cita-obst/add-cita-o
 import { AddCitaGinecoComponent } from './components/Cita/add-cita-gineco/add-cita-gineco.component';
 import { EditCitaObstComponent } from './components/Cita/edit-cita-obst/edit-cita-obst.component';
 import { EditCitaGinecoComponent } from './components/Cita/edit-cita-gineco/edit-cita-gineco.component';
+import { SignInComponent } from './components/auth/sign-in/sign-in.component';
+import { SignUpComponent } from './components/auth/sign-up/sign-up.component';
 
 
 const routes: Routes = [
+  { path:"auth/signin", component: SignInComponent },
+  { path:"auth/signup", component: SignUpComponent },
   { path:"pacientes/addPaciente", component: FormularioPacienteComponent },
   { path:"pacientes/edit", component: EditarPacienteComponent },
   { path:"pacientes/especific", component: PacienteEspecificoComponent },

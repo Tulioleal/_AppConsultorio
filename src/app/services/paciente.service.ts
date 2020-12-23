@@ -8,7 +8,7 @@ import { Paciente } from '../models/paciente';
 export class PacienteService {
 
   //http://localhost:4000
-  URL_API = 'api/pacientes'
+  URL_API = 'http://localhost:4000api/pacientes'
 
   selectedPaciente : Paciente = {
     nombre: "",

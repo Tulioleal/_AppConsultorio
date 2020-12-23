@@ -7,8 +7,8 @@ import { CitaObst } from '../models/citaObst'
 })
 export class CitaObstService {
 
-  //http://localhost:4000
-  URI_API = 'api/citasObst'
+  //http://localhost:4000/
+  URI_API = 'http://localhost:4000/api/citasObst'
 
   selectedCitaObst : CitaObst = {
     pacienteId: "",

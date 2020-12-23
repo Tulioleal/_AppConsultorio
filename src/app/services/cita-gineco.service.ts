@@ -7,9 +7,9 @@ import { CitaGineco } from '../models/citaGineco'
 })
 export class CitaGinecoService {
 
-  //http://localhost:4000
+  //http://localhost:4000/
 
-  URI_API ='api/citasGineco'
+  URI_API ='http://localhost:4000/api/citasGineco'
 
   selectedCitaGineco : CitaGineco = {
     pacienteId: "",

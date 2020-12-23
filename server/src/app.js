@@ -1,11 +1,16 @@
-const express = require('express')
-const morgan = require('morgan');
+const express= require('express')
+const morgan = require('morgan')
+
+const createRoles = require('./libs/initialSetups');
+
 const cors = require('cors');
 const path = require('path')
 
 const app = express()
-// const PORT = process.env.PORT || 4000
-let appPath = '../../dist/AppConsultorio/'
+createRoles()
+
+// const PORT = process.env.PORT || 4000 /*Esto se comenta*/
+// let appPath = '../../dist/AppConsultorio/' /*Esto se comenta*/
 
 //variables de entorno
 app.set('port', process.env.PORT || 4000)
@@ -21,10 +26,15 @@ app.use('/api/pacientes', require('./routes/pacientes.routes'))
 app.use('/api/citasGineco', require('./routes/citaGineco.routes'))
 //CitasObst
 app.use('/api/citasObst', require('./routes/citaObst.routes'))
+//AuthRoutes
+app.use('/api/auth', require('./routes/auth.routes'))
+//UserRoutes
+app.use('/api/user', require('./routes/user.routes'))
+
 
 //Listen App
-app.use('/',  express.static(path.join(__dirname, appPath)))
-.get('*', (req,res)=> res.sendFile(path.join(__dirname, appPath + 'index.html')))
-// .listen(PORT)
+// app.use('/',  express.static(path.join(__dirname, appPath))) /*Esto se comenta*/
+// .get('*', (req,res)=> res.sendFile(path.join(__dirname, appPath + 'index.html'))) /*Esto se comenta*/
+// .listen(PORT) /*Esto se comenta*/
 
 module.exports = app

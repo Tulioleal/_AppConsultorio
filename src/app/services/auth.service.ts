@@ -28,12 +28,12 @@ export class AuthService {
 
   signIn( user: Signin ){
 
-    return this.http.post(this.URL_API + "/signin", user)
+    return this.http.post<any>(this.URL_API + "/signin", user)
   }
 
   signUp( user: Signup ){
 
-    return this.http.post(this.URL_API + "/signup", user)
+    return this.http.post<any>(this.URL_API + "/signup", user)
   }
 
 }

@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { NgForm } from '@angular/forms';
+import { Router } from '@angular/router';
 import { AuthService } from 'src/app/services/auth.service';
 
 @Component({
@@ -10,11 +11,12 @@ import { AuthService } from 'src/app/services/auth.service';
 export class SignUpComponent implements OnInit {
 
   constructor(
-    public authService: AuthService
+    public authService: AuthService,
+    private router: Router
   ) { }
 
-  password1:string
-  password2:string
+  password1: string
+  password2: string
   isValid: boolean
 
   ngOnInit(): void {
@@ -23,7 +25,9 @@ export class SignUpComponent implements OnInit {
   signUpUser( form: NgForm ){
     this.authService.signUp(form.value).subscribe(
       res=> {
-        console.log(res)
+        console.log('signup succesful')
+        localStorage.setItem('token', res.refreshToken)
+        this.router.navigate(['/pacientes'])
       },
       err => {
         console.log(err)
@@ -35,9 +39,7 @@ export class SignUpComponent implements OnInit {
 
     this.password1 = this.authService.selectedUserSignUp.password
 
-    let comparacion:boolean = this.password1 == this.password2
-
-    console.log(this.password1, this.password2, comparacion)
+    let comparacion: boolean = this.password1 == this.password2
 
     if ( comparacion ) return this.isValid = true
     else return this.isValid = false

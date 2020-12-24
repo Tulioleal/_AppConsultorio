@@ -82,11 +82,13 @@ authCntrl.signin = async (req, res) => {
       process.env.REFRESH
     )
 
-    // localStorage.setItem('token', token)
-
-    res.json({
-        token/* , refreshToken */
+    res.cookie('accessToken', token, {
+      expiresIn: 3600,
+      httpOnly: true,
     })
+
+    res.status(200).json({refreshToken}).end()
+
 }
 
 module.exports = authCntrl

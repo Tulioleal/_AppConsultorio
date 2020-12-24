@@ -6,7 +6,7 @@ const User = require('../models/User')
 
 const verifyToken = async (req,res,next)=>{
   try{
-      const token = req.headers['x-access-token']
+      const token = req.cookies.accessToken
 
       if (!token) return res.status(403).json({message: "No token provided"})
 

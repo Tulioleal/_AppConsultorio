@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { NgForm } from '@angular/forms';
+import { Router } from '@angular/router';
 import { AuthService } from 'src/app/services/auth.service';
 
 @Component({
@@ -10,7 +11,9 @@ import { AuthService } from 'src/app/services/auth.service';
 export class SignInComponent implements OnInit {
 
   constructor(
-    public authService: AuthService
+    public authService: AuthService,
+    private router: Router
+
   ) { }
 
   ngOnInit(): void {
@@ -19,8 +22,9 @@ export class SignInComponent implements OnInit {
   signInUser(form: NgForm){
     this.authService.signIn(form.value).subscribe(
       res => {
-        console.log(res.toString())
-        localStorage.setItem("token", res.toString())
+        console.log('signin succesfull')
+        localStorage.setItem('token', res.refreshToken)
+        this.router.navigate(['/pacientes'])
       },
       err => {
         console.log(err)

@@ -2,16 +2,24 @@ const { Router } = require('express');
 const pacienteCntrl = require('../controllers/pacientes.controllers');
 const router = Router()
 
+const { authJwt } = require('./../middlewares')
 
-router.get('/', pacienteCntrl.getPacientes)
-
-router.post('/', pacienteCntrl.createPacientes)
-
-router.get('/:id', pacienteCntrl.getSpecificPacientes)
-
-router.put('/:id', pacienteCntrl.updatePacientes)
-
-router.delete('/:id', pacienteCntrl.deletePacientes)
+const {
+  verifyToken,
+  isModerator,
+  isAdmin
+} = authJwt
 
 
-module.exports = router 
+router.get('/', verifyToken, pacienteCntrl.getPacientes)
+
+router.post('/', verifyToken, pacienteCntrl.createPacientes)
+
+router.get('/:id', verifyToken, pacienteCntrl.getSpecificPacientes)
+
+router.put('/:id', verifyToken, pacienteCntrl.updatePacientes)
+
+router.delete('/:id', verifyToken, pacienteCntrl.deletePacientes)
+
+
+module.exports = router

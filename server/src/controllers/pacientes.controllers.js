@@ -1,16 +1,21 @@
 const pacienteCntrl = {}
 
+const filter = (req, paciente)=>{
+    return paciente.filter(post => post.username === req.userId)
+}
+
 const Paciente = require('../models/paciente')
 
 pacienteCntrl.getPacientes = async (req, res) => {
     pacientes = await Paciente.find()
-    res.json(pacientes)
+    // res.json( filter(req, pacientes) )
+    res.json ( pacientes )
 }
 
 pacienteCntrl.createPacientes = async (req, res) => {
     const newPaciente = new Paciente(req.body)
     await newPaciente.save()
-    res.send({
+    res.json({
         message: 'Paciente created'
     })
 }
@@ -18,7 +23,7 @@ pacienteCntrl.createPacientes = async (req, res) => {
 pacienteCntrl.getSpecificPacientes = async (req, res) => {
     console.log(req.params)
     const paciente = await Paciente.findById(req.params.id)
-    res.send(paciente)
+    res.json(paciente)
 }
 
 pacienteCntrl.updatePacientes = async (req, res) => {

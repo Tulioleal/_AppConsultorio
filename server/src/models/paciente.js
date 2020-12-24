@@ -1,6 +1,9 @@
 const {Schema, model} = require('mongoose')
 
 const pacienteSchema = new Schema({
+    username: {
+      type : String
+    },
     nombre : {
         type : String,
         required : true

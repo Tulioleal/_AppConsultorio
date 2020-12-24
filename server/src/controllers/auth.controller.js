@@ -83,7 +83,7 @@ authCntrl.signin = async (req, res) => {
     )
 
     res.cookie('accessToken', token, {
-      expiresIn: 3600,
+      expires: new Date(Date.now() + 43200000),
       httpOnly: true,
     })
 

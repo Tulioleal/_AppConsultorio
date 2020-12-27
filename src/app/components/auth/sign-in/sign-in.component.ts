@@ -22,8 +22,7 @@ export class SignInComponent implements OnInit {
   signInUser(form: NgForm){
     this.authService.signIn(form.value).subscribe(
       res => {
-        console.log('signin succesfull')
-        localStorage.setItem('token', res.refreshToken)
+        localStorage.setItem('refreshToken', res.refreshToken)
         this.router.navigate(['/pacientes'])
       },
       err => {

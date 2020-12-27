@@ -36,4 +36,7 @@ export class AuthService {
     return this.http.post<any>(this.URL_API + "/signup", user)
   }
 
+  loggedIn(){
+    return !!localStorage.getItem('token')
+  }
 }

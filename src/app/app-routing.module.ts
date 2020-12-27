@@ -12,19 +12,20 @@ import { EditCitaObstComponent } from './components/Cita/edit-cita-obst/edit-cit
 import { EditCitaGinecoComponent } from './components/Cita/edit-cita-gineco/edit-cita-gineco.component';
 import { SignInComponent } from './components/auth/sign-in/sign-in.component';
 import { SignUpComponent } from './components/auth/sign-up/sign-up.component';
+import { AuthGuard } from './guard/auth.guard';
 
 
 const routes: Routes = [
   { path:"auth/signin", component: SignInComponent },
   { path:"auth/signup", component: SignUpComponent },
-  { path:"pacientes/addPaciente", component: FormularioPacienteComponent },
-  { path:"pacientes/edit", component: EditarPacienteComponent },
-  { path:"pacientes/especific", component: PacienteEspecificoComponent },
-  { path:"citas/addCitaGineco", component: AddCitaGinecoComponent },
-  { path:"citas/addCitaObst", component: AddCitaObstComponent },
-  { path:"citas/editCitaGineco", component: EditCitaGinecoComponent },
-  { path:"citas/editCitaObst", component: EditCitaObstComponent },
-  { path:"pacientes", component: PacienteComponent },
+  { path:"pacientes/addPaciente", component: FormularioPacienteComponent, canActivate: [AuthGuard] },
+  { path:"pacientes/edit", component: EditarPacienteComponent, canActivate: [AuthGuard] },
+  { path:"pacientes/especific", component: PacienteEspecificoComponent, canActivate: [AuthGuard] },
+  { path:"citas/addCitaGineco", component: AddCitaGinecoComponent, canActivate: [AuthGuard] },
+  { path:"citas/addCitaObst", component: AddCitaObstComponent, canActivate: [AuthGuard] },
+  { path:"citas/editCitaGineco", component: EditCitaGinecoComponent, canActivate: [AuthGuard] },
+  { path:"citas/editCitaObst", component: EditCitaObstComponent, canActivate: [AuthGuard] },
+  { path:"pacientes", component: PacienteComponent, canActivate: [AuthGuard] },
   { path:"home", component: HomeComponent },
   { path: '**', component: HomeComponent },
 ];

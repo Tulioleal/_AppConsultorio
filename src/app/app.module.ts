@@ -33,10 +33,13 @@ import { ShowPacienteCitaComponent } from './components/General/modals/cita/show
 import { ShowSpecificCitaComponent } from './components/General/modals/cita/show-specific-cita/show-specific-cita.component';
 import { SignInComponent } from './components/auth/sign-in/sign-in.component';
 import { SignUpComponent } from './components/auth/sign-up/sign-up.component';
+
+//Services and Guards
 import { AuthService } from './services/auth.service';
 import { PacienteService } from './services/paciente.service';
 import { CitaGinecoService } from './services/cita-gineco.service';
 import { CitaObstService } from './services/cita-obst.service';
+import { AuthGuard } from './guard/auth.guard';
 
 @NgModule({
   declarations: [
@@ -77,7 +80,8 @@ import { CitaObstService } from './services/cita-obst.service';
     AuthService,
     PacienteService,
     CitaGinecoService,
-    CitaObstService
+    CitaObstService,
+    AuthGuard
   ],
   bootstrap: [AppComponent]
 })

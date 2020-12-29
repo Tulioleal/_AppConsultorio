@@ -12,7 +12,7 @@ export class SignInComponent implements OnInit {
 
   constructor(
     public authService: AuthService,
-    private router: Router
+    private router: Router,
 
   ) { }
 

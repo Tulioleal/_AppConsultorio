@@ -24,10 +24,9 @@ export class SignUpComponent implements OnInit {
 
   signUpUser( form: NgForm ){
     this.authService.signUp(form.value).subscribe(
-      res=> {
+      res => {
         console.log('signup succesful')
-        localStorage.setItem('token', res.refreshToken)
-        this.router.navigate(['/pacientes'])
+        this.router.navigate(['auth/signin'])
       },
       err => {
         console.log(err)

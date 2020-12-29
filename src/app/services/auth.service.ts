@@ -3,6 +3,8 @@ import { HttpClient } from "@angular/common/http";
 import { Signin } from '../models/sign-in'
 import { Signup } from '../models/sign-up'
 
+// import { CookieService } from 'ngx-cookie-service'
+
 @Injectable({
   providedIn: 'root'
 })
@@ -37,6 +39,6 @@ export class AuthService {
   }
 
   loggedIn(){
-    return !!localStorage.getItem('token')
+    return !!localStorage.getItem('refreshToken')
   }
 }

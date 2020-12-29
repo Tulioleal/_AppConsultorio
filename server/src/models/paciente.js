@@ -1,9 +1,7 @@
 const {Schema, model} = require('mongoose')
 
 const pacienteSchema = new Schema({
-    username: {
-      type : String
-    },
+
     nombre : {
         type : String,
         required : true
@@ -90,6 +88,9 @@ const pacienteSchema = new Schema({
     },
     ginecoTRH : {
         type : String
+    },
+    userId: {
+      type : String
     }
 },{
     timestamps: true,

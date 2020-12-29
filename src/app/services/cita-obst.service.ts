@@ -1,6 +1,7 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http'
 import { CitaObst } from '../models/citaObst'
+import { Router } from '@angular/router';
 
 @Injectable({
   providedIn: 'root'
@@ -8,7 +9,7 @@ import { CitaObst } from '../models/citaObst'
 export class CitaObstService {
 
   //http://localhost:4000/
-  URI_API = 'http://localhost:4000/api/citasObst'
+  URI_API = 'api/citasObst'
 
   selectedCitaObst : CitaObst = {
     pacienteId: "",
@@ -44,7 +45,10 @@ export class CitaObstService {
 
   fProbable: Date
 
-  constructor( private http: HttpClient ) { }
+  constructor(
+    private http: HttpClient,
+    private router: Router
+  ) { }
 
   getCitasObst(pacienteId: string){
     return this.http.get<CitaObst[]>(`${this.URI_API}/${pacienteId}`)
@@ -89,6 +93,10 @@ export class CitaObstService {
       res = Math.floor(dif / tiempo);
     }
     return res;
+  }
+
+  error(){
+    return this.router.navigate(['/home'])
   }
 
   clearForm(){

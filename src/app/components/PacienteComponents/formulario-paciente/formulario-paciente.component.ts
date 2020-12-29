@@ -1,9 +1,11 @@
 import { Component, OnInit } from '@angular/core';
 import { NgForm } from '@angular/forms'
 import { MatSnackBar } from '@angular/material/snack-bar';
+import { Router } from '@angular/router';
 
 //SERVICE
 import { PacienteService } from 'src/app/services/paciente.service';
+import { AuthService } from 'src/app/services/auth.service'
 
 @Component({
   selector: 'app-formulario-paciente',
@@ -14,7 +16,8 @@ export class FormularioPacienteComponent implements OnInit {
 
   constructor(
     public pacienteService: PacienteService,
-    private snackbar: MatSnackBar
+    private snackbar: MatSnackBar,
+    private router: Router
   ) { }
 
   ngOnInit(): void {
@@ -23,18 +26,21 @@ export class FormularioPacienteComponent implements OnInit {
   addPaciente(form: NgForm) {
     this.pacienteService.createPaciente(form.value).subscribe(
       res => {
-        console.log(res)
+
         this.openSnackBar()
+        console.log(res)
       },
       err => {
         console.log(err)
+        this.pacienteService.error()
       }
     )
   }
 
   private openSnackBar() {
     this.snackbar.open('Paciente Created', 'Cerrar', {
-      duration: 2000
+      duration: 1000
     })
+    this.router.navigate(['/pacientes'])
   }
 }

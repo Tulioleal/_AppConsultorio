@@ -1,6 +1,7 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from "@angular/common/http";
 import { Paciente } from '../models/paciente';
+import { Router } from '@angular/router';
 
 @Injectable({
   providedIn: 'root'
@@ -8,7 +9,7 @@ import { Paciente } from '../models/paciente';
 export class PacienteService {
 
   //http://localhost:4000/
-  URL_API = 'http://localhost:4000/api/pacientes'
+  URL_API = 'api/pacientes'
 
   selectedPaciente : Paciente = {
     nombre: "",
@@ -40,7 +41,11 @@ export class PacienteService {
   month: number = new Date().getMonth() + 1
   day: number = new Date().getDate()
 
-  constructor( private http: HttpClient ) { }
+  constructor(
+    private http: HttpClient,
+    private router: Router
+
+  ) { }
 
   getPacientes(){
     return this.http.get<Paciente[]>(this.URL_API)
@@ -51,7 +56,7 @@ export class PacienteService {
   }
 
   createPaciente( paciente: Paciente ){
-    return this.http.post(this.URL_API, paciente)
+    return this.http.post<any>(this.URL_API, paciente)
   }
 
   updatePaciente( paciente: Paciente ){
@@ -90,6 +95,10 @@ export class PacienteService {
       }
       this.pacientes[i].edad = edad
     }
+  }
+
+  error(){
+    return this.router.navigate(['/home'])
   }
 
   clearForm(){

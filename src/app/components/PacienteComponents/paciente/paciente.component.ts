@@ -37,7 +37,10 @@ export class PacienteComponent implements OnInit {
         this.pacienteService.acortarApellido();
         this.pacienteService.compararfechas();
       },
-      (err) => console.log(err)
+      (err) => {
+        console.log(err)
+        this.pacienteService.error()
+      }
     );
   }
 

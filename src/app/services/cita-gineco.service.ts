@@ -1,6 +1,7 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http'
 import { CitaGineco } from '../models/citaGineco'
+import { Router } from '@angular/router';
 
 @Injectable({
   providedIn: 'root'
@@ -9,7 +10,7 @@ export class CitaGinecoService {
 
   //http://localhost:4000/
 
-  URI_API ='http://localhost:4000/api/citasGineco'
+  URI_API ='api/citasGineco'
 
   selectedCitaGineco : CitaGineco = {
     pacienteId: "",
@@ -30,7 +31,10 @@ export class CitaGinecoService {
   citasGineco: CitaGineco[]
   citaGineco: CitaGineco
 
-  constructor( private http: HttpClient ) { }
+  constructor(
+    private http: HttpClient,
+    private router: Router
+  ) { }
 
   getCitasGineco(pacienteId: string){
     return this.http.get<CitaGineco[]>(`${this.URI_API}/${pacienteId}`)
@@ -50,6 +54,10 @@ export class CitaGinecoService {
 
   deleteCitaGineco( _id: string ){
     return this.http.delete(`${this.URI_API}/${_id}`)
+  }
+
+  error(){
+    return this.router.navigate(['/home'])
   }
 
   clearForm(){

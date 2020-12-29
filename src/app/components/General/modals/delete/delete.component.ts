@@ -29,7 +29,10 @@ export class DeleteComponent implements OnInit {
         console.log(res)
         this.getPacientes()
       },
-      err => console.log(err)
+      err => {
+        console.log(err)
+        this.pacienteService.error()
+      }
     )
   }
 

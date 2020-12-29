@@ -34,7 +34,10 @@ export class EditarPacienteComponent implements OnInit {
         console.log(res)
         this.openSnackBar()
       },
-      err => console.log(err)
+      err => {
+        console.log(err)
+        this.pacienteService.error()
+      }
     )
   }
 

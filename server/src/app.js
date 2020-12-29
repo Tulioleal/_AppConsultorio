@@ -30,8 +30,6 @@ app.use('/api/citasGineco', require('./routes/citaGineco.routes'))
 app.use('/api/citasObst', require('./routes/citaObst.routes'))
 //AuthRoutes
 app.use('/api/auth', require('./routes/auth.routes'))
-//UserRoutes
-app.use('/api/user', require('./routes/user.routes'))
 
 
 //Listen App

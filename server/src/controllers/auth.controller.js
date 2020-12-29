@@ -35,17 +35,10 @@ authCntrl.signup = async (req, res) => {
         newUser.roles = [role._id]
     }
 
-    const savedUser = await newUser.save()
-
-    const token = jwt.sign({
-            id: savedUser._id
-        },
-        process.env.SECRET, {
-            expiresIn: 86400 /*24 horas*/
-        })
+    await newUser.save()
 
     res.status(200).json({
-        token
+      message: 'successful signUp'
     })
 }
 
@@ -85,6 +78,7 @@ authCntrl.signin = async (req, res) => {
     res.cookie('accessToken', token, {
       expires: new Date( Date.now() + 43200000 ),
       httpOnly: true,
+
     })
 
     res.status(200).json({refreshToken}).end()

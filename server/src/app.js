@@ -11,10 +11,10 @@ const app = express()
 createRoles()
 
 // const PORT = process.env.PORT || 4000 /*Esto se comenta*/
-let appPath = '../../dist/AppConsultorio/' /*Esto se comenta*/
+let appPath = '../../dist/AppConsultorio/'
 
 //variables de entorno
-app.set('port', process.env.PORT || 4000) /* Esto se comenta para build */
+app.set('port', process.env.PORT || 4000)
 
 app.use(cors())
 app.use(cookieParser())
@@ -33,8 +33,8 @@ app.use('/api/auth', require('./routes/auth.routes'))
 
 
 //Listen App
-app.use('/',  express.static(path.join(__dirname, appPath))) /*Esto se comenta*/
-.get('*', (req,res)=> res.sendFile(path.join(__dirname, appPath + 'index.html'))) /*Esto se comenta*/
+app.use('/',  express.static(path.join(__dirname, appPath)))
+.get('*', (req,res)=> res.sendFile(path.join(__dirname, appPath + 'index.html')))
 // .listen(PORT) /*Esto se comenta*/
 
 module.exports = app

@@ -1,0 +1,136 @@
+@import '../../../../variables.scss';
+
+.container{
+  height: 92vh;
+
+  display: flex;
+  justify-content: space-between;
+
+  .img{
+
+    height: 90%;
+    width: 50%;
+    background-position: bottom;
+    background-image: url('../../../../assets/DoctoraAzul.svg');
+    background-size: contain;
+    background-repeat: no-repeat;
+
+    align-self: flex-end;
+  }
+
+  .homeCard{
+    width: 50%;
+    display: flex;
+    justify-content: flex-start;
+
+    mat-card{
+      padding: 2em;
+      align-self: center;
+
+      mat-card-header{
+        mat-card-title{
+          padding-bottom: .3em;
+
+          h1{
+            font-size: 1.5em;
+          }
+        }
+      }
+
+      mat-card-content{
+        text-align: center;
+        font-size: 1.2em;
+        padding-bottom: .3em;
+      }
+
+      mat-card-actions{
+
+        padding-bottom: 1em;
+
+        display: flex;
+        justify-content: space-evenly;
+      }
+    }
+  }
+
+  .signin {
+    width: 50%;
+
+    display: flex;
+    justify-content: flex-start;
+
+    @include colorsBtn();
+
+    .mat-card{
+      color: $Cafe;
+      width: 60%;
+
+      min-width: 20em;
+      padding: 2em;
+      align-self: center;
+
+
+      .mat-card-content{
+        form{
+
+          @include flex-column-between();
+          align-items: center;
+
+          .mat-form-field{
+            width: 90%;
+          }
+        }
+      }
+
+      .mat-card-actions{
+
+        width: 100%;
+        display: flex;
+        justify-content: space-evenly;
+        margin: 0em;
+      }
+    }
+  }
+
+  .signup {
+    width: 50%;
+
+    display: flex;
+    justify-content: flex-start;
+
+    @include colorsBtn();
+
+    .mat-card{
+      color: $Cafe;
+      width: 60%;
+
+      min-width: 20em;
+      padding: 2em;
+      align-self: center;
+
+      .mat-card-content{
+        @include flex-column-between();
+        align-items: center;
+
+        form{
+          @include flex-column-between();
+          align-items: center;
+          width: 100%;
+          margin-top: 2em;
+        }
+
+        .mat-form-field{
+          width: 90%;
+        }
+      }
+
+      .mat-card-actions{
+        width: 100%;
+        display: flex;
+        justify-content: space-evenly;
+        margin: 0em;
+
+      }
+    }
+  }
+}

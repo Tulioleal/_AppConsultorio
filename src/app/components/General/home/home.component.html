@@ -1,3 +1,172 @@
-<p>jwdvnksjbndkvjdsb,ncx,z|</p>
+<div class="container">
+  <div class="img">
 
+  </div>
 
+  <div class="homeCard" *ngIf="state === 'home'">
+    <mat-card>
+      <mat-card-header>
+        <mat-card-title>
+          <h1>
+            Welcome to ConsultorioApp!
+          </h1>
+        </mat-card-title>
+      </mat-card-header>
+
+      <mat-card-content>
+        An app designed for easy monitoring
+          <br>
+        of gynecological and obstetric patients
+      </mat-card-content>
+      <mat-card-actions>
+        <button
+          mat-flat-button
+          color='accent'
+          (click)= "changeState('signin')"
+        >
+          SignIn
+        </button>
+        <button
+          mat-flat-button
+          color='accent'
+          (click)= "changeState('signup')"
+        >
+          SingUp
+        </button>
+      </mat-card-actions>
+
+    </mat-card>
+  </div>
+
+  <div class="signin" *ngIf="state === 'signin'">
+    <mat-card>
+      <mat-card-header>
+        <mat-card-title>Signin Account</mat-card-title>
+      </mat-card-header>
+      <mat-card-content>
+
+        <form #signInForm="ngForm" (ngSubmit)="signInUser(signInForm)" >
+
+          <mat-form-field appearance="outline" class="input">
+            <mat-label>Email</mat-label>
+            <input
+              matInput
+              type="email"
+              name='email'
+              [(ngModel)]="authService.selectedUserSignIn.email"
+              required
+              autofocus
+            >
+          </mat-form-field>
+
+          <mat-form-field appearance="outline" class="input">
+            <mat-label>Password</mat-label>
+            <input
+              matInput
+              type="password"
+              name="password"
+              [(ngModel)]="authService.selectedUserSignIn.password"
+              required
+            >
+          </mat-form-field>
+
+          <mat-card-actions>
+            <button
+              mat-flat-button
+              type="submit"
+              class="add"
+              [disabled]= "!signInForm.valid"
+            >Sign-In
+            </button>
+            <button
+              mat-flat-button
+              class="delete"
+              (click)= "changeState('home')"
+            >
+              Go back
+            </button>
+          </mat-card-actions>
+
+        </form>
+
+      </mat-card-content>
+
+    </mat-card>
+  </div>
+
+  <div class="signup" *ngIf="state === 'signup'">
+    <mat-card>
+      <mat-card-header>
+        <mat-card-title>Ceate Account</mat-card-title>
+      </mat-card-header>
+      <mat-card-content>
+
+        <form #signUpForm="ngForm">
+
+          <mat-form-field appearance="outline" class="input">
+            <mat-label>Username</mat-label>
+            <input
+              matInput
+              type="text"
+              name='username'
+              [(ngModel)]="authService.selectedUserSignUp.username"
+              required
+              autofocus
+            >
+          </mat-form-field>
+
+          <mat-form-field appearance="outline" class="input">
+            <mat-label>Email</mat-label>
+            <input
+              matInput
+              type="text"
+              name='email'
+              [(ngModel)]="authService.selectedUserSignUp.email"
+              required
+            >
+          </mat-form-field>
+
+          <mat-form-field appearance="outline" class="input">
+            <mat-label>Password</mat-label>
+            <input
+              matInput
+              type="password"
+              name='password'
+              [(ngModel)]="authService.selectedUserSignUp.password"
+              required
+            >
+          </mat-form-field>
+
+        </form>
+
+          <mat-form-field appearance="outline" class="input">
+            <mat-label>Repeat password</mat-label>
+            <input
+              matInput
+              type="password"
+              [(ngModel)]="password2"
+              required
+            >
+          </mat-form-field>
+
+          <mat-card-actions>
+            <button
+              mat-flat-button
+              type="button"
+              (click)='signUpUser(signUpForm)'
+              class="add"
+              [disabled]= "!signUpForm.valid"
+            >Sign-Up
+            </button>
+            <button
+              mat-flat-button
+              class="delete"
+              (click)= "changeState('home')"
+            >
+              Go back
+            </button>
+          </mat-card-actions>
+      </mat-card-content>
+    </mat-card>
+  </div>
+</div>

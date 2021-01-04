@@ -5,7 +5,6 @@ import { Router } from '@angular/router';
 
 //SERVICE
 import { PacienteService } from 'src/app/services/paciente.service';
-import { AuthService } from 'src/app/services/auth.service'
 
 @Component({
   selector: 'app-formulario-paciente',

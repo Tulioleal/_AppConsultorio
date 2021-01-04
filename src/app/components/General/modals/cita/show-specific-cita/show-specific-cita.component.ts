@@ -5,9 +5,13 @@ import { Component, Inject, DoCheck } from '@angular/core';
 import { MatDialog, MatDialogConfig, MAT_DIALOG_DATA } from '@angular/material/dialog';
 
 //Components
+import { DeleteComponent } from '../../../../General/modals/delete/delete.component';
+import { ShowPacienteCitaComponent } from '.././../cita/show-paciente-cita/show-paciente-cita.component'
+
+//Services
 import { CitaGinecoService } from '../../../../../services/cita-gineco.service';
 import { CitaObstService } from '../../../../../services/cita-obst.service';
-import { DeleteComponent } from '../../../../General/modals/delete/delete.component';
+import { PacienteService } from '../../../../../services/paciente.service'
 
 @Component({
   selector: 'app-show-specific-cita',
@@ -27,8 +31,9 @@ export class ShowSpecificCitaComponent implements DoCheck {
   constructor(
     public ginecoService: CitaGinecoService,
     public obstService: CitaObstService,
+    public dialog: MatDialog,
+    public pacienteService: PacienteService,
     @Inject(MAT_DIALOG_DATA) public data: any,
-    public dialog: MatDialog
   ) {}
 
   ngDoCheck(): void {
@@ -67,6 +72,15 @@ export class ShowSpecificCitaComponent implements DoCheck {
       type:type
     };
     this.dialog.open(DeleteComponent, dialogConfig);
+  }
+
+  openShowPacienteCitas(id: string) {
+    const dialogConfig = new MatDialogConfig();
+    dialogConfig.autoFocus = false;
+    dialogConfig.width = '60%';
+    dialogConfig.height = '80%';
+    dialogConfig.data = { id: id };
+    this.dialog.open(ShowPacienteCitaComponent, dialogConfig);
   }
 
   private imc() {

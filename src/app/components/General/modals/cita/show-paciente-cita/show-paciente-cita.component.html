@@ -23,6 +23,7 @@
         *ngFor="let citaGineco of ginecoService.citasGineco"
         (click)='getCita(citaGineco.pacienteId, citaGineco._id)'
         (click)='openSpecificCita(citaGineco._id, "gineco")'
+        mat-dialog-close
       >
         <td>{{ citaGineco.visita }}</td>
         <td>{{ citaGineco.motivo }} </td>

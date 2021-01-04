@@ -1,8 +1,10 @@
 //Angular
 import {Component, OnInit} from '@angular/core';
+import { Router } from '@angular/router';
 
 //Services
 import { PacienteService } from '../../../services/paciente.service'
+import { AuthService } from '../.././../services/auth.service'
 
 @Component({
   selector: 'app-navegacion',
@@ -12,8 +14,9 @@ import { PacienteService } from '../../../services/paciente.service'
 export class NavegacionComponent implements OnInit {
 
   constructor(
-    private pacienteService: PacienteService
-
+    private pacienteService: PacienteService,
+    private router: Router,
+    public authService: AuthService,
   ) { }
 
   ngOnInit(): void {
@@ -21,5 +24,10 @@ export class NavegacionComponent implements OnInit {
 
   clearAll(){
     this.pacienteService.clearForm()
+  }
+
+  logOutUser(){
+    this.authService.logOut()
+    this.router.navigate(['/auth/signin'])
   }
 }

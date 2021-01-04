@@ -1,11 +1,18 @@
 @import '../../../../variables.scss';
 
+
 .mat-toolbar {
-  height: fit-content;
+
+  height: 2.70em;
   padding: 0 6%;
   background-color: $Cafe;
 
   @include flex-between();
+  @include colorsBtn();
+
+  h1{
+    cursor: pointer;
+  }
 
   .div {
     width: 24em;

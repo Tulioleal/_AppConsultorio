@@ -2,18 +2,23 @@ const { Router } = require('express')
 const citaCntrl = require('../controllers/citaObst.controllers')
 const router = Router()
 
+const { authJwt } = require('./../middlewares')
 
-router.get('/:pacienteId', citaCntrl.getCitasObst)
+const {
+  verifyToken
+} = authJwt
 
-router.post('/', citaCntrl.createCitaObst)
+router.get('/:pacienteId', verifyToken, citaCntrl.getCitasObst)
 
-router.get('/:pacienteId/:ges', citaCntrl.getCitasG)
+router.post('/', verifyToken, citaCntrl.createCitaObst)
 
-router.get('/:pacienteId/:ges/:id', citaCntrl.getSpecificCita)
+router.get('/:pacienteId/:ges', verifyToken, citaCntrl.getCitasG)
 
-router.put('/:id', citaCntrl.updateCitaObst)
+router.get('/:pacienteId/:ges/:id', verifyToken, citaCntrl.getSpecificCita)
 
-router.delete('/:id', citaCntrl.deleteCitaObst)
+router.put('/:id', verifyToken, citaCntrl.updateCitaObst)
+
+router.delete('/:id', verifyToken, citaCntrl.deleteCitaObst)
 
 
 module.exports = router

@@ -2,16 +2,22 @@ const { Router } = require('express')
 const citaCntrl = require('../controllers/citaGineco.controllers')
 const router = Router()
 
+const { authJwt } = require('./../middlewares')
 
-router.post('/', citaCntrl.createCitaGineco)
+const {
+  verifyToken
+} = authJwt
 
-router.get('/:pacienteId', citaCntrl.getCitasGineco)
 
-router.get('/:pacienteId/:id', citaCntrl.getSpecificCitaGineco)
+router.post('/', verifyToken, citaCntrl.createCitaGineco)
 
-router.put('/:id', citaCntrl.updateCitaGineco)
+router.get('/:pacienteId', verifyToken, citaCntrl.getCitasGineco)
 
-router.delete('/:id', citaCntrl.deleteCitaGineco)
+router.get('/:pacienteId/:id', verifyToken, citaCntrl.getSpecificCitaGineco)
+
+router.put('/:id', verifyToken, citaCntrl.updateCitaGineco)
+
+router.delete('/:id', verifyToken, citaCntrl.deleteCitaGineco)
 
 
 module.exports = router

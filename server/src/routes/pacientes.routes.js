@@ -5,9 +5,7 @@ const router = Router()
 const { authJwt } = require('./../middlewares')
 
 const {
-  verifyToken,
-  isModerator,
-  isAdmin
+  verifyToken
 } = authJwt
 
 

@@ -37,7 +37,6 @@
             type="password"
             name='password'
             [(ngModel)]="authService.selectedUserSignUp.password"
-            (change)='compararPassword()'
             required
           >
         </mat-form-field>
@@ -49,7 +48,6 @@
           <input
             matInput
             type="password"
-            (keyup)='compararPassword()'
             [(ngModel)]="password2"
             required
           >
@@ -61,10 +59,12 @@
             type="button"
             (click)='signUpUser(signUpForm)'
             class="add"
-            [disabled]= "!signUpForm.valid || !isValid"
+            [disabled]= "!signUpForm.valid"
           >Sign-Up
           </button>
         </mat-card-actions>
     </mat-card-content>
   </mat-card>
 </div>
+
+<!-- (keyup)='compararPassword()' -->

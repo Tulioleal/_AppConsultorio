@@ -1,7 +1,7 @@
 @import '../../../../variables.scss';
 
 .container {
-  padding: 7% 7% 0% 7%;
+  margin: 7%;
 
   display: flex;
   justify-content: center;
@@ -9,11 +9,8 @@
   @include colorsBtn();
 
   .mat-card{
-
     color: $Cafe;
-    height: 30em;
     width: 40%;
-
     min-width: 21em;
     padding: 2em;
 
@@ -28,19 +25,20 @@
         align-items: center;
         width: 100%;
         margin-top: 2em;
-
       }
 
       .mat-form-field{
         width: 90%;
-
       }
     }
 
     .mat-card-actions{
-
       display: flex;
       justify-content: space-evenly;
+      margin-bottom: 0em;
+      padding-bottom: 0em;
+      padding-top: 2em;
+
     }
   }
 }

@@ -3,16 +3,13 @@
 .container {
   margin: 7%;
 
-  height: 100%;
   display: flex;
   justify-content: center;
 
   @include colorsBtn();
 
   .mat-card{
-
     color: $Cafe;
-    height: 19em;
     width: 40%;
 
     min-width: 21em;
@@ -38,7 +35,9 @@
 
       display: flex;
       justify-content: space-evenly;
-      // padding-bottom: 1em;
+      margin-bottom: 0em;
+      padding-bottom: 0em;
+      padding-top: 2em;
     }
   }
 }

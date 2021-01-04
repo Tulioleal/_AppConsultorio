@@ -28,6 +28,7 @@ const routes: Routes = [
   { path:"citas/editCitaObst", component: EditCitaObstComponent, canActivate: [AuthGuard] },
   { path:"pacientes", component: PacienteComponent, canActivate: [AuthGuard] },
   { path:"home", component: HomeComponent },
+  { path:"", redirectTo: 'home', pathMatch: 'full' },
   { path: '**', component: ErrorComponent },
 ];
 

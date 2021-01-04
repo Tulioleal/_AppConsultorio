@@ -9,7 +9,9 @@ import { Router } from '@angular/router';
 export class PacienteService {
 
   //http://localhost:4000/
-  URL_API = 'http://localhost:4000/api/pacientes'
+  //api/pacientes /*para prod*/
+
+  URL_API = 'api/pacientes'
 
   selectedPaciente : Paciente = {
     nombre: "",

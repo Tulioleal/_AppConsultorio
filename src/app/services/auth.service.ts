@@ -10,9 +10,10 @@ import { Signup } from '../models/sign-up'
 })
 export class AuthService {
 
-  // http://localhost:4000/  /* para dev */
+  // http://localhost:4000/ /* para dev */
+  // api/auth /* para prod */
 
-  URL_API = 'http://localhost:4000/api/auth'
+  URL_API = 'api/auth'
 
   selectedUserSignIn : Signin = {
     email: "",

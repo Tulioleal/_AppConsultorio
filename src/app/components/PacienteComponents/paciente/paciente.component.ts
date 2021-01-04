@@ -25,6 +25,8 @@ export class PacienteComponent implements OnInit {
     public dialog: MatDialog
   ) {}
 
+  pacientesLength: number
+
   ngOnInit(): void {
     this.getPacientes();
   }

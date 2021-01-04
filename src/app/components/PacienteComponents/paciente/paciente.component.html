@@ -1,9 +1,25 @@
 <div class="container">
 
+  <div *ngIf="pacienteService.pacientes.length === 0">
+    <div class="no-pacientes">
+
+      <h1>Aun no tienes pacientes registradas</h1>
+
+      <a
+        mat-flat-button
+        routerLink="addPaciente"
+        class="registrar add"
+      >
+        Registra tu primera paciente
+      </a>
+
+    </div>
+  </div>
+
   <mat-card class="example-card" *ngFor="let paciente of pacienteService.pacientes; index as i">
     <mat-card-header>
       <mat-card-title
-        routerLink="/pacientes/especific"
+        routerLink="especific"
         (click)="getPaciente( paciente._id )"
       >
         {{ paciente.nombreCortado | titlecase }} {{ paciente.apellidoCortado | titlecase }}
@@ -23,7 +39,7 @@
         <button
           mat-icon-button
           color='accent'
-          routerLink="/pacientes/edit"
+          routerLink="edit"
           routerLinkActive="active"
           (click)='editPaciente(paciente)'
         >

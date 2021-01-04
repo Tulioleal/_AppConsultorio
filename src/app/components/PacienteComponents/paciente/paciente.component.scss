@@ -11,6 +11,18 @@
 
   @include colors();
 
+  .no-pacientes{
+    @include flex-column-between();
+    align-content: center;
+
+    .registrar{
+      align-self: center;
+      width: fit-content;
+      color: $Blanco;
+      background-color: $Azul;
+    }
+  }
+
   .mat-card {
     color: $Cafe;
     width: 19%;

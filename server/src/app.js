@@ -10,11 +10,11 @@ var cookieParser = require('cookie-parser')
 const app = express()
 createRoles()
 
-// const PORT = process.env.PORT || 4000 /*Esto se comenta*/
+const PORT = process.env.PORT || 4000 /*se comenta para prod*/
 let appPath = '../../dist/AppConsultorio/'
 
 //variables de entorno
-app.set('port', process.env.PORT || 4000)
+// app.set('port', process.env.PORT || 4000) /*se comenta para dev*/
 
 app.use(cors())
 app.use(cookieParser())
@@ -35,6 +35,6 @@ app.use('/api/auth', require('./routes/auth.routes'))
 //Listen App
 app.use('/',  express.static(path.join(__dirname, appPath)))
 .get('*', (req,res)=> res.sendFile(path.join(__dirname, appPath + 'index.html')))
-// .listen(PORT) /*Esto se comenta*/
+.listen(PORT) /*Se comenta para prod*/
 
 module.exports = app

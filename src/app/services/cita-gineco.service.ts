@@ -8,9 +8,9 @@ import { Router } from '@angular/router';
 })
 export class CitaGinecoService {
 
-  //http://localhost:4000/
+  //http://localhost:4000/ /* para dev */
 
-  URI_API ='api/citasGineco'
+  URI_API ='http://localhost:4000/api/citasGineco'
 
   selectedCitaGineco : CitaGineco = {
     pacienteId: "",

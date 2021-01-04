@@ -10,7 +10,9 @@ import { Signup } from '../models/sign-up'
 })
 export class AuthService {
 
-  URL_API = 'api/auth'
+  // http://localhost:4000/  /* para dev */
+
+  URL_API = 'http://localhost:4000/api/auth'
 
   selectedUserSignIn : Signin = {
     email: "",
@@ -40,5 +42,23 @@ export class AuthService {
 
   loggedIn(){
     return !!localStorage.getItem('refreshToken')
+  }
+
+  logOut(){
+    localStorage.removeItem('refreshToken')
+  }
+
+  clearForms(){
+
+    this.selectedUserSignIn = {
+      email: "",
+      password: ""
+    }
+
+    this.selectedUserSignUp = {
+      username: "",
+      email: "",
+      password: ""
+    }
   }
 }

@@ -33,6 +33,7 @@ import { ShowPacienteCitaComponent } from './components/General/modals/cita/show
 import { ShowSpecificCitaComponent } from './components/General/modals/cita/show-specific-cita/show-specific-cita.component';
 import { SignInComponent } from './components/auth/sign-in/sign-in.component';
 import { SignUpComponent } from './components/auth/sign-up/sign-up.component';
+import { ErrorComponent } from './components/General/error/error.component';
 
 //Services and Guards
 import { AuthService } from './services/auth.service';
@@ -65,6 +66,7 @@ import { AuthGuard } from './guard/auth.guard';
     ShowSpecificCitaComponent,
     SignInComponent,
     SignUpComponent,
+    ErrorComponent,
   ],
   imports: [
     BrowserModule,

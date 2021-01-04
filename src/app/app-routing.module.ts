@@ -12,6 +12,7 @@ import { EditCitaObstComponent } from './components/Cita/edit-cita-obst/edit-cit
 import { EditCitaGinecoComponent } from './components/Cita/edit-cita-gineco/edit-cita-gineco.component';
 import { SignInComponent } from './components/auth/sign-in/sign-in.component';
 import { SignUpComponent } from './components/auth/sign-up/sign-up.component';
+import { ErrorComponent } from './components/General/error/error.component';
 import { AuthGuard } from './guard/auth.guard';
 
 
@@ -27,7 +28,7 @@ const routes: Routes = [
   { path:"citas/editCitaObst", component: EditCitaObstComponent, canActivate: [AuthGuard] },
   { path:"pacientes", component: PacienteComponent, canActivate: [AuthGuard] },
   { path:"home", component: HomeComponent },
-  { path: '**', component: HomeComponent },
+  { path: '**', component: ErrorComponent },
 ];
 
 @NgModule({

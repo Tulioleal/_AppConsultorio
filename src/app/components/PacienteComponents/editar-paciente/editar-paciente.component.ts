@@ -51,9 +51,17 @@ export class EditarPacienteComponent implements OnInit {
 
     const dialogConfig = new MatDialogConfig()
     dialogConfig.autoFocus = false
-    dialogConfig.width = "27%"
+    dialogConfig.width = "35%"
     dialogConfig.height = "32%"
     this.dialog.open(CancelEditComponent, dialogConfig)
   }
 
+  openCancelMovil(){
+
+    const dialogConfig = new MatDialogConfig()
+    dialogConfig.autoFocus = false
+    dialogConfig.width = "90%"
+    dialogConfig.height = "40%"
+    this.dialog.open(CancelEditComponent, dialogConfig)
+  }
 }

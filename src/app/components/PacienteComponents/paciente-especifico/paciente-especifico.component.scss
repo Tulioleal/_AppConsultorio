@@ -181,6 +181,7 @@
       }
     }
   }
+
   h2,h3{
     width: fit-content;
     height: 2em;
@@ -200,6 +201,87 @@
             width: 100%;
             transition: .8s all ease-out;
         }
+    }
+  }
+}
+
+@media (max-width: 1030px){
+
+  .container{
+    height: auto;
+
+    .header{
+      flex-direction: column;
+      margin-bottom: 2em;
+
+      h1{
+        margin: 0em;
+        line-height: 1em;
+      }
+
+      .icons{
+        width: 100%;
+        align-self: flex-start;
+
+        margin: 1em 0em;
+      }
+    }
+
+    .content{
+      height: auto;
+      display: flex;
+      flex-direction: column;
+
+      .antecedentes{
+        width: auto;
+        margin-bottom: 2em;
+
+        display: flex;
+        justify-content: space-around;
+        flex-direction: row;
+
+        article{
+          height: auto;
+          padding-left: 0em;
+
+          p{
+            width: 90%;
+          }
+        }
+      }
+
+      .gineco{
+        margin-bottom: 2em;
+        .ginecoContent{
+          height: auto;
+          @include flex-column-between();
+
+          .tabla{
+            height: auto;
+            width: 100%;
+          }
+          .column{
+            width: 100%;
+            article{
+              height: auto;
+            }
+          }
+        }
+      }
+
+      .footer{
+        @include flex-column-between();
+
+        .info{
+          width: auto;
+
+          margin-bottom: 2em;
+        }
+
+        button{
+          height: fit-content;
+        }
+      }
     }
   }
 }

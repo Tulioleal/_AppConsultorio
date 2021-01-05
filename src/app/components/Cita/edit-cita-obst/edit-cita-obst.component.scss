@@ -65,7 +65,7 @@ form {
 
     .resultados {
       @include card();
-      background-color: $RosaP;
+      background-color: $Blanco;
       padding: 0em;
 
       @include flex-column-between();
@@ -142,6 +142,7 @@ form {
     margin-top: 4em;
 
     @include flex-between();
+    flex-direction: row;
 
     .buttons{
       @include flex-between();
@@ -149,11 +150,26 @@ form {
 
       button{
         height: fit-content;
+        width: fit-content;
 
         &:nth-child(2){
           margin-left: 2em;
         }
       }
+
+      #movil{
+        display: none;
+      }
+
+      #desk{
+        display: inline-block;
+      }
+    }
+
+    .error {
+      color: $Blanco;
+      width: fit-content;
+      background-color: $Rojo;
     }
   }
 
@@ -177,5 +193,104 @@ form {
   align-self: center;
 }
 
+@media (max-width: 770px){
+  form{
 
+    .row{
+      @include flex-column-between();
+      margin-bottom: 0em;
+      .numeros{
 
+        width: 25%;
+      }
+
+      .textarea-1, .textarea-2,.textarea-3{
+        width: 100%;
+      }
+
+      .column{
+        width: 85%;
+        align-self: center;
+      }
+
+      #column-3{
+        height: fit-content;
+        width: 85%;
+        margin: 1em 0em;
+        align-self: center;
+        flex-direction: row;
+
+        .mat-form-field{
+          width: 30%;
+        }
+      }
+
+      .resultados{
+        height: 7em;
+        width: 100%;
+        margin-bottom: 1em;
+
+        table{
+          display: flex;
+        }
+      }
+    }
+
+    mat-divider{
+      margin: 1em 0em;
+    }
+
+    .row:nth-child(6){
+      flex-direction: row;
+    }
+
+    .col{
+      .row{
+        .textarea-1{
+          width: 100%;
+        }
+
+        #col-6{
+          width: 90%;
+        }
+      }
+      .wrap {
+        .textarea-5 {
+          width: 100%;
+          min-width: auto;
+        }
+      }
+    }
+
+    .footer{
+      width: 100%;
+      margin-top: 2em;
+      @include flex-column-between();
+      flex-direction: column-reverse;
+      align-items: center;
+
+      .buttons{
+        width: 100%;
+        justify-content: space-evenly;
+
+        button{
+          margin-top: 1em;
+        }
+
+        #desk{
+          display: none;
+        }
+
+        #movil{
+          display: inline-block;
+        }
+
+      }
+        .error{
+        width: fit-content;
+        text-align: center;
+
+      }
+    }
+  }
+}

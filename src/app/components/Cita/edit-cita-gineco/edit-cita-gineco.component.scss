@@ -67,10 +67,19 @@ form{
 
       button{
         height: fit-content;
+        width: fit-content;
 
         &:nth-child(2){
           margin-left: 2em;
         }
+      }
+
+      #movil{
+        display: none;
+      }
+
+      #desk{
+        display: inline-block;
       }
     }
 
@@ -78,6 +87,64 @@ form{
     color: $Blanco;
     background-color: $Rojo;
     width: fit-content;
+    }
+  }
+}
+
+@media (max-width: 770px){
+  form{
+
+    .row{
+      @include flex-column-between();
+      margin-bottom: 0em;
+
+      .textarea-1, .textarea-2,.textarea-3{
+        width: 100%;
+      }
+
+      .column{
+        width: 100%;
+      }
+    }
+
+    mat-divider{
+      margin: 1em 0em;
+    }
+
+    .row:nth-child(5){
+      flex-direction: row;
+      padding-bottom: 1em;
+    }
+
+    .footer{
+      width: 100%;
+      margin-top: 2em;
+      @include flex-column-between();
+      flex-direction: column-reverse;
+      align-items: center;
+
+      .buttons{
+        width: 100%;
+        justify-content: space-evenly;
+
+        button{
+          margin-top: 1em;
+        }
+
+        #desk{
+          display: none;
+        }
+
+        #movil{
+          display: inline-block;
+        }
+      }
+
+      .error{
+        width: fit-content;
+        text-align: center;
+      }
+
     }
   }
 }

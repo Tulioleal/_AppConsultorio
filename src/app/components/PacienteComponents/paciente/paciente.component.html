@@ -25,8 +25,18 @@
         {{ paciente.nombreCortado | titlecase }} {{ paciente.apellidoCortado | titlecase }}
       </mat-card-title>
       <button
-        mat-icon-button color='primary'
-        (click)='openAddCita( paciente._id, paciente.ginecoGestas )'
+        class="desk"
+        mat-icon-button
+        color='primary'
+        (click)='openAddCitaDesk( paciente._id, paciente.ginecoGestas )'
+      >
+        <mat-icon class="add">post_add</mat-icon>
+      </button>
+      <button
+        class="movil"
+        mat-icon-button
+        color='primary'
+        (click)='openAddCitaMovil( paciente._id, paciente.ginecoGestas )'
       >
         <mat-icon class="add">post_add</mat-icon>
       </button>
@@ -57,8 +67,18 @@
           </ng-template>
         </span>
         <button
-          mat-icon-button color='warn'
-          (click)='openDelete(paciente._id, "paciente")'
+          class="desk"
+          mat-icon-button
+          color='warn'
+          (click)='openDeleteDesk(paciente._id, "paciente")'
+        >
+          <mat-icon class="delete">delete</mat-icon>
+        </button>
+        <button
+          class="movil"
+          mat-icon-button
+          color='warn'
+          (click)='openDeleteMovil(paciente._id, "paciente")'
         >
           <mat-icon class="delete">delete</mat-icon>
         </button>
@@ -66,14 +86,34 @@
     </mat-card-content>
     <mat-card-actions>
       <button
-        mat-flat-button color='primary'
-        (click)="openContacto(i)"
+        class="desk"
+        mat-flat-button
+        color='primary'
+        (click)="openContactoDesk(i)"
       >
         Contacto
       </button>
       <button
-        mat-flat-button color='accent'
-        (click)="openAntecedentes(i)"
+        class="movil"
+        mat-flat-button
+        color='primary'
+        (click)="openContactoMovil(i)"
+      >
+        Contacto
+      </button>
+      <button
+        class="desk"
+        mat-flat-button
+        color='accent'
+        (click)="openAntecedentesDesk(i)"
+      >
+        Antecedentes
+      </button>
+      <button
+        class="movil"
+        mat-flat-button
+        color='accent'
+        (click)="openAntecedentesMovil(i)"
       >
         Antecedentes
       </button>

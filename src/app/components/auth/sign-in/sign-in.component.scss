@@ -41,3 +41,11 @@
     }
   }
 }
+
+@media (max-width: 900px){
+  .container{
+    .mat-card{
+      width: 80%;
+    }
+  }
+}

@@ -73,3 +73,43 @@ h2 {
 h3 {
   font-size: 2em;
 }
+
+@media (max-width: 800px){
+  form{
+
+    .row{
+      @include flex-column-between();
+
+      &:nth-child(8), &:nth-child(9){
+        flex-direction: row;
+
+        mat-form-field{
+          width: 18%;
+        }
+      }
+
+      .mat-form-field{
+        width: 100%;
+      }
+    }
+
+    .footer{
+      width: 100%;
+      margin-top: 2em;
+      @include flex-column-between();
+      flex-direction: column-reverse;
+      align-items: center;
+
+      button{
+        width: 100%;
+        margin-top: 1em;
+      }
+
+      .error{
+        width: fit-content;
+        text-align: center;
+
+      }
+    }
+  }
+}

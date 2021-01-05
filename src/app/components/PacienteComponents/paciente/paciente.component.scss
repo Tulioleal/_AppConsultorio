@@ -76,4 +76,29 @@
       }
     }
   }
+
+  .desk{
+    display: inline-block;
+  }
+  .movil{
+    display: none;
+  }
+}
+
+@media (max-width: 800px){
+
+  .container{
+
+    .desk{
+      display: none;
+    }
+    .movil{
+      display: inline-block;
+    }
+  }
+
+  .mat-dialog-container{
+    width: 90%;
+  }
+
 }

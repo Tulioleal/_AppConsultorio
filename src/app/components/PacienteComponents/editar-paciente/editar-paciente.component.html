@@ -283,7 +283,7 @@
 
   </div>
 
-  <div class="row">
+  <div class="row footer">
     <div class="group">
       <button
           type="submit"
@@ -295,11 +295,22 @@
 
       <button
         type="button"
+        id="desk"
         mat-flat-button color='warn'
         (click)='openCancel()'
       >
         Cancelar Edición
       </button>
+
+      <button
+        type="button"
+        id="movil"
+        mat-flat-button color='warn'
+        (click)='openCancelMovil()'
+      >
+        Cancelar Edición
+      </button>
+
     </div>
 
     <div *ngIf="!pacienteForm.valid">

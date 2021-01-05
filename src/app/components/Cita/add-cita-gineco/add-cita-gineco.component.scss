@@ -53,7 +53,7 @@ form{
   }
 
   mat-divider{
-    margin: 2em 0em 2em 0em;
+    margin: 2em 0em;
   }
 
   .footer {
@@ -64,12 +64,61 @@ form{
 
     button{
       height: fit-content;
+      width: fit-content;
     }
 
     .error {
       color: $Blanco;
       background-color: $Rojo;
       width: fit-content;
+    }
+  }
+}
+
+@media (max-width: 770px){
+  form{
+
+
+    .row{
+      @include flex-column-between();
+      margin-bottom: 0em;
+
+      .textarea-1, .textarea-2,.textarea-3{
+        width: 100%;
+      }
+
+      .column{
+        width: 100%;
+
+      }
+    }
+
+    mat-divider{
+      margin: 1em 0em;
+    }
+
+    .row:nth-child(4){
+      flex-direction: row;
+    }
+
+
+    .footer{
+      width: 100%;
+      margin-top: 2em;
+      @include flex-column-between();
+      flex-direction: column-reverse;
+      align-items: center;
+
+      button{
+        width: 100%;
+        margin-top: 1em;
+      }
+
+      .error{
+        width: fit-content;
+        text-align: center;
+
+      }
     }
   }
 }

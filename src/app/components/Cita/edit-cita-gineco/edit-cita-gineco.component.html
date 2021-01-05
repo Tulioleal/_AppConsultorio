@@ -201,19 +201,30 @@
 
       <button
         type="button"
+        id="desk"
         mat-flat-button color='warn'
         (click)='openCancel()'
       >
-      Cancelar Edición
-    </button>
+        Cancelar Edición
+      </button>
 
-  </div>
+      <button
+        type="button"
+        id="movil"
+        mat-flat-button color='warn'
+        (click)='openCancelMovil()'
+      >
+        Cancelar Edición
+      </button>
+
+    </div>
 
     <div *ngIf="!citaForm.valid">
       <mat-card class="error">
         Por favor verifica que todos los campos requeridos estén completos
       </mat-card>
     </div>
+
   </div>
 
 </form>

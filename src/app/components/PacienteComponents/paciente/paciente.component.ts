@@ -61,7 +61,7 @@ export class PacienteComponent implements OnInit {
 
 //OPEN MODALS
 
-  openAntecedentes(i: number) {
+  openAntecedentesDesk(i: number) {
     const dialogConfig = new MatDialogConfig();
     dialogConfig.width = '60%';
     dialogConfig.height = '75%';
@@ -69,7 +69,15 @@ export class PacienteComponent implements OnInit {
     this.dialog.open(AntecedentesComponent, dialogConfig);
   }
 
-  openContacto(i: number) {
+  openAntecedentesMovil(i: number) {
+    const dialogConfig = new MatDialogConfig();
+    dialogConfig.width = '100%';
+    dialogConfig.height = '95%';
+    dialogConfig.data = { i: i };
+    this.dialog.open(AntecedentesComponent, dialogConfig);
+  }
+
+  openContactoDesk(i: number) {
     const dialogConfig = new MatDialogConfig();
     dialogConfig.width = '40%';
     dialogConfig.height = '30%';
@@ -77,7 +85,15 @@ export class PacienteComponent implements OnInit {
     this.dialog.open(ContactoComponent, dialogConfig);
   }
 
-  openDelete(id: string, type:string) {
+  openContactoMovil(i: number) {
+    const dialogConfig = new MatDialogConfig();
+    dialogConfig.width = '100%';
+    dialogConfig.height = '27%';
+    dialogConfig.data = { i: i };
+    this.dialog.open(ContactoComponent, dialogConfig);
+  }
+
+  openDeleteDesk(id: string, type:string) {
     const dialogConfig = new MatDialogConfig();
     dialogConfig.autoFocus = false;
     dialogConfig.width = '35%';
@@ -89,11 +105,32 @@ export class PacienteComponent implements OnInit {
     this.dialog.open(DeleteComponent, dialogConfig);
   }
 
-  openAddCita(id: string, gestas: number) {
+  openDeleteMovil(id: string, type:string) {
+    const dialogConfig = new MatDialogConfig();
+    dialogConfig.autoFocus = false;
+    dialogConfig.width = '100%';
+    dialogConfig.height = '27%';
+    dialogConfig.data = {
+      id: id,
+      type:type
+    };
+    this.dialog.open(DeleteComponent, dialogConfig);
+  }
+
+  openAddCitaDesk(id: string, gestas: number) {
     const dialogConfig = new MatDialogConfig();
     dialogConfig.autoFocus = false;
     dialogConfig.width = '30%';
     dialogConfig.height = '20%';
+    dialogConfig.data = { id: id, gestas: gestas };
+    this.dialog.open(AddCitaComponent, dialogConfig);
+  }
+
+  openAddCitaMovil(id: string, gestas: number) {
+    const dialogConfig = new MatDialogConfig();
+    dialogConfig.autoFocus = false;
+    dialogConfig.width = '100%';
+    dialogConfig.height = '25%';
     dialogConfig.data = { id: id, gestas: gestas };
     this.dialog.open(AddCitaComponent, dialogConfig);
   }

@@ -35,7 +35,7 @@ export class EditCitaObstComponent implements OnInit {
   semDias: number
   dias: number
   conDias: number
-  fProbable : Date
+  fProbable : string
   imc1 : number
   imc2 : number
 
@@ -119,7 +119,6 @@ export class EditCitaObstComponent implements OnInit {
 
   fechaProbable(){
     this.citaObstService.fechaProbable()
-    this.fProbable = this.citaObstService.fProbable
   }
 
   imc(talla:number, pesoAntesEmb:number, number:number){

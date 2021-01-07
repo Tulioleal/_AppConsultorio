@@ -28,6 +28,7 @@ export class AddCitaComponent implements OnInit {
 
   citaObst(id: string, gestas: number){
     this.citaObstService.clearForm()
+    console.log(id)
     this.citaObstService.selectedCitaObst.pacienteId = id;
     this.citaObstService.selectedCitaObst.gestas = gestas
   }

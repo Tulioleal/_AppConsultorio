@@ -25,13 +25,27 @@
 
   <button
     mat-flat-button
-    color='primary'
     mat-dialog-close
+    color='primary'
+    *ngIf="data.gestas != 0"
     (click)='citaObst(data.id, data.gestas)'
     routerLink="/citas/addCitaObst"
   >
     Obst
   </button>
+
+  <button
+    *ngIf="data.gestas === 0"
+    mat-flat-button
+    color='primary'
+    #tooltip="matTooltip"
+    matTooltip="This pacientes has 0 gestas, can't create a new ObstCita"
+    matTooltipClass="example-tooltip-red"
+    aria-label="Button that shows a red tooltip"
+  >
+    Obst
+  </button>
+
 
   </div>
 </div>

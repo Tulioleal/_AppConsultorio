@@ -1,17 +1,17 @@
 <form #citaForm="ngForm" (ngSubmit)="addCitaObst(citaForm)">
 
   <input
-    type="hidden"
+
     name='visita'
     [(ngModel)]="citaObstService.selectedCitaObst.visita"
   >
   <input
-    type="hidden"
+
     name='pacienteId'
     [(ngModel)]="citaObstService.selectedCitaObst.pacienteId"
   >
   <input
-    type="hidden"
+
     name='gestas'
     [(ngModel)]="citaObstService.selectedCitaObst.gestas"
   >

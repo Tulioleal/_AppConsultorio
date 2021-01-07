@@ -34,7 +34,7 @@ export class AddCitaObstComponent implements OnInit {
   semDias: number
   dias: number
   conDias: number
-  fProbable : Date
+  fProbable : string
   imc1 : number
   imc2 : number
 
@@ -77,7 +77,6 @@ export class AddCitaObstComponent implements OnInit {
 
   private seguimiento(){
     if(this.numeroCita > 1){
-      this.clearForm()
       this.getDatos()
       this.compararFechas()
       this.fechaProbable()

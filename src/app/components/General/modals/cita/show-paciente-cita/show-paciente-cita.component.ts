@@ -55,13 +55,15 @@ export class ShowPacienteCitaComponent implements OnInit {
     if(gestas){
       this.obstService.getCitaObst(pacienteId, gestas, id).subscribe(
         res =>{
+          console.log(pacienteId,gestas,id)
           this.obstService.selectedCitaObst = res
         },
         err => console.log(err)
-      )
+        )
     }else{
       this.ginecoService.getCitaGineco(pacienteId, id).subscribe(
         res =>{
+          console.log(res)
           this.ginecoService.selectedCitaGineco = res
         },
         err => console.log(err)

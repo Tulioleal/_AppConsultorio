@@ -18,6 +18,8 @@ import { MatSnackBarModule } from '@angular/material/snack-bar'
 import { MatDialogModule } from '@angular/material/dialog'
 import { MatTableModule } from '@angular/material/table'
 import { MatAutocompleteModule } from '@angular/material/autocomplete'
+import { MatTooltipModule } from '@angular/material/tooltip'
+
 
 
 @NgModule({
@@ -38,6 +40,7 @@ import { MatAutocompleteModule } from '@angular/material/autocomplete'
     MatDialogModule,
     MatTableModule,
     MatAutocompleteModule,
+    MatTooltipModule,
 
   ],
   exports:[
@@ -57,6 +60,7 @@ import { MatAutocompleteModule } from '@angular/material/autocomplete'
     MatDialogModule,
     MatTableModule,
     MatAutocompleteModule,
+    MatTooltipModule,
   ]
 })
 

@@ -107,3 +107,30 @@
   }
 }
 
+@media(max-width: 1050px){
+  .container{
+    height: auto;
+    .content{
+      width: 100%;
+      height: 100%;
+      @include flex-column-between();
+      .table{
+        height: 20em;
+        width: 80%;
+        margin-bottom: 2em;
+        float: none;
+        align-self: center;
+
+        td{
+          text-align: right;
+        }
+      }
+
+      .column{
+        height: 30em;
+        width: 100%;
+        float: none;
+      }
+    }
+  }
+}

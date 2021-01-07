@@ -175,6 +175,7 @@
         }
       }
 
+      @include colorsBtn();
       button {
         height: 4em;
         align-self: center;
@@ -203,6 +204,12 @@
         }
     }
   }
+  .desk{
+    display: inline-block;
+  }
+  .movil,.tab, .tabMovil{
+    display: none;
+  }
 }
 
 @media (max-width: 1030px){
@@ -215,7 +222,9 @@
       margin-bottom: 2em;
 
       h1{
+        text-align: center;
         margin: 0em;
+        margin-top: .5em;
         line-height: 1em;
       }
 
@@ -234,7 +243,7 @@
 
       .antecedentes{
         width: auto;
-        margin-bottom: 2em;
+        margin: 0em 1em 2em 1em;
 
         display: flex;
         justify-content: space-around;
@@ -243,9 +252,10 @@
         article{
           height: auto;
           padding-left: 0em;
+          margin: 0em 1em;
 
           p{
-            width: 90%;
+            width: 100%;
           }
         }
       }
@@ -258,10 +268,12 @@
 
           .tabla{
             height: auto;
-            width: 100%;
+            width: 80%;
+            align-self: center;
           }
           .column{
-            width: 100%;
+            width: 90%;
+            align-self: center;
             article{
               height: auto;
             }
@@ -274,7 +286,6 @@
 
         .info{
           width: auto;
-
           margin-bottom: 2em;
         }
 
@@ -282,6 +293,24 @@
           height: fit-content;
         }
       }
+    }
+
+    .tab, .tabMovil{
+      display: inline-block;
+    }
+    .desk, .movil{
+      display: none;
+    }
+  }
+}
+
+@media (max-width: 700px){
+  .container{
+    .movil, .tabMovil{
+      display: inline-block;
+    }
+    .desk, .tab{
+      display: none;
     }
   }
 }

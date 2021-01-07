@@ -61,9 +61,9 @@
   }
 
   .tableObst{
-    tr{
+    tr, .movil , .desk{
 
-      td{
+      td,th{
 
         &:first-child,
         &:nth-child(2){
@@ -85,5 +85,40 @@
     font-size: 1.5em;
     text-align: center;
     margin: 9% 0em;
+  }
+  .movil{
+    display: none;
+  }
+}
+
+@media (max-width: 1150px){
+  .container{
+    .movil{
+      display: table-row;
+    }
+    .desk{
+      display: none;
+    }
+  }
+}
+
+@media (max-width: 750px){
+  .container{
+
+    .tableObst{
+      tr{
+
+        td,th{
+          &:first-child,
+          &:nth-child(2),
+          &:nth-child(4){
+            width: 33%;
+          }
+          &:nth-child(3){
+            display: none;
+          }
+        }
+      }
+    }
   }
 }

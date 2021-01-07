@@ -69,7 +69,7 @@ export class ShowPacienteCitaComponent implements OnInit {
     }
   }
 
-  openSpecificCita(id: string, type: string) {
+  openSpecificCitaDesk(id: string, type: string) {
     const dialogConfig = new MatDialogConfig();
     dialogConfig.autoFocus = false;
     dialogConfig.data = { id: id, type: type };
@@ -80,6 +80,22 @@ export class ShowPacienteCitaComponent implements OnInit {
     } else {
       dialogConfig.width = '100%';
       dialogConfig.height = '90%';
+    }
+
+    this.dialog.open(ShowSpecificCitaComponent, dialogConfig);
+  }
+
+  openSpecificCitaMovil(id: string, type: string) {
+    const dialogConfig = new MatDialogConfig();
+    dialogConfig.autoFocus = false;
+    dialogConfig.data = { id: id, type: type };
+
+    if (type === 'gineco') {
+      dialogConfig.width = '100%';
+      dialogConfig.height = '100%';
+    } else {
+      dialogConfig.width = '100%';
+      dialogConfig.height = '100%';
     }
 
     this.dialog.open(ShowSpecificCitaComponent, dialogConfig);

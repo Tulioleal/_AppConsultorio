@@ -16,16 +16,44 @@
         edit
       </mat-icon>
       <mat-icon
+        class="delete desk"
         color='warn'
-        (click)='openDelete(pacienteService.selectedPaciente._id, "paciente")'
-        class="delete"
+        (click)='openDeleteDesk(pacienteService.selectedPaciente._id, "paciente")'
       >
         delete
       </mat-icon>
       <mat-icon
-        class="add"
+        class="delete tab"
+        color='warn'
+        (click)='openDeleteTab(pacienteService.selectedPaciente._id, "paciente")'
+      >
+        delete
+      </mat-icon>
+      <mat-icon
+        class="delete movil"
+        color='warn'
+        (click)='openDeleteMovil(pacienteService.selectedPaciente._id, "paciente")'
+      >
+        delete
+      </mat-icon>
+      <mat-icon
+        class="add desk"
         color='primary'
-        (click)='openAddCita(pacienteService.selectedPaciente._id, pacienteService.selectedPaciente.ginecoGestas)'
+        (click)='openAddCitaDesk(pacienteService.selectedPaciente._id, pacienteService.selectedPaciente.ginecoGestas)'
+      >
+        post_add
+      </mat-icon>
+      <mat-icon
+        class="add tab"
+        color='primary'
+        (click)='openAddCitaTab(pacienteService.selectedPaciente._id, pacienteService.selectedPaciente.ginecoGestas)'
+      >
+        post_add
+      </mat-icon>
+      <mat-icon
+        class="add movil"
+        color='primary'
+        (click)='openAddCitaMovil(pacienteService.selectedPaciente._id, pacienteService.selectedPaciente.ginecoGestas)'
       >
         post_add
       </mat-icon>
@@ -142,8 +170,18 @@
 
       <button
         mat-flat-button
+        class="desk edit"
         color='link'
-        (click)='openShowPacienteCitas(pacienteService.selectedPaciente._id)'
+        (click)='openShowPacienteCitasDesk(pacienteService.selectedPaciente._id)'
+      >
+        Lista de citas de {{ pacienteService.selectedPaciente.nombre }}
+      </button>
+
+      <button
+        mat-flat-button
+        class="tabMovil edit"
+        color='link'
+        (click)='openShowPacienteCitastabMovil(pacienteService.selectedPaciente._id)'
       >
         Lista de citas de {{ pacienteService.selectedPaciente.nombre }}
       </button>

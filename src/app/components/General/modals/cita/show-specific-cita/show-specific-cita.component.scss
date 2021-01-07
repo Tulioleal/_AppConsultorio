@@ -275,3 +275,188 @@ h3 {
     }
   }
 }
+
+@media (max-width: 1150px){
+
+  .obst{
+    padding: 0em;
+    .content{
+      height: auto;
+      flex-direction: column;
+
+      .left,
+      .right{
+        width: 100%;
+        height: auto;
+
+        .top, .bottom{
+          padding: 0em;
+          margin-top: 1em;
+          .div{
+            width: auto;
+            margin: 0em 1em 1em 1em;
+            &:first-child{
+              margin: 1em;
+            }
+          }
+          #fechas{
+            padding: 0em;
+            .fechas{
+              width: auto;
+              &:first-child{
+                margin: 1em;
+              }
+              margin: 0em 1em 1em 1em;
+            }
+          }
+          .calc{
+            padding: 0em;
+            margin: 1em 0em;
+          }
+        }
+
+      }
+      .right{
+        .left{
+          height: auto;
+          align-self: auto;
+
+          #fisico, #gineco{
+            height: 45%;
+          }
+        }
+      }
+    }
+  }
+}
+
+@media(max-width:900px){
+  .gineco, .obst{
+    .header{
+      h1{
+        font-size: 1.5em;
+
+        .icons{
+          padding-left: .5em;
+        }
+      }
+      .div{
+        .fecha{
+          min-width: 83px;
+          margin: 0em .5em;
+        }
+      }
+    }
+  }
+  .gineco{
+
+    .content{
+      flex-direction: column;
+
+      .left, .right{
+        height: auto;
+        width: 100%;
+      }
+      .left{
+        padding: 0em;
+        margin-top: 1em;
+
+        .comentarios,.estado,.historia{
+          width: auto;
+          margin: 0em 1em 1em 1em;
+
+          &:first-child{
+            margin: 1em;
+          }
+        }
+      }
+    }
+  }
+}
+
+@media(max-width: 600px){
+  .obst{
+    .content{
+      .left{
+        .bottom{
+            .calc{
+              @include flex-column-between();
+              h3, span{
+                text-align: center
+            }
+
+            #pesos{
+              align-self: center;
+
+              #pAntes,#pDespues{
+                width: fit-content
+              }
+            }
+          }
+        }
+      }
+      .right{
+        @include flex-column-between();
+        .left {
+          margin: 0em;
+          width: 100%;
+        }
+        #obste{
+          padding: 0em;
+          margin: 1em 0em 0em 0em;
+          width: 100%;
+
+          h4{
+            text-align: center;
+            margin-top: 1em;
+          }
+
+          .obste{
+            text-align: center;
+            width: auto;
+            margin: 0em 1em 1em 1em;
+          }
+        }
+      }
+    }
+  }
+
+  .gineco{
+    .content{
+      .right{
+
+        .first,.second, .third{
+          height: auto;
+
+          .mamas,
+          .genitales,
+          .genExt,
+          .cervix {
+            margin-bottom: 1em;
+            width: auto;
+          }
+        }
+
+        .third{
+          padding: 0em;
+
+          .utero,
+          .impresion,
+          .colpos {
+            width: 100%;
+            margin-bottom: 1em;
+            margin: 0em 1em 1em 1em;
+            &:first-child{
+              margin: 1em;
+            }
+          }
+        }
+
+        .first,.second,.third{
+          flex-direction: column;
+          width: 100%;
+        }
+      }
+    }
+  }
+}

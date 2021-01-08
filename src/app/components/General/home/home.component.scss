@@ -27,7 +27,7 @@
       color: $Cafe;
 
       min-width: 20em;
-      padding: 2em;
+      margin: 2em;
       align-self: center;
 
       mat-card-header{
@@ -123,6 +123,8 @@
 
       mat-card{
         width: 100%;
+        padding-left: 0em;
+        padding-right: 0em;
 
         mat-card-header{
           mat-card-title{

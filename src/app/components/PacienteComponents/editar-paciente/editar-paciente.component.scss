@@ -3,11 +3,11 @@
 h1 {
   text-align: center;
   font-size: 4em;
-  margin: 1em;
+  padding: 1em;
 }
 
 form {
-  margin: 5% 12%;
+  padding: 5% 12%;
   padding-bottom: 3%;
 
   .row {
@@ -129,24 +129,24 @@ h3 {
 
 @media (max-width: 800px){
 
-  h1{
-    margin: 1em 0em;
-  }
-
   form{
     .row{
       @include flex-column-between();
 
-      &:nth-child(8), &:nth-child(9){
-        flex-direction: row;
-
-        mat-form-field{
-          width: 18%;
-        }
-      }
-
       .mat-form-field{
         width: 100%;
+      }
+    }
+
+    .div{
+      @include flex-between();
+
+      .row{
+        width: 45%;
+        height: 100%;
+        mat-form-field{
+          width: 100%;
+        }
       }
     }
 
@@ -188,6 +188,20 @@ h3 {
 
     h2,h3{
       text-align: center;
+    }
+
+    h3{
+      margin-bottom: 0em;
+    }
+  }
+}
+
+@media(max-width: 600px){
+  .container{
+    h1{
+      padding: 0em;
+      font-size: 2.5em;
+      line-height: 2.5em;
     }
   }
 }

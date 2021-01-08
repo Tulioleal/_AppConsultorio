@@ -1,7 +1,7 @@
 @import '../../../../variables.scss';
 
 .container {
-  margin: 7%;
+  padding: 7%;
 
   display: flex;
   justify-content: center;
@@ -12,7 +12,7 @@
     color: $Cafe;
     width: 40%;
     min-width: 21em;
-    padding: 2em;
+    margin: 2em;
 
     @include flex-column-between();
 
@@ -47,6 +47,8 @@
   .container{
     .mat-card{
       width: 80%;
+      padding-left: 0em;
+      padding-right: 0em;
     }
   }
 }

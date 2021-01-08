@@ -19,6 +19,7 @@ import { MatDialogModule } from '@angular/material/dialog'
 import { MatTableModule } from '@angular/material/table'
 import { MatAutocompleteModule } from '@angular/material/autocomplete'
 import { MatTooltipModule } from '@angular/material/tooltip'
+import { MatSidenavModule } from '@angular/material/sidenav'
 
 
 
@@ -41,6 +42,7 @@ import { MatTooltipModule } from '@angular/material/tooltip'
     MatTableModule,
     MatAutocompleteModule,
     MatTooltipModule,
+    MatSidenavModule,
 
   ],
   exports:[
@@ -61,6 +63,7 @@ import { MatTooltipModule } from '@angular/material/tooltip'
     MatTableModule,
     MatAutocompleteModule,
     MatTooltipModule,
+    MatSidenavModule,
   ]
 })
 

@@ -1,4 +1,4 @@
-<div class="container">
+<div class="containerM">
 
   <div class="header">
     <h1>Resumen de las citas</h1>
@@ -62,6 +62,7 @@
         *ngFor="let citaObst of obstService.citasObst"
         (click)='getCita(citaObst.pacienteId, citaObst._id, citaObst.gestas)'
         (click)='openSpecificCitaDesk(citaObst._id, "obst")'
+        mat-dialog-close
       >
         <td>{{ citaObst.visita }}</td>
         <td>{{ citaObst.gestas }}</td>
@@ -73,6 +74,7 @@
         *ngFor="let citaObst of obstService.citasObst"
         (click)='getCita(citaObst.pacienteId, citaObst._id, citaObst.gestas)'
         (click)='openSpecificCitaMovil(citaObst._id, "obst")'
+        mat-dialog-close
       >
         <td>{{ citaObst.visita }}</td>
         <td>{{ citaObst.gestas }}</td>

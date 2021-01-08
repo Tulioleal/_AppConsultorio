@@ -1,6 +1,10 @@
 @import '../../../../../variables.scss';
 
-.container{
+.mat-dialog-container{
+  padding: 0em;
+}
+
+.containerM{
   height: 100%;
 
   @include flex-column-between();

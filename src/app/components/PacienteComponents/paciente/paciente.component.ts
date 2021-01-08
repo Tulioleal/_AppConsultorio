@@ -63,8 +63,8 @@ export class PacienteComponent implements OnInit {
 
   openAntecedentesDesk(i: number) {
     const dialogConfig = new MatDialogConfig();
-    dialogConfig.width = '60%';
-    dialogConfig.height = '75%';
+    dialogConfig.width = '70%';
+    dialogConfig.height = '85%';
     dialogConfig.data = { i: i };
     this.dialog.open(AntecedentesComponent, dialogConfig);
   }

@@ -1,0 +1,58 @@
+@import '../variables.scss';
+
+body{
+  background-color: $CafeS;
+}
+
+.movil{
+  display: none;
+}
+
+@media( max-width: 800px ){
+
+  .desk{
+    display: none;
+  }
+  .movil{
+    display: block;
+  }
+
+  mat-sidenav-container{
+    background-color: $CafeS;
+    height: 100%;
+
+    mat-sidenav{
+      background-color: $RosaP;
+      width: 45%;
+      min-width: 250px;
+      padding: 16px;
+
+    }
+
+    mat-sidenav-content{
+      .container{
+        height: 4em;
+        padding: 0 6%;
+        background-color: $Cafe;
+
+        @include flex-between();
+        @include colorsBtn();
+
+        h1{
+          height: fit-content;
+          color: white;
+          margin-bottom: 0em;
+          cursor: pointer;
+
+          align-self: center;
+        }
+
+        button{
+          height: fit-content;
+          align-self: center;
+          background-color: $RosaF;
+        }
+      }
+    }
+  }
+}

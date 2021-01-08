@@ -1,15 +1,14 @@
-<div class="container">
+<div class="containerM">
+
   <div class="header">
 
-  <h2
-    mat-dialog-title
-  >
-    Are you sure yo want to cancel?
-  </h2>
+    <h2 mat-dialog-title>
+      Are you sure yo want to cancel?
+    </h2>
 
-  <span mat-dialog-close class="close">
-    <mat-icon color='warn'>cancel</mat-icon>
-  </span>
+    <span mat-dialog-close class="close">
+      <mat-icon color='warn'>cancel</mat-icon>
+    </span>
 
   </div>
 
@@ -23,20 +22,11 @@
 
   <div class="footer">
 
-    <button
-      mat-flat-button
-      color='warn'
-      mat-dialog-close
-      routerLink="/pacientes"
-    >
+    <button mat-flat-button color='warn' mat-dialog-close routerLink="/pacientes">
       Yes, Cancel Edit
     </button>
 
-    <button
-      color='primary'
-      mat-flat-button
-      mat-dialog-close
-    >
+    <button color='primary' mat-flat-button mat-dialog-close>
       No, Go back
     </button>
 

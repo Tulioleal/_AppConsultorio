@@ -122,7 +122,11 @@
         <div class="fecha">
           Fecha: {{ obstService.selectedCitaObst.createdAt | date }}
         </div>
-        <span mat-dialog-close class="close">
+        <span
+          mat-dialog-close
+          class="close"
+          (click) = 'openShowPacienteCitas(pacienteService.selectedPaciente._id)'
+        >
           <mat-icon color='warn'>cancel</mat-icon>
         </span>
       </div>

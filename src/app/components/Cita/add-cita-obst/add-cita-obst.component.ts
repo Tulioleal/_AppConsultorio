@@ -1,6 +1,7 @@
 import { Component, OnInit, } from '@angular/core';
 import { NgForm } from '@angular/forms'
 import { MatSnackBar } from '@angular/material/snack-bar'
+import { Router } from '@angular/router';
 import { PacienteService } from 'src/app/services/paciente.service';
 
 //SERVICE
@@ -16,7 +17,8 @@ export class AddCitaObstComponent implements OnInit {
   constructor(
     public citaObstService: CitaObstService,
     public pacienteService : PacienteService,
-    private snackbar : MatSnackBar
+    private snackbar : MatSnackBar,
+    private router: Router
 
   ) { }
 
@@ -48,6 +50,7 @@ export class AddCitaObstComponent implements OnInit {
       res =>{
         console.log(res)
         this.openSnakbar()
+        this.router.navigate(['/pacientes/especific'])
       },
       err =>{
         console.log(form)

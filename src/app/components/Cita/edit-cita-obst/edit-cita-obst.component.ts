@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { NgForm } from '@angular/forms';
 import { MatDialog, MatDialogConfig } from '@angular/material/dialog';
 import { MatSnackBar } from '@angular/material/snack-bar';
+import { Router } from '@angular/router';
 import { CitaObstService } from 'src/app/services/cita-obst.service';
 import { PacienteService } from 'src/app/services/paciente.service';
 import { CancelEditComponent } from '../../General/modals/cancel-edit/cancel-edit.component';
@@ -18,7 +19,8 @@ export class EditCitaObstComponent implements OnInit {
     public pacienteService: PacienteService,
     public citaObstService: CitaObstService,
     private snackBar : MatSnackBar,
-    public dialog: MatDialog
+    public dialog: MatDialog,
+    private router: Router
   ) { }
 
   pacienteId : string = this.citaObstService.selectedCitaObst.pacienteId
@@ -51,6 +53,7 @@ export class EditCitaObstComponent implements OnInit {
       res => {
         console.log(res)
         this.openSnackBar()
+        this.router.navigate(['/pacientes/especific'])
       },
       err => console.log(err)
     )

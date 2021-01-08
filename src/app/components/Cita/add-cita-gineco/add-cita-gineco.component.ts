@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { NgForm } from '@angular/forms'
 import { MatSnackBar } from '@angular/material/snack-bar';
+import { Router } from '@angular/router';
 
 //SERIVICE
 import { CitaGinecoService } from '../../../services/cita-gineco.service'
@@ -14,7 +15,8 @@ export class AddCitaGinecoComponent implements OnInit {
 
   constructor(
     public citaGinecoService : CitaGinecoService,
-    private snackbar: MatSnackBar
+    private snackbar: MatSnackBar,
+    private router: Router
   ) { }
 
   ngOnInit(): void {
@@ -29,6 +31,7 @@ export class AddCitaGinecoComponent implements OnInit {
       res => {
         console.log(res)
         this.openSnackBar()
+        this.router.navigate(['/pacientes/especific'])
       },
       err => {
         console.log(err)

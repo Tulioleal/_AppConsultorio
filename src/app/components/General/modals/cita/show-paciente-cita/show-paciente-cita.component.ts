@@ -55,7 +55,6 @@ export class ShowPacienteCitaComponent implements OnInit {
     if(gestas){
       this.obstService.getCitaObst(pacienteId, gestas, id).subscribe(
         res =>{
-          console.log(pacienteId,gestas,id)
           this.obstService.selectedCitaObst = res
         },
         err => console.log(err)
@@ -63,7 +62,6 @@ export class ShowPacienteCitaComponent implements OnInit {
     }else{
       this.ginecoService.getCitaGineco(pacienteId, id).subscribe(
         res =>{
-          console.log(res)
           this.ginecoService.selectedCitaGineco = res
         },
         err => console.log(err)
@@ -92,13 +90,8 @@ export class ShowPacienteCitaComponent implements OnInit {
     dialogConfig.autoFocus = false;
     dialogConfig.data = { id: id, type: type };
 
-    if (type === 'gineco') {
       dialogConfig.width = '100%';
       dialogConfig.height = '100%';
-    } else {
-      dialogConfig.width = '100%';
-      dialogConfig.height = '100%';
-    }
 
     this.dialog.open(ShowSpecificCitaComponent, dialogConfig);
   }

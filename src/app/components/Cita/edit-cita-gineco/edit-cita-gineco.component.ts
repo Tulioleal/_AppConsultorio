@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { NgForm } from '@angular/forms';
 import { MatDialog, MatDialogConfig } from '@angular/material/dialog';
 import { MatSnackBar } from '@angular/material/snack-bar';
+import { Router } from '@angular/router';
 import { CitaGinecoService } from 'src/app/services/cita-gineco.service';
 import { CancelEditComponent } from '../../General/modals/cancel-edit/cancel-edit.component';
 
@@ -15,7 +16,8 @@ export class EditCitaGinecoComponent implements OnInit {
   constructor(
     public citaGinecoService : CitaGinecoService,
     private snackbar: MatSnackBar,
-    public dialog: MatDialog
+    public dialog: MatDialog,
+    private router: Router
   ) { }
 
   numeroCita: Number = this.citaGinecoService.selectedCitaGineco.visita
@@ -30,6 +32,7 @@ export class EditCitaGinecoComponent implements OnInit {
       res => {
         console.log(res)
         this.openSnackBar()
+        this.router.navigate(['/pacientes/especific'])
       },
       err => console.log(err)
     )

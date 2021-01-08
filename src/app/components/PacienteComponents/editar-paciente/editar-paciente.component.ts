@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { NgForm } from '@angular/forms'
+import { Router } from '@angular/router';
 
 //Components
 import { CancelEditComponent } from '../../General/modals/cancel-edit/cancel-edit.component';
@@ -19,9 +20,10 @@ import { PacienteService } from 'src/app/services/paciente.service';
 export class EditarPacienteComponent implements OnInit {
 
   constructor(
-    public pacienteService: PacienteService,
     private snackbar: MatSnackBar,
-    public dialog: MatDialog
+    private router: Router,
+    public pacienteService: PacienteService,
+    public dialog: MatDialog,
   ) { }
 
   ngOnInit(): void {
@@ -33,6 +35,7 @@ export class EditarPacienteComponent implements OnInit {
       res => {
         console.log(res)
         this.openSnackBar()
+        this.router.navigate(['/pacientes/especific'])
       },
       err => {
         console.log(err)
@@ -43,7 +46,7 @@ export class EditarPacienteComponent implements OnInit {
 
   private openSnackBar() {
     this.snackbar.open('Paciente Editada exitosamente', 'Cerrar', {
-      duration: 4000
+      duration: 3000
     })
   }
 

@@ -25,9 +25,9 @@ export class FormularioPacienteComponent implements OnInit {
   addPaciente(form: NgForm) {
     this.pacienteService.createPaciente(form.value).subscribe(
       res => {
-
-        this.openSnackBar()
         console.log(res)
+        this.openSnackBar()
+        this.router.navigate(['/pacientes/especific'])
       },
       err => {
         console.log(err)
@@ -38,8 +38,7 @@ export class FormularioPacienteComponent implements OnInit {
 
   private openSnackBar() {
     this.snackbar.open('Paciente Created', 'Cerrar', {
-      duration: 1000
+      duration: 3000
     })
-    this.router.navigate(['/pacientes'])
   }
 }

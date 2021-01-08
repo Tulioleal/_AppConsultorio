@@ -1,5 +1,6 @@
 import { Component, Inject, OnInit } from '@angular/core';
 import { MAT_DIALOG_DATA } from '@angular/material/dialog'
+import { Router } from '@angular/router';
 import { CitaGinecoService } from 'src/app/services/cita-gineco.service';
 import { CitaObstService } from 'src/app/services/cita-obst.service';
 
@@ -17,6 +18,7 @@ export class DeleteComponent implements OnInit {
     public pacienteService : PacienteService,
     public ginecoService : CitaGinecoService,
     public obstService : CitaObstService,
+    private router: Router,
     @Inject(MAT_DIALOG_DATA) public data: any
   ) { }
 
@@ -28,6 +30,7 @@ export class DeleteComponent implements OnInit {
       res => {
         console.log(res)
         this.getPacientes()
+        this.router.navigate(['/pacientes'])
       },
       err => {
         console.log(err)

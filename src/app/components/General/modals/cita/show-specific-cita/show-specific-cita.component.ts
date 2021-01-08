@@ -36,9 +36,20 @@ export class ShowSpecificCitaComponent implements DoCheck {
     @Inject(MAT_DIALOG_DATA) public data: any,
   ) {}
 
+
   ngDoCheck(): void {
-    this.compararFechas();
-    this.imc();
+    switch (this.data.type) {
+
+      case 'gineco':
+        break;
+
+      case 'obst':
+        this.compararFechas();
+        this.imc();
+
+      default:
+        break;
+    }
   }
 
   private compararFechas() {
@@ -47,7 +58,7 @@ export class ShowSpecificCitaComponent implements DoCheck {
     let dia: number = 86400000;
 
     this.comparador(dif, dia);
-    this.fProbable();
+    this.obstService.fechaProbable();
   }
 
   private comparador(dif: number, dia: number) {
@@ -56,10 +67,6 @@ export class ShowSpecificCitaComponent implements DoCheck {
     this.semanas = this.obstService.calc(dif, dia * 7);
     this.semDias = this.obstService.calc(dif, dia * 7, dia);
     this.dias = this.obstService.calc(dif, dia);
-  }
-
-  private fProbable() {
-    this.obstService.fechaProbable();
   }
 
   openDelete(id: string, type:string) {

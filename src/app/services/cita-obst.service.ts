@@ -8,10 +8,8 @@ import { Router } from '@angular/router';
 })
 export class CitaObstService {
 
-  //http://localhost:4000/ /*para dev*/
-  //api/citasObst /*para prod*/
-
-  URI_API = 'api/citasObst'
+  URI_API = 'api/citasObst' /* para prod */
+  // URI_API = 'http://localhost:4000/api/citasObst' /* para dev */
 
   selectedCitaObst : CitaObst = {
     pacienteId: "",
@@ -45,7 +43,7 @@ export class CitaObstService {
   year: number = new Date().getFullYear()
   date: number = Date.now()
 
-  fProbable: Date
+  fProbable: string
 
   constructor(
     private http: HttpClient,
@@ -78,7 +76,7 @@ export class CitaObstService {
 
   fechaProbable(){
     let fechaTime: number = Date.parse(this.selectedCitaObst.ultMenst)
-    this.fProbable = new Date(fechaTime + 24192000000)
+    this.fProbable = new Date(fechaTime + 24192000000).toISOString()
   }
 
   imcCalc(peso: number, altura: number) {
@@ -102,30 +100,27 @@ export class CitaObstService {
   }
 
   clearForm(){
-    this.selectedCitaObst = {
-      pacienteId: "",
-      visita: 0,
-      motivo: "",
-      histEnfAct: "",
-      ultMenst: "",
-      penMenst: "",
-      fechaEmb: "",
-      pesoAEmb: 0,
-      gestas: 0,
-      altura: 0,
-      percepFetal: "",
-      exGenEstadoG: "",
-      exGenPA: "",
-      exGenPulso: "",
-      exGenFR: "",
-      exGenPeso: 0,
-      exGenAlt: 0,
-      exObsAbdom: "",
-      exObsMovFet: "",
-      exObsAltUt: "",
-      exObsCircunAbdom: "",
-      exObsFCF: "",
-      exGineco: ""
-    }
+
+    this.selectedCitaObst.motivo = ""
+    this.selectedCitaObst.histEnfAct = ""
+    this.selectedCitaObst.ultMenst = ""
+    this.selectedCitaObst.penMenst = ""
+    this.selectedCitaObst.fechaEmb = ""
+    this.selectedCitaObst.pesoAEmb = 0
+    this.selectedCitaObst.altura = 0
+    this.selectedCitaObst.percepFetal = ""
+    this.selectedCitaObst.exGenEstadoG = ""
+    this.selectedCitaObst.exGenPA = ""
+    this.selectedCitaObst.exGenPulso = ""
+    this.selectedCitaObst.exGenFR = ""
+    this.selectedCitaObst.exGenPeso = 0
+    this.selectedCitaObst.exGenAlt = 0
+    this.selectedCitaObst.exObsAbdom = ""
+    this.selectedCitaObst.exObsMovFet = ""
+    this.selectedCitaObst.exObsAltUt = ""
+    this.selectedCitaObst.exObsCircunAbdom = ""
+    this.selectedCitaObst.exObsFCF = ""
+    this.selectedCitaObst.exGineco = ""
+
   }
 }

@@ -10,10 +10,8 @@ import { Signup } from '../models/sign-up'
 })
 export class AuthService {
 
-  // http://localhost:4000/ /* para dev */
-  // api/auth /* para prod */
-
-  URL_API = 'api/auth'
+  URI_API = 'api/auth' /* para dev */
+  // URI_API = 'http://localhost:4000/api/auth' /* para pro */
 
   selectedUserSignIn : Signin = {
     email: "",
@@ -33,12 +31,12 @@ export class AuthService {
 
   signIn( user: Signin ){
 
-    return this.http.post<any>(this.URL_API + "/signin", user)
+    return this.http.post<any>(this.URI_API + "/signin", user)
   }
 
   signUp( user: Signup ){
 
-    return this.http.post<any>(this.URL_API + "/signup", user)
+    return this.http.post<any>(this.URI_API + "/signup", user)
   }
 
   loggedIn(){

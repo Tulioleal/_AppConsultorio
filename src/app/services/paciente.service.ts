@@ -8,10 +8,8 @@ import { Router } from '@angular/router';
 })
 export class PacienteService {
 
-  //http://localhost:4000/
-  //api/pacientes /*para prod*/
-
-  URL_API = 'api/pacientes'
+  URI_API = 'api/pacientes' /* para prod */
+  // URI_API = 'http://localhost:4000/api/pacientes' /* para dev */
 
   selectedPaciente : Paciente = {
     nombre: "",
@@ -50,23 +48,23 @@ export class PacienteService {
   ) { }
 
   getPacientes(){
-    return this.http.get<Paciente[]>(this.URL_API)
+    return this.http.get<Paciente[]>(this.URI_API)
   }
 
   getpaciente(_id : string){
-    return this.http.get<Paciente>(`${this.URL_API}/${_id}`)
+    return this.http.get<Paciente>(`${this.URI_API}/${_id}`)
   }
 
   createPaciente( paciente: Paciente ){
-    return this.http.post<any>(this.URL_API, paciente)
+    return this.http.post<any>(this.URI_API, paciente)
   }
 
   updatePaciente( paciente: Paciente ){
-    return this.http.put(`${this.URL_API}/${paciente._id}`, paciente)
+    return this.http.put(`${this.URI_API}/${paciente._id}`, paciente)
   }
 
   deletePaciente(_id: string){
-    return this.http.delete(`${this.URL_API}/${_id}`)
+    return this.http.delete(`${this.URI_API}/${_id}`)
   }
 
   acortarNombre() {

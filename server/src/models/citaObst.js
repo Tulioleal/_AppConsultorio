@@ -22,15 +22,15 @@ const citaObstSchema = new Schema({
         required: true
     },
     ultMenst: {
-        type: String,
+        type: Date,
         required: true
     },
     penMenst: {
-        type: String,
+        type: Date,
         required: true
     },
     fechaEmb: {
-        type: String,
+        type: Date,
         required: true
     },
     pesoAEmb: {

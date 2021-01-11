@@ -16,23 +16,41 @@
       <mat-card-content>
         An app designed for easy monitoring
           <br>
-        of gynecological and obstetric patients
+        of Obstetrics and Gynecology patients
       </mat-card-content>
       <mat-card-actions>
-        <button
-          mat-flat-button
-          color='accent'
-          (click)= "changeState('signin')"
-        >
-          SignIn
-        </button>
-        <button
-          mat-flat-button
-          color='accent'
-          (click)= "changeState('signup')"
-        >
-          SingUp
-        </button>
+        <div *ngIf="authService.loggedIn()">
+          <button
+            mat-flat-button
+            color='accent'
+            routerLink="/pacientes"
+          >
+            Patients
+          </button>
+          <button
+            mat-flat-button
+            color='accent'
+            routerLink="/pacientes/addPaciente"
+          >
+            App Patient
+          </button>
+        </div>
+        <div *ngIf="!authService.loggedIn()">
+          <button
+            mat-flat-button
+            color='accent'
+            (click)= "changeState('signin')"
+            >
+            SignIn
+          </button>
+          <button
+            mat-flat-button
+            color='accent'
+            (click)= "changeState('signup')"
+            >
+            SingUp
+          </button>
+        </div>
       </mat-card-actions>
 
     </mat-card>
@@ -76,7 +94,8 @@
               type="submit"
               class="add"
               [disabled]= "!signInForm.valid"
-            >Sign-In
+            >
+              Sign-In
             </button>
             <button
               mat-flat-button

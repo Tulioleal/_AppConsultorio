@@ -13,7 +13,7 @@
       color="primary"
       *ngIf="authService.loggedIn()"
     >
-      Pacientes
+      Patients
     </button>
 
     <mat-menu #pacientes="matMenu" xPosition="before">
@@ -22,7 +22,7 @@
         routerLink="pacientes"
         routerLinkActive="active"
       >
-        Pacientes
+        Patients
         <mat-icon>assignment_ind</mat-icon>
       </a>
       <a
@@ -31,7 +31,7 @@
         routerLinkActive="active"
         (click)="clearAll()"
       >
-        Nueva paciente
+        Add Patient
         <mat-icon>add_circle</mat-icon>
       </a>
     </mat-menu>
@@ -42,7 +42,7 @@
       class="add"
       *ngIf="!authService.loggedIn()"
     >
-      Ingresar
+      Login
     </button>
 
     <button
@@ -66,7 +66,7 @@
         mat-menu-item routerLink="auth/signup"
         routerLinkActive="active"
       >
-        Registro
+        SignUp
         <mat-icon>account_circle</mat-icon>
       </a>
     </mat-menu>

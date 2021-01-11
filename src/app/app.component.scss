@@ -23,10 +23,30 @@ body{
 
     mat-sidenav{
       background-color: $RosaP;
-      width: 45%;
-      min-width: 250px;
+      width: 260px;
       padding: 16px;
 
+      h1{
+        text-align: center;
+        color: $Cafe;
+        margin-top: .5em;
+        margin-bottom: 2em;
+      }
+
+      app-autocomplete, p{
+        width: 100%;
+      }
+
+      .div{
+
+        p{
+          @include colorsBtn();
+          button{
+            width: 100%;
+            margin-top: 1.5em;
+          }
+        }
+      }
     }
 
     mat-sidenav-content{

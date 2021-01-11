@@ -22,7 +22,12 @@
     width: 24em;
 
     @include flex-between();
-    align-content: center;
+    justify-content: flex-end;
+
+    app-autocomplete, button{
+
+      margin-left: 1.5em;
+    }
 
     app-autocomplete{
       align-self: center;

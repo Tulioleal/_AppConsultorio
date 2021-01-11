@@ -57,3 +57,7 @@ $Blanco: #ffffff;
     background-color: $Rojo;
   }
 }
+
+@mixin animacion{
+  transition: .6s all ease-out;
+}

@@ -97,6 +97,10 @@ const citaObstSchema = new Schema({
         type: String,
         required: true
     },
+    plan: {
+      type: String,
+      required: true
+    }
 }, {
     timestamps: true,
     versionKey: false

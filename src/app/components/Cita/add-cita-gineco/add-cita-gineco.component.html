@@ -91,7 +91,7 @@
     <div class="row">
 
       <mat-form-field appearance="outline" class="textarea-2">
-        <mat-label>Genitales</mat-label>
+        <mat-label>Genitales externos</mat-label>
         <textarea
           matInput
           class="form-control"
@@ -103,7 +103,7 @@
       </mat-form-field>
 
       <mat-form-field appearance="outline" class="textarea-2">
-        <mat-label>Genitales exterior</mat-label>
+        <mat-label>Vagina</mat-label>
         <textarea
           matInput
           class="form-control"
@@ -144,9 +144,9 @@
 
     </div>
 
-    <div class="row">
+    <div class="row wrap">
 
-      <mat-form-field appearance="outline" class="textarea-3">
+      <mat-form-field appearance="outline" class="textarea-2">
         <mat-label>Útero y Anexos</mat-label>
         <textarea
           matInput
@@ -158,7 +158,19 @@
         ></textarea>
       </mat-form-field>
 
-      <mat-form-field appearance="outline" class="textarea-3">
+      <mat-form-field appearance="outline" class="textarea-2">
+        <mat-label>Colposcopia</mat-label>
+        <textarea
+          matInput
+          class="form-control"
+          name="ginecoColpos"
+          rows="4"
+          [(ngModel)]="citaGinecoService.selectedCitaGineco.ginecoColpos"
+          required
+        ></textarea>
+      </mat-form-field>
+
+      <mat-form-field appearance="outline" class="textarea-2">
         <mat-label>Impresión clínica</mat-label>
         <textarea
           matInput
@@ -170,14 +182,14 @@
         ></textarea>
       </mat-form-field>
 
-      <mat-form-field appearance="outline" class="textarea-3">
-        <mat-label>Colposcopia</mat-label>
+      <mat-form-field appearance="outline" class="textarea-2">
+        <mat-label>Plan terapeutico</mat-label>
         <textarea
           matInput
           class="form-control"
-          name="ginecoColpos"
+          name="plan"
           rows="4"
-          [(ngModel)]="citaGinecoService.selectedCitaGineco.ginecoColpos"
+          [(ngModel)]="citaGinecoService.selectedCitaGineco.plan"
           required
         ></textarea>
       </mat-form-field>

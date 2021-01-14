@@ -34,7 +34,8 @@ export class CitaObstService {
     exObsAltUt: "",
     exObsCircunAbdom: "",
     exObsFCF: "",
-    exGineco: ""
+    exGineco: "",
+    plan: "",
   }
 
   citasObst : CitaObst[]
@@ -121,6 +122,7 @@ export class CitaObstService {
     this.selectedCitaObst.exObsCircunAbdom = ""
     this.selectedCitaObst.exObsFCF = ""
     this.selectedCitaObst.exGineco = ""
+    this.selectedCitaObst.plan = ""
 
   }
 }

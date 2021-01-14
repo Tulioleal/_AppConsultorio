@@ -25,6 +25,7 @@ export class CitaGinecoService {
     ginecoUtero: "",
     ginecoImpClin: "",
     ginecoColpos: "",
+    plan: ""
   }
 
   citasGineco: CitaGineco[]
@@ -74,6 +75,7 @@ export class CitaGinecoService {
       ginecoUtero: "",
       ginecoImpClin: "",
       ginecoColpos: "",
+      plan: ""
     }
   }
 

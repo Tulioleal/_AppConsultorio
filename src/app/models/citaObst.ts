@@ -23,6 +23,7 @@ export interface CitaObst {
   exObsCircunAbdom: string
   exObsFCF: string
   exGineco: string
+  plan: string
   createdAt?: string
   updatedAt?: string
   _id?: string

@@ -56,6 +56,10 @@ const citaGinecoSchema = new Schema({
     ginecoColpos: {
         type: String,
         required: true
+    },
+    plan: {
+      type: String,
+      required: true
     }
 }, {
     timestamps: true,

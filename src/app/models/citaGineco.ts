@@ -12,6 +12,7 @@ export interface CitaGineco {
   ginecoUtero: string
   ginecoImpClin: string
   ginecoColpos: string
+  plan: string
   createdAt?: string
   updatedAt?: string
   _id?: string

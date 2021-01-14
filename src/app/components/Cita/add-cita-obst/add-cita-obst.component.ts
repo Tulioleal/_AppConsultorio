@@ -29,7 +29,6 @@ export class AddCitaObstComponent implements OnInit {
   altA : number = this.citaObstService.selectedCitaObst.altura
 
   pesoAument: number
-  numEmb : number
   numeroCita : number
   meses: number
   semanas: number
@@ -111,6 +110,7 @@ export class AddCitaObstComponent implements OnInit {
     let dia: number = 86400000;
 
     this.comparador(dif, dia);
+    this.fechaProbable()
   }
 
   private comparador(dif: number, dia: number) {

@@ -2,6 +2,7 @@ import { Injectable } from '@angular/core';
 import { HttpClient } from "@angular/common/http";
 import { Signin } from '../models/sign-in'
 import { Signup } from '../models/sign-up'
+import { BehaviorSubject } from 'rxjs';
 
 // import { CookieService } from 'ngx-cookie-service'
 
@@ -26,6 +27,13 @@ export class AuthService {
 
   userSignIn: Signin
   userSignUp: Signup
+
+  private MessageSource = new BehaviorSubject<string>('Unauthorized')
+  currentMessage = this.MessageSource.asObservable()
+
+  private errorCode = new BehaviorSubject<number>(404)
+  currentErrorCode = this.errorCode.asObservable()
+
 
   constructor( private http: HttpClient ) { }
 
@@ -59,5 +67,10 @@ export class AuthService {
       email: "",
       password: ""
     }
+  }
+
+  changeMessage(message:string, eCode:number){
+    this.MessageSource.next(message)
+    this.errorCode.next(eCode)
   }
 }

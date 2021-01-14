@@ -172,10 +172,11 @@
             <button
               mat-flat-button
               type="button"
-              (click)='signUpUser(signUpForm)'
+              (click)='noSignUp()'
               class="add"
               [disabled]= "!signUpForm.valid"
             >Sign-Up
+              <!-- (click)='signUpUser(signUpForm)' -->
             </button>
             <button
               mat-flat-button

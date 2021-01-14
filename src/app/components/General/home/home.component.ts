@@ -62,6 +62,11 @@ export class HomeComponent implements OnInit {
     }
   }
 
+  noSignUp(){
+    this.authService.changeMessage("For Security reasons we can't create new Users", 403)
+    this.router.navigate(['/error'])
+  }
+
   private compararPassword(){
 
     this.password1 = this.authService.selectedUserSignUp.password

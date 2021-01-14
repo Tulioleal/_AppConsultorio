@@ -24,6 +24,11 @@ export class SignUpComponent implements OnInit {
   ngOnInit(): void {
   }
 
+  noSignUp(){
+    this.authService.changeMessage("For Security reasons we can't create new Users", 403)
+    this.router.navigate(['/error'])
+  }
+
   signUpUser( form: NgForm ){
 
     if ( this.compararPassword() ) {

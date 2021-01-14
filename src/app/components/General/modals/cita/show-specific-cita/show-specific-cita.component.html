@@ -15,8 +15,20 @@
             edit
           </mat-icon>
           <mat-icon
-            (click)='openDelete(ginecoService.selectedCitaGineco._id, "Cita Gineco")'
-            class="delete"
+            (click)='openDelete(ginecoService.selectedCitaGineco._id, "Cita Gineco", "35%")'
+            class="delete desk"
+          >
+            delete
+          </mat-icon>
+          <mat-icon
+            (click)='openDelete(ginecoService.selectedCitaGineco._id, "Cita Gineco", "65%")'
+            class="delete tab"
+          >
+            delete
+          </mat-icon>
+          <mat-icon
+            (click)='openDelete(ginecoService.selectedCitaGineco._id, "Cita Gineco", "85%")'
+            class="delete mob"
           >
             delete
           </mat-icon>
@@ -60,13 +72,13 @@
             <div>{{ ginecoService.selectedCitaGineco.ginecoMamas }}</div>
           </div>
           <div class="genitales">
-            <h3><strong>Vagina</strong></h3>
+            <h3><strong>Genitales externos</strong></h3>
             <div>{{ ginecoService.selectedCitaGineco.ginecoGen }}</div>
           </div>
         </div>
         <div class="second">
           <div class="genExt">
-            <h3><strong>Genitales Exterior</strong></h3>
+            <h3><strong>Vagina</strong></h3>
             <div>{{ ginecoService.selectedCitaGineco.ginecoGenExt }}</div>
           </div>
           <div class="cervix">
@@ -83,9 +95,15 @@
             <h3><strong>Impresión clínica</strong></h3>
             <div>{{ ginecoService.selectedCitaGineco.ginecoImpClin }}</div>
           </div>
+        </div>
+        <div class="fourth">
           <div class="colpos">
             <h3><strong>Colposcopia</strong></h3>
             <div>{{ ginecoService.selectedCitaGineco.ginecoColpos }}</div>
+          </div>
+          <div class="plan">
+            <h3><strong>Plan</strong></h3>
+            <div>{{ ginecoService.selectedCitaGineco.plan }}</div>
           </div>
         </div>
       </div>
@@ -110,15 +128,27 @@
             edit
           </mat-icon>
           <mat-icon
-            (click)='openDelete(obstService.selectedCitaObst._id, "Cita Obst")'
-            class="delete"
+            (click)='openDelete(obstService.selectedCitaObst._id, "Cita Obst", "35%")'
+            class="delete desk"
+          >
+            delete
+          </mat-icon>
+          <mat-icon
+            (click)='openDelete(obstService.selectedCitaObst._id, "Cita Obst", "65%")'
+            class="delete tab"
+          >
+            delete
+          </mat-icon>
+          <mat-icon
+            (click)='openDelete(obstService.selectedCitaObst._id, "Cita Obst", "85%")'
+            class="delete mob"
           >
             delete
           </mat-icon>
         </div>
 
       </h1>
-      <div class="div">
+      <div class="div close">
         <div class="fecha">
           Fecha: {{ obstService.selectedCitaObst.createdAt | date }}
         </div>
@@ -239,15 +269,21 @@
             </div>
           </div>
 
-          <div id="gineco">
-            <h3>Examen Ginecológico</h3>
-            {{ obstService.selectedCitaObst.exGineco }}
+          <div id="ginecoBox">
+            <div id="gineco">
+              <h3>Examen Ginecológico</h3>
+              {{ obstService.selectedCitaObst.exGineco }}
+            </div>
+            <div id="plan">
+              <h3>Plan</h3>
+              {{ obstService.selectedCitaObst.plan }}
+            </div>
           </div>
 
         </div>
 
         <div id="obste">
-          <h4>Examen Obstétrico</h4>
+          <h3>Examen Obstétrico</h3>
           <div class="obste">
             <h4>Abdomen</h4>
             {{ obstService.selectedCitaObst.exObsAbdom }}

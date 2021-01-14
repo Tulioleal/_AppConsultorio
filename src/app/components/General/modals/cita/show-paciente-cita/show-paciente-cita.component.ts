@@ -75,11 +75,11 @@ export class ShowPacienteCitaComponent implements OnInit {
     dialogConfig.data = { id: id, type: type };
 
     if (type === 'gineco') {
-      dialogConfig.width = '60%';
-      dialogConfig.height = '80%';
+      dialogConfig.width = '90%';
+      dialogConfig.height = '90%';
     } else {
       dialogConfig.width = '100%';
-      dialogConfig.height = '90%';
+      dialogConfig.height = '95%';
     }
 
     this.dialog.open(ShowSpecificCitaComponent, dialogConfig);

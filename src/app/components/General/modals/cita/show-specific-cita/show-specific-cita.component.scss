@@ -29,6 +29,10 @@ h3 {
         cursor: pointer;
 
         @include colors();
+
+        .tab, .mob{
+          display: none
+        }
       }
     }
 
@@ -55,24 +59,27 @@ h3 {
 }
 
 .gineco {
-  height: 100%;
+  height: 80vh;
 
   .content {
-    height: 56vh;
+    height: 90%;
     @include flex-between();
 
     .left {
-      width: 30%;
+      width: 33%;
       height: 100%;
+      margin: 1em 0em;
 
       @include flex-column-between();
       @include card();
       background-color: $RosaP;
+      padding: 0em;
 
       .historia,
       .estado,
       .comentarios {
         height: 30%;
+        padding: 1em;
 
         div {
           margin-bottom: .5em;
@@ -81,41 +88,33 @@ h3 {
     }
 
     .right {
-      width: 60%;
+      width: 63%;
       height: 100%;
-      padding: 1em 0em;
+      margin: 1em 0em;
       @include flex-column-between();
 
       .first,
       .second,
-      .third {
-        height: 30%;
+      .third,
+      .fourth {
+        height: 23%;
 
         @include flex-between();
+        @include card();
+        background-color: $RosaP;
+        padding: 0em;
 
         .mamas,
         .genitales,
         .genExt,
-        .cervix {
-          width: 38%;
-          padding: .5em;
-          @include card();
-          background-color: $RosaP;
-
-        }
-      }
-
-      .third {
-
-        padding: 1em;
-        @include card();
-        background-color: $RosaP;
-
+        .cervix,
         .utero,
         .impresion,
-        .colpos {
-          overflow: auto;
-          width: 30%;
+        .colpos,
+        .plan {
+          width: 45%;
+          padding: .75em;
+
         }
       }
     }
@@ -138,7 +137,7 @@ h3 {
     .top,
     #fechas,
     #fisico,
-    #gineco,
+    #ginecoBox,
     #obste {
       @include card();
       background-color: $RosaP;
@@ -253,8 +252,9 @@ h3 {
         height: 100%;
         @include flex-column-between();
 
-        #fisico {
-          height: 50%;
+        #fisico, #ginecoBox{
+
+          height: 35%;
           @include flex-column-between();
 
           .div3 {
@@ -263,8 +263,8 @@ h3 {
           }
         }
 
-        #gineco {
-          height: 35%;
+        #ginecoBox {
+          height: 50%;
         }
       }
 
@@ -278,6 +278,21 @@ h3 {
 
 @media (max-width: 1150px){
 
+  .gineco,.obst{
+    .header{
+      h1{
+        .icons{
+
+          .desk{
+            display: none;
+          }
+          .tab{
+            display: inline-block;
+          }
+        }
+      }
+    }
+  }
   .obst{
     padding: 0em;
     .content{
@@ -320,6 +335,7 @@ h3 {
         .left{
           height: auto;
           align-self: auto;
+          margin-left: 0em;
 
           #fisico, #gineco{
             height: 45%;
@@ -349,7 +365,7 @@ h3 {
     }
   }
   .gineco{
-
+    height: 100%;
     .content{
       flex-direction: column;
 
@@ -370,11 +386,67 @@ h3 {
           }
         }
       }
+
+      .right{
+
+        .first,.second,.third,.fourth{
+          height: fit-content;
+          margin-bottom: 1em;
+        }
+      }
+    }
+  }
+
+  .obst{
+    .content{
+      .right{
+        flex-direction: column;
+
+        #obste{
+          margin-top: 2em;
+          padding: 0em;
+
+          h3{
+            margin: .5em;
+          }
+          .obste{
+            margin: .5em 2em;
+          }
+        }
+
+        .left {
+          margin: 0em;
+          width: 100%;
+
+          #fisico{
+            margin-bottom: 1em;
+          }
+        }
+
+        .left, #obste{
+          width: 100%;
+        }
+      }
     }
   }
 }
 
 @media(max-width: 600px){
+  .gineco,.obst{
+    .header{
+      h1{
+
+        .icons{
+          .tab{
+            display: none;
+          }
+          .mob{
+            display: inline-block;
+          }
+        }
+      }
+    }
+  }
   .obst{
     .content{
       .left{
@@ -397,15 +469,15 @@ h3 {
       }
       .right{
         @include flex-column-between();
-        .left {
-          margin: 0em;
-          width: 100%;
-        }
+
         #obste{
           padding: 0em;
-          margin: 1em 0em 0em 0em;
+          margin-top: 1em;
           width: 100%;
 
+          h3{
+            text-align: center;
+          }
           h4{
             text-align: center;
             margin-top: 1em;
@@ -425,36 +497,34 @@ h3 {
     .content{
       .right{
 
-        .first,.second, .third{
+        .first,.second, .third, .fourth {
+          flex-direction: column;
+          width: 100%;
           height: auto;
 
           .mamas,
           .genitales,
           .genExt,
-          .cervix {
+          .cervix,
+          .utero,
+          .impresion,
+          .colpos,
+          .plan {
             margin-bottom: 1em;
             width: auto;
           }
         }
+      }
+    }
+  }
 
-        .third{
-          padding: 0em;
+  .gineco,.obst{
+    .header{
+      flex-direction: column-reverse;
 
-          .utero,
-          .impresion,
-          .colpos {
-            width: 100%;
-            margin-bottom: 1em;
-            margin: 0em 1em 1em 1em;
-            &:first-child{
-              margin: 1em;
-            }
-          }
-        }
-
-        .first,.second,.third{
-          flex-direction: column;
-          width: 100%;
+      .close{
+        .fecha{
+          margin: 0em
         }
       }
     }

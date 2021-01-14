@@ -69,10 +69,10 @@ export class ShowSpecificCitaComponent implements DoCheck {
     this.dias = this.obstService.calc(dif, dia);
   }
 
-  openDelete(id: string, type:string) {
+  openDelete(id: string, type:string, width:string) {
     const dialogConfig = new MatDialogConfig();
     dialogConfig.autoFocus = false;
-    dialogConfig.width = '35%';
+    dialogConfig.width = width;
     dialogConfig.height = '30%';
     dialogConfig.data = {
       id: id,

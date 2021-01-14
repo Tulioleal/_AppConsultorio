@@ -1,5 +1,4 @@
 const jwt = require('jsonwebtoken')
-const { consoleTestResultHandler } = require('tslint/lib/test')
 
 const Role = require('../models/Role')
 const User = require('../models/User')

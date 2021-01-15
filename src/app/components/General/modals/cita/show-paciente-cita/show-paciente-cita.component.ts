@@ -79,7 +79,7 @@ export class ShowPacienteCitaComponent implements OnInit {
       dialogConfig.height = '90%';
     } else {
       dialogConfig.width = '100%';
-      dialogConfig.height = '95%';
+      dialogConfig.height = '90%';
     }
 
     this.dialog.open(ShowSpecificCitaComponent, dialogConfig);

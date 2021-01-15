@@ -57,6 +57,13 @@
       background-color: $Blanco;
     }
 
+    .antecedentes, .gineco{
+      background-image: url('../../../../assets/laura-nombre.png');
+      background-position: right 10px bottom 5px;
+      background-repeat: no-repeat;
+      background-size: 20%;
+    }
+
     .antecedentes {
       width: 90%;
       padding: 1em;
@@ -76,7 +83,7 @@
     }
 
     .gineco{
-      padding: 1em auto;
+      padding: 1em;
 
       grid-column: 6 / 11;
       grid-row: 1 / 8;
@@ -121,7 +128,7 @@
             }
 
             &:hover{
-              background-color: $RosaF;
+              background-color: $RosaP;
             }
 
             &:last-child{
@@ -241,6 +248,12 @@
       display: flex;
       flex-direction: column;
 
+      .antecedentes, .gineco{
+        background-image: url('../../../../assets/logoluaur.png');
+        background-size: 7em;
+        background-position: bottom 5px right -15px;
+      }
+
       .antecedentes{
         width: auto;
         margin-bottom: 2em;
@@ -262,6 +275,12 @@
 
       .gineco{
         margin-bottom: 2em;
+
+        h2{
+          width: 100%;
+          text-align: center;
+        }
+
         .ginecoContent{
           height: auto;
           @include flex-column-between();

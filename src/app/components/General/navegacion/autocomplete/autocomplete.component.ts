@@ -1,5 +1,5 @@
 //Angular
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
 import { Subscription, Observable } from 'rxjs';
 import { FormControl } from '@angular/forms';
 import { map, startWith } from 'rxjs/operators';
@@ -13,6 +13,8 @@ import { PacienteService } from '../../../../services/paciente.service';
   styleUrls: ['./autocomplete.component.scss'],
 })
 export class AutocompleteComponent implements OnInit {
+
+  @Input() color: string
 
   nombres: string[] = [];
   apellidos: string[] = [];

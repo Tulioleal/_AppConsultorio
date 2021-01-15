@@ -3,8 +3,7 @@
 .container{
   height: auto;
 
-  display: flex;
-  justify-content: space-between;
+  @include flex-between();
 
   .img{
 
@@ -23,9 +22,8 @@
     display: flex;
     justify-content: flex-start;
 
-
     mat-card{
-      // @include animacion();
+
       color: $Cafe;
 
       min-width: 20em;
@@ -33,6 +31,18 @@
       align-self: center;
       display: flex;
       flex-direction: column;
+
+      &::before{
+        content: "";
+        height: 100px;
+        width: 100%;
+        margin-bottom: 1em;
+        background-image: url('.././../../../assets/logoluaur.png');
+        background-size: contain;
+        background-repeat: no-repeat;
+        background-position: center;
+
+      }
 
       mat-card-header{
         align-self: center;
@@ -67,6 +77,8 @@
       }
     }
   }
+
+
 
   .signin, .signup {
     @include colorsBtn();

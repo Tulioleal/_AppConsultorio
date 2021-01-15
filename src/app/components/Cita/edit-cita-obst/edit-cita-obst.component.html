@@ -316,7 +316,7 @@
 
     <div class="row wrap">
 
-      <mat-form-field appearance="outline" class="textarea-5">
+      <mat-form-field appearance="outline" class="textarea-6">
         <mat-label>Abdomen</mat-label>
         <textarea
           matInput
@@ -329,7 +329,7 @@
         ></textarea>
       </mat-form-field>
 
-      <mat-form-field appearance="outline" class="textarea-5">
+      <mat-form-field appearance="outline" class="textarea-6">
         <mat-label>Movimientos Fetales</mat-label>
         <textarea
           matInput
@@ -342,7 +342,7 @@
         ></textarea>
       </mat-form-field>
 
-      <mat-form-field appearance="outline" class="textarea-5">
+      <mat-form-field appearance="outline" class="textarea-6">
         <mat-label>Altura Uterina</mat-label>
         <textarea
           matInput
@@ -355,7 +355,7 @@
         ></textarea>
       </mat-form-field>
 
-      <mat-form-field appearance="outline" class="textarea-5">
+      <mat-form-field appearance="outline" class="textarea-6">
         <mat-label>Circunferencia Abdominal</mat-label>
         <textarea
           matInput
@@ -368,7 +368,7 @@
         ></textarea>
       </mat-form-field>
 
-      <mat-form-field appearance="outline" class="textarea-5">
+      <mat-form-field appearance="outline" class="textarea-6">
         <mat-label>FCF</mat-label>
         <textarea
           matInput
@@ -380,7 +380,21 @@
           required
         ></textarea>
       </mat-form-field>
+
+      <mat-form-field appearance="outline" class="textarea-6">
+        <mat-label>Plan terapeutico</mat-label>
+        <textarea
+          matInput
+          type='text'
+          class="form-control"
+          name="plan"
+          rows="3"
+          [(ngModel)]="citaObstService.selectedCitaObst.plan"
+          required
+        ></textarea>
+      </mat-form-field>
     </div>
+
   </div>
 
   <div class="row examenGineco">

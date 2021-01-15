@@ -26,13 +26,10 @@ input[type="date"]::-webkit-calendar-picker-indicator {
   -webkit-appearance: none;
 }
 
-.backG{
-  background-color: $BckG;
-}
-
 .mat-form-field-empty.mat-form-field-label {
   color: $Cafe;
 }
+
 
 .mat-form-field-appearance-outline .mat-form-field-outline{
   background-color: white;

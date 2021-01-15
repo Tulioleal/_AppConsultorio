@@ -1,7 +1,8 @@
 <div>
 
   <mat-form-field appearance='fill'>
-    <mat-label class="placeholder">Search patients...</mat-label>
+    <mat-label *ngIf="!color" class="placeholder">Search patients...</mat-label>
+    <mat-label *ngIf="color === 'cafe' " class="placeholderC">Search patients...</mat-label>
     <input
       type="text"
       [formControl]='myControl'

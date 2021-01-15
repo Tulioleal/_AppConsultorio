@@ -35,6 +35,14 @@ body{
 
       app-autocomplete, p{
         width: 100%;
+
+        div{
+          .mat-form-field{
+            .placeholder {
+              color: $RosaF;
+            }
+          }
+        }
       }
 
       .div{
